@@ -1,0 +1,28 @@
+{
+  "name": "xmake",
+  "version": "0.1.0",
+  "description": "The xPack builder",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xpack/xmake-js.git"
+  },
+  "keywords": [
+    "xpack",
+    "builder",
+    "make"
+  ],
+  "author": {
+    "name": "Liviu Ionescu",
+    "email": "ilg@livius.net",
+    "url": "http://liviusdotnet.wordpress.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xpack/xmake-js/issues"
+  },
+  "homepage": "https://github.com/xpack/xmake-js"
+}
