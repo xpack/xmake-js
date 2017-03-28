@@ -1,10 +1,18 @@
 {
   "name": "xmake",
   "version": "0.1.0",
-  "description": "The xPack builder",
-  "main": "index.js",
+  "description": "The xPack builder & tester",
+  "main": "./lib/module.js",
+  "directories": {
+    "bin": "./bin",
+    "lib": "./lib"
+  },
+  "bin": {
+    "xmake": "./bin/xmake.js",
+    "xtest": "./bin/xtest.js"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "standard"
   },
   "repository": {
     "type": "git",
@@ -13,6 +21,7 @@
   "keywords": [
     "xpack",
     "builder",
+    "tester",
     "make"
   ],
   "author": {
@@ -24,5 +33,16 @@
   "bugs": {
     "url": "https://github.com/xpack/xmake-js/issues"
   },
-  "homepage": "https://github.com/xpack/xmake-js"
+  "homepage": "https://github.com/xpack/xmake-js",
+  "dependencies": {
+    "wscript-avoider": "~3.0.0"
+  },
+  "devDependencies": {
+    "standard": "*"
+  },
+  "peerDependencies": {},
+  "bundleDependencies": [],
+  "engines": {
+    "node": ">7.7.0"
+  }
 }
