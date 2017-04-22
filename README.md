@@ -130,7 +130,9 @@ $ npm run test-coverage
 
 ### Continuous Integration (CI)
 
-The continuous integration tests are performed via [Travis CI](https://travis-ci.org/xpack/xmake-js) and [AppVeyor](https://ci.appveyor.com/project/ilg-ul/xmake-js).
+The continuous integration tests are performed via [Travis CI](https://travis-ci.org/xpack/xmake-js) (for POSIX) and [AppVeyor](https://ci.appveyor.com/project/ilg-ul/xmake-js) (for Windows).
+
+To speed up things, the `node_modules` folder is cached between builds.
 
 ### Standard compliance
 
