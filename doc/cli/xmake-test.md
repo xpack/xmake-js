@@ -3,7 +3,7 @@
 ## Synopsis
 
 ```
-xmake test [<name> ...] [--target <name>]* [--toolchain <name>]* [--profile <name>]* [-- <args>]
+xmake test [options...] [--target <name>]* [--toolchain <name>]* [--profile <name>]* [--depth <n>] [name...] [-- <args>]
 ```
 
 Aliases:
@@ -12,12 +12,16 @@ Aliases:
 
 ## Description
 
-### When started in xPack root
+This command identifies the tests by enumerating all listed folders, down to depth, that have an `xmake-test.json` file.
 
-The command enumerates all subfolders in {{ xPackRoot }}/{{ package.directories.test | default 'test' }} that have an `xtest.json` and runs either all tests or only the named tests.
+Each profile creates a subfolder in the CWD, named `build/test-name-target-toolchain-profile`, where `name` is the test name.
 
-Each profile creates a subfolder named `build/test-name-target-toolchain-profile`.
+Each profile is build and the result is executed.
 
 If multiple names are defined for target/toolchain/profile, a matrix of tests is constructed.
 
-All names must be letters & digits only.
+All names must be letters, dash, or digits. When used to create paths, case is not significative and all letters are converted to lowercase.
+
+When started in an xPack root folder (a valid `package.json` file is present), if no explicit folders are given, the default folder is `{{ package.directories.test | default 'test' }}`.
+
+

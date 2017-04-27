@@ -32,72 +32,56 @@
 // ----------------------------------------------------------------------------
 
 /**
- * Test common options, like --version, --help, etc.
+ * Test `xmake convert`.
  */
 
 // ----------------------------------------------------------------------------
 
+// const path = require('path')
+// const os = require('os')
+const fs = require('fs')
+
 // The `[node-tap](http://www.node-tap.org)` framework.
 const test = require('tap').test
-const path = require('path')
 
 const Common = require('../common.js').Common
+const Promisifier = require('@ilg/es6-promisifier').Promisifier
 
-const CliApplication = require('@ilg/cli-start-options').CliApplication
+// ES6: `import { CliExitCodes } from 'cli-start-options'
 const CliExitCodes = require('@ilg/cli-start-options').CliExitCodes
 
 // ----------------------------------------------------------------------------
 
-let pack = null
-const rootPath = path.dirname(path.dirname(__dirname))
+// Promisify functions from the Node.js callbacks library.
+// New functions have similar names, but suffixed with `Promise`.
+Promisifier.promisifyInPlace(fs, 'chmod')
 
-test('setup',
-  async (t) => {
-    // Read in the package.json, to later compare version.
-    pack = await CliApplication.readPackageJson(rootPath)
-    t.ok(pack, 'package ok')
-    t.ok(pack.version.length > 0, 'version length > 0')
-    t.pass(`package ${pack.name}@${pack.version}`)
-    t.end()
-  })
+// ----------------------------------------------------------------------------
 
-test('xmake --version (spawn)',
+/**
+ * Test if help content includes convert options.
+ */
+test('xmake test -h',
   async (t) => {
     try {
       const { code, stdout, stderr } = await Common.xmakeCli([
-        '--version'
-      ])
-      // Check exit code.
-      t.equal(code, CliExitCodes.SUCCESS, 'exit ok')
-      // Check if version matches the package.
-      // Beware, the stdout string has a new line terminator.
-      t.equal(stdout, pack.version + '\n', 'version ok')
-      // There should be no error messages.
-      t.equal(stderr, '', 'stderr empty')
-    } catch (err) {
-      t.fail(err.message)
-    }
-    t.end()
-  })
-
-test('xmake -h (spawn)',
-  async (t) => {
-    try {
-      const { code, stdout, stderr } = await Common.xmakeCli([
+        'test',
         '-h'
       ])
-      t.equal(code, CliExitCodes.SUCCESS, 'exit ok')
-      t.match(stdout, 'Usage: xmake <command>', 'has Usage')
-
-      t.match(stdout, 'The xPack builder command line tool', 'has title')
-      t.match(stdout, 'xmake -h|--help', 'has -h|--help')
-      t.match(stdout, 'xmake <command> -h|--help', 'has <command> -h|--help')
-      t.match(stdout, 'xmake --version', 'has --version')
-      t.match(stdout, 'xmake -i|--interactive', 'has -i|--interactive')
-      t.match(stdout, 'Set log level (silent|warn|info|verbose|debug|trace)',
-        'has log levels')
-      t.match(stdout, '-s|--silent', 'has -s|--silent')
-      t.match(stdout, 'Bug reports:', 'has Bug reports:')
+      // Check exit code.
+      t.equal(code, CliExitCodes.SUCCESS, 'exit code')
+      const outLines = stdout.split(/\r?\n/)
+      t.ok(outLines.length > 9, 'has enough output')
+      if (outLines.length > 9) {
+        // console.log(outLines)
+        t.equal(outLines[1], 'Build and execute project test(s)',
+          'has title')
+        t.equal(outLines[2], 'Usage: xmake test [<path>...] [options...] ' +
+          '[--target <name>]*', 'has Usage')
+        t.match(outLines[5], 'where:', 'has where')
+        t.match(outLines[6], '  <name>...', 'has <name>')
+        t.match(outLines[7], '  <args>...', 'has <args>')
+      }
       // There should be no error messages.
       t.equal(stderr, '', 'stderr empty')
     } catch (err) {
@@ -106,14 +90,27 @@ test('xmake -h (spawn)',
     t.end()
   })
 
-test('xmake --help (spawn)',
+/**
+ * Test if partial command recognised and expanded.
+ */
+test('xmake te -h',
   async (t) => {
     try {
       const { code, stdout, stderr } = await Common.xmakeCli([
-        '--help'
+        'te',
+        '-h'
       ])
-      t.equal(code, CliExitCodes.SUCCESS, 'exit ok')
-      t.match(stdout, 'Usage: xmake <command>', 'has Usage')
+      // Check exit code.
+      t.equal(code, 0, 'exit code')
+      const outLines = stdout.split(/\r?\n/)
+      t.ok(outLines.length > 9, 'has enough output')
+      if (outLines.length > 9) {
+        // console.log(outLines)
+        t.equal(outLines[1], 'Build and execute project test(s)',
+          'has title')
+        t.equal(outLines[2], 'Usage: xmake test [<path>...] [options...] ' +
+          '[--target <name>]*', 'has Usage')
+      }
       // There should be no error messages.
       t.equal(stderr, '', 'stderr empty')
     } catch (err) {
@@ -122,18 +119,50 @@ test('xmake --help (spawn)',
     t.end()
   })
 
-test('xmake -d (spawn)',
+test('xmake t -h',
   async (t) => {
     try {
       const { code, stdout, stderr } = await Common.xmakeCli([
-        '--version',
-        '-d'
+        't',
+        '-h'
       ])
-      t.equal(code, CliExitCodes.SUCCESS, 'exit ok')
-      t.ok(stdout.length > 0, 'has stdout')
-      // Matching the whole string also checks that
-      // the colour changes are not used.
-      t.match(stdout, 'debug: start arg0:', 'has debug')
+      // Check exit code.
+      t.equal(code, 0, 'exit code')
+      const outLines = stdout.split(/\r?\n/)
+      t.ok(outLines.length > 9, 'has enough output')
+      if (outLines.length > 9) {
+        // console.log(outLines)
+        t.equal(outLines[1], 'Build and execute project test(s)',
+          'has title')
+        t.equal(outLines[2], 'Usage: xmake test [<path>...] [options...] ' +
+          '[--target <name>]*', 'has Usage')
+      }
+      // There should be no error messages.
+      t.equal(stderr, '', 'stderr empty')
+    } catch (err) {
+      t.fail(err.message)
+    }
+    t.end()
+  })
+
+test('xmake ts -h',
+  async (t) => {
+    try {
+      const { code, stdout, stderr } = await Common.xmakeCli([
+        'ts',
+        '-h'
+      ])
+      // Check exit code.
+      t.equal(code, 0, 'exit code')
+      const outLines = stdout.split(/\r?\n/)
+      t.ok(outLines.length > 9, 'has enough output')
+      if (outLines.length > 9) {
+        // console.log(outLines)
+        t.equal(outLines[1], 'Build and execute project test(s)',
+          'has title')
+        t.equal(outLines[2], 'Usage: xmake test [<path>...] [options...] ' +
+          '[--target <name>]*', 'has Usage')
+      }
       // There should be no error messages.
       t.equal(stderr, '', 'stderr empty')
     } catch (err) {

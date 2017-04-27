@@ -41,11 +41,6 @@
 const test = require('tap').test
 const path = require('path')
 
-// The Mocha-like DSL http://www.node-tap.org/mochalike/
-// require('tap').mochaGlobals()
-// const should = require('should') // eslint-disable-line no-unused-vars
-// /* global describe, context, it */
-
 const Common = require('../common.js').Common
 
 const CliApplication = require('@ilg/cli-start-options').CliApplication
@@ -56,50 +51,53 @@ const CliExitCodes = require('@ilg/cli-start-options').CliExitCodes
 let pack = null
 const rootPath = path.dirname(path.dirname(__dirname))
 
-test('setup', async (t) => {
-  // Read in the package.json, to later compare version.
-  pack = await CliApplication.readPackageJson(rootPath)
-  t.ok(pack, 'package ok')
-  t.ok(pack.version.length > 0, 'version length > 0')
-  t.pass(`package ${pack.name}@${pack.version}`)
-  t.end()
-})
+test('setup',
+  async (t) => {
+    // Read in the package.json, to later compare version.
+    pack = await CliApplication.readPackageJson(rootPath)
+    t.ok(pack, 'package ok')
+    t.ok(pack.version.length > 0, 'version length > 0')
+    t.pass(`package ${pack.name}@${pack.version}`)
+    t.end()
+  })
 
-test('xmake --version (module call)', async (t) => {
-  try {
-    const { code, stdout, stderr } = await Common.xmakeLib([
-      '--version'
-    ])
-    // Check exit code.
-    t.equal(code, CliExitCodes.SUCCESS, 'exit ok')
-    // Check if version matches the package.
-    // Beware, the stdout string has a new line terminator.
-    t.equal(stdout, pack.version + '\n', 'version ok')
-    // There should be no error messages.
-    t.equal(stderr, '', 'stderr empty')
-  } catch (err) {
-    console.log(err.stack)
-    t.fail(err.message)
-  }
-  t.end()
-})
+test('xmake --version (module call)',
+  async (t) => {
+    try {
+      const { code, stdout, stderr } = await Common.xmakeLib([
+        '--version'
+      ])
+      // Check exit code.
+      t.equal(code, CliExitCodes.SUCCESS, 'exit ok')
+      // Check if version matches the package.
+      // Beware, the stdout string has a new line terminator.
+      t.equal(stdout, pack.version + '\n', 'version ok')
+      // There should be no error messages.
+      t.equal(stderr, '', 'stderr empty')
+    } catch (err) {
+      console.log(err.stack)
+      t.fail(err.message)
+    }
+    t.end()
+  })
 
-test('xmake xyz (module call)', async (t) => {
-  try {
-    const { code, stdout, stderr } = await Common.xmakeLib([
-      'xyz'
-    ])
-    // Check exit code.
-    t.equal(code, CliExitCodes.ERROR.SYNTAX, 'exit ok')
-    t.match(stdout, 'Usage: xmake <command>', 'has Usage')
-    // There should be one error message.
-    t.match(stderr, 'Command \'xyz\' not supported.', 'error')
-  } catch (err) {
-    console.log(err.stack)
-    t.fail(err.message)
-  }
-  t.end()
-})
+test('xmake xyz (module call)',
+  async (t) => {
+    try {
+      const { code, stdout, stderr } = await Common.xmakeLib([
+        'xyz'
+      ])
+      // Check exit code.
+      t.equal(code, CliExitCodes.ERROR.SYNTAX, 'exit ok')
+      t.match(stdout, 'Usage: xmake <command>', 'has Usage')
+      // There should be one error message.
+      t.match(stderr, 'Command \'xyz\' not supported.', 'error')
+    } catch (err) {
+      console.log(err.stack)
+      t.fail(err.message)
+    }
+    t.end()
+  })
 
 /*
 describe('setup', () => {
