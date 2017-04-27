@@ -39,6 +39,10 @@ cache:
   directories:
     - node_modules # NPM packages
 
+branches:
+  except:
+    - /^v\d+\.\d+(\.\d+)?([-.]\d+)?$/
+
 # -----------------------------------------------------------------------------
 
 # before_install:
