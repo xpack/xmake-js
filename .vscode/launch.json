@@ -28,6 +28,54 @@
     {
       "type": "node",
       "request": "launch",
+      "name": "xmake test abc -- def",
+      "program": "${workspaceRoot}/bin/xmake.js",
+      "stopOnEntry": true,
+      "args": [
+        "test",
+        "-C",
+        "/Users/ilg/tmp/f1",
+        "testx",
+        "-dd",
+        "--",
+        "def"
+      ],
+      "cwd": "${workspaceRoot}",
+      "preLaunchTask": null,
+      "runtimeExecutable": null,
+      "runtimeArgs": [
+        "--nolazy"
+      ],
+      "env": {
+        "NODE_ENV": "development"
+      },
+      "console": "internalConsole",
+      "sourceMaps": false
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "xmake test in drtm",
+      "program": "${workspaceRoot}/bin/xmake.js",
+      "stopOnEntry": true,
+      "args": [
+        "test"
+      ],
+      "cwd": "/Users/ilg/My Files/MacBookPro Projects/uOS/xpacks/drtm.git",
+      "preLaunchTask": null,
+      "runtimeExecutable": null,
+      "runtimeArgs": [
+        "--nolazy"
+      ],
+      "env": {
+        "NODE_ENV": "development"
+      },
+      "console": "internalConsole",
+      "sourceMaps": false
+    },
+    {
+      "type": "node",
+      "request": "launch",
       "name": "Launch Program",
       "program": "${workspaceRoot}/index.js"
     },
