@@ -17,16 +17,26 @@ OBJS += ./{{ folder }}/{{ file }}.o
 
 # Each subdirectory must supply rules for building sources it contributes.
 {{ folder }}/%.o: ../../{{ folder }}/%.c
+{% if isVerbose %}
 {{ tab }}@echo ' '
-{{ tab }}@echo 'Building file: $<'
+{{ tab }}@echo 'Building file: $(@:%.o=%.c)'
 {{ tab }}@echo 'Invoking: GCC C Compiler'
 {{ tab }}$(CC) -c -fmessage-length=0  {{ cOptions }} {{ includeOptions }} -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -o "$@" "$<"
-{{ tab }}@echo 'Finished building: $<'
+{{ tab }}@echo 'Finished building: $(@:%.o=%.c)'
+{% else %}
+{{ tab }}@echo '[$(CC)]: $(@:%.o=%.c)'
+{{ tab }}@$(CC) -c -fmessage-length=0  {{ cOptions }} {{ includeOptions }} -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -o "$@" "$<"
+{% endif %}
 
 {{ folder }}/%.o: ../../{{ folder }}/%.cpp
+{% if isVerbose %}
 {{ tab }}@echo ' '
-{{ tab }}@echo 'Building file: $<'
+{{ tab }}@echo 'Building file: $(@:%.o=%.cpp)'
 {{ tab }}@echo 'Invoking: GCC C++ Compiler'
 {{ tab }}$(CXX) -c -fmessage-length=0 {{ cppOptions }} {{ includeOptions }} -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -o "$@" "$<"
-{{ tab }}@echo 'Finished building: $<'
+{{ tab }}@echo 'Finished building: $(@:%.o=%.cpp)'
+{% else %}
+{{ tab }}@echo '[$(CXX)]: $(@:%.o=%.cpp)'
+{{ tab }}@$(CXX) -c -fmessage-length=0 {{ cppOptions }} {{ includeOptions }} -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -o "$@" "$<"
+{% endif %}
 

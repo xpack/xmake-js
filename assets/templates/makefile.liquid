@@ -48,11 +48,16 @@ endif
 
 # Tool invocations
 {{ artefactName }}: $(OBJS) $(USER_OBJS)
+{% if isVerbose %}
 {{ tab }}@echo ' '
 {{ tab }}@echo 'Building target: $@'
 {{ tab }}@echo 'Invoking: GCC C++ Linker'
 {{ tab }}$(CXX)  -o "{{ artefactName }}" $(OBJS) $(USER_OBJS) $(LIBS)
 {{ tab }}@echo 'Finished building target: $@'
+{% else %}
+{{ tab }}@echo '[$(CXX)]: $@'
+{{ tab }}@$(CXX)  -o "{{ artefactName }}" $(OBJS) $(USER_OBJS) $(LIBS)
+{% endif %}
 
 # Other Targets
 clean:
