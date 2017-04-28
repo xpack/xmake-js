@@ -1,0 +1,66 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+################################################################################
+
+-include ../../makefile.init
+
+RM := rm -rf
+CC := {{ tools.c }}
+CXX := {{ tools.cpp }}
+
+# All Target
+all: {{ artefactName }}
+
+# All of the sources participating in the build are defined here
+-include sources.mk
+
+{% for folder in sourceFolders %}
+-include {{ folder }}/subdir.mk
+{% endfor %}
+
+-include subdir.mk
+-include objects.mk
+
+ifneq ($(MAKECMDGOALS),clean)
+ifneq ($(strip $(CC_DEPS)),)
+-include $(CC_DEPS)
+endif
+ifneq ($(strip $(C++_DEPS)),)
+-include $(C++_DEPS)
+endif
+ifneq ($(strip $(C_UPPER_DEPS)),)
+-include $(C_UPPER_DEPS)
+endif
+ifneq ($(strip $(CXX_DEPS)),)
+-include $(CXX_DEPS)
+endif
+ifneq ($(strip $(CPP_DEPS)),)
+-include $(CPP_DEPS)
+endif
+ifneq ($(strip $(C_DEPS)),)
+-include $(C_DEPS)
+endif
+endif
+
+-include ../../makefile.defs
+
+# Add inputs and outputs from these tool invocations to the build variables 
+
+# Tool invocations
+{{ artefactName }}: $(OBJS) $(USER_OBJS)
+{{ tab }}@echo ' '
+{{ tab }}@echo 'Building target: $@'
+{{ tab }}@echo 'Invoking: GCC C++ Linker'
+{{ tab }}$(CXX)  -o "{{ artefactName }}" $(OBJS) $(USER_OBJS) $(LIBS)
+{{ tab }}@echo 'Finished building target: $@'
+
+# Other Targets
+clean:
+{{ tab }}-@echo ' '
+{{ tab }}-$(RM) $(CC_DEPS)$(C++_DEPS)$(C_UPPER_DEPS)$(CXX_DEPS)$(CPP_DEPS)$(C_DEPS) 
+{{ tab }}-$(RM) $(EXECUTABLES) $(OBJS) {{ artefactName }}
+
+.PHONY: all clean dependents
+.SECONDARY:
+
+-include ../../makefile.targets

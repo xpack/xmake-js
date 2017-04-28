@@ -1,0 +1,32 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+################################################################################
+
+# Add inputs and outputs to the build variables, contributed by each tool.
+{% for file in cFiles %}
+C_SRCS += ../../{{ folder }}/{{ file }}.c
+C_DEPS += ./{{ folder }}/{{ file }}.d
+OBJS += ./{{ folder }}/{{ file }}.o
+{% endfor %}
+
+{% for file in cppFiles %}
+CPP_SRCS += ../../{{ folder }}/{{ file }}.c
+CPP_DEPS += ./{{ folder }}/{{ file }}.d
+OBJS += ./{{ folder }}/{{ file }}.o
+{% endfor %}
+
+# Each subdirectory must supply rules for building sources it contributes.
+{{ folder }}/%.o: ../../{{ folder }}/%.c
+{{ tab }}@echo ' '
+{{ tab }}@echo 'Building file: $<'
+{{ tab }}@echo 'Invoking: GCC C Compiler'
+{{ tab }}$(CC) -c -fmessage-length=0  {{ cOptions }} {{ includeOptions }} -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -o "$@" "$<"
+{{ tab }}@echo 'Finished building: $<'
+
+{{ folder }}/%.o: ../../{{ folder }}/%.cpp
+{{ tab }}@echo ' '
+{{ tab }}@echo 'Building file: $<'
+{{ tab }}@echo 'Invoking: GCC C++ Compiler'
+{{ tab }}$(CXX) -c -fmessage-length=0 {{ cppOptions }} {{ includeOptions }} -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -o "$@" "$<"
+{{ tab }}@echo 'Finished building: $<'
+
