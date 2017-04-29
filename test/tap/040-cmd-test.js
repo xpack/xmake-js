@@ -74,7 +74,7 @@ test('xmake test -h',
       t.ok(outLines.length > 9, 'has enough output')
       if (outLines.length > 9) {
         // console.log(outLines)
-        t.equal(outLines[1], 'Build and execute project test(s)',
+        t.equal(outLines[1], 'Build and run project test(s)',
           'has title')
         t.equal(outLines[2], 'Usage: xmake test [<path>...] [options...] ' +
           '[--target <name>]*', 'has Usage')
@@ -106,7 +106,7 @@ test('xmake te -h',
       t.ok(outLines.length > 9, 'has enough output')
       if (outLines.length > 9) {
         // console.log(outLines)
-        t.equal(outLines[1], 'Build and execute project test(s)',
+        t.equal(outLines[1], 'Build and run project test(s)',
           'has title')
         t.equal(outLines[2], 'Usage: xmake test [<path>...] [options...] ' +
           '[--target <name>]*', 'has Usage')
@@ -132,7 +132,7 @@ test('xmake t -h',
       t.ok(outLines.length > 9, 'has enough output')
       if (outLines.length > 9) {
         // console.log(outLines)
-        t.equal(outLines[1], 'Build and execute project test(s)',
+        t.equal(outLines[1], 'Build and run project test(s)',
           'has title')
         t.equal(outLines[2], 'Usage: xmake test [<path>...] [options...] ' +
           '[--target <name>]*', 'has Usage')
@@ -158,7 +158,7 @@ test('xmake ts -h',
       t.ok(outLines.length > 9, 'has enough output')
       if (outLines.length > 9) {
         // console.log(outLines)
-        t.equal(outLines[1], 'Build and execute project test(s)',
+        t.equal(outLines[1], 'Build and run project test(s)',
           'has title')
         t.equal(outLines[2], 'Usage: xmake test [<path>...] [options...] ' +
           '[--target <name>]*', 'has Usage')

@@ -59,7 +59,8 @@
       "program": "${workspaceRoot}/bin/xmake.js",
       "stopOnEntry": true,
       "args": [
-        "test"
+        "test",
+        "-dd"
       ],
       "cwd": "/Users/ilg/My Files/MacBookPro Projects/uOS/xpacks/drtm.git",
       "preLaunchTask": null,
