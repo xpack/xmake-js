@@ -4,39 +4,41 @@
 
 # Add inputs and outputs to the build variables, contributed by each tool.
 {% for file in cFiles %}
-C_SRCS += ../../{{ folder }}/{{ file }}.c
+C_SRCS += {{ pathToCwd }}/{{ folder }}/{{ file }}.c
 C_DEPS += {{ folder }}/{{ file }}.d
 OBJS += {{ folder }}/{{ file }}.o
 {% endfor %}
 
 {% for file in cppFiles %}
-CPP_SRCS += ../../{{ folder }}/{{ file }}.c
+CPP_SRCS += {{ pathToCwd }}/{{ folder }}/{{ file }}.c
 CPP_DEPS += {{ folder }}/{{ file }}.d
 OBJS += {{ folder }}/{{ file }}.o
 {% endfor %}
 
 # Each subdirectory must supply rules for building sources it contributes.
-{{ folder }}/%.o: ../../{{ folder }}/%.c
+{{ folder }}/%.o: {{ pathToCwd }}/{{ folder }}/%.c
 {% if isVerbose %}
 {{ tab }}@echo ' '
 {{ tab }}@echo 'Building file: $(@:%.o=%.c)'
 {{ tab }}@echo 'Invoking: GCC C Compiler'
-{{ tab }}$(CC) -c -fmessage-length=0  {{ cOptions }} {{ includeOptions }} -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -o "$@" "$<"
-{{ tab }}@echo 'Finished building: $(@:%.o=%.c)'
 {% else %}
 {{ tab }}@echo '[$(CC)]: $(@:%.o=%.c)'
-{{ tab }}@$(CC) -c -fmessage-length=0  {{ cOptions }} {{ includeOptions }} -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -o "$@" "$<"
+{% endif %}
+{{ tab }}{% if isVerbose == false %}@{% endif %}$(CC) -c -fmessage-length=0  {{ cOptions }} {{ includeOptions }} -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -o "$@" "$<"
+{% if isVerbose %}
+{{ tab }}@echo 'Finished building: $(@:%.o=%.c)'
 {% endif %}
 
-{{ folder }}/%.o: ../../{{ folder }}/%.cpp
+{{ folder }}/%.o: {{ pathToCwd }}/{{ folder }}/%.cpp
 {% if isVerbose %}
 {{ tab }}@echo ' '
 {{ tab }}@echo 'Building file: $(@:%.o=%.cpp)'
 {{ tab }}@echo 'Invoking: GCC C++ Compiler'
-{{ tab }}$(CXX) -c -fmessage-length=0 {{ cppOptions }} {{ includeOptions }} -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -o "$@" "$<"
-{{ tab }}@echo 'Finished building: $(@:%.o=%.cpp)'
 {% else %}
 {{ tab }}@echo '[$(CXX)]: $(@:%.o=%.cpp)'
-{{ tab }}@$(CXX) -c -fmessage-length=0 {{ cppOptions }} {{ includeOptions }} -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -o "$@" "$<"
+{% endif %}
+{{ tab }}{% if isVerbose == false %}@{% endif %}$(CXX) -c -fmessage-length=0 {{ cppOptions }} {{ includeOptions }} -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -o "$@" "$<"
+{% if isVerbose %}
+{{ tab }}@echo 'Finished building: $(@:%.o=%.cpp)'
 {% endif %}
 

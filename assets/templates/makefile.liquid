@@ -2,7 +2,7 @@
 # Automatically-generated file. Do not edit!
 ################################################################################
 
--include ../../makefile.init
+-include {{ pathToCwd }}/makefile.init
 
 RM := rm -rf
 CC := {{ tools.c }}
@@ -42,7 +42,7 @@ ifneq ($(strip $(C_DEPS)),)
 endif
 endif
 
--include ../../makefile.defs
+-include {{ pathToCwd }}/makefile.defs
 
 # Add inputs and outputs from these tool invocations to the build variables 
 
@@ -64,15 +64,13 @@ clean:
 {% if isVerbose %}
 {{ tab }}-@echo ' '
 {{ tab }}-@echo 'Cleaning:'
-{{ tab }}-$(RM) $(CC_DEPS)$(C++_DEPS)$(C_UPPER_DEPS)$(CXX_DEPS)$(CPP_DEPS)$(C_DEPS) 
-{{ tab }}-$(RM) $(EXECUTABLES) $(OBJS) {{ artefactName }}
 {% else %}
 {{ tab }}-@echo '[$(firstword $(RM))]:'
-{{ tab }}-@$(RM) $(CC_DEPS)$(C++_DEPS)$(C_UPPER_DEPS)$(CXX_DEPS)$(CPP_DEPS)$(C_DEPS) 
-{{ tab }}-@$(RM) $(EXECUTABLES) $(OBJS) {{ artefactName }}
 {% endif %}
+{{ tab }}-{% if isVerbose == false %}@{% endif %}$(RM) $(CC_DEPS)$(C++_DEPS)$(C_UPPER_DEPS)$(CXX_DEPS)$(CPP_DEPS)$(C_DEPS) 
+{{ tab }}-{% if isVerbose == false %}@{% endif %}$(RM) $(EXECUTABLES) $(OBJS) {{ artefactName }}
 
 .PHONY: all clean dependents
 .SECONDARY:
 
--include ../../makefile.targets
+-include {{ pathToCwd }}/makefile.targets
