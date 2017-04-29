@@ -5,14 +5,14 @@
 # Add inputs and outputs to the build variables, contributed by each tool.
 {% for file in cFiles %}
 C_SRCS += ../../{{ folder }}/{{ file }}.c
-C_DEPS += ./{{ folder }}/{{ file }}.d
-OBJS += ./{{ folder }}/{{ file }}.o
+C_DEPS += {{ folder }}/{{ file }}.d
+OBJS += {{ folder }}/{{ file }}.o
 {% endfor %}
 
 {% for file in cppFiles %}
 CPP_SRCS += ../../{{ folder }}/{{ file }}.c
-CPP_DEPS += ./{{ folder }}/{{ file }}.d
-OBJS += ./{{ folder }}/{{ file }}.o
+CPP_DEPS += {{ folder }}/{{ file }}.d
+OBJS += {{ folder }}/{{ file }}.o
 {% endfor %}
 
 # Each subdirectory must supply rules for building sources it contributes.
