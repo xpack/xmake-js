@@ -42,7 +42,7 @@
   "homepage": "https://github.com/xpack/xmake-js",
   "dependencies": {
     "@ilg/es6-promisifier": "~0.1.1",
-    "@ilg/cli-start-options": "~0.1.0",
+    "@ilg/cli-start-options": "~0.2.0",
     "shopify-liquid": "~1.7.7"
   },
   "devDependencies": {
