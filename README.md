@@ -142,7 +142,7 @@ As style, it uses the [JavaScript Standard Style](https://standardjs.com/), auto
 
 Known and accepted exceptions:
 
-- none.
+- '// eslint-disable-line no-template-curly-in-string, max-len' to allow macro substitutions for `command.run`
 
 To manually fix compliance with the style guide (where possible):
 
