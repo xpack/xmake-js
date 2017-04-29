@@ -43,6 +43,7 @@
   "dependencies": {
     "@ilg/es6-promisifier": "~0.1.1",
     "@ilg/cli-start-options": "~0.2.0",
+    "mkdirp": "~0.5.1",
     "shopify-liquid": "~1.7.7"
   },
   "devDependencies": {
