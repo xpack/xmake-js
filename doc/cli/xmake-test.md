@@ -3,7 +3,7 @@
 ## Synopsis
 
 ```
-xmake test [options...] [--target <name>]* [--toolchain <name>]* [--profile <name>]* [--depth <n>] [name...] [-- <args>]
+xmake test [options...] [--target <name>]* [--toolchain <name>]* [--profile <name>]* [--depth <n>] [name...] [-- <build args> [-- <run args>]]
 ```
 
 Aliases:

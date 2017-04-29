@@ -60,7 +60,12 @@
       "stopOnEntry": true,
       "args": [
         "test",
-        "-dd"
+        "-dd",
+        "--",
+        "clean",
+        "all",
+        "--",
+        "xyz"
       ],
       "cwd": "/Users/ilg/My Files/MacBookPro Projects/uOS/xpacks/drtm.git",
       "preLaunchTask": null,

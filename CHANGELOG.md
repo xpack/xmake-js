@@ -1,8 +1,13 @@
-## v0.1.3 (2017-04-18)
+## v0.1.4 (2017-04-28)
 
-- xmake test ready to generate, build & run for drtm
-- use liquid templates for make files
-- -I path relative
+- xmake test: add --build-folder
+- xmake test: pass extra args to make and run
+
+## v0.1.3 (2017-04-28)
+
+- xmake test: ready to generate, build & run for drtm
+- xmake test: use liquid templates for make files
+- xmake test: -I path relative
 
 ## v0.1.2 (2017-04-18)
 

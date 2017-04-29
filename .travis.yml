@@ -27,7 +27,7 @@ git:
 # https://docs.travis-ci.com/user/environment-variables/
 env:
   global:
-    - SCRIPT="scripts/travis.sh"
+    # - SCRIPT="scripts/travis.sh"
 
 # https://docs.travis-ci.com/user/notifications/#Configuring-email-notifications
 notifications:

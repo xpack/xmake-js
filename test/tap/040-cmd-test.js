@@ -80,7 +80,8 @@ test('xmake test -h',
           '[--target <name>]*', 'has Usage')
         t.match(outLines[5], 'where:', 'has where')
         t.match(outLines[6], '  <name>...', 'has <name>')
-        t.match(outLines[7], '  <args>...', 'has <args>')
+        t.match(outLines[7], '  <build args>...', 'has <build args>')
+        t.match(outLines[8], '  <run args>...', 'has <run args>')
       }
       // There should be no error messages.
       t.equal(stderr, '', 'stderr empty')
