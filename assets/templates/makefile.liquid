@@ -61,9 +61,16 @@ endif
 
 # Other Targets
 clean:
+{% if isVerbose %}
 {{ tab }}-@echo ' '
+{{ tab }}-@echo 'Cleaning:'
 {{ tab }}-$(RM) $(CC_DEPS)$(C++_DEPS)$(C_UPPER_DEPS)$(CXX_DEPS)$(CPP_DEPS)$(C_DEPS) 
 {{ tab }}-$(RM) $(EXECUTABLES) $(OBJS) {{ artefactName }}
+{% else %}
+{{ tab }}-@echo '[$(firstword $(RM))]:'
+{{ tab }}-@$(RM) $(CC_DEPS)$(C++_DEPS)$(C_UPPER_DEPS)$(CXX_DEPS)$(CPP_DEPS)$(C_DEPS) 
+{{ tab }}-@$(RM) $(EXECUTABLES) $(OBJS) {{ artefactName }}
+{% endif %}
 
 .PHONY: all clean dependents
 .SECONDARY:
