@@ -2,20 +2,16 @@
 # Automatically-generated file. Do not edit!
 ################################################################################
 
-# Add inputs and outputs to the build variables, contributed by each tool.
+{% if cFiles.length > 0 %}
+# Collect the C files, deps and objects contributed by this sub-folder,
+# using the global build variables.
 {% for file in cFiles %}
 C_SRCS += {{ pathToCwd }}/{{ folder }}/{{ file }}.c
 C_DEPS += {{ folder }}/{{ file }}.d
 OBJS += {{ folder }}/{{ file }}.o
 {% endfor %}
 
-{% for file in cppFiles %}
-CPP_SRCS += {{ pathToCwd }}/{{ folder }}/{{ file }}.c
-CPP_DEPS += {{ folder }}/{{ file }}.d
-OBJS += {{ folder }}/{{ file }}.o
-{% endfor %}
-
-# Each subdirectory must supply rules for building sources it contributes.
+# Define rules for building C files contributed by this sub-folder.
 {{ folder }}/%.o: {{ pathToCwd }}/{{ folder }}/%.c
 {% if isVerbose %}
 {{ tab }}@echo ' '
@@ -28,7 +24,18 @@ OBJS += {{ folder }}/{{ file }}.o
 {% if isVerbose %}
 {{ tab }}@echo 'Finished building: $(@:%.o=%.c)'
 {% endif %}
+{% endif %}
 
+{% if cppFiles.length > 0 %}
+# Collect the C++ files, deps and objects contributed by this sub-folder,
+# using the global build variables.
+{% for file in cppFiles %}
+CPP_SRCS += {{ pathToCwd }}/{{ folder }}/{{ file }}.cpp
+CPP_DEPS += {{ folder }}/{{ file }}.d
+OBJS += {{ folder }}/{{ file }}.o
+{% endfor %}
+
+# Define rules for building C++ files contributed by this sub-folder.
 {{ folder }}/%.o: {{ pathToCwd }}/{{ folder }}/%.cpp
 {% if isVerbose %}
 {{ tab }}@echo ' '
@@ -41,4 +48,4 @@ OBJS += {{ folder }}/{{ file }}.o
 {% if isVerbose %}
 {{ tab }}@echo 'Finished building: $(@:%.o=%.cpp)'
 {% endif %}
-
+{% endif %}
