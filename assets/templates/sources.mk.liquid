@@ -2,31 +2,13 @@
 # Automatically-generated file. Do not edit!
 ################################################################################
 
-# Initialise build variables that will collect definitions 
-# contributed by subfolders.
+# Collect the source files, deps and objects contributed by this sub-folder,
+# using the global build variables.
+{% for fileNode in fileNodes %}
+{{ fileNode.fileType.prefix }}_SRCS += {{ pathToCwd }}/{{ folder }}/{{ fileNode.shortName }}.{{ fileNode.fileType.ext }}
+{{ fileNode.fileType.prefix }}_DEPS += {{ folder }}/{{ fileNode.shortName }}.d
+OBJS += {{ folder }}/{{ fileNode.shortName }}.o
 
-C_UPPER_SRCS := 
-CXX_SRCS := 
-OBJ_SRCS := 
-C++_SRCS := 
-CC_SRCS := 
-ASM_SRCS := 
-CPP_SRCS := 
-C_SRCS := 
-O_SRCS := 
-S_UPPER_SRCS := 
-CC_DEPS := 
-C++_DEPS := 
-EXECUTABLES := 
-OBJS := 
-C_UPPER_DEPS := 
-CXX_DEPS := 
-CPP_DEPS := 
-C_DEPS := 
-
-# Every subfolder with source files must be described here
-SUBDIRS := \
-{% for folder in sourceFolders %}
-{{ folder }} \
 {% endfor %}
+
 
