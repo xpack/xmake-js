@@ -1,25 +1,5 @@
 # xmake-test.json
 
-This file identifies the test with a name and defines the profiles.
+This file identifies the test with a name and defines the build configurations (target, toolchain, profile).
 
-Exmaple:
-
-```json
-{
-  "version": "0.1.0",
-  "name": "my-test",
-  "description": "The best test",
-  "sourceFolders": [
-     "../../src",
-  ],
-  "generator": "make",
-  "scripts": {
-    "build": "make",
-    "execute": "./${executable}"
-  },
-  "profiles": {
-    "debug": {},
-    "release": {}
-  }
-}
-```
+The structure is the same as for xmake-build.json
