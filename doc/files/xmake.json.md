@@ -2,7 +2,7 @@
 
 ## Overview 
 
-The `xmake.json` file defines the xmake metadata required by the build process.
+The `xmake.json` file defines the metadata required by the xmake build process.
 
 This file is used in two contexts:
 - when located in the project root, or in a test folder, this file 
@@ -417,10 +417,10 @@ definitions.
       "addSymbols": [],
       "addIncludeFolders": [],
       "removeIncludeFolders": [],
-      "toolchains": {...}
+      "toolchains": { ... }
     },
     "release": {
-      "artifact": {...},
+      "artifact": { ... },
       "excludedPaths": [],
       "removeSourceFolders": [],
       "addSourceFolders": [],
@@ -428,7 +428,7 @@ definitions.
       "addSymbols": [],
       "addIncludeFolders": [],
       "removeIncludeFolders": [],
-      "toolchains": {...}
+      "toolchains": { ... }
     }
   }
 }
@@ -460,8 +460,8 @@ definitions.
       "addSymbols": [],
       "removeIncludeFolders": [],
       "addIncludeFolders": [],
-      "options": {...},
-      "tools": {...}
+      "options": { ... },
+      "tools": { ... }
     },
     "arm-none-eabi-gcc": {
       "artifact": { ... },
@@ -472,8 +472,8 @@ definitions.
       "addSymbols": [],
       "removeIncludeFolders": [],
       "addIncludeFolders": [],
-      "options": {...},
-      "tools": {...}
+      "options": { ... },
+      "tools": { ... }
     }
   }
 }
