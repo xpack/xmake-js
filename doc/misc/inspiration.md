@@ -31,3 +31,11 @@ This was probably intended as a portable solution for scripts running on non-POS
 ```bash
 $ cmake -E <command> [<options>...]
 ```
+
+### Files
+
+`CMakeLists.txt`
+
+### Cache
+
+`CMakeCache.txt`
