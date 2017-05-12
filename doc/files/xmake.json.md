@@ -6,7 +6,7 @@ The `xmake.json` file defines the metadata required by the xmake build process.
 
 This file is used in two contexts:
 - when located in the project root, or in a test folder, this file 
-defines how to build the artifact (executable or library); it must 
+defines how to build the artefact (executable or library); it must 
 have a mandatory `name` field.
 - when located in subfolders, it is simpler and it defines build 
 details specific to 
@@ -17,8 +17,8 @@ should be moved to a more general document about xmake.
 
 ## Lowercase names
 
-Generally all names can be composed from letters, digits and dash. 
-Case is not significative, and all names are converted to lowercase.
+All names must be composed from letters, dashes, or digits. When used to create 
+paths, case is not significative and all letters are converted to lowercase.
 
 ## Paths
 
@@ -29,7 +29,7 @@ All paths use the POSIX syntax, with `/` separators.
 
 In certain places, strings may contain macros, with the folloqing syntax:
 
-```
+```bash
 ${expression}
 ```
 
@@ -51,7 +51,7 @@ decide not to copy it, using the `removeXxx` properties.
 ## Build tree
 
 The build tree is constructed of nodes. Nodes refer to folders or files;
-the hierarchy follows the file system hierarchy.
+the build tree hierarchy follows the file system hierarchy.
 
 Folder nodes may have other folders or file as children.
 
@@ -59,10 +59,10 @@ The build tree is contructed for each build configuration, i.e. for each
 target/profile/toolchain.
 
 Each new depth level may contribute additional compiler options to the build,
-and files located in bottom levels may be compiled with different definitions
-(options, symbols, includes, etc)
+and files located deeper in the hierarchy may be compiled with different 
+definitions (options, symbols, includes, etc).
 
-## Project or test 
+## Project and/or test folders
 
 To identify a folder as an xmake project, a full `xmake.json` file, 
 which includes the `name` field, is expected in the project root.
@@ -74,7 +74,7 @@ by an `xmake.json` in each test folder.
 {
   "version": "0.1.0",
   "name": "xyz",
-  "artifact": {
+  "artefact": {
     "type": "executable",
     "name": "${build.name}",
     "outputPrefix": "",
@@ -84,7 +84,7 @@ by an `xmake.json` in each test folder.
   "generator": "make",
   "commands": {
     "build": [ "make" ],
-    "run": [ "./${artifact.fullName}" ]
+    "run": [ "./${artefact.fullName}" ]
   },
   "addSourceFolders": [
     "src"
@@ -108,7 +108,7 @@ by an `xmake.json` in each test folder.
 
 Type: string.
 
-This semver string identifies the expected structure of the content.
+This semver string identifies the expected structure of the JSON content.
 
 ```json
 {
@@ -116,8 +116,11 @@ This semver string identifies the expected structure of the content.
 }
 ```
 
-It is mandatory for all `xmake.json` files. An old version of the xmake tools 
-should refuse to process a newer, incompatible version of `xmake.json` file.
+It is mandatory for all `xmake.json` files. A recent version of the 
+xmake tools should be prepared to parse all older version of the
+`xmake.json` files. An old version of the xmake tools 
+should throw an error when asked to process a newer, incompatible 
+version of `xmake.json` file.
 
 ## Name
 
@@ -132,14 +135,14 @@ for tests.
 }
 ```
 
-## Artifact
+## artefact
 
 Type: object.
 
 It can be used only in project or test `xmake.json` files; using it in folder 
 specific metadata files triggers an warning.
 
-The `artifact` object defines the type and name of the output file. 
+The `artefact` object defines the type and name of the output file. 
 
 The `type` property can be one of:
 
@@ -151,14 +154,14 @@ The `name` property defaults to the test name. It may include the macros
 `${build.name}` or `${test.name}`. If not present, it defaults to the 
 mandatory project or test name.
 
-The `artifact` object may be defined at top level, or for a given 
+The `artefact` object may be defined at top level, or for a given 
 target/profile. Each definition is searched hierarchically, bottom-up; 
 if present in the profile, it is used, otherwise the parent definition
 it is used; if none is defined, a default is applied.
 
 ```json
 {
-  "artifact": {
+  "artefact": {
     "type": "executable",
     "name": "${test.name}",
     "outputPrefix": "",
@@ -199,7 +202,7 @@ The `commands` object associates external commands to different actions.
 {
   "commands": {
     "build": [ "make" ],
-    "run": [ "./${artifact.fullName}" ]
+    "run": [ "./${artefact.fullName}" ]
   }
 }
 ```
@@ -224,12 +227,13 @@ Type: array of strings.
 This array defines the paths to the folders containing source files.
 All paths are relative to the current folder.
 
-Source folders can be defined hierarchically (top/target/profile), 
-for all configurations or for a specific target/profile.
+Source folders can be defined hierarchically (top/target/profile/toolchain), 
+for all configurations or for a specific target/profile/toolchain.
 
 Definitions are cumulative, each may remove/add entries to the parent array.
 
-For tests, which are located deeper in the hierarchy, a typical situation is:
+For tests, which are located deeper in the file system hierarchy, 
+a typical configuration is:
 
 ```json
 {
@@ -256,7 +260,7 @@ For a given build, all source folders are searched for source files,
 possible exclusions from `sourceFolderSettings` are processed, and the 
 remaining files enter the build.
 
-If, for a given profile, this array end up empty, and the current 
+If, for a given profile, this array ends up empty, and the current 
 folder includes a `package.json`, the 
 `directories.src` definition (an array of strings), if present, is used. 
 Otherwise, if the `src` folder is present, it is used; if not, the current
@@ -270,7 +274,7 @@ may be strings, parsed as multiple words separated by spaces.
 Type: array of strings.
 
 This array defines symbols to be passed to the compiler preprocessor. 
-Simple names or names and values are accepted.
+Simple names or pairs of names and values are accepted.
 
 ```json
 {
@@ -305,8 +309,8 @@ Type: array of strings.
 This array defines the folders to be passed to the compiler as include 
 folders. All paths are relative to the current folder.
 
-Include folders can be defined hierarchically (top/target/profile), 
-for all configurations or for a specific target/profile.
+Include folders can be defined hierarchically (top/target/profile/toolchain), 
+for all configurations or for a specific target/profile/toolchain.
 
 Definitions are cumulative, each may remove/add entries to the parent array.
 
@@ -330,7 +334,8 @@ If a definition from the parent is definitely not wanted, it can be removed:
 
 If the definitions to be removed did not exist, warnigs are issued.
 
-If, for a given profile, this array end up empty, and the current folder includes a `package.json`, the 
+If, for a given profile, this array ends up empty, and the current 
+folder includes a `package.json`, the 
 `directories.include` definition (an array of strings), if present, is used. 
 Otherwise, if the `include` folder is present, it is used; if not, the current
 folder is used.
@@ -346,7 +351,7 @@ may be strings, parsed as multiple words separated by spaces.
 Type: object.
 
 The `targets` object defines the possible targets, or platforms, the 
-artifact is to be build.
+artefact is to be build for.
 
 Each target may include several profiles.
 
@@ -357,7 +362,7 @@ definitions.
 {
   "targets": {
     "darwin": {
-      "artifact": { ... },
+      "artefact": { ... },
       "excludedPaths": [],
       "removeSourceFolders": [],
       "addSourceFolders": [],
@@ -371,7 +376,7 @@ definitions.
       "crossBuildPlatforms": [
         "darwin", "linux", "windows"
       ],
-      "artifact": { ... },
+      "artefact": { ... },
       "excludedPaths": [],
       "removeSourceFolders": [],
       "addSourceFolders": [],
@@ -391,7 +396,7 @@ not be part of the build, for a specific target.
 
 Target names are predefined strings.
 
-TODO: define where target names come from.
+TODO: explain where target names come from.
 
 ## Profiles
 
@@ -409,7 +414,7 @@ definitions.
 {
   "profiles": {
     "debug": {
-      "artifact": { ... },
+      "artefact": { ... },
       "excludedPaths": [],
       "removeSourceFolders": [],
       "addSourceFolders": [],
@@ -420,7 +425,7 @@ definitions.
       "toolchains": { ... }
     },
     "release": {
-      "artifact": { ... },
+      "artefact": { ... },
       "excludedPaths": [],
       "removeSourceFolders": [],
       "addSourceFolders": [],
@@ -435,7 +440,7 @@ definitions.
 ```
 
 The `excludedPaths` array defines folders and/or files that should 
-not be part of the build, for a specific target.
+not be part of the build, for a specific profile.
 
 Profile names are user defined strings.
 
@@ -452,7 +457,7 @@ definitions.
 {
   "toolchains": {
     "gcc": {
-      "artifact": { ... },
+      "artefact": { ... },
       "excludedPaths": [],
       "removeSourceFolders": [],
       "addSourceFolders": [],
@@ -464,7 +469,7 @@ definitions.
       "tools": { ... }
     },
     "arm-none-eabi-gcc": {
-      "artifact": { ... },
+      "artefact": { ... },
       "excludedPaths": [],
       "removeSourceFolders": [],
       "addSourceFolders": [],
@@ -480,11 +485,11 @@ definitions.
 ```
 
 The `excludedPaths` array defines folders and/or files that should 
-not be part of the build, for a specific target.
+not be part of the build, for a specific toolchain.
 
 Toolchain names are predefined strings.
 
-TODO: define where Toolchain names come from.
+TODO: explain where Toolchain names come from.
 
 ## Options
 
@@ -547,14 +552,11 @@ However it is possible to enter specific definitions for folders, and
 in this case they apply for all files in the folder, or for a specific file.
 
 Two kinds of data can be defined:
-- for source folders, which are the exclusions (folders and/or files)
-- the compiler settings for each folder/file.
+- for source folders, a list of exclusions (folders and/or files)
+- for source folders/files, possible different compiler settings.
 
-The folder/file settings are distributed in each folder, with file 
-paths local to the folder.
-
-When refering to the build or test root folder, the content is added in 
-the `xmake-build.json` or `xmake-test.json`.
+The folder/file settings are not kept in the top file, but are distributed 
+in each folder, with file paths local to the folder.
 
 ```json
 {
@@ -590,9 +592,19 @@ the `xmake-build.json` or `xmake-test.json`.
 Type" array of strings.
 
 The `excludedPaths` array defines folders and/or files that should 
-not be part of the build, for all configurations or a specific configuration.
+not be part of the build, for all configurations or for a specific 
+configuration.
 
-Excluded paths are relative to the current folder, and should refer to 
+```json
+{
+  "excludedPaths": [ 
+    "mem1.c",
+    "mem3.c"
+  ]
+}
+```
+
+Excluded paths are relative to the current folder, and should refer only to 
 files/folders in the current folder (in other words, a folder should 
 not define exclusion from a child folder).
 
