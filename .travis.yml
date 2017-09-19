@@ -17,7 +17,8 @@ sudo: false
 # can do so in the `before_install` stage of the build.
 language: node_js
 node_js:
-  - "node" 
+  - "node"
+  - "7" 
 
 # https://docs.travis-ci.com/user/customizing-the-build/#Git-Clone-Depth
 git:
@@ -37,7 +38,7 @@ notifications:
 
 cache:
   directories:
-    - node_modules # NPM packages
+    # - node_modules # NPM packages
 
 branches:
   except:
