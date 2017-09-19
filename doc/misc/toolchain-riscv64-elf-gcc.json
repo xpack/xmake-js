@@ -1,0 +1,6 @@
+{
+  "name": "riscv64-elf-gcc",
+  "parent": "gcc-base",
+  "descriptionPrefix": "GNU RISC-V Cross",
+  "commandPrefix": "riscv64-unknown-elf-"
+}
