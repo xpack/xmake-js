@@ -43,7 +43,7 @@
   "homepage": "https://github.com/xpack/xmake-js",
   "dependencies": {
     "@ilg/es6-promisifier": "~0.1.9",
-    "@ilg/cli-start-options": "~0.3.1",
+    "@ilg/cli-start-options": "~0.4.0",
     "mkdirp": "~0.5.1",
     "liquidjs": "~1.9.6",
     "xml2js": "~0.4.19"
