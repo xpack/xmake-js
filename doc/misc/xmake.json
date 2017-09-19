@@ -1,0 +1,81 @@
+{
+  "version": "0.1.0",
+  "folderSettings": {
+    "profiles": {
+      "debug": {
+        "excludedPaths": [
+          "path1",
+          "path2"
+        ],
+        "toolchains": {
+          "gcc": {
+            "tools": {
+              "c": {
+                "removeSymbols": [],
+                "addSymbols": [],
+                "removeIncludes": [],
+                "addIncludes": [],
+                "removeOptimizations": [],
+                "addOptimizations": [],
+                "removeWarnings": [],
+                "addWarnings": [],
+                "removeMiscellaneous": [],
+                "addMiscellaneous": []
+              },
+              "cpp": {
+                "removeSymbols": [],
+                "addSymbols": [],
+                "removeIncludes": [],
+                "addIncludes": [],
+                "removeOptimizations": [],
+                "addOptimizations": [],
+                "removeWarnings": [],
+                "addWarnings": [],
+                "removeMiscellaneous": [],
+                "addMiscellaneous": []
+              },
+              "as": {
+                "removeSymbols": [],
+                "addSymbols": [],
+                "removeIncludes": [],
+                "addIncludes": [],
+                "removeOptimizations": [],
+                "addOptimizations": [],
+                "removeWarnings": [],
+                "addWarnings": [],
+                "removeMiscellaneous": [],
+                "addMiscellaneous": []
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "filesSettings": {
+    "file1.c": {
+      "profiles": {
+        "debug": {
+          "toolchains": {
+            "gcc": {
+              "tools": {
+                "c": {
+                  "removeSymbols": [],
+                  "addSymbols": [],
+                  "removeIncludes": [],
+                  "addIncludes": [],
+                  "removeOptimizations": [],
+                  "addOptimizations": [],
+                  "removeWarnings": [],
+                  "addWarnings": [],
+                  "removeMiscellaneous": [],
+                  "addMiscellaneous": []
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

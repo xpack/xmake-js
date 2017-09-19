@@ -1,0 +1,7 @@
+{
+  "name": "llvm",
+  "parent": "generic",
+  "objectExtension": "bc",
+  "makeObjectsVariable": "BCS",
+  "descriptionPrefix": "LLVM"
+}

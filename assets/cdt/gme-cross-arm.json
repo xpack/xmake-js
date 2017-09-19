@@ -1,0 +1,3100 @@
+{
+	"buildDefinitions": [
+		{
+			"point": "org.eclipse.cdt.managedbuilder.core.buildDefinitions",
+			"managedBuildRevision": {
+				"fileVersion": "4.0.0"
+			},
+			"tool": [
+				{
+					"id": "ilg.gnuarmeclipse.managedbuild.cross.tool.common",
+					"isAbstract": "false",
+					"name": "Common options",
+					"option": [
+						{
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.option.base.debugging.level",
+							"isAbstract": "true",
+							"name": "%option.debugging.level",
+							"useByScannerDiscovery": "true",
+							"valueType": "enumerated",
+							"enumeratedOptionValue": [
+								{
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.debugging.level.none",
+									"name": "%option.debugging.level.none"
+								},
+								{
+									"command": "-g1",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.debugging.level.minimal",
+									"name": "%option.debugging.level.minimal"
+								},
+								{
+									"command": "-g",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.debugging.level.default",
+									"isDefault": "true",
+									"name": "%option.debugging.level.default"
+								},
+								{
+									"command": "-g3",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.debugging.level.max",
+									"name": "%option.debugging.level.max"
+								}
+							]
+						},
+						{
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.option.base.debugging.format",
+							"isAbstract": "true",
+							"name": "%option.debugging.format",
+							"useByScannerDiscovery": "true",
+							"valueType": "enumerated",
+							"enumeratedOptionValue": [
+								{
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.debugging.format.default",
+									"isDefault": "true",
+									"name": "%option.debugging.default"
+								},
+								{
+									"command": "-ggdb",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.debugging.format.gdb",
+									"name": "%option.debugging.gdb"
+								},
+								{
+									"command": "-gstabs",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.debugging.format.stabs",
+									"name": "%option.debugging.stabs"
+								},
+								{
+									"command": "-gstabs+",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.debugging.format.stabsplus",
+									"name": "%option.debugging.stabsplus"
+								},
+								{
+									"command": "-gdwarf-2",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.debugging.format.dwarf2",
+									"name": "%option.debugging.dwarf2"
+								},
+								{
+									"command": "-gdwarf-3",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.debugging.format.dwarf3",
+									"name": "%option.debugging.dwarf3"
+								},
+								{
+									"command": "-gdwarf-4",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.debugging.format.dwarf4",
+									"name": "%option.debugging.dwarf4"
+								},
+								{
+									"command": "-gdwarf-5",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.debugging.format.dwarf5",
+									"name": "%option.debugging.dwarf5"
+								}
+							]
+						},
+						{
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.option.base.optimization.level",
+							"isAbstract": "true",
+							"name": "%option.optimization.level",
+							"useByScannerDiscovery": "true",
+							"valueType": "enumerated",
+							"enumeratedOptionValue": [
+								{
+									"command": "-O0",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.optimization.level.none",
+									"name": "%option.optimization.level.none"
+								},
+								{
+									"command": "-O1",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.optimization.level.optimize",
+									"name": "%option.optimization.level.optimize"
+								},
+								{
+									"command": "-O2",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.optimization.level.more",
+									"isDefault": "true",
+									"name": "%option.optimization.level.more"
+								},
+								{
+									"command": "-O3",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.optimization.level.most",
+									"name": "%option.optimization.level.most"
+								},
+								{
+									"command": "-Os",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.optimization.level.size",
+									"name": "%option.optimization.level.size"
+								},
+								{
+									"command": "-Og",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.optimization.level.debug",
+									"name": "%option.optimization.level.debug"
+								}
+							]
+						}
+					]
+				},
+				{
+					"id": "ilg.gnuarmeclipse.managedbuild.cross.tool.compiler",
+					"isAbstract": "true",
+					"name": "Compiler common options"
+				},
+				{
+					"id": "ilg.gnuarmeclipse.managedbuild.cross.tool.linker",
+					"isAbstract": "false",
+					"name": "Linker common options"
+				},
+				{
+					"id": "ilg.gnuarmeclipse.managedbuild.cross.tool.base.arm",
+					"isAbstract": "true",
+					"name": "ARM32 Targets common options",
+					"option": [
+						{
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.option.base.arm.target.family",
+							"isAbstract": "true",
+							"name": "%option.target.arm.family",
+							"valueType": "enumerated",
+							"enumeratedOptionValue": [
+								{
+									"command": "-mcpu=arm1020e",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.arm1020e",
+									"name": "arm1020e"
+								},
+								{
+									"command": "-mcpu=arm1020t",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.arm1020t",
+									"name": "arm1020t"
+								},
+								{
+									"command": "-mcpu=arm1022e",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.arm1022e",
+									"name": "arm1022e"
+								},
+								{
+									"command": "-mcpu=arm1026ej-s",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.arm1026ej-s",
+									"name": "arm1026ej-s"
+								},
+								{
+									"command": "-mcpu=arm10e",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.arm10e",
+									"name": "arm10e"
+								},
+								{
+									"command": "-mcpu=arm10tdmi",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.arm10tdmi",
+									"name": "arm10tdmi"
+								},
+								{
+									"command": "-mcpu=arm1136j-s",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.arm1136j-s",
+									"name": "arm1136j-s"
+								},
+								{
+									"command": "-mcpu=arm1136jf-s",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.arm1136jf-s",
+									"name": "arm1136jf-s"
+								},
+								{
+									"command": "-mcpu=arm1156t2-s",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.arm1156t2-s",
+									"name": "arm1156t2-s"
+								},
+								{
+									"command": "-mcpu=arm1156t2f-s",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.arm1156t2f-s",
+									"name": "arm1156t2f-s"
+								},
+								{
+									"command": "-mcpu=arm1176jz-s",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.arm1176jz-s",
+									"name": "arm1176jz-s"
+								},
+								{
+									"command": "-mcpu=arm1176jzf-s",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.arm1176jzf-s",
+									"name": "arm1176jzf-s"
+								},
+								{
+									"command": "-mcpu=arm2",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.arm2",
+									"name": "arm2"
+								},
+								{
+									"command": "-mcpu=arm250",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.arm250",
+									"name": "arm250"
+								},
+								{
+									"command": "-mcpu=arm3",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.arm3",
+									"name": "arm3"
+								},
+								{
+									"command": "-mcpu=arm6",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.arm6",
+									"name": "arm6"
+								},
+								{
+									"command": "-mcpu=arm60",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.arm60",
+									"name": "arm60"
+								},
+								{
+									"command": "-mcpu=arm600",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.arm600",
+									"name": "arm600"
+								},
+								{
+									"command": "-mcpu=arm610",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.arm610",
+									"name": "arm610"
+								},
+								{
+									"command": "-mcpu=arm620",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.arm620",
+									"name": "arm620"
+								},
+								{
+									"command": "-mcpu=arm7",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.arm7",
+									"name": "arm7"
+								},
+								{
+									"command": "-mcpu=arm70",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.arm70",
+									"name": "arm70"
+								},
+								{
+									"command": "-mcpu=arm700",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.arm700",
+									"name": "arm700"
+								},
+								{
+									"command": "-mcpu=arm700i",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.arm700i",
+									"name": "arm700i"
+								},
+								{
+									"command": "-mcpu=arm710",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.arm710",
+									"name": "arm710"
+								},
+								{
+									"command": "-mcpu=arm7100",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.arm7100",
+									"name": "arm7100"
+								},
+								{
+									"command": "-mcpu=arm710c",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.arm710c",
+									"name": "arm710c"
+								},
+								{
+									"command": "-mcpu=arm710t",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.arm710t",
+									"name": "arm710t"
+								},
+								{
+									"command": "-mcpu=arm720",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.arm720",
+									"name": "arm720"
+								},
+								{
+									"command": "-mcpu=arm720t",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.arm720t",
+									"name": "arm720t"
+								},
+								{
+									"command": "-mcpu=arm740t",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.arm740t",
+									"name": "arm740t"
+								},
+								{
+									"command": "-mcpu=arm7500",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.arm7500",
+									"name": "arm7500"
+								},
+								{
+									"command": "-mcpu=arm7500fe",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.arm7500fe",
+									"name": "arm7500fe"
+								},
+								{
+									"command": "-mcpu=arm7d",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.arm7d",
+									"name": "arm7d"
+								},
+								{
+									"command": "-mcpu=arm7di",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.arm7di",
+									"name": "arm7di"
+								},
+								{
+									"command": "-mcpu=arm7dm",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.arm7dm",
+									"name": "arm7dm"
+								},
+								{
+									"command": "-mcpu=arm7dmi",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.arm7dmi",
+									"name": "arm7dmi"
+								},
+								{
+									"command": "-mcpu=arm7m",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.arm7m",
+									"name": "arm7m"
+								},
+								{
+									"command": "-mcpu=arm7tdmi",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.arm7tdmi",
+									"name": "arm7tdmi"
+								},
+								{
+									"command": "-mcpu=arm7tdmi-s",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.arm7tdmi-s",
+									"name": "arm7tdmi-s"
+								},
+								{
+									"command": "-mcpu=arm8",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.arm8",
+									"name": "arm8"
+								},
+								{
+									"command": "-mcpu=arm810",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.arm810",
+									"name": "arm810"
+								},
+								{
+									"command": "-mcpu=arm9",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.arm9",
+									"name": "arm9"
+								},
+								{
+									"command": "-mcpu=arm920",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.arm920",
+									"name": "arm920"
+								},
+								{
+									"command": "-mcpu=arm920t",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.arm920t",
+									"name": "arm920t"
+								},
+								{
+									"command": "-mcpu=arm922t",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.arm922t",
+									"name": "arm922t"
+								},
+								{
+									"command": "-mcpu=arm926ej-s",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.arm926ej-s",
+									"name": "arm926ej-s"
+								},
+								{
+									"command": "-mcpu=arm940t",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.arm940t",
+									"name": "arm940t"
+								},
+								{
+									"command": "-mcpu=arm946e-s",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.arm946e-s",
+									"name": "arm946e-s"
+								},
+								{
+									"command": "-mcpu=arm966e-s",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.arm966e-s",
+									"name": "arm966e-s"
+								},
+								{
+									"command": "-mcpu=arm968e-s",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.arm968e-s",
+									"name": "arm968e-s"
+								},
+								{
+									"command": "-mcpu=arm9e",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.arm9e",
+									"name": "arm9e"
+								},
+								{
+									"command": "-mcpu=arm9tdmi",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.arm9tdmi",
+									"name": "arm9tdmi"
+								},
+								{
+									"command": "-mcpu=cortex-a12",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.cortex-a12",
+									"name": "cortex-a12"
+								},
+								{
+									"command": "-mcpu=cortex-a15",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.cortex-a15",
+									"name": "cortex-a15"
+								},
+								{
+									"command": "-mcpu=cortex-a17",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.cortex-a17",
+									"name": "cortex-a17"
+								},
+								{
+									"command": "-mcpu=cortex-a32",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.cortex-a32",
+									"name": "cortex-a32"
+								},
+								{
+									"command": "-mcpu=cortex-a35",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.cortex-a35",
+									"name": "cortex-a35"
+								},
+								{
+									"command": "-mcpu=cortex-a5",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.cortex-a5",
+									"name": "cortex-a5"
+								},
+								{
+									"command": "-mcpu=cortex-a53",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.cortex-a53",
+									"name": "cortex-a53"
+								},
+								{
+									"command": "-mcpu=cortex-a57",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.cortex-a57",
+									"name": "cortex-a57"
+								},
+								{
+									"command": "-mcpu=cortex-a7",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.cortex-a7",
+									"name": "cortex-a7"
+								},
+								{
+									"command": "-mcpu=cortex-a72",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.cortex-a72",
+									"name": "cortex-a72"
+								},
+								{
+									"command": "-mcpu=cortex-a8",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.cortex-a8",
+									"name": "cortex-a8"
+								},
+								{
+									"command": "-mcpu=cortex-a9",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.cortex-a9",
+									"name": "cortex-a9"
+								},
+								{
+									"command": "-mcpu=cortex-m0",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.cortex-m0",
+									"name": "cortex-m0"
+								},
+								{
+									"command": "-mcpu=cortex-m0.small-multiply",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.cortex-m0-small-multiply",
+									"name": "cortex-m0.small-multiply"
+								},
+								{
+									"command": "-mcpu=cortex-m0plus",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.cortex-m0plus",
+									"name": "cortex-m0plus"
+								},
+								{
+									"command": "-mcpu=cortex-m0plus.small-multiply",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.cortex-m0plus-small-multiply",
+									"name": "cortex-m0plus.small-multiply"
+								},
+								{
+									"command": "-mcpu=cortex-m1",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.cortex-m1",
+									"name": "cortex-m1"
+								},
+								{
+									"command": "-mcpu=cortex-m1.small-multiply",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.cortex-m1-small-multiply",
+									"name": "cortex-m1.small-multiply"
+								},
+								{
+									"command": "-mcpu=cortex-m23",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.cortex-m23",
+									"name": "cortex-m23"
+								},
+								{
+									"command": "-mcpu=cortex-m3",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.cortex-m3",
+									"isDefault": "true",
+									"name": "cortex-m3"
+								},
+								{
+									"command": "-mcpu=cortex-m33",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.cortex-m33",
+									"name": "cortex-m33"
+								},
+								{
+									"command": "-mcpu=cortex-m4",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.cortex-m4",
+									"name": "cortex-m4"
+								},
+								{
+									"command": "-mcpu=cortex-m7",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.cortex-m7",
+									"name": "cortex-m7"
+								},
+								{
+									"command": "-mcpu=cortex-r4",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.cortex-r4",
+									"name": "cortex-r4"
+								},
+								{
+									"command": "-mcpu=cortex-r4f",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.cortex-r4f",
+									"name": "cortex-r4f"
+								},
+								{
+									"command": "-mcpu=cortex-r5",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.cortex-r5",
+									"name": "cortex-r5"
+								},
+								{
+									"command": "-mcpu=cortex-r7",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.cortex-r7",
+									"name": "cortex-r7"
+								},
+								{
+									"command": "-mcpu=cortex-r8",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.cortex-r8",
+									"name": "cortex-r8"
+								},
+								{
+									"command": "-mcpu=ep9312",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.ep9312",
+									"name": "ep9312"
+								},
+								{
+									"command": "-mcpu=exynos-m1",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.exynos-m1",
+									"name": "exynos-m1"
+								},
+								{
+									"command": "-mcpu=fa526",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.fa526",
+									"name": "fa526"
+								},
+								{
+									"command": "-mcpu=fa606te",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.fa606te",
+									"name": "fa606te"
+								},
+								{
+									"command": "-mcpu=fa626",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.fa626",
+									"name": "fa626"
+								},
+								{
+									"command": "-mcpu=fa626te",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.fa626te",
+									"name": "fa626te"
+								},
+								{
+									"command": "-mcpu=fa726te",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.fa726te",
+									"name": "fa726te"
+								},
+								{
+									"command": "-mcpu=fmp626",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.fmp626",
+									"name": "fmp626"
+								},
+								{
+									"command": "-mcpu=generic-armv7-a",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.generic-armv7-a",
+									"name": "generic-armv7-a"
+								},
+								{
+									"command": "-mcpu=iwmmxt",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.iwmmxt",
+									"name": "iwmmxt"
+								},
+								{
+									"command": "-mcpu=iwmmxt2",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.iwmmxt2",
+									"name": "iwmmxt2"
+								},
+								{
+									"command": "-mcpu=marvell-f",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.marvell-f",
+									"name": "marvell-f (deprecated)"
+								},
+								{
+									"command": "-mcpu=marvell-pj4",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.marvell-pj4",
+									"name": "marvell-pj4"
+								},
+								{
+									"command": "-mcpu=mpcore",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.mpcore",
+									"name": "mpcore"
+								},
+								{
+									"command": "-mcpu=mpcorenovfp",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.mpcorenovfp",
+									"name": "mpcorenovfp"
+								},
+								{
+									"command": "-mcpu=native",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.native",
+									"name": "Native (-mcpu=native)"
+								},
+								{
+									"command": "-mcpu=qdf24xx",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.qdf24xx",
+									"name": "qdf24xx"
+								},
+								{
+									"command": "-mcpu=strongarm",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.strongarm",
+									"name": "strongarm"
+								},
+								{
+									"command": "-mcpu=strongarm110",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.strongarm110",
+									"name": "strongarm110"
+								},
+								{
+									"command": "-mcpu=strongarm1100",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.strongarm1100",
+									"name": "strongarm1100"
+								},
+								{
+									"command": "-mcpu=strongarm1110",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.strongarm1110",
+									"name": "strongarm1110"
+								},
+								{
+									"command": "-mcpu=xgene1",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.xgene1",
+									"name": "xgene1"
+								},
+								{
+									"command": "-mcpu=xscale",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.xscale",
+									"name": "xscale"
+								},
+								{
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.default",
+									"name": "%option.toolchain.default"
+								}
+							]
+						},
+						{
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.option.base.arm.target.architecture",
+							"isAbstract": "true",
+							"name": "%option.target.arm.architecture",
+							"valueType": "enumerated",
+							"enumeratedOptionValue": [
+								{
+									"command": "-march=armv2",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.arch.armv2",
+									"name": "armv2 (deprecated)"
+								},
+								{
+									"command": "-march=armv2a",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.arch.armv2a",
+									"name": "armv2a (deprecated)"
+								},
+								{
+									"command": "-march=armv3",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.arch.armv3",
+									"name": "armv3 (deprecated)"
+								},
+								{
+									"command": "-march=armv3m",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.arch.armv3m",
+									"name": "armv3m (deprecated)"
+								},
+								{
+									"command": "-march=armv4",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.arch.armv4",
+									"name": "armv4"
+								},
+								{
+									"command": "-march=armv4t",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.arch.armv4t",
+									"name": "armv4t"
+								},
+								{
+									"command": "-march=armv5",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.arch.armv5",
+									"name": "armv5"
+								},
+								{
+									"command": "-march=armv5e",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.arch.armv5e",
+									"name": "armv5e"
+								},
+								{
+									"command": "-march=armv5t",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.arch.armv5t",
+									"name": "armv5t"
+								},
+								{
+									"command": "-march=armv5te",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.arch.armv5te",
+									"name": "armv5te"
+								},
+								{
+									"command": "-march=armv6",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.arch.armv6",
+									"name": "armv6"
+								},
+								{
+									"command": "-march=armv6-m",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.arch.armv6-m",
+									"name": "armv6-m"
+								},
+								{
+									"command": "-march=armv6j",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.arch.armv6j",
+									"name": "armv6j"
+								},
+								{
+									"command": "-march=armv6k",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.arch.armv6k",
+									"name": "armv6j"
+								},
+								{
+									"command": "-march=armv6s-m",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.arch.armv6s-m",
+									"name": "armv6s-m"
+								},
+								{
+									"command": "-march=armv6t2",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.arch.armv6t2",
+									"name": "armv6t2"
+								},
+								{
+									"command": "-march=armv6z",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.arch.armv6z",
+									"name": "armv6z"
+								},
+								{
+									"command": "-march=armv6zk",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.arch.armv6zk",
+									"name": "armv6zk"
+								},
+								{
+									"command": "-march=armv7",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.arch.armv7",
+									"name": "armv7"
+								},
+								{
+									"command": "-march=armv7-a",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.arch.armv7-a",
+									"name": "armv7-a"
+								},
+								{
+									"command": "-march=armv7-m",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.arch.armv7-m",
+									"name": "armv7-m"
+								},
+								{
+									"command": "-march=armv7-r",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.arch.armv7-r",
+									"name": "armv7-r"
+								},
+								{
+									"command": "-march=armv7e-m",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.arch.armv7e-m",
+									"name": "armv7e-m"
+								},
+								{
+									"command": "-march=armv7ve",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.arch.armv7ve",
+									"name": "armv7ve"
+								},
+								{
+									"command": "-march=armv8-a",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.arch.armv8-a",
+									"name": "armv8-a"
+								},
+								{
+									"command": "-march=armv8-a+crc",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.arch.armv8-a-crc",
+									"name": "armv8-a+crc"
+								},
+								{
+									"command": "-march=armv8-m.base",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.arch.armv8-m-base",
+									"name": "armv8-m.base"
+								},
+								{
+									"command": "-march=armv8-m.main",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.arch.armv8-m-main",
+									"name": "armv8-m.main"
+								},
+								{
+									"command": "-march=armv8-m.main+dsp",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.arch.armv8-m-main-dsp",
+									"name": "armv8-m.main+dsp"
+								},
+								{
+									"command": "-march=armv8.1-a",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.arch.armv8-1-a",
+									"name": "armv8.1-a"
+								},
+								{
+									"command": "-march=armv8.1-a+crc",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.arch.armv8-1-a-crc",
+									"name": "armv8.1-a+crc"
+								},
+								{
+									"command": "-march=ep9312",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.arch.ep9312",
+									"name": "ep9312 (deprecated)"
+								},
+								{
+									"command": "-march=iwmmxt",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.arch.iwmmxt",
+									"name": "iwmmxt"
+								},
+								{
+									"command": "-march=iwmmxt2",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.arch.iwmmxt2",
+									"name": "iwmmxt2"
+								},
+								{
+									"command": "-march=native",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.arch.native",
+									"name": "Native (-march=native)"
+								},
+								{
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.arch.none",
+									"isDefault": "true",
+									"name": "%option.toolchain.default"
+								}
+							]
+						},
+						{
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.option.base.arm.target.instructionset",
+							"isAbstract": "true",
+							"name": "%option.target.arm.instructionset",
+							"valueType": "enumerated",
+							"enumeratedOptionValue": [
+								{
+									"command": "-mthumb",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.instructionset.thumb",
+									"isDefault": "true",
+									"name": "%option.target.arm.instructionset.thumb"
+								},
+								{
+									"command": "-marm",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.instructionset.arm",
+									"name": "%option.target.arm.instructionset.arm"
+								},
+								{
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.instructionset.default",
+									"name": "%option.target.arm.instructionset.default"
+								}
+							]
+						},
+						{
+							"command": "-mthumb-interwork",
+							"defaultValue": "false",
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.option.base.arm.target.thumbinterwork",
+							"isAbstract": "true",
+							"name": "%option.target.arm.thumbInterwork",
+							"useByScannerDiscovery": "true",
+							"valueType": "boolean"
+						},
+						{
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.option.base.arm.target.endianness",
+							"isAbstract": "true",
+							"name": "%option.target.arm.endianness",
+							"useByScannerDiscovery": "true",
+							"valueType": "enumerated",
+							"enumeratedOptionValue": [
+								{
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.endianness.default",
+									"isDefault": "true",
+									"name": "%option.target.arm.endianness.default "
+								},
+								{
+									"command": "-mlittle-endian",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.endianness.little",
+									"name": "%option.target.arm.endianness.little"
+								},
+								{
+									"command": "-mbig-endian",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.endianness.big",
+									"name": "%option.target.arm.endianness.big"
+								}
+							]
+						},
+						{
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.option.base.arm.target.fpu.abi",
+							"isAbstract": "true",
+							"name": "%option.target.arm.floatABI",
+							"useByScannerDiscovery": "true",
+							"valueHandler": "ilg.gnumcueclipse.managedbuild.cross.arm.FloatABIManagedOptionHandleValue",
+							"valueType": "enumerated",
+							"enumeratedOptionValue": [
+								{
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.fpu.abi.default",
+									"isDefault": "true",
+									"name": "%option.target.arm.floatABI.default"
+								},
+								{
+									"command": "-mfloat-abi=soft",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.fpu.abi.soft",
+									"name": "%option.target.arm.floatABI.soft"
+								},
+								{
+									"command": "-mfloat-abi=softfp",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.fpu.abi.softfp",
+									"name": "%option.target.arm.floatABI.softfp"
+								},
+								{
+									"command": "-mfloat-abi=hard",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.fpu.abi.hard",
+									"name": "%option.target.arm.floatABI.hard"
+								}
+							]
+						},
+						{
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.option.base.arm.target.fpu.unit",
+							"isAbstract": "true",
+							"name": "%option.target.arm.fpuType",
+							"useByScannerDiscovery": "true",
+							"valueType": "enumerated",
+							"enumeratedOptionValue": [
+								{
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.fpu.unit.default",
+									"isDefault": "true",
+									"name": "%option.target.arm.fpuType.default"
+								},
+								{
+									"command": "-mfpu=crypto-neon-fp-armv8",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.fpu.unit.cryptoneonfparmv8",
+									"name": "%option.target.arm.fpuType.cryptoneonfparmv8"
+								},
+								{
+									"command": "-mfpu=fpa",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.fpu.unit.fpa",
+									"name": "%option.target.arm.fpuType.fpa"
+								},
+								{
+									"command": "-mfpu=fpe2",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.fpu.unit.fpe2",
+									"name": "%option.target.arm.fpuType.fpe2"
+								},
+								{
+									"command": "-mfpu=fpe3",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.fpu.unit.fpe3",
+									"name": "%option.target.arm.fpuType.fpe3"
+								},
+								{
+									"command": "-mfpu=fp-armv8",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.fpu.unit.fparmv8",
+									"name": "%option.target.arm.fpuType.fparmv8"
+								},
+								{
+									"command": "-mfpu=fpv4-sp-d16",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.fpu.unit.fpv4spd16",
+									"name": "%option.target.arm.fpuType.fpv4spd16"
+								},
+								{
+									"command": "-mfpu=fpv5-d16",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.fpu.unit.fpv5d16",
+									"name": "%option.target.arm.fpuType.fpv5d16"
+								},
+								{
+									"command": "-mfpu=fpv5-sp-d16",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.fpu.unit.fpv5spd16",
+									"name": "%option.target.arm.fpuType.fpv5spd16"
+								},
+								{
+									"command": "-mfpu=maverick",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.fpu.unit.maverick",
+									"name": "%option.target.arm.fpuType.maverick"
+								},
+								{
+									"command": "-mfpu=neon",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.fpu.unit.neon",
+									"name": "%option.target.arm.fpuType.neon"
+								},
+								{
+									"command": "-mfpu=neon-fp16",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.fpu.unit.neonfp16",
+									"name": "%option.target.arm.fpuType.neonfp16"
+								},
+								{
+									"command": "-mfpu=neon-fp-armv8",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.fpu.unit.neonfparmv8",
+									"name": "%option.target.arm.fpuType.neonfparmv8"
+								},
+								{
+									"command": "-mfpu=neon-vfpv4",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.fpu.unit.neonvfpv4",
+									"name": "%option.target.arm.fpuType.neonvfpv4"
+								},
+								{
+									"command": "-mfpu=vfp",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.fpu.unit.vfp",
+									"name": "%option.target.arm.fpuType.vfp"
+								},
+								{
+									"command": "-mfpu=vfpv3",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.fpu.unit.vfpv3",
+									"name": "%option.target.arm.fpuType.vfpv3"
+								},
+								{
+									"command": "-mfpu=vfpv3-d16",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.fpu.unit.vfpv3d16",
+									"name": "%option.target.arm.fpuType.vfpv3d16"
+								},
+								{
+									"command": "-mfpu=vfpv3-d16-fp16",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.fpu.unit.vfpv3d16fp16",
+									"name": "%option.target.arm.fpuType.vfpv3d16fp16"
+								},
+								{
+									"command": "-mfpu=vfpv3-fp16",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.fpu.unit.vfpv3fp16",
+									"name": "%option.target.arm.fpuType.vfpv3fp16"
+								},
+								{
+									"command": "-mfpu=vfpv3xd",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.fpu.unit.vfpv3xd",
+									"name": "%option.target.arm.fpuType.vfpv3xd"
+								},
+								{
+									"command": "-mfpu=vfpv3xd-fp16",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.fpu.unit.vfpv3xdfp16",
+									"name": "%option.target.arm.fpuType.vfpv3xdfp16"
+								},
+								{
+									"command": "-mfpu=vfpv4",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.fpu.unit.vfpv4",
+									"name": "%option.target.arm.fpuType.vfpv4"
+								},
+								{
+									"command": "-mfpu=vfpv4-d16",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.fpu.unit.vfpv4d16",
+									"name": "%option.target.arm.fpuType.vfpv4d16"
+								}
+							]
+						},
+						{
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.option.base.arm.target.unalignedaccess",
+							"isAbstract": "true",
+							"name": "%option.target.arm.unalignedaccess",
+							"useByScannerDiscovery": "true",
+							"valueType": "enumerated",
+							"enumeratedOptionValue": [
+								{
+									"command": "-munaligned-access",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.unalignedaccess.enabled",
+									"name": "%option.target.arm.unalignedaccess.enabled"
+								},
+								{
+									"command": "-mno-unaligned-access",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.unalignedaccess.disabled",
+									"name": "%option.target.arm.unalignedaccess.disabled"
+								},
+								{
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.unalignedaccess.default",
+									"isDefault": "true",
+									"name": "%option.target.arm.unalignedaccess.default"
+								}
+							]
+						}
+					]
+				},
+				{
+					"id": "ilg.gnuarmeclipse.managedbuild.cross.tool.base.aarch64",
+					"isAbstract": "true",
+					"name": "ARM64 Targets common options",
+					"option": [
+						{
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.option.base.aarch64.target.family",
+							"name": "%option.target.aarch64.family",
+							"valueType": "enumerated",
+							"enumeratedOptionValue": [
+								{
+									"command": "-mcpu=generic",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.aarch64.target.mcpu.generic",
+									"isDefault": "true",
+									"name": "Generic (-mcpu=generic)"
+								},
+								{
+									"command": "-mcpu=large",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.aarch64.target.mcpu.large",
+									"name": "Large (-mcpu=large)"
+								},
+								{
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.aarch64.target.mcpu.default",
+									"name": "Toolchain Default"
+								}
+							]
+						},
+						{
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.option.base.aarch64.target.feature.crc",
+							"name": "%option.target.aarch64.feature.crc",
+							"valueType": "enumerated",
+							"enumeratedOptionValue": [
+								{
+									"command": "crc",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.aarch64.target.feature.crc.enabled",
+									"name": "%option.target.aarch64.feature.crc.enabled"
+								},
+								{
+									"command": "nocrc",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.aarch64.target.feature.crc.disabled",
+									"name": "%option.target.aarch64.feature.crc.disabled"
+								},
+								{
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.aarch64.target.feature.crc.default",
+									"isDefault": "true",
+									"name": "%option.target.aarch64.feature.crc.default"
+								}
+							]
+						},
+						{
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.option.base.aarch64.target.feature.crypto",
+							"name": "%option.target.aarch64.feature.crypto",
+							"valueType": "enumerated",
+							"enumeratedOptionValue": [
+								{
+									"command": "crypto",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.aarch64.target.feature.crypto.enabled",
+									"name": "%option.target.aarch64.feature.crypto.enabled"
+								},
+								{
+									"command": "nocrypto",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.aarch64.target.feature.crypto.disabled",
+									"name": "%option.target.aarch64.feature.crypto.disabled"
+								},
+								{
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.aarch64.target.feature.crypto.default",
+									"isDefault": "true",
+									"name": "%option.target.aarch64.feature.crypto.default"
+								}
+							]
+						},
+						{
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.option.base.aarch64.target.feature.fp",
+							"name": "%option.target.aarch64.feature.fp",
+							"valueType": "enumerated",
+							"enumeratedOptionValue": [
+								{
+									"command": "fp",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.aarch64.target.feature.fp.enabled",
+									"name": "%option.target.aarch64.feature.fp.enabled"
+								},
+								{
+									"command": "nofp",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.aarch64.target.feature.fp.disabled",
+									"name": "%option.target.aarch64.feature.fp.disabled"
+								},
+								{
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.aarch64.target.feature.fp.default",
+									"isDefault": "true",
+									"name": "%option.target.aarch64.feature.fp.default"
+								}
+							]
+						},
+						{
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.option.base.aarch64.target.feature.simd",
+							"name": "%option.target.aarch64.feature.simd",
+							"valueType": "enumerated",
+							"enumeratedOptionValue": [
+								{
+									"command": "simd",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.aarch64.target.feature.simd.enabled",
+									"isDefault": "true",
+									"name": "%option.target.aarch64.feature.simd.enabled"
+								},
+								{
+									"command": "nosimd",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.aarch64.target.feature.simd.disabled",
+									"name": "%option.target.aarch64.feature.simd.disabled"
+								},
+								{
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.aarch64.target.feature.simd.default",
+									"name": "%option.target.aarch64.feature.simd.default"
+								}
+							]
+						},
+						{
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.option.base.aarch64.target.cmodel",
+							"name": "%option.target.aarch64.cmodel",
+							"valueType": "enumerated",
+							"enumeratedOptionValue": [
+								{
+									"command": "-mcmodel=tiny",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.aarch64.target.cmodel.tiny",
+									"name": "%option.target.aarch64.cmodel.tiny"
+								},
+								{
+									"command": "-mcmodel=small",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.aarch64.target.cmodel.small",
+									"isDefault": "true",
+									"name": "%option.target.aarch64.cmodel.small"
+								},
+								{
+									"command": "-mcmodel=large",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.aarch64.target.cmodel.large",
+									"name": "%option.target.aarch64.cmodel.large"
+								},
+								{
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.aarch64.target.cmodel.default",
+									"name": "%option.target.aarch64.cmodel.default"
+								}
+							]
+						},
+						{
+							"command": "-mstrict-align",
+							"defaultValue": "false",
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.option.base.aarch64.target.strictalign",
+							"name": "%option.target.aarch64.strictalign",
+							"valueType": "boolean"
+						}
+					]
+				}
+			],
+			"toolChain": [
+				{
+					"archList": "all",
+					"configurationEnvironmentSupplier": "ilg.gnumcueclipse.managedbuild.cross.arm.EnvironmentVariableSupplier",
+					"configurationMacroSupplier": "ilg.gnumcueclipse.managedbuild.cross.arm.ConfigurationBuildMacroSupplier",
+					"id": "ilg.gnuarmeclipse.managedbuild.cross.toolchain.base",
+					"isAbstract": "false",
+					"languageSettingsProviders": "org.eclipse.cdt.managedbuilder.core.GCCBuildCommandParser;ilg.gnuarmeclipse.managedbuild.cross.GCCBuiltinSpecsDetector",
+					"name": "%toolchain.name",
+					"osList": "all",
+					"targetTool": "ilg.gnuarmeclipse.managedbuild.cross.tool.c.linker;ilg.gnuarmeclipse.managedbuild.cross.tool.cpp.linker;cdt.managedbuild.tool.gnu.archiver",
+					"targetPlatform": [
+						{
+							"archList": "all",
+							"binaryParser": "org.eclipse.cdt.core.ELF",
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.targetPlatform",
+							"isAbstract": "false",
+							"osList": "all"
+						}
+					],
+					"builder": [
+						{
+							"command": "${cross_make}",
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.builder",
+							"superClass": "cdt.managedbuild.target.gnu.builder"
+						}
+					],
+					"option": [
+						{
+							"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.target",
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.option.architecture",
+							"isAbstract": "false",
+							"name": "%option.toolchain.architecture",
+							"valueHandler": "ilg.gnumcueclipse.managedbuild.cross.arm.ToolchainFamilyManagedOptionValueHandler",
+							"valueType": "enumerated",
+							"enumeratedOptionValue": [
+								{
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.architecture.arm",
+									"isDefault": "true",
+									"name": "%option.toolchain.architecture.arm"
+								},
+								{
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.architecture.aarch64",
+									"name": "%option.toolchain.architecture.aarch64"
+								}
+							]
+						},
+						{
+							"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.target",
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.option.command.prefix",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.command.prefix"
+						},
+						{
+							"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.target",
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.option.command.suffix",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.command.suffix"
+						},
+						{
+							"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.target",
+							"defaultValue": "echo",
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.option.command.c",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.command.c"
+						},
+						{
+							"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.target",
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.option.command.cpp",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.command.cpp"
+						},
+						{
+							"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.target",
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.option.command.ar",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.command.ar"
+						},
+						{
+							"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.target",
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.option.command.objcopy",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.command.objcopy"
+						},
+						{
+							"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.target",
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.option.command.objdump",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.command.objdump"
+						},
+						{
+							"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.target",
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.option.command.size",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.command.size"
+						},
+						{
+							"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.target",
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.option.command.make",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.command.make"
+						},
+						{
+							"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.target",
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.option.command.rm",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.command.rm"
+						},
+						{
+							"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.target",
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.option.toolchain.useglobalpath",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.toolchain.useglobalpath"
+						},
+						{
+							"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.target",
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.option.toolchain.path",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.toolchain.path"
+						},
+						{
+							"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.target",
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.option.addtools.createflash",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.toolchain.createflash"
+						},
+						{
+							"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.target",
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.option.addtools.createlisting",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.toolchain.createlisting"
+						},
+						{
+							"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.target",
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.option.addtools.printsize",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.toolchain.printsize"
+						},
+						{
+							"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.target",
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.family",
+							"superClass": "ilg.gnuarmeclipse.managedbuild.cross.option.base.arm.target.family"
+						},
+						{
+							"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.target",
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.architecture",
+							"superClass": "ilg.gnuarmeclipse.managedbuild.cross.option.base.arm.target.architecture"
+						},
+						{
+							"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.target",
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.instructionset",
+							"superClass": "ilg.gnuarmeclipse.managedbuild.cross.option.base.arm.target.instructionset"
+						},
+						{
+							"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.target",
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.thumbinterwork",
+							"superClass": "ilg.gnuarmeclipse.managedbuild.cross.option.base.arm.target.thumbinterwork"
+						},
+						{
+							"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.target",
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.endianness",
+							"superClass": "ilg.gnuarmeclipse.managedbuild.cross.option.base.arm.target.endianness"
+						},
+						{
+							"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.target",
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.fpu.abi",
+							"superClass": "ilg.gnuarmeclipse.managedbuild.cross.option.base.arm.target.fpu.abi"
+						},
+						{
+							"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.target",
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.fpu.unit",
+							"superClass": "ilg.gnuarmeclipse.managedbuild.cross.option.base.arm.target.fpu.unit"
+						},
+						{
+							"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.target",
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.unalignedaccess",
+							"superClass": "ilg.gnuarmeclipse.managedbuild.cross.option.base.arm.target.unalignedaccess"
+						},
+						{
+							"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.target",
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.option.aarch64.target.family",
+							"superClass": "ilg.gnuarmeclipse.managedbuild.cross.option.base.aarch64.target.family"
+						},
+						{
+							"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.target",
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.option.aarch64.target.feature.crc",
+							"superClass": "ilg.gnuarmeclipse.managedbuild.cross.option.base.aarch64.target.feature.crc"
+						},
+						{
+							"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.target",
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.option.aarch64.target.feature.crypto",
+							"superClass": "ilg.gnuarmeclipse.managedbuild.cross.option.base.aarch64.target.feature.crypto"
+						},
+						{
+							"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.target",
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.option.aarch64.target.feature.fp",
+							"superClass": "ilg.gnuarmeclipse.managedbuild.cross.option.base.aarch64.target.feature.fp"
+						},
+						{
+							"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.target",
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.option.aarch64.target.feature.simd",
+							"superClass": "ilg.gnuarmeclipse.managedbuild.cross.option.base.aarch64.target.feature.simd"
+						},
+						{
+							"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.target",
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.option.aarch64.target.cmodel",
+							"superClass": "ilg.gnuarmeclipse.managedbuild.cross.option.base.aarch64.target.cmodel"
+						},
+						{
+							"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.target",
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.option.aarch64.target.strictalign",
+							"superClass": "ilg.gnuarmeclipse.managedbuild.cross.option.base.aarch64.target.strictalign"
+						},
+						{
+							"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.target",
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.option.target.other",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.target.other"
+						},
+						{
+							"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.optimization",
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.option.optimization.level",
+							"superClass": "ilg.gnuarmeclipse.managedbuild.cross.option.base.optimization.level"
+						},
+						{
+							"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.optimization",
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.option.optimization.messagelength",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.optimization.messagelength"
+						},
+						{
+							"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.optimization",
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.option.optimization.signedchar",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.optimization.signedchar"
+						},
+						{
+							"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.optimization",
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.option.optimization.functionsections",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.optimization.functionsections"
+						},
+						{
+							"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.optimization",
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.option.optimization.datasections",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.optimization.datasections"
+						},
+						{
+							"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.optimization",
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.option.optimization.nocommon",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.optimization.nocommon"
+						},
+						{
+							"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.optimization",
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.option.optimization.noinlinefunctions",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.optimization.noinlinefunctions"
+						},
+						{
+							"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.optimization",
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.option.optimization.freestanding",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.optimization.freestanding"
+						},
+						{
+							"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.optimization",
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.option.optimization.nobuiltin",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.optimization.nobuiltin"
+						},
+						{
+							"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.optimization",
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.option.optimization.spconstant",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.optimization.spconstant"
+						},
+						{
+							"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.optimization",
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.option.optimization.PIC",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.optimization.PIC"
+						},
+						{
+							"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.optimization",
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.option.optimization.lto",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.optimization.lto"
+						},
+						{
+							"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.optimization",
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.option.optimization.nomoveloopinvariants",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.optimization.nomoveloopinvariants"
+						},
+						{
+							"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.optimization",
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.option.optimization.other",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.optimization.other"
+						},
+						{
+							"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.target",
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.option.toolchain.name",
+							"isAbstract": "false",
+							"resourceFilter": "all",
+							"valueType": "string"
+						},
+						{
+							"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.warnings",
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.option.warnings.syntaxonly",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.warnings.syntaxonly"
+						},
+						{
+							"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.warnings",
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.option.warnings.pedantic",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.warnings.pedantic"
+						},
+						{
+							"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.warnings",
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.option.warnings.pedanticerrors",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.warnings.pedanticerrors"
+						},
+						{
+							"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.warnings",
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.option.warnings.nowarn",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.warnings.nowarn"
+						},
+						{
+							"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.warnings",
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.option.warnings.unused",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.warnings.unused"
+						},
+						{
+							"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.warnings",
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.option.warnings.uninitialized",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.warnings.uninitialized"
+						},
+						{
+							"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.warnings",
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.option.warnings.allwarn",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.warnings.allwarn"
+						},
+						{
+							"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.warnings",
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.option.warnings.extrawarn",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.warnings.extrawarn"
+						},
+						{
+							"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.warnings",
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.option.warnings.missingdeclaration",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.warnings.missingdeclaration"
+						},
+						{
+							"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.warnings",
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.option.warnings.conversion",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.warnings.conversion"
+						},
+						{
+							"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.warnings",
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.option.warnings.pointerarith",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.warnings.pointerarith"
+						},
+						{
+							"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.warnings",
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.option.warnings.padded",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.warnings.padded"
+						},
+						{
+							"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.warnings",
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.option.warnings.shadow",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.warnings.shadow"
+						},
+						{
+							"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.warnings",
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.option.warnings.logicalop",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.warnings.logicalop"
+						},
+						{
+							"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.warnings",
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.option.warnings.agreggatereturn",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.warnings.agreggatereturn"
+						},
+						{
+							"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.warnings",
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.option.warnings.floatequal",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.warnings.floatequal"
+						},
+						{
+							"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.warnings",
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.option.warnings.toerrors",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.warnings.toerrors"
+						},
+						{
+							"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.warnings",
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.option.warnings.other",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.warnings.other"
+						},
+						{
+							"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.debugging",
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.option.debugging.level",
+							"superClass": "ilg.gnuarmeclipse.managedbuild.cross.option.base.debugging.level"
+						},
+						{
+							"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.debugging",
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.option.debugging.format",
+							"superClass": "ilg.gnuarmeclipse.managedbuild.cross.option.base.debugging.format"
+						},
+						{
+							"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.debugging",
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.option.debugging.prof",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.debugging.prof"
+						},
+						{
+							"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.debugging",
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.option.debugging.gprof",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.debugging.gprof"
+						},
+						{
+							"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.debugging",
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.option.debugging.other",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.debugging.other"
+						}
+					],
+					"optionCategory": [
+						{
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.target",
+							"name": "%optionCategory.target"
+						},
+						{
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.optimization",
+							"name": "%optionCategory.optimization"
+						},
+						{
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.warnings",
+							"name": "%optionCategory.warnings"
+						},
+						{
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.debugging",
+							"name": "%optionCategory.debugging"
+						}
+					],
+					"tool": [
+						{
+							"command": "${cross_prefix}${cross_c}${cross_suffix}",
+							"commandLineGenerator": "ilg.gnumcueclipse.managedbuild.cross.CompilerCommandLineGenerator",
+							"commandLinePattern": "${COMMAND} ${cross_toolchain_flags} ${FLAGS} -c ${OUTPUT_FLAG} ${OUTPUT_PREFIX}${OUTPUT} ${INPUTS}",
+							"errorParsers": "org.eclipse.cdt.core.GCCErrorParser;org.eclipse.cdt.core.GASErrorParser",
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.tool.assembler",
+							"isAbstract": "false",
+							"name": "%tool.assembler",
+							"natureFilter": "both",
+							"outputFlag": "-o",
+							"supportedProperties": [
+								{
+									"property": [
+										{
+											"id": "org.eclipse.cdt.build.core.buildType",
+											"value": [
+												{
+													"id": "org.eclipse.cdt.build.core.buildType.debug"
+												},
+												{
+													"id": "org.eclipse.cdt.build.core.buildType.release"
+												}
+											]
+										}
+									]
+								}
+							],
+							"envVarBuildPath": [
+								{
+									"pathType": "buildpathInclude",
+									"variableList": "CPATH,C_INCLUDE_PATH"
+								}
+							],
+							"inputType": [
+								{
+									"dependencyCalculator": "org.eclipse.cdt.managedbuilder.makegen.gnu.DefaultGCCDependencyCalculator2",
+									"dependencyContentType": "org.eclipse.cdt.core.cHeader",
+									"dependencyExtensions": "h",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.tool.assembler.input",
+									"sources": "s,S,asm",
+									"superClass": "cdt.managedbuild.tool.gnu.assembler.input"
+								}
+							],
+							"outputType": [
+								{
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.tool.assembler.output",
+									"superClass": "cdt.managedbuild.tool.gnu.assembler.output"
+								}
+							],
+							"optionCategory": [
+								{
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.assembler.preprocessor",
+									"name": "%optionCategory.compiler.preprocessor"
+								},
+								{
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.assembler.dirs",
+									"name": "%optionCategory.compiler.dirs"
+								},
+								{
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.assembler.warnings",
+									"name": "%optionCategory.compiler.warnings"
+								},
+								{
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.assembler.misc",
+									"name": "%optionCategory.compiler.misc"
+								}
+							],
+							"option": [
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.assembler.preprocessor",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.assembler.usepreprocessor",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.assembler.usepreprocessor"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.assembler.preprocessor",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.assembler.nostdinc",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.preprocessor.nostdinc"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.assembler.preprocessor",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.assembler.preprocessonly",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.preprocessor.preprocessonly"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.assembler.preprocessor",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.assembler.defs",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.preprocessor.defs"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.assembler.preprocessor",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.assembler.undefs",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.preprocessor.undefs"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.assembler.dirs",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.assembler.include.paths",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.dirs.include.paths"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.assembler.dirs",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.assembler.include.files",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.dirs.include.files"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.assembler.warnings",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.assembler.otherwarnings",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.warnings.other"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.assembler.misc",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.assembler.flags",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.assembler.flags"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.assembler.misc",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.assembler.asmlisting",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.asmlisting"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.assembler.misc",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.assembler.savetemps",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.savetemps"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.assembler.misc",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.assembler.verbose",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.verbose"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.assembler.misc",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.assembler.other",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.assembler.other"
+								}
+							]
+						},
+						{
+							"command": "${cross_prefix}${cross_c}${cross_suffix}",
+							"commandLineGenerator": "ilg.gnumcueclipse.managedbuild.cross.CompilerCommandLineGenerator",
+							"commandLinePattern": "${COMMAND} ${cross_toolchain_flags} ${FLAGS} -c ${OUTPUT_FLAG} ${OUTPUT_PREFIX}${OUTPUT} ${INPUTS}",
+							"errorParsers": "org.eclipse.cdt.core.GCCErrorParser;org.eclipse.cdt.core.GLDErrorParser",
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.tool.c.compiler",
+							"isAbstract": "false",
+							"name": "%tool.c.compiler",
+							"natureFilter": "both",
+							"outputFlag": "-o",
+							"supportedProperties": [
+								{
+									"property": [
+										{
+											"id": "org.eclipse.cdt.build.core.buildType",
+											"value": [
+												{
+													"id": "org.eclipse.cdt.build.core.buildType.debug"
+												},
+												{
+													"id": "org.eclipse.cdt.build.core.buildType.release"
+												}
+											]
+										}
+									]
+								}
+							],
+							"envVarBuildPath": [
+								{
+									"pathType": "buildpathInclude",
+									"variableList": "CPATH,C_INCLUDE_PATH"
+								}
+							],
+							"inputType": [
+								{
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.tool.c.compiler.input",
+									"superClass": "cdt.managedbuild.tool.gnu.c.compiler.input"
+								}
+							],
+							"outputType": [
+								{
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.tool.c.compiler.output",
+									"superClass": "cdt.managedbuild.tool.gnu.c.compiler.output"
+								}
+							],
+							"optionCategory": [
+								{
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.c.compiler.preprocessor",
+									"name": "%optionCategory.compiler.preprocessor"
+								},
+								{
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.c.compiler.dirs",
+									"name": "%optionCategory.compiler.dirs"
+								},
+								{
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.c.compiler.optimization",
+									"name": "%optionCategory.compiler.optimization"
+								},
+								{
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.c.compiler.warnings",
+									"name": "%optionCategory.compiler.warnings"
+								},
+								{
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.c.compiler.misc",
+									"name": "%optionCategory.compiler.misc"
+								}
+							],
+							"option": [
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.c.compiler.preprocessor",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.nostdinc",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.preprocessor.nostdinc"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.c.compiler.preprocessor",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.preprocessonly",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.preprocessor.preprocessonly"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.c.compiler.preprocessor",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.defs",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.preprocessor.defs"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.c.compiler.preprocessor",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.undef",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.preprocessor.undefs"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.c.compiler.dirs",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.include.paths",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.dirs.include.paths"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.c.compiler.dirs",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.include.files",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.dirs.include.files"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.c.compiler.optimization",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.std",
+									"name": "%option.compiler.std",
+									"useByScannerDiscovery": "true",
+									"valueType": "enumerated",
+									"enumeratedOptionValue": [
+										{
+											"id": "ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.std.default",
+											"name": "%option.c.compiler.std.default"
+										},
+										{
+											"command": "-ansi",
+											"id": "ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.std.ansi",
+											"name": "%option.c.compiler.std.ansi"
+										},
+										{
+											"command": "-std=gnu90",
+											"id": "ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.std.gnu90",
+											"name": "%option.c.compiler.std.gnu90"
+										},
+										{
+											"command": "-std=c99",
+											"id": "ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.std.c99",
+											"name": "%option.c.compiler.std.c99"
+										},
+										{
+											"command": "-std=gnu99",
+											"id": "ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.std.gnu99",
+											"name": "%option.c.compiler.std.gnu99"
+										},
+										{
+											"command": "-std=c11",
+											"id": "ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.std.c11",
+											"name": "%option.c.compiler.std.c11"
+										},
+										{
+											"command": "-std=gnu11",
+											"id": "ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.std.gnu11",
+											"isDefault": "true",
+											"name": "%option.c.compiler.std.gnu11"
+										}
+									]
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.c.compiler.optimization",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.otheroptimizations",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.optimization.other"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.c.compiler.warnings",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.warning.missingprototypes",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.c.compiler.warning.missingprototypes"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.c.compiler.warnings",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.warning.strictprototypes",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.c.compiler.warning.strictprototypes"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.c.compiler.warnings",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.warning.badfunctioncast",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.c.compiler.warning.badfunctioncast"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.c.compiler.warnings",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.otherwarnings",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.warnings.other"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.c.compiler.misc",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.asmlisting",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.asmlisting"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.c.compiler.misc",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.savetemps",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.savetemps"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.c.compiler.misc",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.verbose",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.verbose"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.c.compiler.misc",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.other",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.compiler.other"
+								}
+							]
+						},
+						{
+							"command": "${cross_prefix}${cross_cpp}${cross_suffix}",
+							"commandLineGenerator": "ilg.gnumcueclipse.managedbuild.cross.CompilerCommandLineGenerator",
+							"commandLinePattern": "${COMMAND} ${cross_toolchain_flags} ${FLAGS} -c ${OUTPUT_FLAG} ${OUTPUT_PREFIX}${OUTPUT} ${INPUTS}",
+							"errorParsers": "org.eclipse.cdt.core.GCCErrorParser;org.eclipse.cdt.core.GLDErrorParser",
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.tool.cpp.compiler",
+							"isAbstract": "false",
+							"name": "%tool.cpp.compiler",
+							"natureFilter": "ccnature",
+							"outputFlag": "-o",
+							"supportedProperties": [
+								{
+									"property": [
+										{
+											"id": "org.eclipse.cdt.build.core.buildType",
+											"value": [
+												{
+													"id": "org.eclipse.cdt.build.core.buildType.debug"
+												},
+												{
+													"id": "org.eclipse.cdt.build.core.buildType.release"
+												}
+											]
+										}
+									]
+								}
+							],
+							"envVarBuildPath": [
+								{
+									"pathType": "buildpathInclude",
+									"variableList": "CPATH,CPLUS_INCLUDE_PATH"
+								}
+							],
+							"inputType": [
+								{
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.tool.cpp.compiler.input",
+									"superClass": "cdt.managedbuild.tool.gnu.cpp.compiler.input"
+								}
+							],
+							"outputType": [
+								{
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.tool.cpp.compiler.output",
+									"superClass": "cdt.managedbuild.tool.gnu.cpp.compiler.output"
+								}
+							],
+							"optionCategory": [
+								{
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.cpp.compiler.preprocessor",
+									"name": "%optionCategory.compiler.preprocessor"
+								},
+								{
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.cpp.compiler.dirs",
+									"name": "%optionCategory.compiler.dirs"
+								},
+								{
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.cpp.compiler.optimization",
+									"name": "%optionCategory.compiler.optimization"
+								},
+								{
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.cpp.compiler.warnings",
+									"name": "%optionCategory.compiler.warnings"
+								},
+								{
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.cpp.compiler.misc",
+									"name": "%optionCategory.compiler.misc"
+								}
+							],
+							"option": [
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.cpp.compiler.preprocessor",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.nostdinc",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.preprocessor.nostdinc"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.cpp.compiler.preprocessor",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.nostdincpp",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.cpp.compiler.nostdincpp"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.cpp.compiler.preprocessor",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.preprocessonly",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.preprocessor.preprocessonly"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.cpp.compiler.preprocessor",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.defs",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.preprocessor.defs"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.cpp.compiler.preprocessor",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.undef",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.preprocessor.undefs"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.cpp.compiler.dirs",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.include.paths",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.dirs.include.paths"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.cpp.compiler.dirs",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.include.files",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.dirs.include.files"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.cpp.compiler.optimization",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.std",
+									"name": "%option.compiler.std",
+									"useByScannerDiscovery": "true",
+									"valueType": "enumerated",
+									"enumeratedOptionValue": [
+										{
+											"id": "ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.std.default",
+											"name": "%option.cpp.compiler.std.default"
+										},
+										{
+											"command": "-ansi",
+											"id": "ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.std.ansi",
+											"name": "%option.cpp.compiler.std.ansi"
+										},
+										{
+											"command": "-std=gnu++98",
+											"id": "ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.std.gnucpp98",
+											"name": "%option.cpp.compiler.std.gnucpp98"
+										},
+										{
+											"command": "-std=c++11",
+											"id": "ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.std.cpp11",
+											"name": "%option.cpp.compiler.std.cpp11"
+										},
+										{
+											"command": "-std=c++0x",
+											"id": "ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.std.cpp0x",
+											"name": "%option.cpp.compiler.std.cpp0x"
+										},
+										{
+											"command": "-std=gnu++11",
+											"id": "ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.std.gnucpp11",
+											"isDefault": "true",
+											"name": "%option.cpp.compiler.std.gnucpp11"
+										},
+										{
+											"command": "-std=gnu++0x",
+											"id": "ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.std.gnucpp0x",
+											"name": "%option.cpp.compiler.std.gnucpp0x"
+										},
+										{
+											"command": "-std=c++14",
+											"id": "ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.std.cpp14",
+											"name": "%option.cpp.compiler.std.cpp14"
+										},
+										{
+											"command": "-std=c++1y",
+											"id": "ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.std.cpp1y",
+											"name": "%option.cpp.compiler.std.cpp1y"
+										},
+										{
+											"command": "-std=gnu++14",
+											"id": "ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.std.gnucpp14",
+											"name": "%option.cpp.compiler.std.gnucpp14"
+										},
+										{
+											"command": "-std=gnu++1y",
+											"id": "ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.std.gnucpp1y",
+											"name": "%option.cpp.compiler.std.gnucpp1y"
+										},
+										{
+											"command": "-std=c++1z",
+											"id": "ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.std.cpp1z",
+											"name": "%option.cpp.compiler.std.cpp1z"
+										},
+										{
+											"command": "-std=gnu++1z",
+											"id": "ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.std.gnucpp1z",
+											"name": "%option.cpp.compiler.std.gnucpp1z"
+										}
+									]
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.cpp.compiler.optimization",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.abiversion",
+									"name": "%option.cpp.compiler.abiversion",
+									"useByScannerDiscovery": "true",
+									"valueType": "enumerated",
+									"enumeratedOptionValue": [
+										{
+											"id": "ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.abiversion.default",
+											"name": "%option.cpp.compiler.abiversion.default"
+										},
+										{
+											"command": "-fabi-version=0",
+											"id": "ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.abiversion.0",
+											"isDefault": "true",
+											"name": "%option.cpp.compiler.abiversion.0"
+										},
+										{
+											"command": "-fabi-version=1",
+											"id": "ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.abiversion.1",
+											"name": "%option.cpp.compiler.abiversion.1"
+										},
+										{
+											"command": "-fabi-version=2",
+											"id": "ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.abiversion.2",
+											"name": "%option.cpp.compiler.abiversion.2"
+										},
+										{
+											"command": "-fabi-version=3",
+											"id": "ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.abiversion.3",
+											"name": "%option.cpp.compiler.abiversion.3"
+										},
+										{
+											"command": "-fabi-version=4",
+											"id": "ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.abiversion.4",
+											"name": "%option.cpp.compiler.abiversion.4"
+										},
+										{
+											"command": "-fabi-version=5",
+											"id": "ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.abiversion.5",
+											"name": "%option.cpp.compiler.abiversion.5"
+										},
+										{
+											"command": "-fabi-version=6",
+											"id": "ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.abiversion.6",
+											"name": "%option.cpp.compiler.abiversion.6"
+										},
+										{
+											"command": "-fabi-version=7",
+											"id": "ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.abiversion.7",
+											"name": "%option.cpp.compiler.abiversion.7"
+										},
+										{
+											"command": "-fabi-version=8",
+											"id": "ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.abiversion.8",
+											"name": "%option.cpp.compiler.abiversion.8"
+										},
+										{
+											"command": "-fabi-version=9",
+											"id": "ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.abiversion.9",
+											"name": "%option.cpp.compiler.abiversion.9"
+										}
+									]
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.cpp.compiler.optimization",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.noexceptions",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.cpp.compiler.noexceptions"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.cpp.compiler.optimization",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.nortti",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.cpp.compiler.nortti"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.cpp.compiler.optimization",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.nousecxaatexit",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.cpp.compiler.nousecxaatexit"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.cpp.compiler.optimization",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.nothreadsafestatics",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.cpp.compiler.nothreadsafestatics"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.cpp.compiler.optimization",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.otheroptimizations",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.optimization.other"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.cpp.compiler.warnings",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.warnabi",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.cpp.compiler.warnabi"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.cpp.compiler.warnings",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.warning.ctordtorprivacy",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.cpp.compiler.warning.ctordtorprivacy"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.cpp.compiler.warnings",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.warning.noexcept",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.cpp.compiler.warning.noexcept"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.cpp.compiler.warnings",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.warning.nonvirtualdtor",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.cpp.compiler.warning.nonvirtualdtor"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.cpp.compiler.warnings",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.warning.strictnullsentinel",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.cpp.compiler.warning.strictnullsentinel"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.cpp.compiler.warnings",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.warning.signpromo",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.cpp.compiler.warning.signpromo"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.cpp.compiler.warnings",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.warneffc",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.cpp.compiler.warneffc"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.cpp.compiler.warnings",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.otherwarnings",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.warnings.other"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.cpp.compiler.misc",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.asmlisting",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.asmlisting"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.cpp.compiler.misc",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.savetemps",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.savetemps"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.cpp.compiler.misc",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.verbose",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.verbose"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.cpp.compiler.misc",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.other",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.compiler.other"
+								}
+							]
+						},
+						{
+							"command": "${cross_prefix}${cross_c}${cross_suffix}",
+							"commandLinePattern": "${COMMAND} ${cross_toolchain_flags} ${FLAGS} ${OUTPUT_FLAG} ${OUTPUT_PREFIX}${OUTPUT} ${INPUTS}",
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.tool.c.linker",
+							"name": "%tool.c.linker",
+							"natureFilter": "cnature",
+							"outputFlag": "-o",
+							"supportedProperties": [
+								{
+									"property": [
+										{
+											"id": "org.eclipse.cdt.build.core.buildArtefactType",
+											"value": [
+												{
+													"id": "org.eclipse.cdt.build.core.buildArtefactType.exe"
+												},
+												{
+													"id": "org.eclipse.cdt.build.core.buildArtefactType.sharedLib"
+												}
+											]
+										}
+									]
+								}
+							],
+							"envVarBuildPath": [
+								{
+									"pathType": "buildpathLibrary",
+									"variableList": "LIBRARY_PATH"
+								}
+							],
+							"inputType": [
+								{
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.tool.c.linker.input",
+									"superClass": "cdt.managedbuild.tool.gnu.c.linker.input",
+									"additionalInput": [
+										{
+											"kind": "additionalinputdependency",
+											"paths": "$(USER_OBJS)"
+										},
+										{
+											"kind": "additionalinput",
+											"paths": "$(LIBS)"
+										}
+									]
+								}
+							],
+							"outputType": [
+								{
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.tool.c.linker.output",
+									"superClass": "cdt.managedbuild.tool.gnu.c.linker.output"
+								},
+								{
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.tool.c.linker.output.so",
+									"superClass": "cdt.managedbuild.tool.gnu.c.linker.output.so"
+								}
+							],
+							"optionCategory": [
+								{
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.c.linker.general",
+									"name": "%optionCategory.general"
+								},
+								{
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.c.linker.libs",
+									"name": "%optionCategory.linker.libraries"
+								},
+								{
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.c.linker.misc",
+									"name": "%optionCategory.linker.misc"
+								},
+								{
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.c.linker.shared",
+									"name": "%optionCategory.linker.shared"
+								}
+							],
+							"option": [
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.c.linker.general",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.c.linker.scriptfile",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.scriptfile"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.c.linker.general",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.c.linker.nostart",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.nostart"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.c.linker.general",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.c.linker.nodeflibs",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.nodeflibs"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.c.linker.general",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.c.linker.nostdlibs",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.nostdlibs"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.c.linker.general",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.c.linker.gcsections",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.gcsections"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.c.linker.general",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.c.linker.printgcsections",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.printgcsections"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.c.linker.general",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.c.linker.strip",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.strip"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.c.linker.libs",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.c.linker.libs",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.libs"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.c.linker.libs",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.c.linker.paths",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.paths"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.c.linker.misc",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.c.linker.flags",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.flags"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.c.linker.misc",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.c.linker.otherobjs",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.otherobjs"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.c.linker.misc",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.c.linker.mapfilename",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.mapfilename"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.c.linker.misc",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.c.linker.cref",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.cref"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.c.linker.misc",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.c.linker.printmap",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.printmap"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.c.linker.misc",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.c.linker.usenewlibnano",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.usenewlibnano"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.c.linker.misc",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.c.linker.useprintffloat",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.useprintffloat"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.c.linker.misc",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.c.linker.usescanffloat",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.usescanffloat"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.c.linker.misc",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.c.linker.verbose",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.verbose"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.c.linker.misc",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.c.linker.other",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.other"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.c.linker.shared",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.c.linker.shared",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.shared"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.c.linker.shared",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.c.linker.soname",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.soname"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.c.linker.shared",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.c.linker.implname",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.implname"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.c.linker.shared",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.c.linker.defname",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.defname"
+								}
+							]
+						},
+						{
+							"command": "${cross_prefix}${cross_cpp}${cross_suffix}",
+							"commandLinePattern": "${COMMAND} ${cross_toolchain_flags} ${FLAGS} ${OUTPUT_FLAG} ${OUTPUT_PREFIX}${OUTPUT} ${INPUTS}",
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.tool.cpp.linker",
+							"name": "%tool.cpp.linker",
+							"natureFilter": "ccnature",
+							"outputFlag": "-o",
+							"supportedProperties": [
+								{
+									"property": [
+										{
+											"id": "org.eclipse.cdt.build.core.buildArtefactType",
+											"value": [
+												{
+													"id": "org.eclipse.cdt.build.core.buildArtefactType.exe"
+												},
+												{
+													"id": "org.eclipse.cdt.build.core.buildArtefactType.sharedLib"
+												}
+											]
+										}
+									]
+								}
+							],
+							"envVarBuildPath": [
+								{
+									"pathType": "buildpathLibrary",
+									"variableList": "LIBRARY_PATH"
+								}
+							],
+							"inputType": [
+								{
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.tool.cpp.linker.input",
+									"superClass": "cdt.managedbuild.tool.gnu.cpp.linker.input",
+									"additionalInput": [
+										{
+											"kind": "additionalinputdependency",
+											"paths": "$(USER_OBJS)"
+										},
+										{
+											"kind": "additionalinput",
+											"paths": "$(LIBS)"
+										}
+									]
+								}
+							],
+							"outputType": [
+								{
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.tool.cpp.linker.output",
+									"superClass": "cdt.managedbuild.tool.gnu.cpp.linker.output"
+								},
+								{
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.tool.cpp.linker.output.so",
+									"superClass": "cdt.managedbuild.tool.gnu.cpp.linker.output.so"
+								}
+							],
+							"optionCategory": [
+								{
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.cpp.linker.general",
+									"name": "%optionCategory.general"
+								},
+								{
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.cpp.linker.libs",
+									"name": "%optionCategory.linker.libraries"
+								},
+								{
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.cpp.linker.misc",
+									"name": "%optionCategory.linker.misc"
+								},
+								{
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.cpp.linker.shared",
+									"name": "%optionCategory.linker.shared"
+								}
+							],
+							"option": [
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.cpp.linker.general",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.cpp.linker.scriptfile",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.scriptfile"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.cpp.linker.general",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.cpp.linker.nostart",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.nostart"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.cpp.linker.general",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.cpp.linker.nodeflibs",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.nodeflibs"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.cpp.linker.general",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.cpp.linker.nostdlibs",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.nostdlibs"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.cpp.linker.general",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.cpp.linker.gcsections",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.gcsections"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.cpp.linker.general",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.cpp.linker.printgcsections",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.printgcsections"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.cpp.linker.general",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.cpp.linker.strip",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.strip"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.cpp.linker.libs",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.cpp.linker.libs",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.libs"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.cpp.linker.libs",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.cpp.linker.paths",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.paths"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.cpp.linker.misc",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.cpp.linker.flags",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.flags"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.cpp.linker.misc",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.cpp.linker.otherobjs",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.otherobjs"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.cpp.linker.misc",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.cpp.linker.mapfilename",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.mapfilename"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.cpp.linker.misc",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.cpp.linker.cref",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.cref"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.cpp.linker.misc",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.cpp.linker.printmap",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.printmap"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.cpp.linker.misc",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.cpp.linker.usenewlibnano",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.usenewlibnano"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.cpp.linker.misc",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.cpp.linker.useprintffloat",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.useprintffloat"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.cpp.linker.misc",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.cpp.linker.usescanffloat",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.usescanffloat"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.cpp.linker.misc",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.cpp.linker.verbose",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.verbose"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.cpp.linker.misc",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.cpp.linker.other",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.other"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.cpp.linker.shared",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.cpp.linker.shared",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.shared"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.cpp.linker.shared",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.cpp.linker.soname",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.soname"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.cpp.linker.shared",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.cpp.linker.implname",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.implname"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.cpp.linker.shared",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.cpp.linker.defname",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.defname"
+								}
+							]
+						},
+						{
+							"command": "${cross_prefix}${cross_ar}${cross_suffix}",
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.tool.archiver",
+							"isAbstract": "false",
+							"name": "%tool.archiver",
+							"natureFilter": "both",
+							"superClass": "cdt.managedbuild.tool.gnu.archiver"
+						},
+						{
+							"command": "${cross_prefix}${cross_objcopy}${cross_suffix}",
+							"commandLinePattern": "${COMMAND} ${FLAGS} ${OUTPUT_FLAG} ${OUTPUT_PREFIX}${OUTPUT}",
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.tool.createflash",
+							"isAbstract": "false",
+							"name": "%tool.flash",
+							"natureFilter": "both",
+							"inputType": [
+								{
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.createflash.input",
+									"multipleOfType": "true",
+									"option": "ilg.gnuarmeclipse.managedbuild.cross.option.createflash.InFileName",
+									"sources": "elf"
+								}
+							],
+							"outputType": [
+								{
+									"buildVariable": "SECONDARY_FLASH",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.createflash.output",
+									"nameProvider": "ilg.gnumcueclipse.managedbuild.cross.arm.FlashImageManagedOutputNameProvider",
+									"outputContentType": "ilg.gnuarmeclipse.managedbuild.cross.content-type.hex",
+									"outputs": "hex",
+									"primaryOutput": "false"
+								}
+							],
+							"optionCategory": [
+								{
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.createflash.general",
+									"name": "%optionCategory.general"
+								}
+							],
+							"option": [
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.createflash.general",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.createflash.choice",
+									"name": "%option.flash.outformat",
+									"valueType": "enumerated",
+									"enumeratedOptionValue": [
+										{
+											"command": "-O ihex",
+											"id": "ilg.gnuarmeclipse.managedbuild.cross.option.createflash.choice.ihex",
+											"isDefault": "true",
+											"name": "%option.flash.outformat.ihex"
+										},
+										{
+											"command": "-O srec",
+											"id": "ilg.gnuarmeclipse.managedbuild.cross.option.createflash.choice.srec",
+											"name": "%option.flash.outformat.srec"
+										},
+										{
+											"command": "-O symbolsrec",
+											"id": "ilg.gnuarmeclipse.managedbuild.cross.option.createflash.choice.symbolsrec",
+											"name": "%option.flash.outformat.symbolsrec"
+										},
+										{
+											"command": "-O binary",
+											"id": "ilg.gnuarmeclipse.managedbuild.cross.option.createflash.choice.binary",
+											"name": "%option.flash.outformat.binary"
+										}
+									]
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.createflash.general",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.createflash.textsection",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.createflash.textsection"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.createflash.general",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.createflash.datasection",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.createflash.datasection"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.createflash.general",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.createflash.othersection",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.createflash.othersection"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.createflash.general",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.createflash.other",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.createflash.other"
+								},
+								{
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.createflash.InFileName",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.createflash.InFileName"
+								}
+							]
+						},
+						{
+							"command": "${cross_prefix}${cross_objdump}${cross_suffix}",
+							"commandLinePattern": "${COMMAND} ${FLAGS} ${OUTPUT_FLAG} ${OUTPUT_PREFIX}${OUTPUT}",
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.tool.createlisting",
+							"isAbstract": "false",
+							"name": "%tool.listing",
+							"natureFilter": "both",
+							"outputFlag": ">",
+							"inputType": [
+								{
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.createlisting.input",
+									"multipleOfType": "true",
+									"option": "ilg.gnuarmeclipse.managedbuild.cross.option.createlisting.InFileName",
+									"sources": "elf"
+								}
+							],
+							"outputType": [
+								{
+									"buildVariable": "SECONDARY_LIST",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.createlisting.output",
+									"outputNames": "${BuildArtifactFileBaseName}.lst",
+									"outputs": "lst",
+									"primaryOutput": "false"
+								}
+							],
+							"optionCategory": [
+								{
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.createlisting.general",
+									"name": "%optionCategory.general"
+								}
+							],
+							"option": [
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.createlisting.general",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.createlisting.source",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.createlisting.source"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.createlisting.general",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.createlisting.allheaders",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.createlisting.allheaders"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.createlisting.general",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.createlisting.demangle",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.createlisting.demangle"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.createlisting.general",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.createlisting.debugging",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.createlisting.debugging"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.createlisting.general",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.createlisting.disassemble",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.createlisting.disassemble"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.createlisting.general",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.createlisting.fileheaders",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.createlisting.fileheaders"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.createlisting.general",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.createlisting.linenumbers",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.createlisting.linenumbers"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.createlisting.general",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.createlisting.reloc",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.createlisting.reloc"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.createlisting.general",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.createlisting.symbols",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.createlisting.symbols"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.createlisting.general",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.createlisting.wide",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.createlisting.wide"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.createlisting.general",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.createlisting.other",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.createlisting.other"
+								},
+								{
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.createlisting.InFileName",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.createlisting.InFileName"
+								}
+							]
+						},
+						{
+							"command": "${cross_prefix}${cross_size}${cross_suffix}",
+							"commandLinePattern": "${COMMAND} ${FLAGS}",
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.tool.printsize",
+							"isAbstract": "false",
+							"name": "%tool.size",
+							"natureFilter": "both",
+							"inputType": [
+								{
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.printsize.input",
+									"multipleOfType": "true",
+									"option": "ilg.gnuarmeclipse.managedbuild.cross.option.printsize.InFileName",
+									"sources": "elf"
+								}
+							],
+							"outputType": [
+								{
+									"buildVariable": "SECONDARY_SIZE",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.printsize.output",
+									"outputNames": "${BuildArtifactFileBaseName}.siz",
+									"outputs": "siz",
+									"primaryOutput": "false"
+								}
+							],
+							"optionCategory": [
+								{
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.printsize.general",
+									"name": "%optionCategory.general"
+								}
+							],
+							"option": [
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.printsize.general",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.printsize.format",
+									"name": "%option.print.sizeFormat",
+									"valueType": "enumerated",
+									"enumeratedOptionValue": [
+										{
+											"command": "--format=berkeley",
+											"id": "ilg.gnuarmeclipse.managedbuild.cross.option.printsize.format.berkeley",
+											"name": "%option.print.sizeFormat.berkeley"
+										},
+										{
+											"command": "--format=sysv",
+											"id": "ilg.gnuarmeclipse.managedbuild.cross.option.printsize.format.sysv",
+											"name": "%option.print.sizeFormat.sysv"
+										}
+									]
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.printsize.general",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.printsize.hex",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.printsize.hex"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.printsize.general",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.printsize.totals",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.printsize.totals"
+								},
+								{
+									"category": "ilg.gnuarmeclipse.managedbuild.cross.optionCategory.printsize.general",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.printsize.other",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.printsize.other"
+								},
+								{
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.option.printsize.InFileName",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.printsize.InFileName"
+								}
+							]
+						}
+					]
+				}
+			],
+			"projectType": [
+				{
+					"buildArtefactType": "org.eclipse.cdt.build.core.buildArtefactType.exe",
+					"id": "ilg.gnuarmeclipse.managedbuild.cross.target.elf",
+					"isAbstract": "false",
+					"isTest": "false",
+					"configuration": [
+						{
+							"artifactExtension": "elf",
+							"buildProperties": "org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug",
+							"cleanCommand": "${cross_rm} -rf",
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.config.elf.debug",
+							"name": "Debug",
+							"parent": "cdt.managedbuild.config.gnu.base",
+							"toolChain": [
+								{
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.toolchain.elf.debug",
+									"secondaryOutputs": "ilg.gnuarmeclipse.managedbuild.cross.createflash.output;ilg.gnuarmeclipse.managedbuild.cross.createlisting.output;ilg.gnuarmeclipse.managedbuild.cross.printsize.output",
+									"superClass": "ilg.gnuarmeclipse.managedbuild.cross.toolchain.base",
+									"targetTool": "ilg.gnuarmeclipse.managedbuild.cross.tool.c.linker;ilg.gnuarmeclipse.managedbuild.cross.tool.cpp.linker"
+								}
+							]
+						},
+						{
+							"artifactExtension": "elf",
+							"buildProperties": "org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.release",
+							"cleanCommand": "${cross_rm} -rf",
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.config.elf.release",
+							"name": "Release",
+							"parent": "cdt.managedbuild.config.gnu.base",
+							"toolChain": [
+								{
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.toolchain.elf.release",
+									"secondaryOutputs": "ilg.gnuarmeclipse.managedbuild.cross.createflash.output;ilg.gnuarmeclipse.managedbuild.cross.createlisting.output;ilg.gnuarmeclipse.managedbuild.cross.printsize.output",
+									"superClass": "ilg.gnuarmeclipse.managedbuild.cross.toolchain.base",
+									"targetTool": "ilg.gnuarmeclipse.managedbuild.cross.tool.c.linker;ilg.gnuarmeclipse.managedbuild.cross.tool.cpp.linker"
+								}
+							]
+						}
+					]
+				},
+				{
+					"buildArtefactType": "org.eclipse.cdt.build.core.buildArtefactType.sharedLib",
+					"id": "ilg.gnuarmeclipse.managedbuild.cross.target.so",
+					"isAbstract": "false",
+					"isTest": "false",
+					"configuration": [
+						{
+							"name": "Debug",
+							"cleanCommand": "${cross_rm} -rf",
+							"parent": "cdt.managedbuild.config.gnu.base",
+							"buildProperties": "org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug",
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.config.so.debug",
+							"toolChain": [
+								{
+									"superClass": "ilg.gnuarmeclipse.managedbuild.cross.toolchain.base",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.toolchain.so.debug"
+								}
+							]
+						},
+						{
+							"name": "Release",
+							"cleanCommand": "${cross_rm} -rf",
+							"parent": "cdt.managedbuild.config.gnu.base",
+							"buildProperties": "org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.release",
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.config.so.release",
+							"toolChain": [
+								{
+									"superClass": "ilg.gnuarmeclipse.managedbuild.cross.toolchain.base",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.toolchain.so.release"
+								}
+							]
+						}
+					]
+				},
+				{
+					"buildArtefactType": "org.eclipse.cdt.build.core.buildArtefactType.staticLib",
+					"id": "ilg.gnuarmeclipse.managedbuild.cross.target.lib",
+					"isAbstract": "false",
+					"isTest": "false",
+					"configuration": [
+						{
+							"name": "Debug",
+							"parent": "cdt.managedbuild.config.gnu.base",
+							"buildProperties": "org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug",
+							"cleanCommand": "${cross_rm} -rf",
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.config.lib.debug",
+							"toolChain": [
+								{
+									"superClass": "ilg.gnuarmeclipse.managedbuild.cross.toolchain.base",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.toolchain.lib.debug"
+								}
+							]
+						},
+						{
+							"name": "Release",
+							"parent": "cdt.managedbuild.config.gnu.base",
+							"buildProperties": "org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.release",
+							"cleanCommand": "${cross_rm} -rf",
+							"id": "ilg.gnuarmeclipse.managedbuild.cross.config.lib.release",
+							"toolChain": [
+								{
+									"superClass": "ilg.gnuarmeclipse.managedbuild.cross.toolchain.base",
+									"id": "ilg.gnuarmeclipse.managedbuild.cross.toolchain.lib.release"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"generators": [
+		{
+			"tool": "xmake-dev",
+			"version": "0.1.5",
+			"command": [
+				"xmake-dev",
+				"convert",
+				"--file",
+				"/Users/ilg/My Files/MacBookPro Projects/GNU ARM Eclipse/plug-ins.git/ilg.gnumcueclipse.managedbuild.cross.arm/plugin.xml",
+				"--format",
+				"cdt-toolchain",
+				"--output",
+				"gme-cross-arm.json"
+			],
+			"homepage": "https://github.com/xpack/xmake-js",
+			"date": "2017-05-22T14:14:38.142Z"
+		}
+	]
+}

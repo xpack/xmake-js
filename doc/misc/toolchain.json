@@ -1,0 +1,29 @@
+{
+  "name": "base",
+  "commandPrefix": "",
+  "commandSuffix": "",
+  "descriptionPrefix": "",
+
+  "tools": {
+    "c": {
+      "commandName": "cc",
+      "description": "C Compiler"
+    },
+    "cpp": {
+      "commandName": "c++",
+      "description": "C++ Compiler"
+    },
+    "as": {
+      "commandName": "as",
+      "description": "Assembler"
+    },
+    "cLinker": {
+      "commandName": "ld",
+      "description": "C Linker"
+    },
+    "cppLinker": {
+      "commandName": "ld",
+      "description": "C++ Linker"
+    }
+  }
+}

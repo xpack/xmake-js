@@ -1,0 +1,1100 @@
+{
+	"buildDefinitions": [
+		{
+			"point": "org.eclipse.cdt.managedbuilder.core.buildDefinitions",
+			"managedBuildRevision": {
+				"fileVersion": "4.0.0"
+			},
+			"tool": [
+				{
+					"id": "ilg.gnumcueclipse.managedbuild.cross.tool.common",
+					"isAbstract": "false",
+					"name": "Common options",
+					"option": [
+						{
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.target.other",
+							"isAbstract": "true",
+							"name": "%option.target.other",
+							"useByScannerDiscovery": "true",
+							"valueType": "string"
+						},
+						{
+							"command": "-fsyntax-only",
+							"defaultValue": "false",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.warnings.syntaxonly",
+							"isAbstract": "true",
+							"name": "%option.warnings.syntaxonly",
+							"useByScannerDiscovery": "true",
+							"valueType": "boolean"
+						},
+						{
+							"command": "-pedantic",
+							"defaultValue": "false",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.warnings.pedantic",
+							"isAbstract": "true",
+							"name": "%option.warnings.pedantic",
+							"useByScannerDiscovery": "true",
+							"valueType": "boolean"
+						},
+						{
+							"command": "-pedantic-errors",
+							"defaultValue": "false",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.warnings.pedanticerrors",
+							"isAbstract": "true",
+							"name": "%option.warnings.pedanticerrors",
+							"useByScannerDiscovery": "true",
+							"valueType": "boolean"
+						},
+						{
+							"command": "-Wall",
+							"defaultValue": "false",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.warnings.allwarn",
+							"isAbstract": "true",
+							"name": "%option.warnings.allwarn",
+							"useByScannerDiscovery": "true",
+							"valueType": "boolean"
+						},
+						{
+							"command": "-Wextra",
+							"defaultValue": "false",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.warnings.extrawarn",
+							"isAbstract": "true",
+							"name": "%option.warnings.extrawarn",
+							"useByScannerDiscovery": "true",
+							"valueType": "boolean"
+						},
+						{
+							"command": "-Wconversion",
+							"defaultValue": "false",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.warnings.conversion",
+							"isAbstract": "true",
+							"name": "%option.warnings.conversion",
+							"useByScannerDiscovery": "true",
+							"valueType": "boolean"
+						},
+						{
+							"command": "-Wuninitialized",
+							"defaultValue": "false",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.warnings.uninitialized",
+							"isAbstract": "true",
+							"name": "%option.warnings.uninitialized",
+							"useByScannerDiscovery": "true",
+							"valueType": "boolean"
+						},
+						{
+							"command": "-Wunused",
+							"defaultValue": "false",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.warnings.unused",
+							"isAbstract": "true",
+							"name": "%option.warnings.unused",
+							"useByScannerDiscovery": "true",
+							"valueType": "boolean"
+						},
+						{
+							"command": "-Wpadded",
+							"defaultValue": "false",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.warnings.padded",
+							"isAbstract": "true",
+							"name": "%option.warnings.padded",
+							"useByScannerDiscovery": "true",
+							"valueType": "boolean"
+						},
+						{
+							"command": "-Wfloat-equal",
+							"defaultValue": "false",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.warnings.floatequal",
+							"isAbstract": "true",
+							"name": "%option.warnings.floatequal",
+							"useByScannerDiscovery": "true",
+							"valueType": "boolean"
+						},
+						{
+							"command": "-Wshadow",
+							"defaultValue": "false",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.warnings.shadow",
+							"isAbstract": "true",
+							"name": "%option.warnings.shadow",
+							"useByScannerDiscovery": "true",
+							"valueType": "boolean"
+						},
+						{
+							"command": "-Wpointer-arith",
+							"defaultValue": "false",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.warnings.pointerarith",
+							"isAbstract": "true",
+							"name": "%option.warnings.pointerarith",
+							"useByScannerDiscovery": "true",
+							"valueType": "boolean"
+						},
+						{
+							"command": "-Wlogical-op",
+							"defaultValue": "false",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.warnings.logicalop",
+							"isAbstract": "true",
+							"name": "%option.warnings.logicalop",
+							"useByScannerDiscovery": "true",
+							"valueType": "boolean"
+						},
+						{
+							"command": "-Waggregate-return",
+							"defaultValue": "false",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.warnings.agreggatereturn",
+							"isAbstract": "true",
+							"name": "%option.warnings.agreggatereturn",
+							"useByScannerDiscovery": "true",
+							"valueType": "boolean"
+						},
+						{
+							"command": "-Wmissing-declarations",
+							"defaultValue": "false",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.warnings.missingdeclaration",
+							"isAbstract": "true",
+							"name": "%option.warnings.missingdeclaration",
+							"useByScannerDiscovery": "true",
+							"valueType": "boolean"
+						},
+						{
+							"command": "-Werror",
+							"defaultValue": "false",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.warnings.toerrors",
+							"isAbstract": "true",
+							"name": "%option.warnings.toerrors",
+							"useByScannerDiscovery": "true",
+							"valueType": "boolean"
+						},
+						{
+							"command": "-w",
+							"defaultValue": "false",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.warnings.nowarn",
+							"isAbstract": "true",
+							"name": "%option.warnings.nowarn",
+							"useByScannerDiscovery": "true",
+							"valueType": "boolean"
+						},
+						{
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.warnings.other",
+							"isAbstract": "true",
+							"name": "%option.warnings.other",
+							"useByScannerDiscovery": "true",
+							"valueType": "string"
+						},
+						{
+							"command": "-p",
+							"defaultValue": "false",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.debugging.prof",
+							"isAbstract": "true",
+							"name": "%option.debugging.prof",
+							"useByScannerDiscovery": "true",
+							"valueType": "boolean"
+						},
+						{
+							"command": "-pg",
+							"defaultValue": "false",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.debugging.gprof",
+							"isAbstract": "true",
+							"name": "%option.debugging.gprof",
+							"useByScannerDiscovery": "true",
+							"valueType": "boolean"
+						},
+						{
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.debugging.other",
+							"isAbstract": "true",
+							"name": "%option.debugging.other",
+							"useByScannerDiscovery": "true",
+							"valueType": "string"
+						},
+						{
+							"command": "-fmessage-length=0",
+							"defaultValue": "false",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.optimization.messagelength",
+							"isAbstract": "true",
+							"name": "%option.optimization.messagelength",
+							"useByScannerDiscovery": "true",
+							"valueType": "boolean"
+						},
+						{
+							"command": "-fsigned-char",
+							"defaultValue": "false",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.optimization.signedchar",
+							"isAbstract": "true",
+							"name": "%option.optimization.signedchar",
+							"useByScannerDiscovery": "true",
+							"valueType": "boolean"
+						},
+						{
+							"command": "-ffunction-sections",
+							"defaultValue": "false",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.optimization.functionsections",
+							"isAbstract": "true",
+							"name": "%option.optimization.functionsections",
+							"resourceFilter": "all",
+							"useByScannerDiscovery": "true",
+							"valueType": "boolean"
+						},
+						{
+							"command": "-fdata-sections",
+							"defaultValue": "false",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.optimization.datasections",
+							"isAbstract": "true",
+							"name": "%option.optimization.datasections",
+							"resourceFilter": "all",
+							"useByScannerDiscovery": "true",
+							"valueType": "boolean"
+						},
+						{
+							"command": "-fno-common",
+							"defaultValue": "false",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.optimization.nocommon",
+							"isAbstract": "true",
+							"name": "%option.optimization.nocommon",
+							"useByScannerDiscovery": "true",
+							"valueType": "boolean"
+						},
+						{
+							"command": "-fno-inline-functions",
+							"defaultValue": "false",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.optimization.noinlinefunctions",
+							"isAbstract": "true",
+							"name": "%option.optimization.noinlinefunctions",
+							"useByScannerDiscovery": "true",
+							"valueType": "boolean"
+						},
+						{
+							"command": "-ffreestanding",
+							"defaultValue": "false",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.optimization.freestanding",
+							"isAbstract": "true",
+							"name": "%option.optimization.freestanding",
+							"useByScannerDiscovery": "true",
+							"valueType": "boolean"
+						},
+						{
+							"command": "-fno-builtin",
+							"defaultValue": "false",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.optimization.nobuiltin",
+							"isAbstract": "true",
+							"name": "%option.optimization.nobuiltin",
+							"useByScannerDiscovery": "true",
+							"valueType": "boolean"
+						},
+						{
+							"command": "-fsingle-precision-constant",
+							"defaultValue": "false",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.optimization.spconstant",
+							"isAbstract": "true",
+							"name": "%option.optimization.spconstant",
+							"useByScannerDiscovery": "true",
+							"valueType": "boolean"
+						},
+						{
+							"command": "-fPIC",
+							"defaultValue": "false",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.optimization.PIC",
+							"isAbstract": "true",
+							"name": "%option.optimization.PIC",
+							"useByScannerDiscovery": "true",
+							"valueType": "boolean"
+						},
+						{
+							"command": "-flto",
+							"defaultValue": "false",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.optimization.lto",
+							"isAbstract": "true",
+							"name": "%option.optimization.lto",
+							"useByScannerDiscovery": "true",
+							"valueType": "boolean"
+						},
+						{
+							"command": "-fno-move-loop-invariants",
+							"defaultValue": "false",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.optimization.nomoveloopinvariants",
+							"isAbstract": "true",
+							"name": "%option.optimization.nomoveloopinvariants",
+							"useByScannerDiscovery": "true",
+							"valueType": "boolean"
+						},
+						{
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.optimization.other",
+							"isAbstract": "true",
+							"name": "%option.optimization.other",
+							"useByScannerDiscovery": "true",
+							"valueType": "string"
+						},
+						{
+							"defaultValue": "false",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.toolchain.createflash",
+							"isAbstract": "true",
+							"name": "%option.toolchain.flash",
+							"valueHandler": "ilg.gnumcueclipse.managedbuild.cross.AdditionalToolsManagedOptionValueHandler",
+							"valueType": "boolean"
+						},
+						{
+							"defaultValue": "false",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.toolchain.createlisting",
+							"isAbstract": "true",
+							"name": "%option.toolchain.listing",
+							"valueHandler": "ilg.gnumcueclipse.managedbuild.cross.AdditionalToolsManagedOptionValueHandler",
+							"valueType": "boolean"
+						},
+						{
+							"defaultValue": "false",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.toolchain.printsize",
+							"isAbstract": "true",
+							"name": "%option.toolchain.size",
+							"valueHandler": "ilg.gnumcueclipse.managedbuild.cross.AdditionalToolsManagedOptionValueHandler",
+							"valueType": "boolean"
+						}
+					]
+				},
+				{
+					"id": "ilg.gnumcueclipse.managedbuild.cross.tool.compiler",
+					"isAbstract": "true",
+					"name": "Compiler common options",
+					"option": [
+						{
+							"command": "-v",
+							"defaultValue": "false",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.verbose",
+							"isAbstract": "true",
+							"name": "%option.compiler.verbose",
+							"valueType": "boolean"
+						},
+						{
+							"command": "--save-temps",
+							"defaultValue": "false",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.savetemps",
+							"isAbstract": "true",
+							"name": "%option.compiler.savetemps",
+							"valueType": "boolean"
+						},
+						{
+							"command": "-nostdinc",
+							"defaultValue": "false",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.preprocessor.nostdinc",
+							"isAbstract": "true",
+							"name": "%option.compiler.nostdinc",
+							"useByScannerDiscovery": "true",
+							"valueType": "boolean"
+						},
+						{
+							"command": "-D",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.preprocessor.defs",
+							"isAbstract": "true",
+							"name": "%option.compiler.defs",
+							"useByScannerDiscovery": "true",
+							"valueType": "definedSymbols"
+						},
+						{
+							"command": "-Wa,-adhlns=\"$@.lst\"",
+							"defaultValue": "false",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.asmlisting",
+							"isAbstract": "true",
+							"name": "%option.compiler.asmlisting",
+							"valueType": "boolean"
+						},
+						{
+							"command": "-U",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.preprocessor.undefs",
+							"isAbstract": "true",
+							"name": "%option.compiler.undefs",
+							"useByScannerDiscovery": "true",
+							"valueType": "undefDefinedSymbols"
+						},
+						{
+							"command": "-E",
+							"defaultValue": "false",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.preprocessor.preprocessonly",
+							"isAbstract": "true",
+							"name": "%option.compiler.preprocessonly",
+							"valueType": "boolean"
+						},
+						{
+							"browseType": "directory",
+							"command": "-I",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.dirs.include.paths",
+							"isAbstract": "true",
+							"name": "%option.compiler.include.paths",
+							"useByScannerDiscovery": "true",
+							"valueType": "includePath"
+						},
+						{
+							"browseType": "file",
+							"command": "-include",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.dirs.include.files",
+							"isAbstract": "true",
+							"name": "%option.compiler.include.files",
+							"useByScannerDiscovery": "true",
+							"valueType": "includeFiles"
+						},
+						{
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.compiler.other",
+							"isAbstract": "true",
+							"name": "%option.compiler.other",
+							"useByScannerDiscovery": "true",
+							"valueType": "string"
+						}
+					]
+				},
+				{
+					"id": "ilg.gnumcueclipse.managedbuild.cross.tool.linker",
+					"isAbstract": "true",
+					"name": "Linker common options",
+					"option": [
+						{
+							"command": "-Wl,-Map,",
+							"defaultValue": "\"${BuildArtifactFileBaseName}.map\"",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.mapfilename",
+							"isAbstract": "true",
+							"name": "%option.linker.mapfilename",
+							"valueType": "string"
+						},
+						{
+							"browseType": "file",
+							"commandGenerator": "ilg.gnumcueclipse.managedbuild.cross.LinkerScriptCommandGenerator",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.scriptfile",
+							"isAbstract": "true",
+							"name": "%option.linker.scriptfile",
+							"valueType": "stringList"
+						},
+						{
+							"command": "-Xlinker --cref",
+							"defaultValue": "false",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.cref",
+							"isAbstract": "true",
+							"name": "%option.linker.cref",
+							"valueType": "boolean"
+						},
+						{
+							"command": "-Xlinker --print-map",
+							"defaultValue": "false",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.printmap",
+							"isAbstract": "true",
+							"name": "%option.linker.printmap",
+							"valueType": "boolean"
+						},
+						{
+							"command": "-nostartfiles",
+							"defaultValue": "false",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.nostart",
+							"isAbstract": "true",
+							"name": "%option.linker.nostart",
+							"valueType": "boolean"
+						},
+						{
+							"command": "-nodefaultlibs",
+							"defaultValue": "false",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.nodeflibs",
+							"isAbstract": "true",
+							"name": "%option.linker.nodeflibs",
+							"valueType": "boolean"
+						},
+						{
+							"command": "-nostdlib",
+							"defaultValue": "false",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.nostdlibs",
+							"isAbstract": "true",
+							"name": "%option.linker.nostdlibs",
+							"valueType": "boolean"
+						},
+						{
+							"command": "-Xlinker --gc-sections",
+							"defaultValue": "false",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.gcsections",
+							"isAbstract": "true",
+							"name": "%option.linker.gcsections",
+							"valueType": "boolean"
+						},
+						{
+							"command": "-Xlinker --print-gc-sections",
+							"defaultValue": "false",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.printgcsections",
+							"isAbstract": "true",
+							"name": "%option.linker.printgcsections",
+							"valueType": "boolean"
+						},
+						{
+							"command": "-s",
+							"defaultValue": "false",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.strip",
+							"isAbstract": "true",
+							"name": "%option.linker.strip",
+							"valueType": "boolean"
+						},
+						{
+							"browseType": "none",
+							"command": "-l",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.libs",
+							"isAbstract": "true",
+							"name": "%option.linker.libs",
+							"valueType": "libs"
+						},
+						{
+							"browseType": "directory",
+							"command": "-L",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.paths",
+							"isAbstract": "true",
+							"name": "%option.linker.paths",
+							"valueType": "libPaths"
+						},
+						{
+							"command": "-Xlinker ${VALUE}",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.flags",
+							"isAbstract": "true",
+							"name": "%option.linker.flags",
+							"valueType": "stringList"
+						},
+						{
+							"browseType": "file",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.otherobjs",
+							"isAbstract": "true",
+							"name": "%option.linker.otherobjs",
+							"valueType": "userObjs"
+						},
+						{
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.other",
+							"isAbstract": "true",
+							"name": "%option.linker.other",
+							"valueType": "string"
+						},
+						{
+							"command": "-shared",
+							"defaultValue": "false",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.shared",
+							"isAbstract": "true",
+							"name": "%option.linker.shared",
+							"valueType": "boolean"
+						},
+						{
+							"command": "-Wl,-soname=",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.soname",
+							"isAbstract": "true",
+							"name": "%option.linker.soname",
+							"valueType": "string"
+						},
+						{
+							"command": "-Wl,--out-implib=",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.implname",
+							"isAbstract": "true",
+							"name": "%option.linker.implname",
+							"valueType": "string"
+						},
+						{
+							"command": "-Wl,--output-def=",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.defname",
+							"isAbstract": "true",
+							"name": "%option.linker.defname",
+							"valueType": "string"
+						},
+						{
+							"command": "--specs=nano.specs",
+							"defaultValue": "false",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.usenewlibnano",
+							"isAbstract": "true",
+							"name": "%option.linker.usenewlibnano",
+							"valueType": "boolean"
+						},
+						{
+							"command": "-u _printf_float",
+							"defaultValue": "false",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.useprintffloat",
+							"isAbstract": "true",
+							"name": "%option.linker.useprintffloat",
+							"valueType": "boolean"
+						},
+						{
+							"command": "-u _scanf_float",
+							"defaultValue": "false",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.usescanffloat",
+							"isAbstract": "true",
+							"name": "%option.linker.usescanffloat",
+							"valueType": "boolean"
+						}
+					]
+				},
+				{
+					"id": "ilg.gnumcueclipse.managedbuild.cross.toolchain",
+					"isAbstract": "true",
+					"name": "Toolchain hidden options",
+					"option": [
+						{
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.command.prefix",
+							"isAbstract": "true",
+							"name": "%option.toolchain.prefix",
+							"resourceFilter": "all",
+							"valueType": "string"
+						},
+						{
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.command.suffix",
+							"isAbstract": "true",
+							"name": "%option.toolchain.suffix",
+							"resourceFilter": "all",
+							"valueType": "string"
+						},
+						{
+							"defaultValue": "echo",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.command.c",
+							"isAbstract": "true",
+							"name": "%option.toolchain.command.c",
+							"resourceFilter": "all",
+							"valueType": "string"
+						},
+						{
+							"defaultValue": "echo",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.command.cpp",
+							"isAbstract": "true",
+							"name": "%option.toolchain.command.cpp",
+							"resourceFilter": "all",
+							"valueType": "string"
+						},
+						{
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.command.ar",
+							"isAbstract": "true",
+							"name": "%option.toolchain.command.ar",
+							"resourceFilter": "all",
+							"valueType": "string"
+						},
+						{
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.command.objcopy",
+							"isAbstract": "true",
+							"name": "%option.toolchain.command.objcopy",
+							"resourceFilter": "all",
+							"valueType": "string"
+						},
+						{
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.command.objdump",
+							"isAbstract": "true",
+							"name": "%option.toolchain.command.listing",
+							"resourceFilter": "all",
+							"valueType": "string"
+						},
+						{
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.command.size",
+							"isAbstract": "true",
+							"name": "%option.toolchain.command.size",
+							"resourceFilter": "all",
+							"valueType": "string"
+						},
+						{
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.command.make",
+							"isAbstract": "true",
+							"name": "%option.toolchain.command.make",
+							"resourceFilter": "all",
+							"valueType": "string"
+						},
+						{
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.command.rm",
+							"isAbstract": "true",
+							"name": "%option.toolchain.command.rm",
+							"resourceFilter": "all",
+							"valueType": "string"
+						},
+						{
+							"defaultValue": "true",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.toolchain.useglobalpath",
+							"isAbstract": "true",
+							"name": "%option.toolchain.useglobalpath",
+							"valueHandler": "ilg.gnumcueclipse.managedbuild.cross.AdditionalToolsManagedOptionValueHandler",
+							"valueType": "boolean"
+						},
+						{
+							"browseType": "directory",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.toolchain.path",
+							"isAbstract": "true",
+							"name": "%option.toolchain.path",
+							"resourceFilter": "all",
+							"valueType": "string"
+						}
+					]
+				},
+				{
+					"id": "ilg.gnumcueclipse.managedbuild.cross.tool.assembler",
+					"isAbstract": "true",
+					"name": "Cross Assembler common options",
+					"option": [
+						{
+							"command": "-x assembler-with-cpp",
+							"commandFalse": "-x assembler",
+							"defaultValue": "false",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.assembler.usepreprocessor",
+							"isAbstract": "true",
+							"name": "%option.assembler.usepreprocessor",
+							"valueType": "boolean"
+						},
+						{
+							"command": "-Xassembler ${VALUE}",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.assembler.flags",
+							"isAbstract": "true",
+							"name": "%option.assembler.flags",
+							"valueType": "stringList"
+						},
+						{
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.assembler.other",
+							"isAbstract": "true",
+							"name": "%option.assembler.other",
+							"valueType": "string"
+						}
+					]
+				},
+				{
+					"id": "ilg.gnumcueclipse.managedbuild.cross.tool.c.compiler",
+					"isAbstract": "true",
+					"name": "Cross C Compiler common options",
+					"option": [
+						{
+							"command": "-Wmissing-prototypes",
+							"defaultValue": "false",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.c.compiler.warning.missingprototypes",
+							"isAbstract": "true",
+							"name": "%option.warnings.missingprototypes",
+							"useByScannerDiscovery": "true",
+							"valueType": "boolean"
+						},
+						{
+							"command": "-Wstrict-prototypes",
+							"defaultValue": "false",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.c.compiler.warning.strictprototypes",
+							"isAbstract": "true",
+							"name": "%option.warnings.strictprototypes",
+							"useByScannerDiscovery": "true",
+							"valueType": "boolean"
+						},
+						{
+							"command": "-Wbad-function-cast",
+							"defaultValue": "false",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.c.compiler.warning.badfunctioncast",
+							"isAbstract": "true",
+							"name": "%option.warnings.badfunctioncast",
+							"useByScannerDiscovery": "true",
+							"valueType": "boolean"
+						}
+					]
+				},
+				{
+					"id": "ilg.gnumcueclipse.managedbuild.cross.tool.cpp.compiler",
+					"isAbstract": "true",
+					"name": "Cross C++ Compiler common options",
+					"option": [
+						{
+							"command": "-nostdinc++",
+							"defaultValue": "false",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.cpp.compiler.nostdincpp",
+							"isAbstract": "true",
+							"name": "%option.compiler.nostdincpp",
+							"useByScannerDiscovery": "true",
+							"valueType": "boolean"
+						},
+						{
+							"command": "-fno-exceptions",
+							"defaultValue": "false",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.cpp.compiler.noexceptions",
+							"isAbstract": "true",
+							"name": "%option.cpp.compiler.noexceptions",
+							"useByScannerDiscovery": "true",
+							"valueType": "boolean"
+						},
+						{
+							"command": "-fno-rtti",
+							"defaultValue": "false",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.cpp.compiler.nortti",
+							"isAbstract": "true",
+							"name": "%option.cpp.compiler.nortti",
+							"useByScannerDiscovery": "true",
+							"valueType": "boolean"
+						},
+						{
+							"command": "-fno-use-cxa-atexit",
+							"defaultValue": "false",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.cpp.compiler.nousecxaatexit",
+							"isAbstract": "true",
+							"name": "%option.cpp.compiler.nousecxaatexit",
+							"useByScannerDiscovery": "true",
+							"valueType": "boolean"
+						},
+						{
+							"command": "-fno-threadsafe-statics",
+							"defaultValue": "false",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.cpp.compiler.nothreadsafestatics",
+							"isAbstract": "true",
+							"name": "%option.cpp.compiler.nothreadsafestatics",
+							"useByScannerDiscovery": "true",
+							"valueType": "boolean"
+						},
+						{
+							"command": "-Wabi",
+							"defaultValue": "false",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.cpp.compiler.warnabi",
+							"isAbstract": "true",
+							"name": "%option.compiler.warnabi",
+							"useByScannerDiscovery": "true",
+							"valueType": "boolean"
+						},
+						{
+							"command": "-Wctor-dtor-privacy",
+							"defaultValue": "false",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.cpp.compiler.warning.ctordtorprivacy",
+							"isAbstract": "true",
+							"name": "%option.compiler.warning.ctordtorprivacy",
+							"useByScannerDiscovery": "true",
+							"valueType": "boolean"
+						},
+						{
+							"command": "-Wnoexcept",
+							"defaultValue": "false",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.cpp.compiler.warning.noexcept",
+							"isAbstract": "true",
+							"name": "%option.compiler.warning.noexcept",
+							"useByScannerDiscovery": "true",
+							"valueType": "boolean"
+						},
+						{
+							"command": "-Wnon-virtual-dtor",
+							"defaultValue": "false",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.cpp.compiler.warning.nonvirtualdtor",
+							"isAbstract": "true",
+							"name": "%option.compiler.warning.nonvirtualdtor",
+							"useByScannerDiscovery": "true",
+							"valueType": "boolean"
+						},
+						{
+							"command": "-Wstrict-null-sentinel",
+							"defaultValue": "false",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.cpp.compiler.warning.strictnullsentinel",
+							"isAbstract": "true",
+							"name": "%option.compiler.warning.strictnullsentinel",
+							"useByScannerDiscovery": "true",
+							"valueType": "boolean"
+						},
+						{
+							"command": "-Wsign-promo",
+							"defaultValue": "false",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.cpp.compiler.warning.signpromo",
+							"isAbstract": "true",
+							"name": "%option.compiler.warning.signpromo",
+							"useByScannerDiscovery": "true",
+							"valueType": "boolean"
+						},
+						{
+							"command": "-Weffc++",
+							"defaultValue": "false",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.cpp.compiler.warneffc",
+							"isAbstract": "true",
+							"name": "%option.compiler.warneffc",
+							"useByScannerDiscovery": "true",
+							"valueType": "boolean"
+						}
+					]
+				},
+				{
+					"id": "ilg.gnumcueclipse.managedbuild.cross.tool.c.linker",
+					"isAbstract": "true",
+					"name": "Cross C Linker common options"
+				},
+				{
+					"id": "ilg.gnumcueclipse.managedbuild.cross.tool.cpp.linker",
+					"isAbstract": "true",
+					"name": "Cross C++ Linker common options"
+				},
+				{
+					"id": "ilg.gnumcueclipse.managedbuild.cross.tool.archiver",
+					"isAbstract": "true",
+					"name": "Cross Archiver common options"
+				},
+				{
+					"id": "ilg.gnumcueclipse.managedbuild.cross.tool.createflash",
+					"isAbstract": "true",
+					"name": "Cross Create Flash Image common options",
+					"option": [
+						{
+							"command": "-j .text",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.createflash.textsection",
+							"isAbstract": "true",
+							"name": "%option.flash.textsections",
+							"resourceFilter": "all",
+							"valueType": "boolean"
+						},
+						{
+							"command": "-j .data",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.createflash.datasection",
+							"isAbstract": "true",
+							"name": "%option.flash.datasections",
+							"resourceFilter": "all",
+							"valueType": "boolean"
+						},
+						{
+							"command": "-j ",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.createflash.othersection",
+							"isAbstract": "true",
+							"name": "%option.flash.othersections",
+							"resourceFilter": "all",
+							"valueType": "stringList"
+						},
+						{
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.createflash.other",
+							"isAbstract": "true",
+							"name": "%option.flash.other",
+							"valueType": "string"
+						},
+						{
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.createflash.InFileName",
+							"resourceFilter": "all",
+							"value": "\"${BuildArtifactFileName}\"",
+							"valueType": "string"
+						}
+					]
+				},
+				{
+					"id": "ilg.gnumcueclipse.managedbuild.cross.tool.createlisting",
+					"isAbstract": "true",
+					"name": "Cross Create Listing common options",
+					"option": [
+						{
+							"command": "--source",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.createlisting.source",
+							"isAbstract": "true",
+							"name": "%option.listing.source",
+							"resourceFilter": "all",
+							"valueType": "boolean"
+						},
+						{
+							"command": "--all-headers",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.createlisting.allheaders",
+							"isAbstract": "true",
+							"name": "%option.listing.allheaders",
+							"resourceFilter": "all",
+							"valueType": "boolean"
+						},
+						{
+							"command": "--demangle",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.createlisting.demangle",
+							"isAbstract": "true",
+							"name": "%option.listing.demangle",
+							"resourceFilter": "all",
+							"valueType": "boolean"
+						},
+						{
+							"command": "--debugging",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.createlisting.debugging",
+							"isAbstract": "true",
+							"name": "%option.listing.debugging",
+							"resourceFilter": "all",
+							"valueType": "boolean"
+						},
+						{
+							"command": "--disassemble",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.createlisting.disassemble",
+							"isAbstract": "true",
+							"name": "%option.listing.disassemble",
+							"resourceFilter": "all",
+							"valueType": "boolean"
+						},
+						{
+							"command": "--file-headers",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.createlisting.fileheaders",
+							"isAbstract": "true",
+							"name": "%option.listing.fileheaders",
+							"resourceFilter": "all",
+							"valueType": "boolean"
+						},
+						{
+							"command": "--line-numbers",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.createlisting.linenumbers",
+							"isAbstract": "true",
+							"name": "%option.listing.linenumbers",
+							"resourceFilter": "all",
+							"valueType": "boolean"
+						},
+						{
+							"command": "--reloc",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.createlisting.reloc",
+							"isAbstract": "true",
+							"name": "%option.listing.reloc",
+							"resourceFilter": "all",
+							"valueType": "boolean"
+						},
+						{
+							"command": "--syms",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.createlisting.symbols",
+							"isAbstract": "true",
+							"name": "%option.listing.symbols",
+							"resourceFilter": "all",
+							"valueType": "boolean"
+						},
+						{
+							"command": "--wide",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.createlisting.wide",
+							"isAbstract": "true",
+							"name": "%option.listing.wide",
+							"resourceFilter": "all",
+							"valueType": "boolean"
+						},
+						{
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.createlisting.other",
+							"isAbstract": "true",
+							"name": "%option.listing.other",
+							"valueType": "string"
+						},
+						{
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.createlisting.InFileName",
+							"resourceFilter": "all",
+							"value": "\"${BuildArtifactFileName}\"",
+							"valueType": "string"
+						}
+					]
+				},
+				{
+					"id": "ilg.gnumcueclipse.managedbuild.cross.tool.printsize",
+					"isAbstract": "true",
+					"name": "Cross Print Size common options",
+					"option": [
+						{
+							"command": "-x",
+							"defaultValue": "false",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.printsize.hex",
+							"isAbstract": "true",
+							"name": "%option.print.hex",
+							"valueType": "boolean"
+						},
+						{
+							"command": "--totals",
+							"defaultValue": "false",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.printsize.totals",
+							"isAbstract": "true",
+							"name": "%option.print.totals",
+							"valueType": "boolean"
+						},
+						{
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.printsize.other",
+							"isAbstract": "true",
+							"name": "%option.print.other",
+							"valueType": "string"
+						},
+						{
+							"id": "ilg.gnumcueclipse.managedbuild.cross.option.base.printsize.InFileName",
+							"resourceFilter": "all",
+							"value": "\"${BuildArtifactFileName}\"",
+							"valueType": "string"
+						}
+					]
+				}
+			]
+		}
+	],
+	"generators": [
+		{
+			"tool": "xmake-dev",
+			"version": "0.1.5",
+			"command": [
+				"xmake-dev",
+				"convert",
+				"--file",
+				"/Users/ilg/My Files/MacBookPro Projects/GNU ARM Eclipse/plug-ins.git/ilg.gnumcueclipse.managedbuild.cross/plugin.xml",
+				"--format",
+				"cdt-toolchain",
+				"--output",
+				"gme-cross.json"
+			],
+			"homepage": "https://github.com/xpack/xmake-js",
+			"date": "2017-05-22T14:14:37.720Z"
+		}
+	]
+}

@@ -1,0 +1,10 @@
+{
+  "files": [
+    "cdt-core.json",
+    "cdt-gnu-ui.json",
+    "cdt-crossgcc.json",
+    "gme-cross.json",
+    "gme-cross-arm.json",
+    "gme-cross-riscv.json"
+  ]
+}

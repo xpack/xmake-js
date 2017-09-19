@@ -1,0 +1,228 @@
+{
+	"buildDefinitions": [
+		{
+			"point": "org.eclipse.cdt.managedbuilder.core.buildDefinitions",
+			"managedBuildRevision": {
+				"fileVersion": "4.0.0"
+			},
+			"toolChain": [
+				{
+					"archList": "all",
+					"configurationEnvironmentSupplier": "org.eclipse.cdt.internal.build.crossgcc.CrossEnvironmentVariableSupplier",
+					"id": "cdt.managedbuild.toolchain.gnu.cross.base",
+					"isAbstract": "false",
+					"languageSettingsProviders": "org.eclipse.cdt.managedbuilder.core.GCCBuildCommandParser;org.eclipse.cdt.build.crossgcc.CrossGCCBuiltinSpecsDetector",
+					"name": "%toolChain.name",
+					"osList": "all",
+					"targetTool": "cdt.managedbuild.tool.gnu.cross.c.linker;cdt.managedbuild.tool.gnu.cross.cpp.linker;cdt.managedbuild.tool.gnu.archiver",
+					"targetPlatform": [
+						{
+							"archList": "all",
+							"binaryParser": "org.eclipse.cdt.core.ELF",
+							"id": "cdt.managedbuild.targetPlatform.gnu.cross",
+							"isAbstract": "false",
+							"osList": "all"
+						}
+					],
+					"builder": [
+						{
+							"id": "cdt.managedbuild.builder.gnu.cross",
+							"superClass": "cdt.managedbuild.target.gnu.builder"
+						}
+					],
+					"optionCategory": [
+						{
+							"id": "cdt.managedbuild.optionCategory.gnu.cross.settings",
+							"name": "%optionCategory.name"
+						}
+					],
+					"option": [
+						{
+							"category": "cdt.managedbuild.optionCategory.gnu.cross.settings",
+							"id": "cdt.managedbuild.option.gnu.cross.prefix",
+							"isAbstract": "false",
+							"name": "%option.prefix",
+							"resourceFilter": "all",
+							"valueType": "string"
+						},
+						{
+							"browseType": "directory",
+							"category": "cdt.managedbuild.optionCategory.gnu.cross.settings",
+							"id": "cdt.managedbuild.option.gnu.cross.path",
+							"isAbstract": "false",
+							"name": "%option.path",
+							"resourceFilter": "all",
+							"valueType": "string"
+						}
+					],
+					"tool": [
+						{
+							"commandLineGenerator": "org.eclipse.cdt.internal.build.crossgcc.CrossCommandLineGenerator",
+							"id": "cdt.managedbuild.tool.gnu.cross.c.compiler",
+							"isAbstract": "false",
+							"name": "%tool.gcc.compiler",
+							"superClass": "cdt.managedbuild.tool.gnu.c.compiler"
+						},
+						{
+							"commandLineGenerator": "org.eclipse.cdt.internal.build.crossgcc.CrossCommandLineGenerator",
+							"id": "cdt.managedbuild.tool.gnu.cross.cpp.compiler",
+							"isAbstract": "false",
+							"name": "%tool.gpp.compiler",
+							"superClass": "cdt.managedbuild.tool.gnu.cpp.compiler"
+						},
+						{
+							"commandLineGenerator": "org.eclipse.cdt.internal.build.crossgcc.CrossCommandLineGenerator",
+							"id": "cdt.managedbuild.tool.gnu.cross.c.linker",
+							"isAbstract": "false",
+							"name": "%tool.gcc.linker",
+							"superClass": "cdt.managedbuild.tool.gnu.c.linker"
+						},
+						{
+							"commandLineGenerator": "org.eclipse.cdt.internal.build.crossgcc.CrossCommandLineGenerator",
+							"id": "cdt.managedbuild.tool.gnu.cross.cpp.linker",
+							"isAbstract": "false",
+							"name": "%tool.gpp.linker",
+							"superClass": "cdt.managedbuild.tool.gnu.cpp.linker"
+						},
+						{
+							"commandLineGenerator": "org.eclipse.cdt.internal.build.crossgcc.CrossCommandLineGenerator",
+							"id": "cdt.managedbuild.tool.gnu.cross.archiver",
+							"isAbstract": "false",
+							"name": "%tool.gcc.archiver",
+							"superClass": "cdt.managedbuild.tool.gnu.archiver"
+						},
+						{
+							"commandLineGenerator": "org.eclipse.cdt.internal.build.crossgcc.CrossCommandLineGenerator",
+							"id": "cdt.managedbuild.tool.gnu.cross.assembler",
+							"isAbstract": "false",
+							"name": "%tool.gcc.assembler",
+							"superClass": "cdt.managedbuild.tool.gnu.assembler"
+						}
+					]
+				}
+			],
+			"projectType": [
+				{
+					"buildArtefactType": "org.eclipse.cdt.build.core.buildArtefactType.exe",
+					"id": "cdt.managedbuild.target.gnu.cross.exe",
+					"isAbstract": "false",
+					"isTest": "false",
+					"configuration": [
+						{
+							"name": "Debug",
+							"cleanCommand": "rm -rf",
+							"id": "cdt.managedbuild.config.gnu.cross.exe.debug",
+							"parent": "cdt.managedbuild.config.gnu.base",
+							"buildProperties": "org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug",
+							"toolChain": [
+								{
+									"superClass": "cdt.managedbuild.toolchain.gnu.cross.base",
+									"id": "cdt.managedbuild.toolchain.gnu.cross.exe.debug"
+								}
+							]
+						},
+						{
+							"name": "Release",
+							"cleanCommand": "rm -rf",
+							"id": "cdt.managedbuild.config.gnu.cross.exe.release",
+							"parent": "cdt.managedbuild.config.gnu.base",
+							"buildProperties": "org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.release",
+							"toolChain": [
+								{
+									"superClass": "cdt.managedbuild.toolchain.gnu.cross.base",
+									"id": "cdt.managedbuild.toolchain.gnu.cross.exe.release"
+								}
+							]
+						}
+					]
+				},
+				{
+					"buildArtefactType": "org.eclipse.cdt.build.core.buildArtefactType.sharedLib",
+					"id": "cdt.managedbuild.target.gnu.cross.so",
+					"isAbstract": "false",
+					"isTest": "false",
+					"configuration": [
+						{
+							"name": "Debug",
+							"cleanCommand": "rm -rf",
+							"parent": "cdt.managedbuild.config.gnu.base",
+							"buildProperties": "org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug",
+							"id": "cdt.managedbuild.config.gnu.cross.so.debug",
+							"toolChain": [
+								{
+									"superClass": "cdt.managedbuild.toolchain.gnu.cross.base",
+									"id": "cdt.managedbuild.toolchain.gnu.cross.so.debug"
+								}
+							]
+						},
+						{
+							"name": "Release",
+							"cleanCommand": "rm -rf",
+							"parent": "cdt.managedbuild.config.gnu.base",
+							"buildProperties": "org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.release",
+							"id": "cdt.managedbuild.config.gnu.cross.so.release",
+							"toolChain": [
+								{
+									"superClass": "cdt.managedbuild.toolchain.gnu.cross.base",
+									"id": "cdt.managedbuild.toolchain.gnu.cross.so.release"
+								}
+							]
+						}
+					]
+				},
+				{
+					"buildArtefactType": "org.eclipse.cdt.build.core.buildArtefactType.staticLib",
+					"id": "cdt.managedbuild.target.gnu.cross.lib",
+					"isAbstract": "false",
+					"isTest": "false",
+					"configuration": [
+						{
+							"name": "Debug",
+							"parent": "cdt.managedbuild.config.gnu.base",
+							"buildProperties": "org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug",
+							"cleanCommand": "rm -rf",
+							"id": "cdt.managedbuild.config.gnu.cross.lib.debug",
+							"toolChain": [
+								{
+									"superClass": "cdt.managedbuild.toolchain.gnu.cross.base",
+									"id": "cdt.managedbuild.toolchain.gnu.cross.lib.debug"
+								}
+							]
+						},
+						{
+							"name": "Release",
+							"parent": "cdt.managedbuild.config.gnu.base",
+							"buildProperties": "org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.release",
+							"cleanCommand": "rm -rf",
+							"id": "cdt.managedbuild.config.gnu.cross.lib.release",
+							"toolChain": [
+								{
+									"superClass": "cdt.managedbuild.toolchain.gnu.cross.base",
+									"id": "cdt.managedbuild.toolchain.gnu.cross.lib.release"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"generators": [
+		{
+			"tool": "xmake-dev",
+			"version": "0.1.5",
+			"command": [
+				"xmake-dev",
+				"convert",
+				"--file",
+				"/Users/ilg/My Files/MacBookPro Projects/GNU ARM Eclipse/src/org.eclipse.cdt.git/cross/org.eclipse.cdt.build.crossgcc/plugin.xml",
+				"--format",
+				"cdt-toolchain",
+				"--output",
+				"cdt-crossgcc.json"
+			],
+			"homepage": "https://github.com/xpack/xmake-js",
+			"date": "2017-05-22T14:14:39.645Z"
+		}
+	]
+}

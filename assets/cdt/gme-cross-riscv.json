@@ -1,0 +1,2208 @@
+{
+	"buildDefinitions": [
+		{
+			"point": "org.eclipse.cdt.managedbuilder.core.buildDefinitions",
+			"managedBuildRevision": {
+				"fileVersion": "4.0.0"
+			},
+			"tool": [
+				{
+					"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.tool.common",
+					"isAbstract": "false",
+					"name": "Common options",
+					"option": [
+						{
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.base.debugging.level",
+							"isAbstract": "true",
+							"name": "%option.debugging.level",
+							"useByScannerDiscovery": "true",
+							"valueType": "enumerated",
+							"enumeratedOptionValue": [
+								{
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.debugging.level.none",
+									"name": "%option.debugging.level.none"
+								},
+								{
+									"command": "-g1",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.debugging.level.minimal",
+									"name": "%option.debugging.level.minimal"
+								},
+								{
+									"command": "-g",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.debugging.level.default",
+									"isDefault": "true",
+									"name": "%option.debugging.level.default"
+								},
+								{
+									"command": "-g3",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.debugging.level.max",
+									"name": "%option.debugging.level.max"
+								}
+							]
+						},
+						{
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.base.debugging.format",
+							"isAbstract": "true",
+							"name": "%option.debugging.format",
+							"useByScannerDiscovery": "true",
+							"valueType": "enumerated",
+							"enumeratedOptionValue": [
+								{
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.debugging.format.default",
+									"isDefault": "true",
+									"name": "%option.debugging.default"
+								},
+								{
+									"command": "-ggdb",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.debugging.format.gdb",
+									"name": "%option.debugging.gdb"
+								},
+								{
+									"command": "-gstabs",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.debugging.format.stabs",
+									"name": "%option.debugging.stabs"
+								},
+								{
+									"command": "-gstabs+",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.debugging.format.stabsplus",
+									"name": "%option.debugging.stabsplus"
+								},
+								{
+									"command": "-gdwarf-2",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.debugging.format.dwarf2",
+									"name": "%option.debugging.dwarf2"
+								},
+								{
+									"command": "-gdwarf-3",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.debugging.format.dwarf3",
+									"name": "%option.debugging.dwarf3"
+								},
+								{
+									"command": "-gdwarf-4",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.debugging.format.dwarf4",
+									"name": "%option.debugging.dwarf4"
+								},
+								{
+									"command": "-gdwarf-5",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.debugging.format.dwarf5",
+									"name": "%option.debugging.dwarf5"
+								}
+							]
+						},
+						{
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.base.optimization.level",
+							"isAbstract": "true",
+							"name": "%option.optimization.level",
+							"useByScannerDiscovery": "true",
+							"valueType": "enumerated",
+							"enumeratedOptionValue": [
+								{
+									"command": "-O0",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.optimization.level.none",
+									"name": "%option.optimization.level.none"
+								},
+								{
+									"command": "-O1",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.optimization.level.optimize",
+									"name": "%option.optimization.level.optimize"
+								},
+								{
+									"command": "-O2",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.optimization.level.more",
+									"isDefault": "true",
+									"name": "%option.optimization.level.more"
+								},
+								{
+									"command": "-O3",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.optimization.level.most",
+									"name": "%option.optimization.level.most"
+								},
+								{
+									"command": "-Os",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.optimization.level.size",
+									"name": "%option.optimization.level.size"
+								},
+								{
+									"command": "-Og",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.optimization.level.debug",
+									"name": "%option.optimization.level.debug"
+								}
+							]
+						}
+					]
+				},
+				{
+					"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.tool.compiler",
+					"isAbstract": "true",
+					"name": "Compiler common options"
+				},
+				{
+					"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.tool.linker",
+					"isAbstract": "false",
+					"name": "Linker common options"
+				},
+				{
+					"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.tool.base",
+					"isAbstract": "true",
+					"name": "RISC-V Targets common options",
+					"option": [
+						{
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.base.target.isa.base",
+							"isAbstract": "true",
+							"name": "%option.target.isa.base",
+							"valueType": "enumerated",
+							"enumeratedOptionValue": [
+								{
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.target.arch.default",
+									"isDefault": "true",
+									"name": "%option.target.isa.base.default"
+								},
+								{
+									"command": "-march=rv32i",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.target.arch.rv32i",
+									"name": "%option.target.isa.base.rv32i"
+								},
+								{
+									"command": "-march=rv64i",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.target.arch.rv64i",
+									"name": "%option.target.isa.base.rv64i"
+								},
+								{
+									"command": "-march=rv32e",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.target.arch.rv32e",
+									"name": "%option.target.isa.base.rv32e"
+								},
+								{
+									"command": "-march=rv32g",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.target.arch.rv32g",
+									"name": "%option.target.isa.base.rv32g"
+								},
+								{
+									"command": "-march=rv64g",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.target.arch.rv64g",
+									"name": "%option.target.isa.base.rv64g"
+								}
+							]
+						},
+						{
+							"command": "m",
+							"defaultValue": "false",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.base.target.isa.multiply",
+							"isAbstract": "true",
+							"name": "%option.target.isa.multiply",
+							"valueType": "boolean"
+						},
+						{
+							"command": "a",
+							"defaultValue": "false",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.base.target.isa.atomic",
+							"isAbstract": "true",
+							"name": "%option.target.isa.atomic",
+							"valueType": "boolean"
+						},
+						{
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.base.target.isa.fp",
+							"isAbstract": "true",
+							"name": "%option.target.isa.fp",
+							"valueType": "enumerated",
+							"enumeratedOptionValue": [
+								{
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.isa.fp.none",
+									"isDefault": "true",
+									"name": "%option.target.isa.fp.none"
+								},
+								{
+									"command": "f",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.isa.fp.single",
+									"name": "%option.target.isa.fp.single"
+								},
+								{
+									"command": "fd",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.isa.fp.double",
+									"name": "%option.target.isa.fp.double"
+								},
+								{
+									"command": "fdq",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.isa.fp.quad",
+									"name": "%option.target.isa.fp.quad"
+								}
+							]
+						},
+						{
+							"command": "c",
+							"defaultValue": "false",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.base.target.isa.compressed",
+							"isAbstract": "true",
+							"name": "%option.target.isa.compressed",
+							"valueType": "boolean"
+						},
+						{
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.base.target.abi.integer",
+							"isAbstract": "true",
+							"name": "%option.target.abi.integer",
+							"valueType": "enumerated",
+							"enumeratedOptionValue": [
+								{
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.abi.integer.default",
+									"isDefault": "true",
+									"name": "%option.target.abi.integer.default"
+								},
+								{
+									"command": "-mabi=ilp32",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.abi.integer.ilp32",
+									"name": "%option.target.abi.integer.ilp32"
+								},
+								{
+									"command": "-mabi=lp64",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.abi.lp64",
+									"name": "%option.target.abi.integer.lp64"
+								}
+							]
+						},
+						{
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.base.target.abi.fp",
+							"isAbstract": "true",
+							"name": "%option.target.abi.fp",
+							"valueType": "enumerated",
+							"enumeratedOptionValue": [
+								{
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.abi.fp.none",
+									"isDefault": "true",
+									"name": "%option.target.abi.fp.none"
+								},
+								{
+									"command": "f",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.abi.fp.single",
+									"name": "%option.target.abi.fp.single"
+								},
+								{
+									"command": "d",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.abi.fp.double",
+									"name": "%option.target.abi.fp.double"
+								}
+							]
+						},
+						{
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.base.target.codemodel",
+							"isAbstract": "true",
+							"name": "%option.target.codemodel",
+							"valueType": "enumerated",
+							"enumeratedOptionValue": [
+								{
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.target.codemodel.default",
+									"isDefault": "true",
+									"name": "%option.target.codemodel.default"
+								},
+								{
+									"command": "-mcmodel=medany",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.target.codemodel.any",
+									"name": "%option.target.codemodel.any"
+								},
+								{
+									"command": "-mcmodel=medlow",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.target.codemodel.low",
+									"name": "%option.target.codemodel.low"
+								}
+							]
+						},
+						{
+							"command": "-msmall-data-limit=",
+							"defaultValue": "8",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.base.target.smalldatalimit",
+							"isAbstract": "true",
+							"name": "%option.target.smalldatalimit",
+							"value": "8",
+							"valueType": "string"
+						},
+						{
+							"command": "-msave-restore",
+							"defaultValue": "false",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.base.target.saverestore",
+							"isAbstract": "true",
+							"name": "%option.target.saverestore",
+							"valueType": "boolean"
+						},
+						{
+							"command": "-mmemcpy",
+							"defaultValue": "false",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.base.target.memcpy",
+							"isAbstract": "true",
+							"name": "%option.target.memcpy",
+							"valueType": "boolean"
+						},
+						{
+							"command": "-mplt",
+							"defaultValue": "false",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.base.target.plt",
+							"isAbstract": "true",
+							"name": "%option.target.plt",
+							"valueType": "boolean"
+						},
+						{
+							"command": "-mfdiv",
+							"defaultValue": "false",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.base.target.fdiv",
+							"isAbstract": "true",
+							"name": "%option.target.fdiv",
+							"valueType": "boolean"
+						},
+						{
+							"command": "-mdiv",
+							"defaultValue": "false",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.base.target.div",
+							"isAbstract": "true",
+							"name": "%option.target.div",
+							"valueType": "boolean"
+						},
+						{
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.base.target.tune",
+							"isAbstract": "true",
+							"name": "%option.target.tune",
+							"valueType": "enumerated",
+							"enumeratedOptionValue": [
+								{
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.target.tune.default",
+									"isDefault": "true",
+									"name": "%option.target.tune.default"
+								},
+								{
+									"command": "-mtune=rocket",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.target.tune.rocket",
+									"name": "%option.target.tune.rocket"
+								},
+								{
+									"command": "-mtune=generic",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.target.tune.generic",
+									"name": "%option.target.tune.generic"
+								}
+							]
+						}
+					]
+				}
+			],
+			"toolChain": [
+				{
+					"archList": "all",
+					"configurationEnvironmentSupplier": "ilg.gnumcueclipse.managedbuild.cross.riscv.EnvironmentVariableSupplier",
+					"configurationMacroSupplier": "ilg.gnumcueclipse.managedbuild.cross.riscv.ConfigurationBuildMacroSupplier",
+					"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.toolchain.base",
+					"isAbstract": "false",
+					"languageSettingsProviders": "org.eclipse.cdt.managedbuilder.core.GCCBuildCommandParser;ilg.gnumcueclipse.managedbuild.cross.riscv.GCCBuiltinSpecsDetector",
+					"name": "%toolchain.name",
+					"osList": "all",
+					"targetTool": "ilg.gnumcueclipse.managedbuild.cross.riscv.tool.c.linker;ilg.gnumcueclipse.managedbuild.cross.riscv.tool.cpp.linker;cdt.managedbuild.tool.gnu.archiver",
+					"targetPlatform": [
+						{
+							"archList": "all",
+							"binaryParser": "org.eclipse.cdt.core.ELF",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.targetPlatform",
+							"isAbstract": "false",
+							"osList": "all"
+						}
+					],
+					"builder": [
+						{
+							"command": "${cross_make}",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.builder",
+							"superClass": "cdt.managedbuild.target.gnu.builder"
+						}
+					],
+					"option": [
+						{
+							"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.target",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.command.prefix",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.command.prefix"
+						},
+						{
+							"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.target",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.command.suffix",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.command.suffix"
+						},
+						{
+							"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.target",
+							"defaultValue": "echo",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.command.c",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.command.c"
+						},
+						{
+							"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.target",
+							"defaultValue": "echo",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.command.cpp",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.command.cpp"
+						},
+						{
+							"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.target",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.command.ar",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.command.ar"
+						},
+						{
+							"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.target",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.command.objcopy",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.command.objcopy"
+						},
+						{
+							"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.target",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.command.objdump",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.command.objdump"
+						},
+						{
+							"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.target",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.command.size",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.command.size"
+						},
+						{
+							"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.target",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.command.make",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.command.make"
+						},
+						{
+							"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.target",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.command.rm",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.command.rm"
+						},
+						{
+							"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.target",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.toolchain.useglobalpath",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.toolchain.useglobalpath"
+						},
+						{
+							"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.target",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.toolchain.path",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.toolchain.path"
+						},
+						{
+							"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.target",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.addtools.createflash",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.toolchain.createflash"
+						},
+						{
+							"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.target",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.addtools.createlisting",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.toolchain.createlisting"
+						},
+						{
+							"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.target",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.addtools.printsize",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.toolchain.printsize"
+						},
+						{
+							"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.target",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.target.isa.base",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.base.target.isa.base"
+						},
+						{
+							"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.target",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.target.isa.multiply",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.base.target.isa.multiply"
+						},
+						{
+							"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.target",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.target.isa.atomic",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.base.target.isa.atomic"
+						},
+						{
+							"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.target",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.target.isa.fp",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.base.target.isa.fp"
+						},
+						{
+							"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.target",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.target.isa.compressed",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.base.target.isa.compressed"
+						},
+						{
+							"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.target",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.target.abi.integer",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.base.target.abi.integer"
+						},
+						{
+							"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.target",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.target.abi.fp",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.base.target.abi.fp"
+						},
+						{
+							"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.target",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.target.tune",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.base.target.tune"
+						},
+						{
+							"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.target",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.target.codemodel",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.base.target.codemodel"
+						},
+						{
+							"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.target",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.target.smalldatalimit",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.base.target.smalldatalimit"
+						},
+						{
+							"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.target",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.target.saverestore",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.base.target.saverestore"
+						},
+						{
+							"applicabilityCalculator": "ilg.gnumcueclipse.managedbuild.cross.riscv.ui.DisabledOption",
+							"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.target",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.target.memcpy",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.base.target.memcpy"
+						},
+						{
+							"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.target",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.target.plt",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.base.target.plt"
+						},
+						{
+							"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.target",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.target.fdiv",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.base.target.fdiv"
+						},
+						{
+							"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.target",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.target.div",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.base.target.div"
+						},
+						{
+							"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.target",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.target.other",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.target.other"
+						},
+						{
+							"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.optimization",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.optimization.level",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.base.optimization.level"
+						},
+						{
+							"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.optimization",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.optimization.messagelength",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.optimization.messagelength"
+						},
+						{
+							"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.optimization",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.optimization.signedchar",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.optimization.signedchar"
+						},
+						{
+							"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.optimization",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.optimization.functionsections",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.optimization.functionsections"
+						},
+						{
+							"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.optimization",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.optimization.datasections",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.optimization.datasections"
+						},
+						{
+							"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.optimization",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.optimization.nocommon",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.optimization.nocommon"
+						},
+						{
+							"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.optimization",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.optimization.noinlinefunctions",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.optimization.nocommon"
+						},
+						{
+							"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.optimization",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.optimization.freestanding",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.optimization.freestanding"
+						},
+						{
+							"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.optimization",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.optimization.nobuiltin",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.optimization.nobuiltin"
+						},
+						{
+							"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.optimization",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.optimization.spconstant",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.optimization.spconstant"
+						},
+						{
+							"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.optimization",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.optimization.PIC",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.optimization.PIC"
+						},
+						{
+							"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.optimization",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.optimization.lto",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.optimization.lto"
+						},
+						{
+							"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.optimization",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.optimization.nomoveloopinvariants",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.optimization.nomoveloopinvariants"
+						},
+						{
+							"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.optimization",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.optimization.other",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.optimization.other"
+						},
+						{
+							"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.target",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.toolchain.name",
+							"isAbstract": "false",
+							"resourceFilter": "all",
+							"valueType": "string"
+						},
+						{
+							"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.warnings",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.warnings.syntaxonly",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.warnings.syntaxonly"
+						},
+						{
+							"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.warnings",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.warnings.pedantic",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.warnings.pedantic"
+						},
+						{
+							"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.warnings",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.warnings.pedanticerrors",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.warnings.pedanticerrors"
+						},
+						{
+							"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.warnings",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.warnings.nowarn",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.warnings.nowarn"
+						},
+						{
+							"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.warnings",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.warnings.unused",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.warnings.unused"
+						},
+						{
+							"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.warnings",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.warnings.uninitialized",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.warnings.uninitialized"
+						},
+						{
+							"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.warnings",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.warnings.allwarn",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.warnings.allwarn"
+						},
+						{
+							"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.warnings",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.warnings.extrawarn",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.warnings.extrawarn"
+						},
+						{
+							"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.warnings",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.warnings.missingdeclaration",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.warnings.missingdeclaration"
+						},
+						{
+							"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.warnings",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.warnings.conversion",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.warnings.conversion"
+						},
+						{
+							"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.warnings",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.warnings.pointerarith",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.warnings.pointerarith"
+						},
+						{
+							"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.warnings",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.warnings.padded",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.warnings.padded"
+						},
+						{
+							"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.warnings",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.warnings.shadow",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.warnings.shadow"
+						},
+						{
+							"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.warnings",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.warnings.logicalop",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.warnings.logicalop"
+						},
+						{
+							"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.warnings",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.warnings.agreggatereturn",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.warnings.agreggatereturn"
+						},
+						{
+							"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.warnings",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.warnings.floatequal",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.warnings.floatequal"
+						},
+						{
+							"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.warnings",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.warnings.toerrors",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.warnings.toerrors"
+						},
+						{
+							"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.warnings",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.warnings.other",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.warnings.other"
+						},
+						{
+							"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.debugging",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.debugging.level",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.base.debugging.level"
+						},
+						{
+							"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.debugging",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.debugging.format",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.base.debugging.format"
+						},
+						{
+							"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.debugging",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.debugging.prof",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.debugging.prof"
+						},
+						{
+							"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.debugging",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.debugging.gprof",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.debugging.gprof"
+						},
+						{
+							"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.debugging",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.debugging.other",
+							"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.debugging.other"
+						}
+					],
+					"optionCategory": [
+						{
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.target",
+							"name": "%optionCategory.target"
+						},
+						{
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.optimization",
+							"name": "%optionCategory.optimization"
+						},
+						{
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.warnings",
+							"name": "%optionCategory.warnings"
+						},
+						{
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.debugging",
+							"name": "%optionCategory.debugging"
+						}
+					],
+					"tool": [
+						{
+							"command": "${cross_prefix}${cross_c}${cross_suffix}",
+							"commandLineGenerator": "ilg.gnumcueclipse.managedbuild.cross.CompilerCommandLineGenerator",
+							"commandLinePattern": "${COMMAND} ${cross_toolchain_flags} ${FLAGS} -c ${OUTPUT_FLAG} ${OUTPUT_PREFIX}${OUTPUT} ${INPUTS}",
+							"errorParsers": "org.eclipse.cdt.core.GCCErrorParser;org.eclipse.cdt.core.GASErrorParser",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.tool.assembler",
+							"isAbstract": "false",
+							"name": "%tool.assembler",
+							"natureFilter": "both",
+							"outputFlag": "-o",
+							"supportedProperties": [
+								{
+									"property": [
+										{
+											"id": "org.eclipse.cdt.build.core.buildType",
+											"value": [
+												{
+													"id": "org.eclipse.cdt.build.core.buildType.debug"
+												},
+												{
+													"id": "org.eclipse.cdt.build.core.buildType.release"
+												}
+											]
+										}
+									]
+								}
+							],
+							"envVarBuildPath": [
+								{
+									"pathType": "buildpathInclude",
+									"variableList": "CPATH,C_INCLUDE_PATH"
+								}
+							],
+							"inputType": [
+								{
+									"dependencyCalculator": "org.eclipse.cdt.managedbuilder.makegen.gnu.DefaultGCCDependencyCalculator2",
+									"dependencyContentType": "org.eclipse.cdt.core.cHeader",
+									"dependencyExtensions": "h",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.tool.assembler.input",
+									"sources": "s,S,asm",
+									"superClass": "cdt.managedbuild.tool.gnu.assembler.input"
+								}
+							],
+							"outputType": [
+								{
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.tool.assembler.output",
+									"superClass": "cdt.managedbuild.tool.gnu.assembler.output"
+								}
+							],
+							"optionCategory": [
+								{
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.assembler.preprocessor",
+									"name": "%optionCategory.compiler.preprocessor"
+								},
+								{
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.assembler.dirs",
+									"name": "%optionCategory.compiler.dirs"
+								},
+								{
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.assembler.warnings",
+									"name": "%optionCategory.compiler.warnings"
+								},
+								{
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.assembler.misc",
+									"name": "%optionCategory.compiler.misc"
+								}
+							],
+							"option": [
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.assembler.preprocessor",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.assembler.usepreprocessor",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.assembler.usepreprocessor"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.assembler.preprocessor",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.assembler.nostdinc",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.preprocessor.nostdinc"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.assembler.preprocessor",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.assembler.preprocessonly",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.preprocessor.preprocessonly"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.assembler.preprocessor",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.assembler.defs",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.preprocessor.defs"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.assembler.preprocessor",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.assembler.undefs",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.preprocessor.undefs"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.assembler.dirs",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.assembler.include.paths",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.dirs.include.paths"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.assembler.dirs",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.assembler.include.files",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.dirs.include.files"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.assembler.warnings",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.assembler.otherwarnings",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.warnings.other"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.assembler.misc",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.assembler.flags",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.assembler.flags"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.assembler.misc",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.assembler.asmlisting",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.asmlisting"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.assembler.misc",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.assembler.savetemps",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.savetemps"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.assembler.misc",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.assembler.verbose",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.verbose"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.assembler.misc",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.assembler.other",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.assembler.other"
+								}
+							]
+						},
+						{
+							"command": "${cross_prefix}${cross_c}${cross_suffix}",
+							"commandLineGenerator": "ilg.gnumcueclipse.managedbuild.cross.CompilerCommandLineGenerator",
+							"commandLinePattern": "${COMMAND} ${cross_toolchain_flags} ${FLAGS} -c ${OUTPUT_FLAG} ${OUTPUT_PREFIX}${OUTPUT} ${INPUTS}",
+							"errorParsers": "org.eclipse.cdt.core.GCCErrorParser;org.eclipse.cdt.core.GLDErrorParser",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.tool.c.compiler",
+							"isAbstract": "false",
+							"name": "%tool.c.compiler",
+							"natureFilter": "both",
+							"outputFlag": "-o",
+							"supportedProperties": [
+								{
+									"property": [
+										{
+											"id": "org.eclipse.cdt.build.core.buildType",
+											"value": [
+												{
+													"id": "org.eclipse.cdt.build.core.buildType.debug"
+												},
+												{
+													"id": "org.eclipse.cdt.build.core.buildType.release"
+												}
+											]
+										}
+									]
+								}
+							],
+							"envVarBuildPath": [
+								{
+									"pathType": "buildpathInclude",
+									"variableList": "CPATH,C_INCLUDE_PATH"
+								}
+							],
+							"inputType": [
+								{
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.tool.c.compiler.input",
+									"superClass": "cdt.managedbuild.tool.gnu.c.compiler.input"
+								}
+							],
+							"outputType": [
+								{
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.tool.c.compiler.output",
+									"superClass": "cdt.managedbuild.tool.gnu.c.compiler.output"
+								}
+							],
+							"optionCategory": [
+								{
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.c.compiler.preprocessor",
+									"name": "%optionCategory.compiler.preprocessor"
+								},
+								{
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.c.compiler.dirs",
+									"name": "%optionCategory.compiler.dirs"
+								},
+								{
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.c.compiler.optimization",
+									"name": "%optionCategory.compiler.optimization"
+								},
+								{
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.c.compiler.warnings",
+									"name": "%optionCategory.compiler.warnings"
+								},
+								{
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.c.compiler.misc",
+									"name": "%optionCategory.compiler.misc"
+								}
+							],
+							"option": [
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.c.compiler.preprocessor",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.c.compiler.nostdinc",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.preprocessor.nostdinc"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.c.compiler.preprocessor",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.c.compiler.preprocessonly",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.preprocessor.preprocessonly"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.c.compiler.preprocessor",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.c.compiler.defs",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.preprocessor.defs"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.c.compiler.preprocessor",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.c.compiler.undef",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.preprocessor.undefs"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.c.compiler.dirs",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.c.compiler.include.paths",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.dirs.include.paths"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.c.compiler.dirs",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.c.compiler.include.files",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.dirs.include.files"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.c.compiler.optimization",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.c.compiler.std",
+									"name": "%option.compiler.std",
+									"useByScannerDiscovery": "true",
+									"valueType": "enumerated",
+									"enumeratedOptionValue": [
+										{
+											"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.c.compiler.std.default",
+											"name": "%option.c.compiler.std.default"
+										},
+										{
+											"command": "-ansi",
+											"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.c.compiler.std.ansi",
+											"name": "%option.c.compiler.std.ansi"
+										},
+										{
+											"command": "-std=gnu90",
+											"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.c.compiler.std.gnu90",
+											"name": "%option.c.compiler.std.gnu90"
+										},
+										{
+											"command": "-std=c99",
+											"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.c.compiler.std.c99",
+											"name": "%option.c.compiler.std.c99"
+										},
+										{
+											"command": "-std=gnu99",
+											"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.c.compiler.std.gnu99",
+											"name": "%option.c.compiler.std.gnu99"
+										},
+										{
+											"command": "-std=c11",
+											"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.c.compiler.std.c11",
+											"name": "%option.c.compiler.std.c11"
+										},
+										{
+											"command": "-std=gnu11",
+											"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.c.compiler.std.gnu11",
+											"isDefault": "true",
+											"name": "%option.c.compiler.std.gnu11"
+										}
+									]
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.c.compiler.optimization",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.c.compiler.otheroptimizations",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.optimization.other"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.c.compiler.warnings",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.c.compiler.warning.missingprototypes",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.c.compiler.warning.missingprototypes"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.c.compiler.warnings",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.c.compiler.warning.strictprototypes",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.c.compiler.warning.strictprototypes"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.c.compiler.warnings",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.c.compiler.warning.badfunctioncast",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.c.compiler.warning.badfunctioncast"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.c.compiler.warnings",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.c.compiler.otherwarnings",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.warnings.other"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.c.compiler.misc",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.c.compiler.asmlisting",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.asmlisting"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.c.compiler.misc",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.c.compiler.savetemps",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.savetemps"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.c.compiler.misc",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.c.compiler.verbose",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.verbose"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.c.compiler.misc",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.c.compiler.other",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.compiler.other"
+								}
+							]
+						},
+						{
+							"command": "${cross_prefix}${cross_cpp}${cross_suffix}",
+							"commandLineGenerator": "ilg.gnumcueclipse.managedbuild.cross.CompilerCommandLineGenerator",
+							"commandLinePattern": "${COMMAND} ${cross_toolchain_flags} ${FLAGS} -c ${OUTPUT_FLAG} ${OUTPUT_PREFIX}${OUTPUT} ${INPUTS}",
+							"errorParsers": "org.eclipse.cdt.core.GCCErrorParser;org.eclipse.cdt.core.GLDErrorParser",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.tool.cpp.compiler",
+							"isAbstract": "false",
+							"name": "%tool.cpp.compiler",
+							"natureFilter": "ccnature",
+							"outputFlag": "-o",
+							"supportedProperties": [
+								{
+									"property": [
+										{
+											"id": "org.eclipse.cdt.build.core.buildType",
+											"value": [
+												{
+													"id": "org.eclipse.cdt.build.core.buildType.debug"
+												},
+												{
+													"id": "org.eclipse.cdt.build.core.buildType.release"
+												}
+											]
+										}
+									]
+								}
+							],
+							"envVarBuildPath": [
+								{
+									"pathType": "buildpathInclude",
+									"variableList": "CPATH,CPLUS_INCLUDE_PATH"
+								}
+							],
+							"inputType": [
+								{
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.tool.cpp.compiler.input",
+									"superClass": "cdt.managedbuild.tool.gnu.cpp.compiler.input"
+								}
+							],
+							"outputType": [
+								{
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.tool.cpp.compiler.output",
+									"superClass": "cdt.managedbuild.tool.gnu.cpp.compiler.output"
+								}
+							],
+							"optionCategory": [
+								{
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.cpp.compiler.preprocessor",
+									"name": "%optionCategory.compiler.preprocessor"
+								},
+								{
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.cpp.compiler.dirs",
+									"name": "%optionCategory.compiler.dirs"
+								},
+								{
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.cpp.compiler.optimization",
+									"name": "%optionCategory.compiler.optimization"
+								},
+								{
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.cpp.compiler.warnings",
+									"name": "%optionCategory.compiler.warnings"
+								},
+								{
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.cpp.compiler.misc",
+									"name": "%optionCategory.compiler.misc"
+								}
+							],
+							"option": [
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.cpp.compiler.preprocessor",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.cpp.compiler.nostdinc",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.preprocessor.nostdinc"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.cpp.compiler.preprocessor",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.cpp.compiler.nostdincpp",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.cpp.compiler.nostdincpp"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.cpp.compiler.preprocessor",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.cpp.compiler.preprocessonly",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.preprocessor.preprocessonly"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.cpp.compiler.preprocessor",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.cpp.compiler.defs",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.preprocessor.defs"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.cpp.compiler.preprocessor",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.cpp.compiler.undef",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.preprocessor.undefs"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.cpp.compiler.dirs",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.cpp.compiler.include.paths",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.dirs.include.paths"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.cpp.compiler.dirs",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.cpp.compiler.include.files",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.dirs.include.files"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.cpp.compiler.optimization",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.cpp.compiler.std",
+									"name": "%option.compiler.std",
+									"useByScannerDiscovery": "true",
+									"valueType": "enumerated",
+									"enumeratedOptionValue": [
+										{
+											"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.cpp.compiler.std.default",
+											"name": "%option.cpp.compiler.std.default"
+										},
+										{
+											"command": "-ansi",
+											"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.cpp.compiler.std.ansi",
+											"name": "%option.cpp.compiler.std.ansi"
+										},
+										{
+											"command": "-std=gnu++98",
+											"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.cpp.compiler.std.gnucpp98",
+											"name": "%option.cpp.compiler.std.gnucpp98"
+										},
+										{
+											"command": "-std=c++11",
+											"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.cpp.compiler.std.cpp11",
+											"name": "%option.cpp.compiler.std.cpp11"
+										},
+										{
+											"command": "-std=c++0x",
+											"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.cpp.compiler.std.cpp0x",
+											"name": "%option.cpp.compiler.std.cpp0x"
+										},
+										{
+											"command": "-std=gnu++11",
+											"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.cpp.compiler.std.gnucpp11",
+											"isDefault": "true",
+											"name": "%option.cpp.compiler.std.gnucpp11"
+										},
+										{
+											"command": "-std=gnu++0x",
+											"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.cpp.compiler.std.gnucpp0x",
+											"name": "%option.cpp.compiler.std.gnucpp0x"
+										},
+										{
+											"command": "-std=c++14",
+											"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.cpp.compiler.std.cpp14",
+											"name": "%option.cpp.compiler.std.cpp14"
+										},
+										{
+											"command": "-std=c++1y",
+											"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.cpp.compiler.std.cpp1y",
+											"name": "%option.cpp.compiler.std.cpp1y"
+										},
+										{
+											"command": "-std=gnu++14",
+											"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.cpp.compiler.std.gnucpp14",
+											"name": "%option.cpp.compiler.std.gnucpp14"
+										},
+										{
+											"command": "-std=gnu++1y",
+											"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.cpp.compiler.std.gnucpp1y",
+											"name": "%option.cpp.compiler.std.gnucpp1y"
+										},
+										{
+											"command": "-std=c++1z",
+											"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.cpp.compiler.std.cpp1z",
+											"name": "%option.cpp.compiler.std.cpp1z"
+										},
+										{
+											"command": "-std=gnu++1z",
+											"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.cpp.compiler.std.gnucpp1z",
+											"name": "%option.cpp.compiler.std.gnucpp1z"
+										}
+									]
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.cpp.compiler.optimization",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.cpp.compiler.abiversion",
+									"name": "%option.cpp.compiler.abiversion",
+									"useByScannerDiscovery": "true",
+									"valueType": "enumerated",
+									"enumeratedOptionValue": [
+										{
+											"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.cpp.compiler.abiversion.default",
+											"name": "%option.cpp.compiler.abiversion.default"
+										},
+										{
+											"command": "-fabi-version=0",
+											"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.cpp.compiler.abiversion.0",
+											"isDefault": "true",
+											"name": "%option.cpp.compiler.abiversion.0"
+										},
+										{
+											"command": "-fabi-version=1",
+											"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.cpp.compiler.abiversion.1",
+											"name": "%option.cpp.compiler.abiversion.1"
+										},
+										{
+											"command": "-fabi-version=2",
+											"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.cpp.compiler.abiversion.2",
+											"name": "%option.cpp.compiler.abiversion.2"
+										},
+										{
+											"command": "-fabi-version=3",
+											"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.cpp.compiler.abiversion.3",
+											"name": "%option.cpp.compiler.abiversion.3"
+										},
+										{
+											"command": "-fabi-version=4",
+											"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.cpp.compiler.abiversion.4",
+											"name": "%option.cpp.compiler.abiversion.4"
+										},
+										{
+											"command": "-fabi-version=5",
+											"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.cpp.compiler.abiversion.5",
+											"name": "%option.cpp.compiler.abiversion.5"
+										},
+										{
+											"command": "-fabi-version=6",
+											"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.cpp.compiler.abiversion.6",
+											"name": "%option.cpp.compiler.abiversion.6"
+										},
+										{
+											"command": "-fabi-version=7",
+											"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.cpp.compiler.abiversion.7",
+											"name": "%option.cpp.compiler.abiversion.7"
+										},
+										{
+											"command": "-fabi-version=8",
+											"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.cpp.compiler.abiversion.8",
+											"name": "%option.cpp.compiler.abiversion.8"
+										},
+										{
+											"command": "-fabi-version=9",
+											"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.cpp.compiler.abiversion.9",
+											"name": "%option.cpp.compiler.abiversion.9"
+										}
+									]
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.cpp.compiler.optimization",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.cpp.compiler.noexceptions",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.cpp.compiler.noexceptions"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.cpp.compiler.optimization",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.cpp.compiler.nortti",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.cpp.compiler.nortti"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.cpp.compiler.optimization",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.cpp.compiler.nousecxaatexit",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.cpp.compiler.nousecxaatexit"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.cpp.compiler.optimization",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.cpp.compiler.nothreadsafestatics",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.cpp.compiler.nothreadsafestatics"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.cpp.compiler.optimization",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.cpp.compiler.otheroptimizations",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.optimization.other"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.cpp.compiler.warnings",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.cpp.compiler.warnabi",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.cpp.compiler.warnabi"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.cpp.compiler.warnings",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.cpp.compiler.warning.ctordtorprivacy",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.cpp.compiler.warning.ctordtorprivacy"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.cpp.compiler.warnings",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.cpp.compiler.warning.noexcept",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.cpp.compiler.warning.noexcept"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.cpp.compiler.warnings",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.cpp.compiler.warning.nonvirtualdtor",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.cpp.compiler.warning.nonvirtualdtor"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.cpp.compiler.warnings",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.cpp.compiler.warning.strictnullsentinel",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.cpp.compiler.warning.strictnullsentinel"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.cpp.compiler.warnings",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.cpp.compiler.warning.signpromo",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.cpp.compiler.warning.signpromo"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.cpp.compiler.warnings",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.cpp.compiler.warneffc",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.cpp.compiler.warneffc"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.cpp.compiler.warnings",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.cpp.compiler.otherwarnings",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.warnings.other"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.cpp.compiler.misc",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.cpp.compiler.asmlisting",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.asmlisting"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.cpp.compiler.misc",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.cpp.compiler.savetemps",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.savetemps"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.cpp.compiler.misc",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.cpp.compiler.verbose",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.verbose"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.cpp.compiler.misc",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.cpp.compiler.other",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.compiler.other"
+								}
+							]
+						},
+						{
+							"command": "${cross_prefix}${cross_c}${cross_suffix}",
+							"commandLinePattern": "${COMMAND} ${cross_toolchain_flags} ${FLAGS} ${OUTPUT_FLAG} ${OUTPUT_PREFIX}${OUTPUT} ${INPUTS}",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.tool.c.linker",
+							"name": "%tool.c.linker",
+							"natureFilter": "cnature",
+							"outputFlag": "-o",
+							"supportedProperties": [
+								{
+									"property": [
+										{
+											"id": "org.eclipse.cdt.build.core.buildArtefactType",
+											"value": [
+												{
+													"id": "org.eclipse.cdt.build.core.buildArtefactType.exe"
+												},
+												{
+													"id": "org.eclipse.cdt.build.core.buildArtefactType.sharedLib"
+												}
+											]
+										}
+									]
+								}
+							],
+							"envVarBuildPath": [
+								{
+									"pathType": "buildpathLibrary",
+									"variableList": "LIBRARY_PATH"
+								}
+							],
+							"inputType": [
+								{
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.tool.c.linker.input",
+									"superClass": "cdt.managedbuild.tool.gnu.c.linker.input",
+									"additionalInput": [
+										{
+											"kind": "additionalinputdependency",
+											"paths": "$(USER_OBJS)"
+										},
+										{
+											"kind": "additionalinput",
+											"paths": "$(LIBS)"
+										}
+									]
+								}
+							],
+							"outputType": [
+								{
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.tool.c.linker.output",
+									"superClass": "cdt.managedbuild.tool.gnu.c.linker.output"
+								},
+								{
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.tool.c.linker.output.so",
+									"superClass": "cdt.managedbuild.tool.gnu.c.linker.output.so"
+								}
+							],
+							"optionCategory": [
+								{
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.c.linker.general",
+									"name": "%optionCategory.general"
+								},
+								{
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.c.linker.libs",
+									"name": "%optionCategory.linker.libraries"
+								},
+								{
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.c.linker.misc",
+									"name": "%optionCategory.linker.misc"
+								},
+								{
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.c.linker.shared",
+									"name": "%optionCategory.linker.shared"
+								}
+							],
+							"option": [
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.c.linker.general",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.c.linker.scriptfile",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.scriptfile"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.c.linker.general",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.c.linker.nostart",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.nostart"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.c.linker.general",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.c.linker.nodeflibs",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.nodeflibs"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.c.linker.general",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.c.linker.nostdlibs",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.nostdlibs"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.c.linker.general",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.c.linker.gcsections",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.gcsections"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.c.linker.general",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.c.linker.printgcsections",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.printgcsections"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.c.linker.general",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.c.linker.strip",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.strip"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.c.linker.libs",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.c.linker.libs",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.libs"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.c.linker.libs",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.c.linker.paths",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.paths"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.c.linker.misc",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.c.linker.flags",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.flags"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.c.linker.misc",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.c.linker.otherobjs",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.otherobjs"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.c.linker.misc",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.c.linker.mapfilename",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.mapfilename"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.c.linker.misc",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.c.linker.cref",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.cref"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.c.linker.misc",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.c.linker.printmap",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.printmap"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.c.linker.misc",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.c.linker.usenewlibnano",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.usenewlibnano"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.c.linker.misc",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.c.linker.useprintffloat",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.useprintffloat"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.c.linker.misc",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.c.linker.usescanffloat",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.usescanffloat"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.c.linker.misc",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.c.linker.verbose",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.verbose"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.c.linker.misc",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.c.linker.other",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.other"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.c.linker.shared",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.c.linker.shared",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.shared"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.c.linker.shared",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.c.linker.soname",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.soname"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.c.linker.shared",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.c.linker.implname",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.implname"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.c.linker.shared",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.c.linker.defname",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.defname"
+								}
+							]
+						},
+						{
+							"command": "${cross_prefix}${cross_cpp}${cross_suffix}",
+							"commandLinePattern": "${COMMAND} ${cross_toolchain_flags} ${FLAGS} ${OUTPUT_FLAG} ${OUTPUT_PREFIX}${OUTPUT} ${INPUTS}",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.tool.cpp.linker",
+							"name": "%tool.cpp.linker",
+							"natureFilter": "ccnature",
+							"outputFlag": "-o",
+							"supportedProperties": [
+								{
+									"property": [
+										{
+											"id": "org.eclipse.cdt.build.core.buildArtefactType",
+											"value": [
+												{
+													"id": "org.eclipse.cdt.build.core.buildArtefactType.exe"
+												},
+												{
+													"id": "org.eclipse.cdt.build.core.buildArtefactType.sharedLib"
+												}
+											]
+										}
+									]
+								}
+							],
+							"envVarBuildPath": [
+								{
+									"pathType": "buildpathLibrary",
+									"variableList": "LIBRARY_PATH"
+								}
+							],
+							"inputType": [
+								{
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.tool.cpp.linker.input",
+									"superClass": "cdt.managedbuild.tool.gnu.cpp.linker.input",
+									"additionalInput": [
+										{
+											"kind": "additionalinputdependency",
+											"paths": "$(USER_OBJS)"
+										},
+										{
+											"kind": "additionalinput",
+											"paths": "$(LIBS)"
+										}
+									]
+								}
+							],
+							"outputType": [
+								{
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.tool.cpp.linker.output",
+									"superClass": "cdt.managedbuild.tool.gnu.cpp.linker.output"
+								},
+								{
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.tool.cpp.linker.output.so",
+									"superClass": "cdt.managedbuild.tool.gnu.cpp.linker.output.so"
+								}
+							],
+							"optionCategory": [
+								{
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.cpp.linker.general",
+									"name": "%optionCategory.general"
+								},
+								{
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.cpp.linker.libs",
+									"name": "%optionCategory.linker.libraries"
+								},
+								{
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.cpp.linker.misc",
+									"name": "%optionCategory.linker.misc"
+								},
+								{
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.cpp.linker.shared",
+									"name": "%optionCategory.linker.shared"
+								}
+							],
+							"option": [
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.cpp.linker.general",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.cpp.linker.scriptfile",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.scriptfile"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.cpp.linker.general",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.cpp.linker.nostart",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.nostart"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.cpp.linker.general",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.cpp.linker.nodeflibs",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.nodeflibs"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.cpp.linker.general",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.cpp.linker.nostdlibs",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.nostdlibs"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.cpp.linker.general",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.cpp.linker.gcsections",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.gcsections"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.cpp.linker.general",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.cpp.linker.printgcsections",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.printgcsections"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.cpp.linker.general",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.cpp.linker.strip",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.strip"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.cpp.linker.libs",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.cpp.linker.libs",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.libs"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.cpp.linker.libs",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.cpp.linker.paths",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.paths"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.cpp.linker.misc",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.cpp.linker.flags",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.flags"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.cpp.linker.misc",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.cpp.linker.otherobjs",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.otherobjs"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.cpp.linker.misc",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.cpp.linker.mapfilename",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.mapfilename"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.cpp.linker.misc",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.cpp.linker.cref",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.cref"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.cpp.linker.misc",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.cpp.linker.printmap",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.printmap"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.cpp.linker.misc",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.cpp.linker.usenewlibnano",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.usenewlibnano"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.cpp.linker.misc",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.cpp.linker.useprintffloat",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.useprintffloat"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.cpp.linker.misc",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.cpp.linker.usescanffloat",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.usescanffloat"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.cpp.linker.misc",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.cpp.linker.verbose",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.verbose"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.cpp.linker.misc",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.cpp.linker.other",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.other"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.cpp.linker.shared",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.cpp.linker.shared",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.shared"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.cpp.linker.shared",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.cpp.linker.soname",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.soname"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.cpp.linker.shared",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.cpp.linker.implname",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.implname"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.cpp.linker.shared",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.cpp.linker.defname",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.linker.defname"
+								}
+							]
+						},
+						{
+							"command": "${cross_prefix}${cross_ar}${cross_suffix}",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.tool.archiver",
+							"isAbstract": "false",
+							"name": "%tool.archiver",
+							"natureFilter": "both",
+							"superClass": "cdt.managedbuild.tool.gnu.archiver"
+						},
+						{
+							"command": "${cross_prefix}${cross_objcopy}${cross_suffix}",
+							"commandLinePattern": "${COMMAND} ${FLAGS} ${OUTPUT_FLAG} ${OUTPUT_PREFIX}${OUTPUT}",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.tool.createflash",
+							"isAbstract": "false",
+							"name": "%tool.flash",
+							"natureFilter": "both",
+							"inputType": [
+								{
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.createflash.input",
+									"multipleOfType": "true",
+									"option": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.createflash.InFileName",
+									"sources": "elf"
+								}
+							],
+							"outputType": [
+								{
+									"buildVariable": "SECONDARY_FLASH",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.createflash.output",
+									"nameProvider": "ilg.gnumcueclipse.managedbuild.cross.riscv.FlashImageManagedOutputNameProvider",
+									"outputContentType": "ilg.gnumcueclipse.managedbuild.cross.riscv.content-type.hex",
+									"outputs": "hex",
+									"primaryOutput": "false"
+								}
+							],
+							"optionCategory": [
+								{
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.createflash.general",
+									"name": "%optionCategory.general"
+								}
+							],
+							"option": [
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.createflash.general",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.createflash.choice",
+									"name": "%option.flash.outformat",
+									"valueType": "enumerated",
+									"enumeratedOptionValue": [
+										{
+											"command": "-O ihex",
+											"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.createflash.choice.ihex",
+											"isDefault": "true",
+											"name": "%option.flash.outformat.ihex"
+										},
+										{
+											"command": "-O srec",
+											"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.createflash.choice.srec",
+											"name": "%option.flash.outformat.srec"
+										},
+										{
+											"command": "-O symbolsrec",
+											"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.createflash.choice.symbolsrec",
+											"name": "%option.flash.outformat.symbolsrec"
+										},
+										{
+											"command": "-O binary",
+											"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.createflash.choice.binary",
+											"name": "%option.flash.outformat.binary"
+										}
+									]
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.createflash.general",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.createflash.textsection",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.createflash.textsection"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.createflash.general",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.createflash.datasection",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.createflash.datasection"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.createflash.general",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.createflash.othersection",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.createflash.othersection"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.createflash.general",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.createflash.other",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.createflash.other"
+								},
+								{
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.createflash.InFileName",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.createflash.InFileName"
+								}
+							]
+						},
+						{
+							"command": "${cross_prefix}${cross_objdump}${cross_suffix}",
+							"commandLinePattern": "${COMMAND} ${FLAGS} ${OUTPUT_FLAG} ${OUTPUT_PREFIX}${OUTPUT}",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.tool.createlisting",
+							"isAbstract": "false",
+							"name": "%tool.listing",
+							"natureFilter": "both",
+							"outputFlag": ">",
+							"inputType": [
+								{
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.createlisting.input",
+									"multipleOfType": "true",
+									"option": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.createlisting.InFileName",
+									"sources": "elf"
+								}
+							],
+							"outputType": [
+								{
+									"buildVariable": "SECONDARY_LIST",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.createlisting.output",
+									"outputNames": "${BuildArtifactFileBaseName}.lst",
+									"outputs": "lst",
+									"primaryOutput": "false"
+								}
+							],
+							"optionCategory": [
+								{
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.createlisting.general",
+									"name": "%optionCategory.general"
+								}
+							],
+							"option": [
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.createlisting.general",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.createlisting.source",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.createlisting.source"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.createlisting.general",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.createlisting.allheaders",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.createlisting.allheaders"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.createlisting.general",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.createlisting.demangle",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.createlisting.demangle"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.createlisting.general",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.createlisting.debugging",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.createlisting.debugging"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.createlisting.general",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.createlisting.disassemble",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.createlisting.disassemble"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.createlisting.general",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.createlisting.fileheaders",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.createlisting.fileheaders"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.createlisting.general",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.createlisting.linenumbers",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.createlisting.linenumbers"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.createlisting.general",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.createlisting.reloc",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.createlisting.reloc"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.createlisting.general",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.createlisting.symbols",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.createlisting.symbols"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.createlisting.general",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.createlisting.wide",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.createlisting.wide"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.createlisting.general",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.createlisting.other",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.createlisting.other"
+								},
+								{
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.createlisting.InFileName",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.createlisting.InFileName"
+								}
+							]
+						},
+						{
+							"command": "${cross_prefix}${cross_size}${cross_suffix}",
+							"commandLinePattern": "${COMMAND} ${FLAGS}",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.tool.printsize",
+							"isAbstract": "false",
+							"name": "%tool.size",
+							"natureFilter": "both",
+							"inputType": [
+								{
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.printsize.input",
+									"multipleOfType": "true",
+									"option": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.printsize.InFileName",
+									"sources": "elf"
+								}
+							],
+							"outputType": [
+								{
+									"buildVariable": "SECONDARY_SIZE",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.printsize.output",
+									"outputNames": "${BuildArtifactFileBaseName}.siz",
+									"outputs": "siz",
+									"primaryOutput": "false"
+								}
+							],
+							"optionCategory": [
+								{
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.printsize.general",
+									"name": "%optionCategory.general"
+								}
+							],
+							"option": [
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.printsize.general",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.printsize.format",
+									"name": "%option.print.sizeFormat",
+									"valueType": "enumerated",
+									"enumeratedOptionValue": [
+										{
+											"command": "--format=berkeley",
+											"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.printsize.format.berkeley",
+											"name": "%option.print.sizeFormat.berkeley"
+										},
+										{
+											"command": "--format=sysv",
+											"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.printsize.format.sysv",
+											"name": "%option.print.sizeFormat.sysv"
+										}
+									]
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.printsize.general",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.printsize.hex",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.printsize.hex"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.printsize.general",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.printsize.totals",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.printsize.totals"
+								},
+								{
+									"category": "ilg.gnumcueclipse.managedbuild.cross.riscv.optionCategory.printsize.general",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.printsize.other",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.printsize.other"
+								},
+								{
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.option.printsize.InFileName",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.option.base.printsize.InFileName"
+								}
+							]
+						}
+					]
+				}
+			],
+			"projectType": [
+				{
+					"buildArtefactType": "org.eclipse.cdt.build.core.buildArtefactType.exe",
+					"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.target.elf",
+					"isAbstract": "false",
+					"isTest": "false",
+					"configuration": [
+						{
+							"artifactExtension": "elf",
+							"buildProperties": "org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug",
+							"cleanCommand": "${cross_rm} -rf",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.config.elf.debug",
+							"name": "Debug",
+							"parent": "cdt.managedbuild.config.gnu.base",
+							"toolChain": [
+								{
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.toolchain.elf.debug",
+									"secondaryOutputs": "ilg.gnumcueclipse.managedbuild.cross.riscv.createflash.output;ilg.gnumcueclipse.managedbuild.cross.riscv.createlisting.output;ilg.gnumcueclipse.managedbuild.cross.riscv.printsize.output",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.riscv.toolchain.base",
+									"targetTool": "ilg.gnumcueclipse.managedbuild.cross.riscv.tool.c.linker;ilg.gnumcueclipse.managedbuild.cross.riscv.tool.cpp.linker"
+								}
+							]
+						},
+						{
+							"artifactExtension": "elf",
+							"buildProperties": "org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.release",
+							"cleanCommand": "${cross_rm} -rf",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.config.elf.release",
+							"name": "Release",
+							"parent": "cdt.managedbuild.config.gnu.base",
+							"toolChain": [
+								{
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.toolchain.elf.release",
+									"secondaryOutputs": "ilg.gnumcueclipse.managedbuild.cross.riscv.createflash.output;ilg.gnumcueclipse.managedbuild.cross.riscv.createlisting.output;ilg.gnumcueclipse.managedbuild.cross.riscv.printsize.output",
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.riscv.toolchain.base",
+									"targetTool": "ilg.gnumcueclipse.managedbuild.cross.riscv.tool.c.linker;ilg.gnumcueclipse.managedbuild.cross.riscv.tool.cpp.linker"
+								}
+							]
+						}
+					]
+				},
+				{
+					"buildArtefactType": "org.eclipse.cdt.build.core.buildArtefactType.sharedLib",
+					"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.target.so",
+					"isAbstract": "false",
+					"isTest": "false",
+					"configuration": [
+						{
+							"name": "Debug",
+							"cleanCommand": "${cross_rm} -rf",
+							"parent": "cdt.managedbuild.config.gnu.base",
+							"buildProperties": "org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.config.so.debug",
+							"toolChain": [
+								{
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.riscv.toolchain.base",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.toolchain.so.debug"
+								}
+							]
+						},
+						{
+							"name": "Release",
+							"cleanCommand": "${cross_rm} -rf",
+							"parent": "cdt.managedbuild.config.gnu.base",
+							"buildProperties": "org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.release",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.config.so.release",
+							"toolChain": [
+								{
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.riscv.toolchain.base",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.toolchain.so.release"
+								}
+							]
+						}
+					]
+				},
+				{
+					"buildArtefactType": "org.eclipse.cdt.build.core.buildArtefactType.staticLib",
+					"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.target.lib",
+					"isAbstract": "false",
+					"isTest": "false",
+					"configuration": [
+						{
+							"name": "Debug",
+							"parent": "cdt.managedbuild.config.gnu.base",
+							"buildProperties": "org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug",
+							"cleanCommand": "${cross_rm} -rf",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.config.lib.debug",
+							"toolChain": [
+								{
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.riscv.toolchain.base",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.toolchain.lib.debug"
+								}
+							]
+						},
+						{
+							"name": "Release",
+							"parent": "cdt.managedbuild.config.gnu.base",
+							"buildProperties": "org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.release",
+							"cleanCommand": "${cross_rm} -rf",
+							"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.config.lib.release",
+							"toolChain": [
+								{
+									"superClass": "ilg.gnumcueclipse.managedbuild.cross.riscv.toolchain.base",
+									"id": "ilg.gnumcueclipse.managedbuild.cross.riscv.toolchain.lib.release"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"generators": [
+		{
+			"tool": "xmake-dev",
+			"version": "0.1.5",
+			"command": [
+				"xmake-dev",
+				"convert",
+				"--file",
+				"/Users/ilg/My Files/MacBookPro Projects/GNU ARM Eclipse/plug-ins.git/ilg.gnumcueclipse.managedbuild.cross.riscv/plugin.xml",
+				"--format",
+				"cdt-toolchain",
+				"--output",
+				"gme-cross-riscv.json"
+			],
+			"homepage": "https://github.com/xpack/xmake-js",
+			"date": "2017-05-22T14:14:38.561Z"
+		}
+	]
+}

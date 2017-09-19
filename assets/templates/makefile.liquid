@@ -9,7 +9,7 @@ CC := {{ tools.c }}
 CXX := {{ tools.cpp }}
 
 # By default, build the project artefact.
-all: {{ artifactName }}
+all: {{ artefactName }}
 
 # Initialise variables to collect source files.
 -include variables.mk
@@ -17,25 +17,25 @@ all: {{ artifactName }}
 # SUBDIR is not actively used, but is prepared in case the custom make
 # parts need it. It collects subfolders that are part of the build.
 SUBDIRS := 
-{% for folder in sourceFolders %}
+{% for folder in sourceFolders -%}
 SUBDIRS += {{ folder }}
-{% endfor %}
+{% endfor -%}
 
 # The source files participating in the build are contributed by each folder.
-{% for folder in sourceFolders %}
+{% for folder in sourceFolders -%}
 -include {{ folder }}/subdir.mk
-{% endfor %}
+{% endfor -%}
 # TODO test with project root
 -include subdir.mk
 
 -include objects.mk
 
 ifneq ($(MAKECMDGOALS),clean)
-{% for fileType in fileTypes %}
+{% for fileType in fileTypes -%}
 ifneq ($(strip $({{ fileType.prefix }}_DEPS)),)
 -include $({{ fileType.prefix }}_DEPS)
 endif
-{% endfor %}
+{% endfor -%}
 endif
 
 -include {{ pathToCwd }}/makefile.defs
@@ -43,30 +43,30 @@ endif
 # Add inputs and outputs from these tool invocations to the build variables 
 
 # Tool invocations
-{{ artifactName }}: $(OBJS) $(USER_OBJS)
-{% if isVerbose %}
+{{ artefactName }}: $(OBJS) $(USER_OBJS)
+{% if isVerbose -%}
 {{ tab }}@echo ' '
 {{ tab }}@echo 'Building target: $@'
 {{ tab }}@echo 'Invoking: GCC C++ Linker'
-{% else %}
+{% else -%}
 {{ tab }}@echo '[$(CXX)]: $@'
 {% endif %}
-{{ tab }}{% if isVerbose == false %}@{% endif %}$(CXX)  -o "{{ artifactName }}" $(OBJS) $(USER_OBJS) $(LIBS)
-{% if isVerbose %}
+{{ tab }}{% if isVerbose == false %}@{% endif %}$(CXX) {{ options.cppLinker }} $(OBJS) $(USER_OBJS) $(LIBS) -o "{{ artefactName }}"
+{% if isVerbose -%}
 {{ tab }}@echo 'Finished building target: $@'
-{% endif %}
+{% endif -%}
 
 # Other Targets
 clean:
-{% if isVerbose %}
+{% if isVerbose -%}
 {{ tab }}-@echo ' '
 {{ tab }}-@echo 'Cleaning:'
-{% else %}
-{{ tab }}-@echo '[$(firstword $(RM))]:'
-{% endif %}
+{% else -%}
+{{ tab }}-@echo '[$(firstword $(RM))]: *'
+{% endif -%}
 {{ tab }}-{% if isVerbose == false %}@{% endif %}$(RM) {% for fileType in fileTypes %}$({{ fileType.prefix }}_DEPS) {% endfor %}
 
-{{ tab }}-{% if isVerbose == false %}@{% endif %}$(RM) $(EXECUTABLES) $(OBJS) {{ artifactName }}
+{{ tab }}-{% if isVerbose == false %}@{% endif %}$(RM) $(EXECUTABLES) $(OBJS) {{ artefactName }}
 
 .PHONY: all clean dependents
 .SECONDARY:

@@ -1,0 +1,176 @@
+{
+	"buildDefinitions": [
+		{
+			"id": "emptyConfigs",
+			"name": "%extension.name.6",
+			"point": "org.eclipse.cdt.managedbuilder.core.buildDefinitions",
+			"managedBuildRevision": {
+				"fileVersion": "4.0.0"
+			},
+			"configuration": [
+				{
+					"id": "org.eclipse.cdt.build.core.emptycfg",
+					"languageSettingsProviders": "org.eclipse.cdt.ui.UserLanguageSettingsProvider;org.eclipse.cdt.core.ReferencedProjectsLanguageSettingsProvider;${Toolchain};org.eclipse.cdt.managedbuilder.core.MBSLanguageSettingsProvider",
+					"name": "%cfg1_empty"
+				},
+				{
+					"id": "org.eclipse.cdt.build.core.prefbase.cfg",
+					"languageSettingsProviders": "org.eclipse.cdt.ui.UserLanguageSettingsProvider;org.eclipse.cdt.core.ReferencedProjectsLanguageSettingsProvider;${Toolchain};org.eclipse.cdt.managedbuilder.core.MBSLanguageSettingsProvider",
+					"name": "%cfg1_base",
+					"toolChain": [
+						{
+							"id": "org.eclipse.cdt.build.core.prefbase.toolchain",
+							"name": "%toolChain.name",
+							"supportsManagedBuild": "false",
+							"isSystem": "true",
+							"tool": [
+								{
+									"id": "org.eclipse.cdt.build.core.settings.holder.libs",
+									"supportsManagedBuild": "false",
+									"name": "%tool.name",
+									"errorParsers": "org.eclipse.cdt.core.VCErrorParser;org.eclipse.cdt.core.GASErrorParser;org.eclipse.cdt.core.GLDErrorParser;org.eclipse.cdt.core.GCCErrorParser",
+									"isSystem": "true",
+									"option": [
+										{
+											"id": "org.eclipse.cdt.build.core.settings.holder.libpaths",
+											"browseType": "directory",
+											"name": "%option.name",
+											"valueType": "libPaths"
+										},
+										{
+											"id": "org.eclipse.cdt.build.core.settings.holder.libfiles",
+											"name": "%option.name.0",
+											"valueType": "libFiles",
+											"browseType": "file"
+										}
+									]
+								}
+							],
+							"builder": [
+								{
+									"isAbstract": "false",
+									"id": "org.eclipse.cdt.build.core.settings.default.builder",
+									"command": "make",
+									"arguments": "",
+									"variableFormat": "${=}",
+									"isVariableCaseSensitive": "true",
+									"reservedMacroNames": "ROOT,DEPS,OBJS,.*_SRCS,EXECUTABLES,SUBDIRS,LIBS,USER_OBJS,.*_INPUTS,.*_OUTPUTS",
+									"buildfileGenerator": "org.eclipse.cdt.managedbuilder.makegen.gnu.GnuMakefileGenerator",
+									"macroInputFileNameValue": "$(notdir $<)",
+									"macroInputFileExtValue": "$(suffix $(notdir $<))",
+									"macroInputFileBaseNameValue": "$(basename $(notdir $<))",
+									"macroInputFileRelPathValue": "$<",
+									"macroInputDirRelPathValue": "$(dir $<)",
+									"macroOutputFileNameValue": "$(notdir $@)",
+									"macroOutputFileExtValue": "$(suffix $(notdir $@))",
+									"macroOutputFileBaseNameValue": "$(basename $(notdir $@))",
+									"macroOutputFileRelPathValue": "$@",
+									"macroOutputDirRelPathValue": "$(dir $@)",
+									"autoBuildTarget": "all",
+									"incrementalBuildTarget": "all",
+									"cleanBuildTarget": "clean",
+									"ignoreErrCmd": "-k",
+									"parallelBuildCmd": "-j*",
+									"errorParsers": "org.eclipse.cdt.core.CWDLocator;org.eclipse.cdt.core.GmakeErrorParser",
+									"name": "%GNUMakeBuilder.name",
+									"isSystem": "true"
+								}
+							]
+						}
+					]
+				}
+			],
+			"tool": [
+				{
+					"id": "org.eclipse.cdt.build.core.settings.holder",
+					"supportsManagedBuild": "false",
+					"name": "%tool.name.0",
+					"errorParsers": "org.eclipse.cdt.core.VCErrorParser;org.eclipse.cdt.core.GASErrorParser;org.eclipse.cdt.core.GLDErrorParser;org.eclipse.cdt.core.GCCErrorParser",
+					"isSystem": "true",
+					"inputType": [
+						{
+							"id": "org.eclipse.cdt.build.core.settings.holder.inType"
+						}
+					],
+					"option": [
+						{
+							"id": "org.eclipse.cdt.build.core.settings.holder.incpaths",
+							"name": "%option.name.1",
+							"browseType": "directory",
+							"valueType": "includePath"
+						},
+						{
+							"id": "org.eclipse.cdt.build.core.settings.holder.symbols",
+							"name": "%option.name.2",
+							"valueType": "definedSymbols"
+						},
+						{
+							"id": "org.eclipse.cdt.build.core.settings.holder.symbolfiles",
+							"name": "%option.name.3",
+							"browseType": "file",
+							"valueType": "symbolFiles"
+						},
+						{
+							"id": "org.eclipse.cdt.build.core.settings.holder.includefiles",
+							"name": "%option.name.4",
+							"browseType": "file",
+							"valueType": "includeFiles"
+						},
+						{
+							"id": "org.eclipse.cdt.build.core.settings.holder.undef.incpaths",
+							"name": "%option.name.5",
+							"browseType": "directory",
+							"valueType": "undefIncludePath"
+						},
+						{
+							"id": "org.eclipse.cdt.build.core.settings.holder.undef.symbols",
+							"name": "%option.name.6",
+							"valueType": "undefDefinedSymbols"
+						},
+						{
+							"id": "org.eclipse.cdt.build.core.settings.holder.undef.symbolfiles",
+							"name": "%option.name.7",
+							"browseType": "file",
+							"valueType": "undefSymbolFiles"
+						},
+						{
+							"id": "org.eclipse.cdt.build.core.settings.holder.undef.includefiles",
+							"name": "%option.name.8",
+							"browseType": "file",
+							"valueType": "undefIncludeFiles"
+						}
+					]
+				},
+				{
+					"id": "org.eclipse.cdt.build.core.default.tool",
+					"isAbstract": "true",
+					"isSystem": "true"
+				}
+			],
+			"builder": [
+				{
+					"id": "org.eclipse.cdt.build.core.internal.builder",
+					"name": "%InternalBuilder.name"
+				}
+			]
+		}
+	],
+	"generators": [
+		{
+			"tool": "xmake-dev",
+			"version": "0.1.5",
+			"command": [
+				"xmake-dev",
+				"convert",
+				"--file",
+				"/Users/ilg/My Files/MacBookPro Projects/GNU ARM Eclipse/src/org.eclipse.cdt.git/build/org.eclipse.cdt.managedbuilder.core/plugin.xml",
+				"--format",
+				"cdt-toolchain",
+				"--output",
+				"cdt-core.json"
+			],
+			"homepage": "https://github.com/xpack/xmake-js",
+			"date": "2017-05-22T14:14:38.917Z"
+		}
+	]
+}

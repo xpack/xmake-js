@@ -17,7 +17,8 @@
     "test-coverage": "tap --coverage --reporter=classic --timeout 600 --no-color \"test/tap/*.js\"",
     "test-tap": "tap --reporter=classic --timeout 300 --no-color \"test/tap/*.js\"",
     "tap": "tap --reporter=spec --timeout 300 --no-color",
-    "fix": "standard --fix"
+    "fix": "standard --fix",
+    "link": "npm link @ilg/cli-start-options; npm link @ilg/es6-promisifier"
   },
   "repository": {
     "type": "git",
@@ -41,18 +42,17 @@
   },
   "homepage": "https://github.com/xpack/xmake-js",
   "dependencies": {
-    "@ilg/es6-promisifier": "~0.1.1",
-    "@ilg/cli-start-options": "~0.2.0",
+    "@ilg/es6-promisifier": "~0.1.9",
+    "@ilg/cli-start-options": "~0.3.1",
     "mkdirp": "~0.5.1",
-    "shopify-liquid": "~1.7.7",
-    "xml2js": "~0.4.17"
+    "liquidjs": "~1.9.6",
+    "xml2js": "~0.4.19"
   },
   "devDependencies": {
-    "mkdirp": "~0.5.1",
-    "rimraf": "~2.6.1",
-    "standard": "~10.0.1",
-    "tar": "~2.2.1",
-    "tap": "~10.3.1"
+    "rimraf": "~2.6.2",
+    "standard": "~10.0.3",
+    "tar": "~4.0.1",
+    "tap": "~10.7.2"
   },
   "peerDependencies": {},
   "bundledDependencies": [],

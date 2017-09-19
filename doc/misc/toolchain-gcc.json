@@ -1,0 +1,25 @@
+{
+  "name": "gcc-base",
+  "parent": "base",
+  "objectExtension": "o",
+  "makeObjectsVariable": "OBJS",
+  "descriptionPrefix": "GNU",
+
+  "tools": {
+    "c": {
+      "commandName": "gcc"
+    },
+    "cpp": {
+      "commandName": "g++"
+    },
+    "as": {
+      "commandName": "gcc"
+    },
+    "cLinker": {
+      "commandName": "gcc"
+    },
+    "cppLinker": {
+      "commandName": "g++"
+    }
+  }
+}

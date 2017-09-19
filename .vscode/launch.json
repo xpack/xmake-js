@@ -132,6 +132,31 @@
     {
       "type": "node",
       "request": "launch",
+      "name": "xmake build in blinky",
+      "program": "${workspaceRoot}/bin/xmake.js",
+      "stopOnEntry": true,
+      "args": [
+        "build",
+        "-dd",
+        "--",
+        "clean",
+        "all"
+      ],
+      "cwd": "/Users/ilg/tmp/xpm/hifive1-blinky",
+      "preLaunchTask": null,
+      "runtimeExecutable": null,
+      "runtimeArgs": [
+        "--nolazy"
+      ],
+      "env": {
+        "NODE_ENV": "development"
+      },
+      "console": "internalConsole",
+      "sourceMaps": false
+    },
+    {
+      "type": "node",
+      "request": "launch",
       "name": "Launch Program",
       "program": "${workspaceRoot}/index.js"
     },

@@ -1,0 +1,4100 @@
+{
+	"buildDefinitions": [
+		{
+			"id": "cdt.managed.build.info",
+			"name": "%extension.name",
+			"point": "org.eclipse.cdt.managedbuilder.core.buildDefinitions",
+			"managedBuildRevision": {
+				"fileVersion": "4.0.0"
+			},
+			"tool": [
+				{
+					"natureFilter": "cnature",
+					"name": "%ToolName.linker.gnu.c",
+					"outputFlag": "-o",
+					"command": "gcc",
+					"id": "cdt.managedbuild.tool.gnu.c.linker",
+					"errorParsers": "org.eclipse.cdt.core.GLDErrorParser",
+					"supportedProperties": [
+						{
+							"property": [
+								{
+									"id": "org.eclipse.cdt.build.core.buildArtefactType",
+									"value": [
+										{
+											"id": "org.eclipse.cdt.build.core.buildArtefactType.exe"
+										},
+										{
+											"id": "org.eclipse.cdt.build.core.buildArtefactType.sharedLib"
+										}
+									]
+								}
+							]
+						}
+					],
+					"envVarBuildPath": [
+						{
+							"pathType": "buildpathLibrary",
+							"variableList": "LIBRARY_PATH"
+						}
+					],
+					"optionCategory": [
+						{
+							"owner": "cdt.managedbuild.tool.gnu.c.linker",
+							"name": "%OptionCategory.General",
+							"id": "gnu.c.link.category.general"
+						},
+						{
+							"owner": "cdt.managedbuild.tool.gnu.c.linker",
+							"name": "%OptionCategory.Libs",
+							"id": "gnu.c.link.category.libs"
+						},
+						{
+							"owner": "cdt.managedbuild.tool.gnu.c.linker",
+							"name": "%OptionCategory.Misc",
+							"id": "gnu.c.link.category.other"
+						},
+						{
+							"owner": "cdt.managedbuild.tool.gnu.c.linker",
+							"name": "%OptionCategory.Shared.Settings",
+							"id": "gnu.c.link.category.shared"
+						}
+					],
+					"option": [
+						{
+							"defaultValue": "false",
+							"name": "%Option.Posix.Linker.NoStartFiles",
+							"category": "gnu.c.link.category.general",
+							"command": "-nostartfiles",
+							"id": "gnu.c.link.option.nostart",
+							"valueType": "boolean"
+						},
+						{
+							"defaultValue": "false",
+							"name": "%Option.Posix.Linker.NoDefLibs",
+							"category": "gnu.c.link.category.general",
+							"command": "-nodefaultlibs",
+							"id": "gnu.c.link.option.nodeflibs",
+							"valueType": "boolean"
+						},
+						{
+							"defaultValue": "false",
+							"name": "%Option.Posix.Linker.NoStdLibs",
+							"category": "gnu.c.link.category.general",
+							"command": "-nostdlib",
+							"id": "gnu.c.link.option.nostdlibs",
+							"valueType": "boolean"
+						},
+						{
+							"defaultValue": "false",
+							"name": "%Option.Posix.Linker.Strip",
+							"category": "gnu.c.link.category.general",
+							"command": "-s",
+							"id": "gnu.c.link.option.strip",
+							"valueType": "boolean"
+						},
+						{
+							"defaultValue": "false",
+							"name": "%Option.Posix.Linker.Static",
+							"category": "gnu.c.link.category.general",
+							"command": "-static",
+							"id": "gnu.c.link.option.noshared",
+							"valueType": "boolean"
+						},
+						{
+							"name": "%Option.Posix.Libs",
+							"category": "gnu.c.link.category.libs",
+							"command": "-l",
+							"id": "gnu.c.link.option.libs",
+							"browseType": "none",
+							"valueType": "libs"
+						},
+						{
+							"name": "%Option.Posix.Libsearch",
+							"category": "gnu.c.link.category.libs",
+							"command": "-L",
+							"id": "gnu.c.link.option.paths",
+							"browseType": "directory",
+							"valueType": "libPaths"
+						},
+						{
+							"name": "%Option.Posix.Linker.Flags",
+							"category": "gnu.c.link.category.other",
+							"valueType": "string",
+							"id": "gnu.c.link.option.ldflags"
+						},
+						{
+							"name": "%Option.Posix.Linker.XLinker",
+							"category": "gnu.c.link.category.other",
+							"command": "-Xlinker ${VALUE}",
+							"valueType": "stringList",
+							"id": "gnu.c.link.option.other"
+						},
+						{
+							"name": "%Option.Posix.UserObjs",
+							"category": "gnu.c.link.category.other",
+							"browseType": "file",
+							"valueType": "userObjs",
+							"id": "gnu.c.link.option.userobjs"
+						},
+						{
+							"defaultValue": "false",
+							"name": "%Option.Posix.Linker.Shared",
+							"category": "gnu.c.link.category.shared",
+							"command": "-shared",
+							"id": "gnu.c.link.option.shared",
+							"valueType": "boolean"
+						},
+						{
+							"name": "%Option.Posix.Linker.SOName",
+							"category": "gnu.c.link.category.shared",
+							"command": "-Wl,-soname=",
+							"id": "gnu.c.link.option.soname",
+							"valueType": "string"
+						},
+						{
+							"name": "%Option.Posix.Linker.Implib",
+							"category": "gnu.c.link.category.shared",
+							"command": "-Wl,--out-implib=",
+							"id": "gnu.c.link.option.implname",
+							"valueType": "string"
+						},
+						{
+							"name": "%Option.Posix.Linker.Defname",
+							"category": "gnu.c.link.category.shared",
+							"command": "-Wl,--output-def=",
+							"id": "gnu.c.link.option.defname",
+							"valueType": "string"
+						},
+						{
+							"applicabilityCalculator": "org.eclipse.cdt.managedbuilder.gnu.ui.ProfAppCalculator",
+							"command": "-p",
+							"defaultValue": "false",
+							"id": "gnu.c.link.option.debugging.prof",
+							"name": "%Option.Posix.Debug.prof",
+							"valueType": "boolean"
+						},
+						{
+							"applicabilityCalculator": "org.eclipse.cdt.managedbuilder.gnu.ui.GprofAppCalculator",
+							"command": "-pg",
+							"defaultValue": "false",
+							"id": "gnu.c.link.option.debugging.gprof",
+							"name": "%Option.Posix.Debug.gprof",
+							"valueType": "boolean"
+						},
+						{
+							"applicabilityCalculator": "org.eclipse.cdt.managedbuilder.gnu.ui.GcovAppCalculator",
+							"command": "-ftest-coverage -fprofile-arcs",
+							"defaultValue": "false",
+							"id": "gnu.c.link.option.debugging.codecov",
+							"name": "%Option.codecov",
+							"valueType": "boolean"
+						}
+					],
+					"inputType": [
+						{
+							"sourceContentType": "org.eclipse.cdt.managedbuilder.core.compiledObjectFile",
+							"sources": "o",
+							"multipleOfType": "true",
+							"dependencyCalculator": "org.eclipse.cdt.managedbuilder.makegen.internal.DefaultNoDependencyCalculator",
+							"buildVariable": "OBJS",
+							"id": "cdt.managedbuild.tool.gnu.c.linker.input",
+							"additionalInput": [
+								{
+									"paths": "$(USER_OBJS)",
+									"kind": "additionalinputdependency"
+								},
+								{
+									"paths": "$(LIBS)",
+									"kind": "additionalinput"
+								}
+							]
+						}
+					],
+					"outputType": [
+						{
+							"outputs": "",
+							"buildVariable": "EXECUTABLES",
+							"nameProvider": "org.eclipse.cdt.managedbuilder.makegen.gnu.GnuLinkOutputNameProvider",
+							"id": "cdt.managedbuild.tool.gnu.c.linker.output"
+						},
+						{
+							"outputs": "so",
+							"outputPrefix": "lib",
+							"nameProvider": "org.eclipse.cdt.managedbuilder.makegen.gnu.GnuLinkOutputNameProvider",
+							"buildVariable": "LIBRARIES",
+							"id": "cdt.managedbuild.tool.gnu.c.linker.output.so"
+						}
+					]
+				},
+				{
+					"natureFilter": "ccnature",
+					"name": "%ToolName.linker.gnu.cpp",
+					"outputFlag": "-o",
+					"command": "g++",
+					"id": "cdt.managedbuild.tool.gnu.cpp.linker",
+					"errorParsers": "org.eclipse.cdt.core.GLDErrorParser",
+					"supportedProperties": [
+						{
+							"property": [
+								{
+									"id": "org.eclipse.cdt.build.core.buildArtefactType",
+									"value": [
+										{
+											"id": "org.eclipse.cdt.build.core.buildArtefactType.exe"
+										},
+										{
+											"id": "org.eclipse.cdt.build.core.buildArtefactType.sharedLib"
+										}
+									]
+								}
+							]
+						}
+					],
+					"envVarBuildPath": [
+						{
+							"pathType": "buildpathLibrary",
+							"variableList": "LIBRARY_PATH"
+						}
+					],
+					"optionCategory": [
+						{
+							"owner": "cdt.managedbuild.tool.gnu.cpp.linker",
+							"name": "%OptionCategory.General",
+							"id": "gnu.cpp.link.category.options"
+						},
+						{
+							"owner": "cdt.managedbuild.tool.gnu.cpp.linker",
+							"name": "%OptionCategory.Libs",
+							"id": "gnu.cpp.link.category.libs"
+						},
+						{
+							"owner": "cdt.managedbuild.tool.gnu.cpp.linker",
+							"name": "%OptionCategory.Misc",
+							"id": "gnu.cpp.link.category.other"
+						},
+						{
+							"owner": "cdt.managedbuild.tool.gnu.cpp.linker",
+							"name": "%OptionCategory.Shared.Settings",
+							"id": "gnu.cpp.link.category.shared"
+						}
+					],
+					"option": [
+						{
+							"defaultValue": "false",
+							"name": "%Option.Posix.Linker.NoStartFiles",
+							"category": "gnu.cpp.link.category.options",
+							"command": "-nostartfiles",
+							"id": "gnu.cpp.link.option.nostart",
+							"valueType": "boolean"
+						},
+						{
+							"defaultValue": "false",
+							"name": "%Option.Posix.Linker.NoDefLibs",
+							"category": "gnu.cpp.link.category.options",
+							"command": "-nodefaultlibs",
+							"id": "gnu.cpp.link.option.nodeflibs",
+							"valueType": "boolean"
+						},
+						{
+							"defaultValue": "false",
+							"name": "%Option.Posix.Linker.NoStdLibs",
+							"category": "gnu.cpp.link.category.options",
+							"command": "-nostdlib",
+							"id": "gnu.cpp.link.option.nostdlibs",
+							"valueType": "boolean"
+						},
+						{
+							"defaultValue": "false",
+							"name": "%Option.Posix.Linker.Strip",
+							"category": "gnu.cpp.link.category.options",
+							"command": "-s",
+							"id": "gnu.cpp.link.option.strip",
+							"valueType": "boolean"
+						},
+						{
+							"name": "%Option.Posix.Libs",
+							"category": "gnu.cpp.link.category.libs",
+							"command": "-l",
+							"id": "gnu.cpp.link.option.libs",
+							"browseType": "none",
+							"valueType": "libs"
+						},
+						{
+							"name": "%Option.Posix.Libsearch",
+							"category": "gnu.cpp.link.category.libs",
+							"command": "-L",
+							"id": "gnu.cpp.link.option.paths",
+							"browseType": "directory",
+							"valueType": "libPaths"
+						},
+						{
+							"name": "%Option.Posix.Linker.Flags",
+							"category": "gnu.cpp.link.category.other",
+							"valueType": "string",
+							"id": "gnu.cpp.link.option.flags"
+						},
+						{
+							"name": "%Option.Posix.Linker.XLinker",
+							"category": "gnu.cpp.link.category.other",
+							"command": "-Xlinker ${VALUE}",
+							"valueType": "stringList",
+							"id": "gnu.cpp.link.option.other"
+						},
+						{
+							"name": "%Option.Posix.UserObjs",
+							"category": "gnu.cpp.link.category.other",
+							"browseType": "file",
+							"valueType": "userObjs",
+							"id": "gnu.cpp.link.option.userobjs"
+						},
+						{
+							"defaultValue": "false",
+							"name": "%Option.Posix.Linker.Shared",
+							"category": "gnu.cpp.link.category.shared",
+							"command": "-shared",
+							"valueType": "boolean",
+							"id": "gnu.cpp.link.option.shared"
+						},
+						{
+							"name": "%Option.Posix.Linker.SOName",
+							"category": "gnu.cpp.link.category.shared",
+							"command": "-Wl,-soname=",
+							"valueType": "string",
+							"id": "gnu.cpp.link.option.soname"
+						},
+						{
+							"name": "%Option.Posix.Linker.Implib",
+							"category": "gnu.cpp.link.category.shared",
+							"command": "-Wl,--out-implib=",
+							"valueType": "string",
+							"id": "gnu.cpp.link.option.implname"
+						},
+						{
+							"name": "%Option.Posix.Linker.Defname",
+							"category": "gnu.cpp.link.category.shared",
+							"command": "-Wl,--output-def=",
+							"valueType": "string",
+							"id": "gnu.cpp.link.option.defname"
+						},
+						{
+							"applicabilityCalculator": "org.eclipse.cdt.managedbuilder.gnu.ui.ProfAppCalculator",
+							"command": "-p",
+							"defaultValue": "false",
+							"id": "gnu.cpp.link.option.debugging.prof",
+							"name": "%Option.Posix.Debug.prof",
+							"valueType": "boolean"
+						},
+						{
+							"applicabilityCalculator": "org.eclipse.cdt.managedbuilder.gnu.ui.GprofAppCalculator",
+							"command": "-pg",
+							"defaultValue": "false",
+							"id": "gnu.cpp.link.option.debugging.gprof",
+							"name": "%Option.Posix.Debug.gprof",
+							"valueType": "boolean"
+						},
+						{
+							"applicabilityCalculator": "org.eclipse.cdt.managedbuilder.gnu.ui.GcovAppCalculator",
+							"command": "-ftest-coverage -fprofile-arcs",
+							"defaultValue": "false",
+							"id": "gnu.cpp.link.option.debugging.codecov",
+							"name": "%Option.codecov",
+							"valueType": "boolean"
+						}
+					],
+					"inputType": [
+						{
+							"sourceContentType": "org.eclipse.cdt.managedbuilder.core.compiledObjectFile",
+							"sources": "o",
+							"multipleOfType": "true",
+							"dependencyCalculator": "org.eclipse.cdt.managedbuilder.makegen.internal.DefaultNoDependencyCalculator",
+							"buildVariable": "OBJS",
+							"id": "cdt.managedbuild.tool.gnu.cpp.linker.input",
+							"additionalInput": [
+								{
+									"paths": "$(USER_OBJS)",
+									"kind": "additionalinputdependency"
+								},
+								{
+									"paths": "$(LIBS)",
+									"kind": "additionalinput"
+								}
+							]
+						}
+					],
+					"outputType": [
+						{
+							"outputs": "",
+							"buildVariable": "EXECUTABLES",
+							"nameProvider": "org.eclipse.cdt.managedbuilder.makegen.gnu.GnuLinkOutputNameProvider",
+							"id": "cdt.managedbuild.tool.gnu.cpp.linker.output"
+						},
+						{
+							"outputs": "so",
+							"outputPrefix": "lib",
+							"nameProvider": "org.eclipse.cdt.managedbuilder.makegen.gnu.GnuLinkOutputNameProvider",
+							"buildVariable": "LIBRARIES",
+							"id": "cdt.managedbuild.tool.gnu.cpp.linker.output.so"
+						}
+					]
+				},
+				{
+					"natureFilter": "both",
+					"isAbstract": "true",
+					"name": "%ToolName.archiver.gnu",
+					"command": "ar",
+					"id": "cdt.managedbuild.tool.gnu.archiver",
+					"supportedProperties": [
+						{
+							"property": [
+								{
+									"id": "org.eclipse.cdt.build.core.buildArtefactType",
+									"value": [
+										{
+											"id": "org.eclipse.cdt.build.core.buildArtefactType.staticLib"
+										}
+									]
+								}
+							]
+						}
+					],
+					"optionCategory": [
+						{
+							"owner": "cdt.managedbuild.tool.gnu.archiver",
+							"name": "%OptionCategory.General",
+							"id": "gnu.lib.category.general"
+						}
+					],
+					"option": [
+						{
+							"defaultValue": "-r",
+							"name": "%Option.Posix.Archiver.Flags",
+							"category": "gnu.lib.category.general",
+							"valueType": "string",
+							"id": "gnu.both.lib.option.flags"
+						}
+					],
+					"inputType": [
+						{
+							"sourceContentType": "org.eclipse.cdt.managedbuilder.core.compiledObjectFile",
+							"sources": "o",
+							"multipleOfType": "true",
+							"dependencyCalculator": "org.eclipse.cdt.managedbuilder.makegen.internal.DefaultNoDependencyCalculator",
+							"buildVariable": "OBJS",
+							"id": "cdt.managedbuild.tool.gnu.archiver.input",
+							"additionalInput": [
+								{
+									"paths": "$(USER_OBJS)",
+									"kind": "additionalinputdependency"
+								},
+								{
+									"paths": "$(LIBS)",
+									"kind": "additionalinput"
+								}
+							]
+						}
+					],
+					"outputType": [
+						{
+							"outputs": "a",
+							"outputPrefix": "lib",
+							"buildVariable": "ARCHIVES",
+							"nameProvider": "org.eclipse.cdt.managedbuilder.makegen.gnu.GnuLinkOutputNameProvider",
+							"id": "cdt.managedbuild.tool.gnu.archiver.output"
+						}
+					]
+				},
+				{
+					"command": "as",
+					"name": "%ToolName.assembler.gnu",
+					"outputFlag": "-o",
+					"id": "cdt.managedbuild.tool.gnu.assembler",
+					"natureFilter": "both",
+					"errorParsers": "org.eclipse.cdt.core.GASErrorParser",
+					"optionCategory": [
+						{
+							"owner": "cdt.managedbuild.tool.gnu.assembler",
+							"name": "%OptionCategory.General",
+							"id": "gnu.asm.category.general"
+						}
+					],
+					"option": [
+						{
+							"name": "%Option.Gnu.Assembler.Flags",
+							"category": "gnu.asm.category.general",
+							"valueType": "string",
+							"id": "gnu.both.asm.option.flags"
+						},
+						{
+							"command": "-I",
+							"valueType": "includePath",
+							"category": "gnu.asm.category.general",
+							"browseType": "directory",
+							"name": "%Option.Posix.InclPaths",
+							"id": "gnu.both.asm.option.include.paths"
+						},
+						{
+							"command": "-W",
+							"defaultValue": "false",
+							"valueType": "boolean",
+							"category": "gnu.asm.category.general",
+							"name": "%Option.Gnu.Assembler.warn.suppress",
+							"id": "gnu.both.asm.option.warnings.nowarn"
+						},
+						{
+							"command": "-v",
+							"defaultValue": "false",
+							"valueType": "boolean",
+							"category": "gnu.asm.category.general",
+							"name": "%Option.Gnu.Assembler.version",
+							"id": "gnu.both.asm.option.version"
+						}
+					],
+					"inputType": [
+						{
+							"id": "cdt.managedbuild.tool.gnu.assembler.input",
+							"languageId": "org.eclipse.cdt.core.assembly",
+							"sourceContentType": "org.eclipse.cdt.core.asmSource",
+							"sources": "s,S"
+						}
+					],
+					"outputType": [
+						{
+							"outputs": "o",
+							"buildVariable": "OBJS",
+							"id": "cdt.managedbuild.tool.gnu.assembler.output"
+						}
+					]
+				},
+				{
+					"natureFilter": "cnature",
+					"name": "%ToolName.linker.macosx.c",
+					"outputFlag": "-o",
+					"command": "gcc",
+					"commandLinePattern": "${COMMAND} ${FLAGS} ${OUTPUT_FLAG} ${OUTPUT_PREFIX}${OUTPUT} ${INPUTS}",
+					"id": "cdt.managedbuild.tool.macosx.c.linker",
+					"errorParsers": "org.eclipse.cdt.core.GLDErrorParser",
+					"supportedProperties": [
+						{
+							"property": [
+								{
+									"id": "org.eclipse.cdt.build.core.buildArtefactType",
+									"value": [
+										{
+											"id": "org.eclipse.cdt.build.core.buildArtefactType.exe"
+										},
+										{
+											"id": "org.eclipse.cdt.build.core.buildArtefactType.sharedLib"
+										}
+									]
+								}
+							]
+						}
+					],
+					"envVarBuildPath": [
+						{
+							"pathType": "buildpathLibrary",
+							"variableList": "LIBRARY_PATH"
+						}
+					],
+					"optionCategory": [
+						{
+							"owner": "cdt.managedbuild.tool.macosx.c.linker",
+							"name": "%OptionCategory.General",
+							"id": "macosx.c.link.category.general"
+						},
+						{
+							"owner": "cdt.managedbuild.tool.macosx.c.linker",
+							"name": "%OptionCategory.Libs",
+							"id": "macosx.c.link.category.libs"
+						},
+						{
+							"owner": "cdt.managedbuild.tool.macosx.c.linker",
+							"name": "%OptionCategory.Misc",
+							"id": "macosx.c.link.category.other"
+						},
+						{
+							"owner": "cdt.managedbuild.tool.macosx.c.linker",
+							"name": "%OptionCategory.Shared.Settings",
+							"id": "macosx.c.link.category.shared"
+						}
+					],
+					"option": [
+						{
+							"defaultValue": "false",
+							"name": "%Option.Posix.Linker.NoStartFiles",
+							"category": "macosx.c.link.category.general",
+							"command": "-nostartfiles",
+							"id": "macosx.c.link.option.nostart",
+							"valueType": "boolean"
+						},
+						{
+							"defaultValue": "false",
+							"name": "%Option.Posix.Linker.NoDefLibs",
+							"category": "macosx.c.link.category.general",
+							"command": "-nodefaultlibs",
+							"id": "macosx.c.link.option.nodeflibs",
+							"valueType": "boolean"
+						},
+						{
+							"defaultValue": "false",
+							"name": "%Option.Posix.Linker.NoStdLibs",
+							"category": "macosx.c.link.category.general",
+							"command": "-nostdlib",
+							"id": "macosx.c.link.option.nostdlibs",
+							"valueType": "boolean"
+						},
+						{
+							"defaultValue": "false",
+							"name": "%Option.Posix.Linker.Strip",
+							"category": "macosx.c.link.category.general",
+							"command": "-s",
+							"id": "macosx.c.link.option.strip",
+							"valueType": "boolean"
+						},
+						{
+							"defaultValue": "false",
+							"name": "%Option.Posix.Linker.Static",
+							"category": "macosx.c.link.category.general",
+							"command": "-static",
+							"id": "macosx.c.link.option.noshared",
+							"valueType": "boolean"
+						},
+						{
+							"name": "%Option.Posix.Libs",
+							"category": "macosx.c.link.category.libs",
+							"command": "-l",
+							"id": "macosx.c.link.option.libs",
+							"browseType": "none",
+							"valueType": "libs"
+						},
+						{
+							"name": "%Option.Posix.Libsearch",
+							"category": "macosx.c.link.category.libs",
+							"command": "-L",
+							"id": "macosx.c.link.option.paths",
+							"browseType": "directory",
+							"valueType": "libPaths"
+						},
+						{
+							"name": "%Option.Posix.Linker.Flags",
+							"category": "macosx.c.link.category.other",
+							"valueType": "string",
+							"id": "macosx.c.link.option.ldflags"
+						},
+						{
+							"name": "%Option.Posix.Linker.XLinker",
+							"category": "macosx.c.link.category.other",
+							"command": "-Xlinker ${VALUE}",
+							"valueType": "stringList",
+							"id": "macosx.c.link.option.other"
+						},
+						{
+							"name": "%Option.Posix.UserObjs",
+							"category": "macosx.c.link.category.other",
+							"browseType": "file",
+							"valueType": "userObjs",
+							"id": "macosx.c.link.option.userobjs"
+						},
+						{
+							"defaultValue": "false",
+							"name": "%Option.MacOSX.Linker.Shared",
+							"category": "macosx.c.link.category.shared",
+							"command": "-dynamiclib",
+							"id": "macosx.c.link.option.shared",
+							"valueType": "boolean"
+						}
+					],
+					"inputType": [
+						{
+							"sourceContentType": "org.eclipse.cdt.managedbuilder.core.compiledObjectFile",
+							"sources": "o",
+							"multipleOfType": "true",
+							"dependencyCalculator": "org.eclipse.cdt.managedbuilder.makegen.internal.DefaultNoDependencyCalculator",
+							"buildVariable": "OBJS",
+							"id": "cdt.managedbuild.tool.macosx.c.linker.input",
+							"additionalInput": [
+								{
+									"paths": "$(USER_OBJS)",
+									"kind": "additionalinputdependency"
+								},
+								{
+									"paths": "$(LIBS)",
+									"kind": "additionalinput"
+								}
+							]
+						}
+					],
+					"outputType": [
+						{
+							"outputs": "",
+							"buildVariable": "EXECUTABLES",
+							"nameProvider": "org.eclipse.cdt.managedbuilder.makegen.gnu.GnuLinkOutputNameProvider",
+							"id": "cdt.managedbuild.tool.macosx.c.linker.output"
+						},
+						{
+							"outputs": "dylib",
+							"outputPrefix": "lib",
+							"nameProvider": "org.eclipse.cdt.managedbuilder.makegen.gnu.GnuLinkOutputNameProvider",
+							"buildVariable": "LIBRARIES",
+							"id": "cdt.managedbuild.tool.macosx.c.linker.output.so"
+						}
+					]
+				},
+				{
+					"natureFilter": "ccnature",
+					"name": "%ToolName.linker.macosx.cpp",
+					"outputFlag": "-o",
+					"command": "g++",
+					"commandLinePattern": "${COMMAND} ${FLAGS} ${OUTPUT_FLAG} ${OUTPUT_PREFIX}${OUTPUT} ${INPUTS}",
+					"id": "cdt.managedbuild.tool.macosx.cpp.linker",
+					"errorParsers": "org.eclipse.cdt.core.GLDErrorParser",
+					"supportedProperties": [
+						{
+							"property": [
+								{
+									"id": "org.eclipse.cdt.build.core.buildArtefactType",
+									"value": [
+										{
+											"id": "org.eclipse.cdt.build.core.buildArtefactType.exe"
+										},
+										{
+											"id": "org.eclipse.cdt.build.core.buildArtefactType.sharedLib"
+										}
+									]
+								}
+							]
+						}
+					],
+					"envVarBuildPath": [
+						{
+							"pathType": "buildpathLibrary",
+							"variableList": "LIBRARY_PATH"
+						}
+					],
+					"optionCategory": [
+						{
+							"owner": "cdt.managedbuild.tool.macosx.cpp.linker",
+							"name": "%OptionCategory.General",
+							"id": "macosx.cpp.link.category.options"
+						},
+						{
+							"owner": "cdt.managedbuild.tool.macosx.cpp.linker",
+							"name": "%OptionCategory.Libs",
+							"id": "macosx.cpp.link.category.libs"
+						},
+						{
+							"owner": "cdt.managedbuild.tool.macosx.cpp.linker",
+							"name": "%OptionCategory.Misc",
+							"id": "macosx.cpp.link.category.other"
+						},
+						{
+							"owner": "cdt.managedbuild.tool.macosx.cpp.linker",
+							"name": "%OptionCategory.Shared.Settings",
+							"id": "macosx.cpp.link.category.shared"
+						}
+					],
+					"option": [
+						{
+							"defaultValue": "false",
+							"name": "%Option.Posix.Linker.NoStartFiles",
+							"category": "macosx.cpp.link.category.options",
+							"command": "-nostartfiles",
+							"id": "macosx.cpp.link.option.nostart",
+							"valueType": "boolean"
+						},
+						{
+							"defaultValue": "false",
+							"name": "%Option.Posix.Linker.NoDefLibs",
+							"category": "macosx.cpp.link.category.options",
+							"command": "-nodefaultlibs",
+							"id": "macosx.cpp.link.option.nodeflibs",
+							"valueType": "boolean"
+						},
+						{
+							"defaultValue": "false",
+							"name": "%Option.Posix.Linker.NoStdLibs",
+							"category": "macosx.cpp.link.category.options",
+							"command": "-nostdlib",
+							"id": "macosx.cpp.link.option.nostdlibs",
+							"valueType": "boolean"
+						},
+						{
+							"defaultValue": "false",
+							"name": "%Option.Posix.Linker.Strip",
+							"category": "macosx.cpp.link.category.options",
+							"command": "-s",
+							"id": "macosx.cpp.link.option.strip",
+							"valueType": "boolean"
+						},
+						{
+							"name": "%Option.Posix.Libs",
+							"category": "macosx.cpp.link.category.libs",
+							"command": "-l",
+							"id": "macosx.cpp.link.option.libs",
+							"browseType": "none",
+							"valueType": "libs"
+						},
+						{
+							"name": "%Option.Posix.Libsearch",
+							"category": "macosx.cpp.link.category.libs",
+							"command": "-L",
+							"id": "macosx.cpp.link.option.paths",
+							"browseType": "directory",
+							"valueType": "libPaths"
+						},
+						{
+							"name": "%Option.Posix.Linker.Flags",
+							"category": "macosx.cpp.link.category.other",
+							"valueType": "string",
+							"id": "macosx.cpp.link.option.flags"
+						},
+						{
+							"name": "%Option.Posix.Linker.XLinker",
+							"category": "macosx.cpp.link.category.other",
+							"command": "-Xlinker ${VALUE}",
+							"valueType": "stringList",
+							"id": "macosx.cpp.link.option.other"
+						},
+						{
+							"name": "%Option.Posix.UserObjs",
+							"category": "macosx.cpp.link.category.other",
+							"browseType": "file",
+							"valueType": "userObjs",
+							"id": "macosx.cpp.link.option.userobjs"
+						},
+						{
+							"defaultValue": "false",
+							"name": "%Option.MacOSX.Linker.Shared",
+							"category": "macosx.cpp.link.category.shared",
+							"command": "-dynamiclib",
+							"valueType": "boolean",
+							"id": "macosx.cpp.link.option.shared"
+						}
+					],
+					"inputType": [
+						{
+							"sourceContentType": "org.eclipse.cdt.managedbuilder.core.compiledObjectFile",
+							"sources": "o",
+							"multipleOfType": "true",
+							"dependencyCalculator": "org.eclipse.cdt.managedbuilder.makegen.internal.DefaultNoDependencyCalculator",
+							"buildVariable": "OBJS",
+							"id": "cdt.managedbuild.tool.macosx.cpp.linker.input",
+							"additionalInput": [
+								{
+									"paths": "$(USER_OBJS)",
+									"kind": "additionalinputdependency"
+								},
+								{
+									"paths": "$(LIBS)",
+									"kind": "additionalinput"
+								}
+							]
+						}
+					],
+					"outputType": [
+						{
+							"outputs": "",
+							"buildVariable": "EXECUTABLES",
+							"nameProvider": "org.eclipse.cdt.managedbuilder.makegen.gnu.GnuLinkOutputNameProvider",
+							"id": "cdt.managedbuild.tool.macosx.cpp.linker.output"
+						},
+						{
+							"outputs": "dylib",
+							"outputPrefix": "lib",
+							"nameProvider": "org.eclipse.cdt.managedbuilder.makegen.gnu.GnuLinkOutputNameProvider",
+							"buildVariable": "LIBRARIES",
+							"id": "cdt.managedbuild.tool.macosx.cpp.linker.output.so"
+						}
+					]
+				},
+				{
+					"name": "%ToolName.compiler.gnu.c",
+					"id": "cdt.managedbuild.tool.gnu.c.compiler",
+					"isAbstract": "true",
+					"command": "gcc",
+					"natureFilter": "both",
+					"outputFlag": "-o",
+					"errorParsers": "org.eclipse.cdt.core.GCCErrorParser",
+					"supportedProperties": [
+						{
+							"property": [
+								{
+									"id": "org.eclipse.cdt.build.core.buildType",
+									"value": [
+										{
+											"id": "org.eclipse.cdt.build.core.buildType.debug"
+										},
+										{
+											"id": "org.eclipse.cdt.build.core.buildType.release"
+										}
+									]
+								}
+							]
+						}
+					],
+					"envVarBuildPath": [
+						{
+							"pathType": "buildpathInclude",
+							"variableList": "CPATH,C_INCLUDE_PATH"
+						}
+					],
+					"optionCategory": [
+						{
+							"owner": "cdt.managedbuild.tool.gnu.c.compiler",
+							"name": "%OptionCategory.Dialect",
+							"id": "gnu.c.compiler.category.dialect"
+						},
+						{
+							"owner": "cdt.managedbuild.tool.gnu.c.compiler",
+							"name": "%OptionCategory.Preproc",
+							"id": "gnu.c.compiler.category.preprocessor"
+						},
+						{
+							"owner": "cdt.managedbuild.tool.gnu.c.compiler",
+							"name": "%OptionCategory.Dirs",
+							"id": "gnu.c.compiler.category.dirs"
+						},
+						{
+							"owner": "cdt.managedbuild.tool.gnu.c.compiler",
+							"name": "%OptionCategory.Optimize",
+							"id": "gnu.c.compiler.category.optimization"
+						},
+						{
+							"owner": "cdt.managedbuild.tool.gnu.c.compiler",
+							"name": "%OptionCategory.Debug",
+							"id": "gnu.c.compiler.category.debug"
+						},
+						{
+							"owner": "cdt.managedbuild.tool.gnu.c.compiler",
+							"name": "%OptionCategory.Warn",
+							"id": "gnu.c.compiler.category.warnings"
+						},
+						{
+							"owner": "cdt.managedbuild.tool.gnu.c.compiler",
+							"name": "%OptionCategory.Misc",
+							"id": "gnu.c.compiler.category.other"
+						}
+					],
+					"option": [
+						{
+							"category": "gnu.c.compiler.category.dialect",
+							"defaultValue": "false",
+							"id": "gnu.c.compiler.option.dialect.std",
+							"name": "%Option.Posix.Dialect",
+							"useByScannerDiscovery": "true",
+							"valueType": "enumerated",
+							"enumeratedOptionValue": [
+								{
+									"name": "%Option.Posix.Dialect.default",
+									"command": "",
+									"id": "gnu.c.compiler.dialect.default"
+								},
+								{
+									"name": "%Option.Posix.Dialect.c90",
+									"command": "-std=c90",
+									"id": "gnu.c.compiler.dialect.c90"
+								},
+								{
+									"name": "%Option.Posix.Dialect.c99",
+									"command": "-std=c99",
+									"id": "gnu.c.compiler.dialect.c99"
+								},
+								{
+									"name": "%Option.Posix.Dialect.c11",
+									"command": "-std=c11",
+									"id": "gnu.c.compiler.dialect.c11"
+								}
+							]
+						},
+						{
+							"name": "%Option.Posix.Dialect.Flags",
+							"category": "gnu.c.compiler.category.dialect",
+							"id": "gnu.c.compiler.option.dialect.flags",
+							"useByScannerDiscovery": "true",
+							"valueType": "string"
+						},
+						{
+							"defaultValue": "false",
+							"name": "%Option.Posix.Nostdinc",
+							"category": "gnu.c.compiler.category.preprocessor",
+							"command": "-nostdinc",
+							"id": "gnu.c.compiler.option.preprocessor.nostdinc",
+							"valueType": "boolean"
+						},
+						{
+							"defaultValue": "false",
+							"name": "%Option.Posix.PreprocOnly",
+							"category": "gnu.c.compiler.category.preprocessor",
+							"command": "-E",
+							"id": "gnu.c.compiler.option.preprocessor.preprocess",
+							"valueType": "boolean"
+						},
+						{
+							"name": "%Option.Posix.DefSym",
+							"category": "gnu.c.compiler.category.preprocessor",
+							"command": "-D",
+							"id": "gnu.c.compiler.option.preprocessor.def.symbols",
+							"valueType": "definedSymbols"
+						},
+						{
+							"name": "%Option.Posix.UndefSym",
+							"category": "gnu.c.compiler.category.preprocessor",
+							"command": "-U",
+							"id": "gnu.c.compiler.option.preprocessor.undef.symbol",
+							"valueType": "undefDefinedSymbols"
+						},
+						{
+							"name": "%Option.Posix.InclPaths",
+							"category": "gnu.c.compiler.category.dirs",
+							"command": "-I",
+							"id": "gnu.c.compiler.option.include.paths",
+							"valueType": "includePath",
+							"browseType": "directory"
+						},
+						{
+							"browseType": "file",
+							"category": "gnu.c.compiler.category.dirs",
+							"command": "-include",
+							"id": "gnu.c.compiler.option.include.files",
+							"name": "%Option.Posix.InclFiles",
+							"valueType": "includeFiles"
+						},
+						{
+							"name": "%Option.Posix.OptLevel",
+							"category": "gnu.c.compiler.category.optimization",
+							"id": "gnu.c.compiler.option.optimization.level",
+							"valueType": "enumerated",
+							"enumeratedOptionValue": [
+								{
+									"name": "%Option.Posix.Optimize.None",
+									"isDefault": "false",
+									"command": "-O0",
+									"id": "gnu.c.optimization.level.none"
+								},
+								{
+									"name": "%Option.Posix.Optimize.Optimize",
+									"command": "-O1",
+									"id": "gnu.c.optimization.level.optimize"
+								},
+								{
+									"name": "%Option.Posix.Optimize.More",
+									"isDefault": "true",
+									"command": "-O2",
+									"id": "gnu.c.optimization.level.more"
+								},
+								{
+									"name": "%Option.Posix.Optimize.Most",
+									"command": "-O3",
+									"id": "gnu.c.optimization.level.most"
+								},
+								{
+									"command": "-Os",
+									"id": "gnu.c.optimization.level.size",
+									"name": "%Option.Posix.Optimize.Size"
+								}
+							]
+						},
+						{
+							"name": "%Option.Posix.Optimize.Flags",
+							"category": "gnu.c.compiler.category.optimization",
+							"id": "gnu.c.compiler.option.optimization.flags",
+							"valueType": "string"
+						},
+						{
+							"name": "%Option.Posix.DebugLevel",
+							"category": "gnu.c.compiler.category.debug",
+							"id": "gnu.c.compiler.option.debugging.level",
+							"valueType": "enumerated",
+							"enumeratedOptionValue": [
+								{
+									"name": "%Option.Posix.Debug.None",
+									"isDefault": "false",
+									"id": "gnu.c.debugging.level.none"
+								},
+								{
+									"name": "%Option.Posix.Debug.Min",
+									"command": "-g1",
+									"id": "gnu.c.debugging.level.minimal"
+								},
+								{
+									"name": "%Option.Posix.Debug.Def",
+									"isDefault": "true",
+									"command": "-g",
+									"id": "gnu.c.debugging.level.default"
+								},
+								{
+									"name": "%Option.Posix.Debug.Max",
+									"isDefault": "false",
+									"command": "-g3",
+									"id": "gnu.c.debugging.level.max"
+								}
+							]
+						},
+						{
+							"name": "%Option.Posix.Debug.Other",
+							"category": "gnu.c.compiler.category.debug",
+							"id": "gnu.c.compiler.option.debugging.other",
+							"valueType": "string"
+						},
+						{
+							"defaultValue": "false",
+							"name": "%Option.Posix.Debug.prof",
+							"category": "gnu.c.compiler.category.debug",
+							"command": "-p",
+							"id": "gnu.c.compiler.option.debugging.prof",
+							"valueType": "boolean"
+						},
+						{
+							"defaultValue": "false",
+							"name": "%Option.Posix.Debug.gprof",
+							"category": "gnu.c.compiler.category.debug",
+							"command": "-pg",
+							"id": "gnu.c.compiler.option.debugging.gprof",
+							"valueType": "boolean"
+						},
+						{
+							"category": "gnu.c.compiler.category.debug",
+							"command": "-ftest-coverage -fprofile-arcs",
+							"defaultValue": "false",
+							"id": "gnu.c.compiler.option.debugging.codecov",
+							"name": "%Option.codecov",
+							"valueType": "boolean"
+						},
+						{
+							"defaultValue": "false",
+							"name": "%Option.Posix.Warn.Syntax",
+							"category": "gnu.c.compiler.category.warnings",
+							"command": "-fsyntax-only",
+							"id": "gnu.c.compiler.option.warnings.syntax",
+							"valueType": "boolean"
+						},
+						{
+							"defaultValue": "false",
+							"name": "%Option.Posix.Warn.Pedandic",
+							"category": "gnu.c.compiler.category.warnings",
+							"command": "-pedantic",
+							"id": "gnu.c.compiler.option.warnings.pedantic",
+							"valueType": "boolean"
+						},
+						{
+							"defaultValue": "false",
+							"name": "%Option.Posix.Warn.PedErrors",
+							"category": "gnu.c.compiler.category.warnings",
+							"command": "-pedantic-errors",
+							"id": "gnu.c.compiler.option.warnings.pedantic.error",
+							"valueType": "boolean"
+						},
+						{
+							"defaultValue": "false",
+							"name": "%Option.Posix.Warn.nowarn",
+							"category": "gnu.c.compiler.category.warnings",
+							"command": "-w",
+							"id": "gnu.c.compiler.option.warnings.nowarn",
+							"valueType": "boolean"
+						},
+						{
+							"defaultValue": "true",
+							"name": "%Option.Posix.Warn.allwarn",
+							"category": "gnu.c.compiler.category.warnings",
+							"command": "-Wall",
+							"id": "gnu.c.compiler.option.warnings.allwarn",
+							"valueType": "boolean"
+						},
+						{
+							"defaultValue": "false",
+							"name": "%Option.Posix.Warn.extrawarn",
+							"category": "gnu.c.compiler.category.warnings",
+							"command": "-Wextra",
+							"id": "gnu.c.compiler.option.warnings.extrawarn",
+							"valueType": "boolean"
+						},
+						{
+							"defaultValue": "false",
+							"name": "%Option.Posix.Warn.toerrs",
+							"category": "gnu.c.compiler.category.warnings",
+							"command": "-Werror",
+							"id": "gnu.c.compiler.option.warnings.toerrors",
+							"valueType": "boolean"
+						},
+						{
+							"defaultValue": "false",
+							"name": "%Option.Posix.Warn.wconversion",
+							"category": "gnu.c.compiler.category.warnings",
+							"command": "-Wconversion",
+							"id": "gnu.c.compiler.option.warnings.wconversion",
+							"valueType": "boolean"
+						},
+						{
+							"defaultValue": "-c -fmessage-length=0",
+							"name": "%Option.OtherFlags",
+							"category": "gnu.c.compiler.category.other",
+							"id": "gnu.c.compiler.option.misc.other",
+							"valueType": "string"
+						},
+						{
+							"defaultValue": "false",
+							"name": "%Option.Posix.Verbose",
+							"category": "gnu.c.compiler.category.other",
+							"command": "-v",
+							"id": "gnu.c.compiler.option.misc.verbose",
+							"valueType": "boolean"
+						},
+						{
+							"defaultValue": "false",
+							"name": "%Option.Posix.Ansi",
+							"category": "gnu.c.compiler.category.other",
+							"command": "-ansi",
+							"id": "gnu.c.compiler.option.misc.ansi",
+							"valueType": "boolean"
+						},
+						{
+							"category": "gnu.c.compiler.category.other",
+							"command": "-fPIC",
+							"defaultValue": "false",
+							"id": "gnu.c.compiler.option.misc.pic",
+							"name": "%Option.PIC",
+							"valueType": "boolean"
+						}
+					],
+					"inputType": [
+						{
+							"sourceContentType": "org.eclipse.cdt.core.cSource",
+							"sources": "c",
+							"dependencyContentType": "org.eclipse.cdt.core.cHeader",
+							"dependencyExtensions": "h",
+							"dependencyCalculator": "org.eclipse.cdt.managedbuilder.makegen.gnu.DefaultGCCDependencyCalculator2",
+							"id": "cdt.managedbuild.tool.gnu.c.compiler.input",
+							"languageId": "org.eclipse.cdt.core.gcc"
+						}
+					],
+					"outputType": [
+						{
+							"outputs": "o",
+							"buildVariable": "OBJS",
+							"id": "cdt.managedbuild.tool.gnu.c.compiler.output"
+						}
+					]
+				},
+				{
+					"name": "%ToolName.compiler.gnu.cpp",
+					"id": "cdt.managedbuild.tool.gnu.cpp.compiler",
+					"isAbstract": "true",
+					"command": "g++",
+					"natureFilter": "ccnature",
+					"outputFlag": "-o",
+					"errorParsers": "org.eclipse.cdt.core.GCCErrorParser",
+					"supportedProperties": [
+						{
+							"property": [
+								{
+									"id": "org.eclipse.cdt.build.core.buildType",
+									"value": [
+										{
+											"id": "org.eclipse.cdt.build.core.buildType.debug"
+										},
+										{
+											"id": "org.eclipse.cdt.build.core.buildType.release"
+										}
+									]
+								}
+							]
+						}
+					],
+					"envVarBuildPath": [
+						{
+							"pathType": "buildpathInclude",
+							"variableList": "CPATH,CPLUS_INCLUDE_PATH"
+						}
+					],
+					"optionCategory": [
+						{
+							"owner": "cdt.managedbuild.tool.gnu.cpp.compiler",
+							"name": "%OptionCategory.Dialect",
+							"id": "gnu.cpp.compiler.category.dialect"
+						},
+						{
+							"owner": "cdt.managedbuild.tool.gnu.cpp.compiler",
+							"name": "%OptionCategory.Preproc",
+							"id": "gnu.cpp.compiler.category.preprocessor"
+						},
+						{
+							"owner": "cdt.managedbuild.tool.gnu.cpp.compiler",
+							"name": "%OptionCategory.Dirs",
+							"id": "gnu.cpp.compiler.category.dirs"
+						},
+						{
+							"owner": "cdt.managedbuild.tool.gnu.cpp.compiler",
+							"name": "%OptionCategory.Optimize",
+							"id": "gnu.cpp.compiler.category.optimization"
+						},
+						{
+							"owner": "cdt.managedbuild.tool.gnu.cpp.compiler",
+							"name": "%OptionCategory.Debug",
+							"id": "gnu.cpp.compiler.category.debug"
+						},
+						{
+							"owner": "cdt.managedbuild.tool.gnu.cpp.compiler",
+							"name": "%OptionCategory.Warn",
+							"id": "gnu.cpp.compiler.category.warnings"
+						},
+						{
+							"owner": "cdt.managedbuild.tool.gnu.cpp.compiler",
+							"name": "%OptionCategory.Misc",
+							"id": "gnu.cpp.compiler.category.other"
+						}
+					],
+					"option": [
+						{
+							"category": "gnu.cpp.compiler.category.dialect",
+							"defaultValue": "false",
+							"id": "gnu.cpp.compiler.option.dialect.std",
+							"name": "%Option.Posix.Dialect",
+							"useByScannerDiscovery": "true",
+							"valueType": "enumerated",
+							"enumeratedOptionValue": [
+								{
+									"name": "%Option.Posix.Dialect.default",
+									"command": "",
+									"id": "gnu.cpp.compiler.dialect.default"
+								},
+								{
+									"name": "%Option.Posix.Dialect.c++98",
+									"command": "-std=c++98",
+									"id": "gnu.cpp.compiler.dialect.c++98"
+								},
+								{
+									"name": "%Option.Posix.Dialect.c++11",
+									"command": "-std=c++0x",
+									"id": "gnu.cpp.compiler.dialect.c++11"
+								},
+								{
+									"name": "%Option.Posix.Dialect.c++1y",
+									"command": "-std=c++1y",
+									"id": "gnu.cpp.compiler.dialect.c++1y"
+								}
+							]
+						},
+						{
+							"name": "%Option.Posix.Dialect.Flags",
+							"category": "gnu.cpp.compiler.category.dialect",
+							"id": "gnu.cpp.compiler.option.dialect.flags",
+							"useByScannerDiscovery": "true",
+							"valueType": "string"
+						},
+						{
+							"defaultValue": "false",
+							"name": "%Option.Posix.Nostdinc",
+							"category": "gnu.cpp.compiler.category.preprocessor",
+							"command": "-nostdinc",
+							"id": "gnu.cpp.compiler.option.preprocessor.nostdinc",
+							"valueType": "boolean"
+						},
+						{
+							"defaultValue": "false",
+							"name": "%Option.Posix.PreprocOnly",
+							"category": "gnu.cpp.compiler.category.preprocessor",
+							"command": "-E",
+							"id": "gnu.cpp.compiler.option.preprocessor.preprocess",
+							"valueType": "boolean"
+						},
+						{
+							"name": "%Option.Posix.DefSym",
+							"category": "gnu.cpp.compiler.category.preprocessor",
+							"command": "-D",
+							"id": "gnu.cpp.compiler.option.preprocessor.def",
+							"valueType": "definedSymbols"
+						},
+						{
+							"name": "%Option.Posix.UndefSym",
+							"category": "gnu.cpp.compiler.category.preprocessor",
+							"command": "-U",
+							"id": "gnu.cpp.compiler.option.preprocessor.undef",
+							"valueType": "undefDefinedSymbols"
+						},
+						{
+							"name": "%Option.Posix.InclPaths",
+							"category": "gnu.cpp.compiler.category.dirs",
+							"command": "-I",
+							"id": "gnu.cpp.compiler.option.include.paths",
+							"valueType": "includePath",
+							"browseType": "directory"
+						},
+						{
+							"browseType": "file",
+							"category": "gnu.cpp.compiler.category.dirs",
+							"command": "-include",
+							"id": "gnu.cpp.compiler.option.include.files",
+							"name": "%Option.Posix.InclFiles",
+							"valueType": "includeFiles"
+						},
+						{
+							"name": "%Option.Posix.OptLevel",
+							"category": "gnu.cpp.compiler.category.optimization",
+							"id": "gnu.cpp.compiler.option.optimization.level",
+							"valueType": "enumerated",
+							"enumeratedOptionValue": [
+								{
+									"name": "%Option.Posix.Optimize.None",
+									"command": "-O0",
+									"id": "gnu.cpp.compiler.optimization.level.none"
+								},
+								{
+									"name": "%Option.Posix.Optimize.Optimize",
+									"command": "-O1",
+									"id": "gnu.cpp.compiler.optimization.level.optimize"
+								},
+								{
+									"name": "%Option.Posix.Optimize.More",
+									"isDefault": "true",
+									"command": "-O2",
+									"id": "gnu.cpp.compiler.optimization.level.more"
+								},
+								{
+									"name": "%Option.Posix.Optimize.Most",
+									"command": "-O3",
+									"id": "gnu.cpp.compiler.optimization.level.most"
+								},
+								{
+									"command": "-Os",
+									"id": "gnu.cpp.compiler.optimization.level.size",
+									"name": "%Option.Posix.Optimize.Size"
+								}
+							]
+						},
+						{
+							"name": "%Option.Posix.Optimize.Flags",
+							"category": "gnu.cpp.compiler.category.optimization",
+							"id": "gnu.cpp.compiler.option.optimization.flags",
+							"valueType": "string"
+						},
+						{
+							"name": "%Option.Posix.DebugLevel",
+							"category": "gnu.cpp.compiler.category.debug",
+							"id": "gnu.cpp.compiler.option.debugging.level",
+							"valueType": "enumerated",
+							"enumeratedOptionValue": [
+								{
+									"name": "%Option.Posix.Debug.None",
+									"isDefault": "false",
+									"id": "gnu.cpp.compiler.debugging.level.none"
+								},
+								{
+									"name": "%Option.Posix.Debug.Min",
+									"command": "-g1",
+									"id": "gnu.cpp.compiler.debugging.level.minimal"
+								},
+								{
+									"name": "%Option.Posix.Debug.Def",
+									"isDefault": "true",
+									"command": "-g",
+									"id": "gnu.cpp.compiler.debugging.level.default"
+								},
+								{
+									"name": "%Option.Posix.Debug.Max",
+									"isDefault": "false",
+									"command": "-g3",
+									"id": "gnu.cpp.compiler.debugging.level.max"
+								}
+							]
+						},
+						{
+							"name": "%Option.Posix.Debug.Other",
+							"category": "gnu.cpp.compiler.category.debug",
+							"id": "gnu.cpp.compiler.option.debugging.other",
+							"valueType": "string"
+						},
+						{
+							"defaultValue": "false",
+							"name": "%Option.Posix.Debug.prof",
+							"category": "gnu.cpp.compiler.category.debug",
+							"command": "-p",
+							"id": "gnu.cpp.compiler.option.debugging.prof",
+							"valueType": "boolean"
+						},
+						{
+							"defaultValue": "false",
+							"name": "%Option.Posix.Debug.gprof",
+							"category": "gnu.cpp.compiler.category.debug",
+							"command": "-pg",
+							"id": "gnu.cpp.compiler.option.debugging.gprof",
+							"valueType": "boolean"
+						},
+						{
+							"defaultValue": "false",
+							"name": "%Option.codecov",
+							"category": "gnu.cpp.compiler.category.debug",
+							"command": "-ftest-coverage -fprofile-arcs",
+							"id": "gnu.cpp.compiler.option.debugging.codecov",
+							"valueType": "boolean"
+						},
+						{
+							"defaultValue": "false",
+							"name": "%Option.Posix.Warn.Syntax",
+							"category": "gnu.cpp.compiler.category.warnings",
+							"command": "-fsyntax-only",
+							"id": "gnu.cpp.compiler.option.warnings.syntax",
+							"valueType": "boolean"
+						},
+						{
+							"defaultValue": "false",
+							"name": "%Option.Posix.Warn.Pedandic",
+							"category": "gnu.cpp.compiler.category.warnings",
+							"command": "-pedantic",
+							"id": "gnu.cpp.compiler.option.warnings.pedantic",
+							"valueType": "boolean"
+						},
+						{
+							"defaultValue": "false",
+							"name": "%Option.Posix.Warn.PedErrors",
+							"category": "gnu.cpp.compiler.category.warnings",
+							"command": "-pedantic-errors",
+							"id": "gnu.cpp.compiler.option.warnings.pedantic.error",
+							"valueType": "boolean"
+						},
+						{
+							"defaultValue": "false",
+							"name": "%Option.Posix.Warn.nowarn",
+							"category": "gnu.cpp.compiler.category.warnings",
+							"command": "-w",
+							"id": "gnu.cpp.compiler.option.warnings.nowarn",
+							"valueType": "boolean"
+						},
+						{
+							"defaultValue": "true",
+							"name": "%Option.Posix.Warn.allwarn",
+							"category": "gnu.cpp.compiler.category.warnings",
+							"command": "-Wall",
+							"id": "gnu.cpp.compiler.option.warnings.allwarn",
+							"valueType": "boolean"
+						},
+						{
+							"defaultValue": "false",
+							"name": "%Option.Posix.Warn.extrawarn",
+							"category": "gnu.cpp.compiler.category.warnings",
+							"command": "-Wextra",
+							"id": "gnu.cpp.compiler.option.warnings.extrawarn",
+							"valueType": "boolean"
+						},
+						{
+							"defaultValue": "false",
+							"name": "%Option.Posix.Warn.toerrs",
+							"category": "gnu.cpp.compiler.category.warnings",
+							"command": "-Werror",
+							"id": "gnu.cpp.compiler.option.warnings.toerrors",
+							"valueType": "boolean"
+						},
+						{
+							"defaultValue": "false",
+							"name": "%Option.Posix.Warn.wconversion",
+							"category": "gnu.cpp.compiler.category.warnings",
+							"command": "-Wconversion",
+							"id": "gnu.cpp.compiler.option.warnings.wconversion",
+							"valueType": "boolean"
+						},
+						{
+							"defaultValue": "-c -fmessage-length=0",
+							"name": "%Option.OtherFlags",
+							"category": "gnu.cpp.compiler.category.other",
+							"id": "gnu.cpp.compiler.option.other.other",
+							"valueType": "string"
+						},
+						{
+							"defaultValue": "false",
+							"name": "%Option.Posix.Verbose",
+							"category": "gnu.cpp.compiler.category.other",
+							"command": "-v",
+							"id": "gnu.cpp.compiler.option.other.verbose",
+							"valueType": "boolean"
+						},
+						{
+							"category": "gnu.cpp.compiler.category.other",
+							"command": "-fPIC",
+							"defaultValue": "false",
+							"id": "gnu.cpp.compiler.option.other.pic",
+							"name": "%Option.PIC",
+							"valueType": "boolean"
+						}
+					],
+					"inputType": [
+						{
+							"sourceContentType": "org.eclipse.cdt.core.cxxSource",
+							"sources": "c,C,cc,cxx,cpp,cp,CPP",
+							"dependencyContentType": "org.eclipse.cdt.core.cxxHeader",
+							"dependencyExtensions": "h,H,hpp,hh,hp,hxx,HPP,h++,tcc",
+							"dependencyCalculator": "org.eclipse.cdt.managedbuilder.makegen.gnu.DefaultGCCDependencyCalculator2",
+							"id": "cdt.managedbuild.tool.gnu.cpp.compiler.input",
+							"languageId": "org.eclipse.cdt.core.g++"
+						}
+					],
+					"outputType": [
+						{
+							"outputs": "o",
+							"buildVariable": "OBJS",
+							"id": "cdt.managedbuild.tool.gnu.cpp.compiler.output"
+						}
+					]
+				},
+				{
+					"id": "cdt.managedbuild.tool.gnu.c.linker.cygwin",
+					"name": "%ToolName.linker.cygwin.gnu.c",
+					"superClass": "cdt.managedbuild.tool.gnu.c.linker",
+					"envVarBuildPath": [
+						{
+							"pathType": "buildpathLibrary",
+							"variableList": "LIBRARY_PATH",
+							"buildPathResolver": "org.eclipse.cdt.managedbuilder.gnu.cygwin.CygwinPathResolver"
+						}
+					],
+					"outputType": [
+						{
+							"outputs": "exe",
+							"superClass": "cdt.managedbuild.tool.gnu.c.linker.output",
+							"id": "cdt.managedbuild.tool.gnu.c.linker.cygwin.output"
+						},
+						{
+							"outputs": "dll,a.dll",
+							"outputPrefix": "",
+							"buildVariable": "LIBRARIES",
+							"id": "cdt.managedbuild.tool.gnu.c.linker.cygwin.output.so",
+							"superClass": "cdt.managedbuild.tool.gnu.c.linker.output.so"
+						}
+					]
+				},
+				{
+					"id": "cdt.managedbuild.tool.gnu.cpp.linker.cygwin",
+					"name": "%ToolName.linker.cygwin.gnu.cpp",
+					"superClass": "cdt.managedbuild.tool.gnu.cpp.linker",
+					"envVarBuildPath": [
+						{
+							"pathType": "buildpathLibrary",
+							"variableList": "LIBRARY_PATH",
+							"buildPathResolver": "org.eclipse.cdt.managedbuilder.gnu.cygwin.CygwinPathResolver"
+						}
+					],
+					"outputType": [
+						{
+							"outputs": "exe",
+							"superClass": "cdt.managedbuild.tool.gnu.cpp.linker.output",
+							"id": "cdt.managedbuild.tool.gnu.cpp.linker.cygwin.output"
+						},
+						{
+							"outputs": "dll,a.dll",
+							"outputPrefix": "",
+							"buildVariable": "LIBRARIES",
+							"id": "cdt.managedbuild.tool.gnu.cpp.linker.cygwin.output.so",
+							"superClass": "cdt.managedbuild.tool.gnu.cpp.linker.output.so"
+						}
+					]
+				},
+				{
+					"id": "cdt.managedbuild.tool.gnu.c.compiler.cygwin",
+					"name": "%ToolName.compiler.cygwin.gnu.c",
+					"superClass": "cdt.managedbuild.tool.gnu.c.compiler",
+					"envVarBuildPath": [
+						{
+							"pathType": "buildpathInclude",
+							"variableList": "CPATH,C_INCLUDE_PATH",
+							"buildPathResolver": "org.eclipse.cdt.managedbuilder.gnu.cygwin.CygwinPathResolver"
+						}
+					],
+					"inputType": [
+						{
+							"id": "cdt.managedbuild.tool.gnu.c.compiler.input.cygwin",
+							"superClass": "cdt.managedbuild.tool.gnu.c.compiler.input"
+						}
+					]
+				},
+				{
+					"id": "cdt.managedbuild.tool.gnu.cpp.compiler.cygwin",
+					"name": "%ToolName.compiler.cygwin.gnu.cpp",
+					"superClass": "cdt.managedbuild.tool.gnu.cpp.compiler",
+					"envVarBuildPath": [
+						{
+							"pathType": "buildpathInclude",
+							"variableList": "CPATH,CPLUS_INCLUDE_PATH",
+							"buildPathResolver": "org.eclipse.cdt.managedbuilder.gnu.cygwin.CygwinPathResolver"
+						}
+					],
+					"inputType": [
+						{
+							"id": "cdt.managedbuild.tool.gnu.cpp.compiler.input.cygwin",
+							"superClass": "cdt.managedbuild.tool.gnu.cpp.compiler.input"
+						}
+					]
+				}
+			],
+			"builder": [
+				{
+					"isAbstract": "true",
+					"id": "cdt.managedbuild.target.gnu.builder",
+					"command": "make",
+					"arguments": "",
+					"variableFormat": "${=}",
+					"isVariableCaseSensitive": "true",
+					"reservedMacroNames": "ROOT,DEPS,OBJS,.*_SRCS,EXECUTABLES,SUBDIRS,LIBS,USER_OBJS,.*_INPUTS,.*_OUTPUTS",
+					"buildfileGenerator": "org.eclipse.cdt.managedbuilder.makegen.gnu.GnuMakefileGenerator",
+					"macroInputFileNameValue": "$(notdir $<)",
+					"macroInputFileExtValue": "$(suffix $(notdir $<))",
+					"macroInputFileBaseNameValue": "$(basename $(notdir $<))",
+					"macroInputFileRelPathValue": "$<",
+					"macroInputDirRelPathValue": "$(dir $<)",
+					"macroOutputFileNameValue": "$(notdir $@)",
+					"macroOutputFileExtValue": "$(suffix $(notdir $@))",
+					"macroOutputFileBaseNameValue": "$(basename $(notdir $@))",
+					"macroOutputFileRelPathValue": "$@",
+					"macroOutputDirRelPathValue": "$(dir $@)",
+					"autoBuildTarget": "all",
+					"incrementalBuildTarget": "all",
+					"cleanBuildTarget": "clean",
+					"ignoreErrCmd": "-k",
+					"parallelBuildCmd": "-j*",
+					"errorParsers": "org.eclipse.cdt.core.CWDLocator;org.eclipse.cdt.core.GmakeErrorParser",
+					"name": "%GNUMakeBuilder.name"
+				}
+			],
+			"toolChain": [
+				{
+					"archList": "all",
+					"id": "cdt.managedbuild.toolchain.gnu.base",
+					"languageSettingsProviders": "org.eclipse.cdt.managedbuilder.core.GCCBuildCommandParser;org.eclipse.cdt.managedbuilder.core.GCCBuiltinSpecsDetector",
+					"name": "%ToolChainName.Linux",
+					"osList": "linux,hpux,aix,qnx",
+					"targetTool": "cdt.managedbuild.tool.gnu.c.linker;cdt.managedbuild.tool.gnu.cpp.linker;cdt.managedbuild.tool.gnu.archiver",
+					"targetPlatform": [
+						{
+							"id": "cdt.managedbuild.target.gnu.platform.base",
+							"name": "%PlatformName.Dbg",
+							"binaryParser": "org.eclipse.cdt.core.GNU_ELF",
+							"osList": "linux,hpux,aix,qnx",
+							"archList": "all"
+						}
+					],
+					"builder": [
+						{
+							"superClass": "cdt.managedbuild.target.gnu.builder",
+							"id": "cdt.managedbuild.target.gnu.builder.base"
+						}
+					],
+					"tool": [
+						{
+							"id": "cdt.managedbuild.tool.gnu.archiver.base",
+							"superClass": "cdt.managedbuild.tool.gnu.archiver"
+						},
+						{
+							"id": "cdt.managedbuild.tool.gnu.cpp.compiler.base",
+							"superClass": "cdt.managedbuild.tool.gnu.cpp.compiler"
+						},
+						{
+							"id": "cdt.managedbuild.tool.gnu.c.compiler.base",
+							"superClass": "cdt.managedbuild.tool.gnu.c.compiler"
+						},
+						{
+							"id": "cdt.managedbuild.tool.gnu.c.linker.base",
+							"superClass": "cdt.managedbuild.tool.gnu.c.linker"
+						},
+						{
+							"id": "cdt.managedbuild.tool.gnu.cpp.linker.base",
+							"superClass": "cdt.managedbuild.tool.gnu.cpp.linker"
+						},
+						{
+							"id": "cdt.managedbuild.tool.gnu.assembler.base",
+							"superClass": "cdt.managedbuild.tool.gnu.assembler"
+						}
+					]
+				},
+				{
+					"archList": "all",
+					"configurationEnvironmentSupplier": "org.eclipse.cdt.managedbuilder.gnu.cygwin.GnuCygwinConfigurationEnvironmentSupplier",
+					"id": "cdt.managedbuild.toolchain.gnu.cygwin.base",
+					"isToolChainSupported": "org.eclipse.cdt.managedbuilder.gnu.cygwin.IsGnuCygwinToolChainSupported",
+					"languageSettingsProviders": "org.eclipse.cdt.managedbuilder.core.GCCBuildCommandParser;org.eclipse.cdt.managedbuilder.core.GCCBuiltinSpecsDetectorCygwin",
+					"name": "%ToolChainName.Cygwin",
+					"osList": "win32",
+					"targetTool": "cdt.managedbuild.tool.gnu.cpp.linker.cygwin.base;cdt.managedbuild.tool.gnu.c.linker.cygwin.base;cdt.managedbuild.tool.gnu.archiver",
+					"targetPlatform": [
+						{
+							"id": "cdt.managedbuild.target.gnu.platform.cygwin.base",
+							"name": "%PlatformName.Dbg",
+							"binaryParser": "org.eclipse.cdt.core.Cygwin_PE",
+							"osList": "win32",
+							"archList": "all"
+						}
+					],
+					"builder": [
+						{
+							"superClass": "cdt.managedbuild.target.gnu.builder",
+							"id": "cdt.managedbuild.target.gnu.builder.cygwin.base"
+						}
+					],
+					"tool": [
+						{
+							"id": "cdt.managedbuild.tool.gnu.assembler.cygwin.base",
+							"superClass": "cdt.managedbuild.tool.gnu.assembler"
+						},
+						{
+							"id": "cdt.managedbuild.tool.gnu.archiver.cygwin.base",
+							"superClass": "cdt.managedbuild.tool.gnu.archiver"
+						},
+						{
+							"id": "cdt.managedbuild.tool.gnu.cpp.compiler.cygwin.base",
+							"superClass": "cdt.managedbuild.tool.gnu.cpp.compiler.cygwin"
+						},
+						{
+							"id": "cdt.managedbuild.tool.gnu.c.compiler.cygwin.base",
+							"superClass": "cdt.managedbuild.tool.gnu.c.compiler.cygwin"
+						},
+						{
+							"id": "cdt.managedbuild.tool.gnu.c.linker.cygwin.base",
+							"superClass": "cdt.managedbuild.tool.gnu.c.linker.cygwin"
+						},
+						{
+							"id": "cdt.managedbuild.tool.gnu.cpp.linker.cygwin.base",
+							"superClass": "cdt.managedbuild.tool.gnu.cpp.linker.cygwin"
+						}
+					]
+				},
+				{
+					"archList": "all",
+					"configurationEnvironmentSupplier": "org.eclipse.cdt.managedbuilder.gnu.mingw.MingwEnvironmentVariableSupplier",
+					"id": "cdt.managedbuild.toolchain.gnu.mingw.base",
+					"isToolChainSupported": "org.eclipse.cdt.managedbuilder.gnu.mingw.MingwIsToolChainSupported",
+					"languageSettingsProviders": "org.eclipse.cdt.managedbuilder.core.GCCBuildCommandParser;org.eclipse.cdt.managedbuilder.core.GCCBuiltinSpecsDetectorMinGW",
+					"name": "%ToolChainName.MinGW",
+					"osList": "win32",
+					"targetTool": "cdt.managedbuild.tool.gnu.cpp.linker.mingw.base;cdt.managedbuild.tool.gnu.c.linker.mingw.base;cdt.managedbuild.tool.gnu.archiver",
+					"targetPlatform": [
+						{
+							"id": "cdt.managedbuild.target.gnu.platform.mingw.base",
+							"name": "%PlatformName.Dbg",
+							"binaryParser": "org.eclipse.cdt.core.PE",
+							"osList": "win32",
+							"archList": "all"
+						}
+					],
+					"builder": [
+						{
+							"id": "cdt.managedbuild.tool.gnu.builder.mingw.base",
+							"isAbstract": "false",
+							"isVariableCaseSensitive": "false",
+							"superClass": "org.eclipse.cdt.build.core.internal.builder"
+						}
+					],
+					"tool": [
+						{
+							"id": "cdt.managedbuild.tool.gnu.assembler.mingw.base",
+							"superClass": "cdt.managedbuild.tool.gnu.assembler"
+						},
+						{
+							"id": "cdt.managedbuild.tool.gnu.archiver.mingw.base",
+							"superClass": "cdt.managedbuild.tool.gnu.archiver"
+						},
+						{
+							"id": "cdt.managedbuild.tool.gnu.cpp.compiler.mingw.base",
+							"superClass": "cdt.managedbuild.tool.gnu.cpp.compiler"
+						},
+						{
+							"id": "cdt.managedbuild.tool.gnu.c.compiler.mingw.base",
+							"superClass": "cdt.managedbuild.tool.gnu.c.compiler"
+						},
+						{
+							"id": "cdt.managedbuild.tool.gnu.c.linker.mingw.base",
+							"name": "%ToolName.linker.mingw.gnu.c",
+							"superClass": "cdt.managedbuild.tool.gnu.c.linker",
+							"outputType": [
+								{
+									"id": "cdt.managedbuild.tool.gnu.c.linker.mingw.so.output.base",
+									"superClass": "cdt.managedbuild.tool.gnu.c.linker.output.so",
+									"outputs": "dll"
+								}
+							]
+						},
+						{
+							"id": "cdt.managedbuild.tool.gnu.cpp.linker.mingw.base",
+							"name": "%ToolName.linker.mingw.gnu.cpp",
+							"superClass": "cdt.managedbuild.tool.gnu.cpp.linker",
+							"outputType": [
+								{
+									"id": "cdt.managedbuild.tool.gnu.cpp.linker.mingw.so.output.base",
+									"superClass": "cdt.managedbuild.tool.gnu.cpp.linker.output.so",
+									"outputs": "dll"
+								}
+							]
+						}
+					]
+				},
+				{
+					"archList": "all",
+					"id": "cdt.managedbuild.toolchain.gnu.macosx.base",
+					"languageSettingsProviders": "org.eclipse.cdt.managedbuilder.core.GCCBuildCommandParser;org.eclipse.cdt.managedbuilder.core.GCCBuiltinSpecsDetector",
+					"name": "%ToolChainName.Macosx",
+					"osList": "macosx",
+					"targetTool": "cdt.managedbuild.tool.macosx.c.linker.macosx.base;cdt.managedbuild.tool.macosx.cpp.linker.macosx.base;cdt.managedbuild.tool.gnu.archiver",
+					"targetPlatform": [
+						{
+							"id": "cdt.managedbuild.target.gnu.platform.macosx.base",
+							"name": "%PlatformName.Dbg",
+							"binaryParser": "org.eclipse.cdt.core.MachO64",
+							"osList": "macosx",
+							"archList": "all"
+						}
+					],
+					"builder": [
+						{
+							"superClass": "cdt.managedbuild.target.gnu.builder",
+							"id": "cdt.managedbuild.target.gnu.builder.macosx.base"
+						}
+					],
+					"tool": [
+						{
+							"id": "cdt.managedbuild.tool.macosx.c.linker.macosx.base",
+							"superClass": "cdt.managedbuild.tool.macosx.c.linker"
+						},
+						{
+							"id": "cdt.managedbuild.tool.macosx.cpp.linker.macosx.base",
+							"superClass": "cdt.managedbuild.tool.macosx.cpp.linker"
+						},
+						{
+							"id": "cdt.managedbuild.tool.gnu.assembler.macosx.base",
+							"superClass": "cdt.managedbuild.tool.gnu.assembler"
+						},
+						{
+							"id": "cdt.managedbuild.tool.gnu.archiver.macosx.base",
+							"superClass": "cdt.managedbuild.tool.gnu.archiver"
+						},
+						{
+							"id": "cdt.managedbuild.tool.gnu.cpp.compiler.macosx.base",
+							"superClass": "cdt.managedbuild.tool.gnu.cpp.compiler"
+						},
+						{
+							"id": "cdt.managedbuild.tool.gnu.c.compiler.macosx.base",
+							"superClass": "cdt.managedbuild.tool.gnu.c.compiler"
+						}
+					]
+				},
+				{
+					"archList": "all",
+					"id": "cdt.managedbuild.toolchain.gnu.solaris.base",
+					"languageSettingsProviders": "org.eclipse.cdt.managedbuilder.core.GCCBuildCommandParser;org.eclipse.cdt.managedbuilder.core.GCCBuiltinSpecsDetector",
+					"name": "%ToolChainName.Solaris",
+					"osList": "solaris",
+					"superClass": "cdt.managedbuild.toolchain.gnu.base",
+					"targetPlatform": [
+						{
+							"id": "cdt.managedbuild.target.gnu.solaris.base",
+							"name": "%PlatformName.Dbg",
+							"binaryParser": "org.eclipse.cdt.core.ELF",
+							"osList": "solaris",
+							"archList": "all"
+						}
+					],
+					"builder": [
+						{
+							"superClass": "cdt.managedbuild.target.gnu.builder",
+							"id": "cdt.managedbuild.target.gnu.builder.solaris.base"
+						}
+					],
+					"tool": [
+						{
+							"id": "cdt.managedbuild.tool.gnu.solaris.cpp.compiler.base",
+							"name": "%ToolName.compiler.solaris.cpp",
+							"superClass": "cdt.managedbuild.tool.gnu.cpp.compiler.base",
+							"commandLinePattern": "${COMMAND} ${FLAGS} ${OUTPUT_FLAG} ${OUTPUT_PREFIX}${OUTPUT} ${INPUTS}"
+						},
+						{
+							"id": "cdt.managedbuild.tool.gnu.solaris.c.compiler.base",
+							"name": "%ToolName.compiler.solaris.c",
+							"superClass": "cdt.managedbuild.tool.gnu.c.compiler.base",
+							"commandLinePattern": "${COMMAND} ${FLAGS} ${OUTPUT_FLAG} ${OUTPUT_PREFIX}${OUTPUT} ${INPUTS}"
+						}
+					]
+				}
+			],
+			"configuration": [
+				{
+					"cleanCommand": "rm -rf",
+					"id": "cdt.managedbuild.config.gnu.base",
+					"languageSettingsProviders": "org.eclipse.cdt.ui.UserLanguageSettingsProvider;org.eclipse.cdt.core.ReferencedProjectsLanguageSettingsProvider;org.eclipse.cdt.managedbuilder.core.MBSLanguageSettingsProvider;${Toolchain};-org.eclipse.cdt.managedbuilder.core.GCCBuildCommandParser"
+				},
+				{
+					"artifactExtension": "exe",
+					"cleanCommand": "rm -rf",
+					"id": "cdt.managedbuild.config.gnu.cygwin.base",
+					"languageSettingsProviders": "org.eclipse.cdt.ui.UserLanguageSettingsProvider;org.eclipse.cdt.core.ReferencedProjectsLanguageSettingsProvider;org.eclipse.cdt.managedbuilder.core.MBSLanguageSettingsProvider;${Toolchain};-org.eclipse.cdt.managedbuilder.core.GCCBuildCommandParser"
+				},
+				{
+					"artifactExtension": "exe",
+					"cleanCommand": "rm -rf",
+					"id": "cdt.managedbuild.config.gnu.mingw.base",
+					"languageSettingsProviders": "org.eclipse.cdt.ui.UserLanguageSettingsProvider;org.eclipse.cdt.core.ReferencedProjectsLanguageSettingsProvider;org.eclipse.cdt.managedbuilder.core.MBSLanguageSettingsProvider;${Toolchain};-org.eclipse.cdt.managedbuilder.core.GCCBuildCommandParser"
+				},
+				{
+					"cleanCommand": "rm -rf",
+					"id": "cdt.managedbuild.config.gnu.macosx.base",
+					"languageSettingsProviders": "org.eclipse.cdt.ui.UserLanguageSettingsProvider;org.eclipse.cdt.core.ReferencedProjectsLanguageSettingsProvider;org.eclipse.cdt.managedbuilder.core.MBSLanguageSettingsProvider;${Toolchain};-org.eclipse.cdt.managedbuilder.core.GCCBuildCommandParser"
+				},
+				{
+					"cleanCommand": "rm -rf",
+					"id": "cdt.managedbuild.config.gnu.solaris.base",
+					"languageSettingsProviders": "org.eclipse.cdt.ui.UserLanguageSettingsProvider;org.eclipse.cdt.core.ReferencedProjectsLanguageSettingsProvider;org.eclipse.cdt.managedbuilder.core.MBSLanguageSettingsProvider;${Toolchain};-org.eclipse.cdt.managedbuilder.core.GCCBuildCommandParser"
+				}
+			],
+			"projectType": [
+				{
+					"isAbstract": "false",
+					"isTest": "false",
+					"buildArtefactType": "org.eclipse.cdt.build.core.buildArtefactType.exe",
+					"id": "cdt.managedbuild.target.gnu.exe",
+					"configuration": [
+						{
+							"name": "%ConfigName.Dbg",
+							"id": "cdt.managedbuild.config.gnu.exe.debug",
+							"buildProperties": "org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug",
+							"parent": "cdt.managedbuild.config.gnu.base",
+							"cleanCommand": "rm -rf",
+							"toolChain": [
+								{
+									"superClass": "cdt.managedbuild.toolchain.gnu.base",
+									"id": "cdt.managedbuild.toolchain.gnu.exe.debug",
+									"targetPlatform": [
+										{
+											"id": "cdt.managedbuild.target.gnu.platform.exe.debug",
+											"superClass": "cdt.managedbuild.target.gnu.platform.base"
+										}
+									],
+									"builder": [
+										{
+											"superClass": "cdt.managedbuild.target.gnu.builder.base",
+											"id": "cdt.managedbuild.target.gnu.builder.exe.debug"
+										}
+									],
+									"tool": [
+										{
+											"id": "cdt.managedbuild.tool.gnu.cpp.compiler.exe.debug",
+											"superClass": "cdt.managedbuild.tool.gnu.cpp.compiler.base",
+											"option": [
+												{
+													"id": "gnu.cpp.compiler.exe.debug.option.optimization.level",
+													"superClass": "gnu.cpp.compiler.option.optimization.level"
+												},
+												{
+													"id": "gnu.cpp.compiler.exe.debug.option.debugging.level",
+													"superClass": "gnu.cpp.compiler.option.debugging.level"
+												}
+											]
+										},
+										{
+											"id": "cdt.managedbuild.tool.gnu.c.compiler.exe.debug",
+											"superClass": "cdt.managedbuild.tool.gnu.c.compiler.base",
+											"option": [
+												{
+													"id": "gnu.c.compiler.exe.debug.option.optimization.level",
+													"superClass": "gnu.c.compiler.option.optimization.level"
+												},
+												{
+													"id": "gnu.c.compiler.exe.debug.option.debugging.level",
+													"superClass": "gnu.c.compiler.option.debugging.level"
+												}
+											]
+										},
+										{
+											"id": "cdt.managedbuild.tool.gnu.c.linker.exe.debug",
+											"superClass": "cdt.managedbuild.tool.gnu.c.linker.base"
+										},
+										{
+											"id": "cdt.managedbuild.tool.gnu.cpp.linker.exe.debug",
+											"superClass": "cdt.managedbuild.tool.gnu.cpp.linker.base"
+										},
+										{
+											"id": "cdt.managedbuild.tool.gnu.assembler.exe.debug",
+											"superClass": "cdt.managedbuild.tool.gnu.assembler.base"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "%ConfigName.Rel",
+							"id": "cdt.managedbuild.config.gnu.exe.release",
+							"buildProperties": "org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.release",
+							"parent": "cdt.managedbuild.config.gnu.base",
+							"cleanCommand": "rm -rf",
+							"toolChain": [
+								{
+									"superClass": "cdt.managedbuild.toolchain.gnu.base",
+									"id": "cdt.managedbuild.toolchain.gnu.exe.release",
+									"targetPlatform": [
+										{
+											"id": "cdt.managedbuild.target.gnu.platform.exe.release",
+											"superClass": "cdt.managedbuild.target.gnu.platform.base"
+										}
+									],
+									"builder": [
+										{
+											"superClass": "cdt.managedbuild.target.gnu.builder.base",
+											"id": "cdt.managedbuild.target.gnu.builder.exe.release"
+										}
+									],
+									"tool": [
+										{
+											"id": "cdt.managedbuild.tool.gnu.cpp.compiler.exe.release",
+											"superClass": "cdt.managedbuild.tool.gnu.cpp.compiler.base",
+											"option": [
+												{
+													"id": "gnu.cpp.compiler.exe.release.option.optimization.level",
+													"superClass": "gnu.cpp.compiler.option.optimization.level"
+												},
+												{
+													"id": "gnu.cpp.compiler.exe.release.option.debugging.level",
+													"superClass": "gnu.cpp.compiler.option.debugging.level"
+												}
+											]
+										},
+										{
+											"id": "cdt.managedbuild.tool.gnu.c.compiler.exe.release",
+											"superClass": "cdt.managedbuild.tool.gnu.c.compiler.base",
+											"option": [
+												{
+													"id": "gnu.c.compiler.exe.release.option.optimization.level",
+													"superClass": "gnu.c.compiler.option.optimization.level"
+												},
+												{
+													"id": "gnu.c.compiler.exe.release.option.debugging.level",
+													"superClass": "gnu.c.compiler.option.debugging.level"
+												}
+											]
+										},
+										{
+											"id": "cdt.managedbuild.tool.gnu.c.linker.exe.release",
+											"superClass": "cdt.managedbuild.tool.gnu.c.linker.base"
+										},
+										{
+											"id": "cdt.managedbuild.tool.gnu.cpp.linker.exe.release",
+											"superClass": "cdt.managedbuild.tool.gnu.cpp.linker.base"
+										},
+										{
+											"id": "cdt.managedbuild.tool.gnu.assembler.exe.release",
+											"superClass": "cdt.managedbuild.tool.gnu.assembler.base"
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"isAbstract": "false",
+					"isTest": "false",
+					"buildArtefactType": "org.eclipse.cdt.build.core.buildArtefactType.sharedLib",
+					"id": "cdt.managedbuild.target.gnu.so",
+					"configuration": [
+						{
+							"name": "%ConfigName.Dbg",
+							"cleanCommand": "rm -rf",
+							"buildProperties": "org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug",
+							"parent": "cdt.managedbuild.config.gnu.base",
+							"id": "cdt.managedbuild.config.gnu.so.debug",
+							"toolChain": [
+								{
+									"superClass": "cdt.managedbuild.toolchain.gnu.base",
+									"id": "cdt.managedbuild.toolchain.gnu.so.debug",
+									"targetPlatform": [
+										{
+											"id": "cdt.managedbuild.target.gnu.platform.so.debug",
+											"superClass": "cdt.managedbuild.target.gnu.platform.base"
+										}
+									],
+									"builder": [
+										{
+											"superClass": "cdt.managedbuild.target.gnu.builder.base",
+											"id": "cdt.managedbuild.target.gnu.builder.so.debug"
+										}
+									],
+									"tool": [
+										{
+											"id": "cdt.managedbuild.tool.gnu.cpp.compiler.so.debug",
+											"superClass": "cdt.managedbuild.tool.gnu.cpp.compiler.base",
+											"option": [
+												{
+													"id": "gnu.cpp.compiler.so.debug.option.optimization.level",
+													"superClass": "gnu.cpp.compiler.option.optimization.level"
+												},
+												{
+													"id": "gnu.cpp.compiler.so.debug.option.debugging.level",
+													"superClass": "gnu.cpp.compiler.option.debugging.level"
+												}
+											]
+										},
+										{
+											"id": "cdt.managedbuild.tool.gnu.c.compiler.so.debug",
+											"superClass": "cdt.managedbuild.tool.gnu.c.compiler.base",
+											"option": [
+												{
+													"id": "gnu.c.compiler.so.debug.option.optimization.level",
+													"superClass": "gnu.c.compiler.option.optimization.level"
+												},
+												{
+													"id": "gnu.c.compiler.so.debug.option.debugging.level",
+													"superClass": "gnu.c.compiler.option.debugging.level"
+												}
+											]
+										},
+										{
+											"id": "cdt.managedbuild.tool.gnu.c.linker.so.debug",
+											"superClass": "cdt.managedbuild.tool.gnu.c.linker.base",
+											"option": [
+												{
+													"id": "gnu.c.link.so.debug.option.shared",
+													"superClass": "gnu.c.link.option.shared"
+												}
+											],
+											"outputType": [
+												{
+													"superClass": "cdt.managedbuild.tool.gnu.c.linker.output.so",
+													"id": "cdt.managedbuild.tool.gnu.c.linker.so.debug.output"
+												}
+											]
+										},
+										{
+											"id": "cdt.managedbuild.tool.gnu.cpp.linker.so.debug",
+											"superClass": "cdt.managedbuild.tool.gnu.cpp.linker.base",
+											"option": [
+												{
+													"id": "gnu.cpp.link.so.debug.option.shared",
+													"superClass": "gnu.cpp.link.option.shared"
+												}
+											],
+											"outputType": [
+												{
+													"superClass": "cdt.managedbuild.tool.gnu.cpp.linker.output.so",
+													"id": "cdt.managedbuild.tool.gnu.cpp.linker.so.debug.output"
+												}
+											]
+										},
+										{
+											"id": "cdt.managedbuild.tool.gnu.assembler.so.debug",
+											"superClass": "cdt.managedbuild.tool.gnu.assembler.base"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "%ConfigName.Rel",
+							"cleanCommand": "rm -rf",
+							"buildProperties": "org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.release",
+							"parent": "cdt.managedbuild.config.gnu.base",
+							"id": "cdt.managedbuild.config.gnu.so.release",
+							"toolChain": [
+								{
+									"superClass": "cdt.managedbuild.toolchain.gnu.base",
+									"id": "cdt.managedbuild.toolchain.gnu.so.release",
+									"targetPlatform": [
+										{
+											"id": "cdt.managedbuild.target.gnu.platform.so.release",
+											"superClass": "cdt.managedbuild.target.gnu.platform.base"
+										}
+									],
+									"builder": [
+										{
+											"superClass": "cdt.managedbuild.target.gnu.builder.base",
+											"id": "cdt.managedbuild.target.gnu.builder.so.release"
+										}
+									],
+									"tool": [
+										{
+											"id": "cdt.managedbuild.tool.gnu.cpp.compiler.so.release",
+											"superClass": "cdt.managedbuild.tool.gnu.cpp.compiler.base",
+											"option": [
+												{
+													"id": "gnu.cpp.compiler.so.release.option.optimization.level",
+													"superClass": "gnu.cpp.compiler.option.optimization.level"
+												},
+												{
+													"id": "gnu.cpp.compiler.so.release.option.debugging.level",
+													"superClass": "gnu.cpp.compiler.option.debugging.level"
+												}
+											]
+										},
+										{
+											"id": "cdt.managedbuild.tool.gnu.c.compiler.so.release",
+											"superClass": "cdt.managedbuild.tool.gnu.c.compiler.base",
+											"option": [
+												{
+													"id": "gnu.c.compiler.so.release.option.optimization.level",
+													"superClass": "gnu.c.compiler.option.optimization.level"
+												},
+												{
+													"id": "gnu.c.compiler.so.release.option.debugging.level",
+													"superClass": "gnu.c.compiler.option.debugging.level"
+												}
+											]
+										},
+										{
+											"id": "cdt.managedbuild.tool.gnu.c.linker.so.release",
+											"superClass": "cdt.managedbuild.tool.gnu.c.linker.base",
+											"option": [
+												{
+													"id": "gnu.c.link.so.release.option.shared",
+													"superClass": "gnu.c.link.option.shared"
+												}
+											],
+											"outputType": [
+												{
+													"superClass": "cdt.managedbuild.tool.gnu.c.linker.output.so",
+													"id": "cdt.managedbuild.tool.gnu.c.linker.so.release.output"
+												}
+											]
+										},
+										{
+											"id": "cdt.managedbuild.tool.gnu.cpp.linker.so.release",
+											"superClass": "cdt.managedbuild.tool.gnu.cpp.linker.base",
+											"option": [
+												{
+													"id": "gnu.cpp.link.so.release.option.shared",
+													"superClass": "gnu.cpp.link.option.shared"
+												}
+											],
+											"outputType": [
+												{
+													"superClass": "cdt.managedbuild.tool.gnu.cpp.linker.output.so",
+													"id": "cdt.managedbuild.tool.gnu.cpp.linker.so.release.output"
+												}
+											]
+										},
+										{
+											"id": "cdt.managedbuild.tool.gnu.assembler.so.release",
+											"superClass": "cdt.managedbuild.tool.gnu.assembler.base"
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"isTest": "false",
+					"buildArtefactType": "org.eclipse.cdt.build.core.buildArtefactType.staticLib",
+					"isAbstract": "false",
+					"id": "cdt.managedbuild.target.gnu.lib",
+					"configuration": [
+						{
+							"name": "%ConfigName.Dbg",
+							"buildProperties": "org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug",
+							"parent": "cdt.managedbuild.config.gnu.base",
+							"cleanCommand": "rm -rf",
+							"id": "cdt.managedbuild.config.gnu.lib.debug",
+							"toolChain": [
+								{
+									"superClass": "cdt.managedbuild.toolchain.gnu.base",
+									"id": "cdt.managedbuild.toolchain.gnu.lib.debug",
+									"targetPlatform": [
+										{
+											"id": "cdt.managedbuild.target.gnu.platform.lib.debug",
+											"superClass": "cdt.managedbuild.target.gnu.platform.base"
+										}
+									],
+									"builder": [
+										{
+											"superClass": "cdt.managedbuild.target.gnu.builder.base",
+											"id": "cdt.managedbuild.target.gnu.builder.lib.debug"
+										}
+									],
+									"tool": [
+										{
+											"id": "cdt.managedbuild.tool.gnu.cpp.compiler.lib.debug",
+											"superClass": "cdt.managedbuild.tool.gnu.cpp.compiler.base",
+											"option": [
+												{
+													"id": "gnu.cpp.compiler.lib.debug.option.optimization.level",
+													"superClass": "gnu.cpp.compiler.option.optimization.level"
+												},
+												{
+													"id": "gnu.cpp.compiler.lib.debug.option.debugging.level",
+													"superClass": "gnu.cpp.compiler.option.debugging.level"
+												}
+											]
+										},
+										{
+											"id": "cdt.managedbuild.tool.gnu.c.compiler.lib.debug",
+											"superClass": "cdt.managedbuild.tool.gnu.c.compiler.base",
+											"option": [
+												{
+													"id": "gnu.c.compiler.lib.debug.option.optimization.level",
+													"superClass": "gnu.c.compiler.option.optimization.level"
+												},
+												{
+													"id": "gnu.c.compiler.lib.debug.option.debugging.level",
+													"superClass": "gnu.c.compiler.option.debugging.level"
+												}
+											]
+										},
+										{
+											"id": "cdt.managedbuild.tool.gnu.archiver.lib.debug",
+											"superClass": "cdt.managedbuild.tool.gnu.archiver.base"
+										},
+										{
+											"id": "cdt.managedbuild.tool.gnu.assembler.lib.debug",
+											"superClass": "cdt.managedbuild.tool.gnu.assembler.base"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "%ConfigName.Rel",
+							"buildProperties": "org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.release",
+							"parent": "cdt.managedbuild.config.gnu.base",
+							"cleanCommand": "rm -rf",
+							"id": "cdt.managedbuild.config.gnu.lib.release",
+							"toolChain": [
+								{
+									"superClass": "cdt.managedbuild.toolchain.gnu.base",
+									"id": "cdt.managedbuild.toolchain.gnu.lib.release",
+									"targetPlatform": [
+										{
+											"id": "cdt.managedbuild.target.gnu.platform.lib.release",
+											"superClass": "cdt.managedbuild.target.gnu.platform.base"
+										}
+									],
+									"builder": [
+										{
+											"superClass": "cdt.managedbuild.target.gnu.builder.base",
+											"id": "cdt.managedbuild.target.gnu.builder.lib.release"
+										}
+									],
+									"tool": [
+										{
+											"id": "cdt.managedbuild.tool.gnu.cpp.compiler.lib.release",
+											"superClass": "cdt.managedbuild.tool.gnu.cpp.compiler.base",
+											"option": [
+												{
+													"id": "gnu.cpp.compiler.lib.release.option.optimization.level",
+													"superClass": "gnu.cpp.compiler.option.optimization.level"
+												},
+												{
+													"id": "gnu.cpp.compiler.lib.release.option.debugging.level",
+													"superClass": "gnu.cpp.compiler.option.debugging.level"
+												}
+											]
+										},
+										{
+											"id": "cdt.managedbuild.tool.gnu.c.compiler.lib.release",
+											"superClass": "cdt.managedbuild.tool.gnu.c.compiler.base",
+											"option": [
+												{
+													"id": "gnu.c.compiler.lib.release.option.optimization.level",
+													"superClass": "gnu.c.compiler.option.optimization.level"
+												},
+												{
+													"id": "gnu.c.compiler.lib.release.option.debugging.level",
+													"superClass": "gnu.c.compiler.option.debugging.level"
+												}
+											]
+										},
+										{
+											"id": "cdt.managedbuild.tool.gnu.archiver.lib.release",
+											"superClass": "cdt.managedbuild.tool.gnu.archiver.base"
+										},
+										{
+											"id": "cdt.managedbuild.tool.gnu.assembler.lib.release",
+											"superClass": "cdt.managedbuild.tool.gnu.assembler.base"
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"buildArtefactType": "org.eclipse.cdt.build.core.buildArtefactType.exe",
+					"id": "cdt.managedbuild.target.gnu.cygwin.exe",
+					"isTest": "false",
+					"isAbstract": "false",
+					"configuration": [
+						{
+							"name": "%ConfigName.Dbg",
+							"cleanCommand": "rm -rf",
+							"id": "cdt.managedbuild.config.gnu.cygwin.exe.debug",
+							"parent": "cdt.managedbuild.config.gnu.cygwin.base",
+							"buildProperties": "org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug",
+							"toolChain": [
+								{
+									"superClass": "cdt.managedbuild.toolchain.gnu.cygwin.base",
+									"id": "cdt.managedbuild.toolchain.gnu.cygwin.exe.debug",
+									"targetPlatform": [
+										{
+											"id": "cdt.managedbuild.target.gnu.platform.cygwin.exe.debug",
+											"superClass": "cdt.managedbuild.target.gnu.platform.cygwin.base"
+										}
+									],
+									"builder": [
+										{
+											"superClass": "cdt.managedbuild.target.gnu.builder.cygwin.base",
+											"id": "cdt.managedbuild.target.gnu.builder.cygwin.exe.debug"
+										}
+									],
+									"tool": [
+										{
+											"id": "cdt.managedbuild.tool.gnu.cpp.compiler.cygwin.exe.debug",
+											"superClass": "cdt.managedbuild.tool.gnu.cpp.compiler.cygwin.base",
+											"option": [
+												{
+													"id": "gnu.cpp.compiler.cygwin.exe.debug.option.optimization.level",
+													"superClass": "gnu.cpp.compiler.option.optimization.level"
+												},
+												{
+													"id": "gnu.cpp.compiler.cygwin.exe.debug.option.debugging.level",
+													"superClass": "gnu.cpp.compiler.option.debugging.level"
+												}
+											]
+										},
+										{
+											"id": "cdt.managedbuild.tool.gnu.c.compiler.cygwin.exe.debug",
+											"superClass": "cdt.managedbuild.tool.gnu.c.compiler.cygwin.base",
+											"option": [
+												{
+													"id": "gnu.c.compiler.cygwin.exe.debug.option.optimization.level",
+													"superClass": "gnu.c.compiler.option.optimization.level"
+												},
+												{
+													"id": "gnu.c.compiler.cygwin.exe.debug.option.debugging.level",
+													"superClass": "gnu.c.compiler.option.debugging.level"
+												}
+											]
+										},
+										{
+											"id": "cdt.managedbuild.tool.gnu.c.linker.cygwin.exe.debug",
+											"superClass": "cdt.managedbuild.tool.gnu.c.linker.cygwin.base"
+										},
+										{
+											"id": "cdt.managedbuild.tool.gnu.cpp.linker.cygwin.exe.debug",
+											"superClass": "cdt.managedbuild.tool.gnu.cpp.linker.cygwin.base"
+										},
+										{
+											"id": "cdt.managedbuild.tool.gnu.assembler.cygwin.exe.debug",
+											"superClass": "cdt.managedbuild.tool.gnu.assembler.cygwin.base"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "%ConfigName.Rel",
+							"cleanCommand": "rm -rf",
+							"id": "cdt.managedbuild.config.gnu.cygwin.exe.release",
+							"parent": "cdt.managedbuild.config.gnu.cygwin.base",
+							"buildProperties": "org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.release",
+							"toolChain": [
+								{
+									"superClass": "cdt.managedbuild.toolchain.gnu.cygwin.base",
+									"id": "cdt.managedbuild.toolchain.gnu.cygwin.exe.release",
+									"targetPlatform": [
+										{
+											"id": "cdt.managedbuild.target.gnu.platform.cygwin.exe.release",
+											"superClass": "cdt.managedbuild.target.gnu.platform.cygwin.base"
+										}
+									],
+									"builder": [
+										{
+											"superClass": "cdt.managedbuild.target.gnu.builder.cygwin.base",
+											"id": "cdt.managedbuild.target.gnu.builder.cygwin.exe.release"
+										}
+									],
+									"tool": [
+										{
+											"id": "cdt.managedbuild.tool.gnu.cpp.compiler.cygwin.exe.release",
+											"superClass": "cdt.managedbuild.tool.gnu.cpp.compiler.cygwin.base",
+											"option": [
+												{
+													"id": "gnu.cpp.compiler.cygwin.exe.release.option.optimization.level",
+													"superClass": "gnu.cpp.compiler.option.optimization.level"
+												},
+												{
+													"id": "gnu.cpp.compiler.cygwin.exe.release.option.debugging.level",
+													"superClass": "gnu.cpp.compiler.option.debugging.level"
+												}
+											]
+										},
+										{
+											"id": "cdt.managedbuild.tool.gnu.c.compiler.cygwin.exe.release",
+											"superClass": "cdt.managedbuild.tool.gnu.c.compiler.cygwin.base",
+											"option": [
+												{
+													"id": "gnu.c.compiler.cygwin.exe.release.option.optimization.level",
+													"superClass": "gnu.c.compiler.option.optimization.level"
+												},
+												{
+													"id": "gnu.c.compiler.cygwin.exe.release.option.debugging.level",
+													"superClass": "gnu.c.compiler.option.debugging.level"
+												}
+											]
+										},
+										{
+											"id": "cdt.managedbuild.tool.gnu.c.linker.cygwin.exe.release",
+											"superClass": "cdt.managedbuild.tool.gnu.c.linker.cygwin.base"
+										},
+										{
+											"id": "cdt.managedbuild.tool.gnu.cpp.linker.cygwin.exe.release",
+											"superClass": "cdt.managedbuild.tool.gnu.cpp.linker.cygwin.base"
+										},
+										{
+											"id": "cdt.managedbuild.tool.gnu.assembler.cygwin.exe.release",
+											"superClass": "cdt.managedbuild.tool.gnu.assembler.cygwin.base"
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"buildArtefactType": "org.eclipse.cdt.build.core.buildArtefactType.sharedLib",
+					"id": "cdt.managedbuild.target.gnu.cygwin.so",
+					"isAbstract": "false",
+					"isTest": "false",
+					"configuration": [
+						{
+							"name": "%ConfigName.Dbg",
+							"cleanCommand": "rm -rf",
+							"parent": "cdt.managedbuild.config.gnu.cygwin.base",
+							"buildProperties": "org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug",
+							"id": "cdt.managedbuild.config.gnu.cygwin.so.debug",
+							"toolChain": [
+								{
+									"superClass": "cdt.managedbuild.toolchain.gnu.cygwin.base",
+									"id": "cdt.managedbuild.toolchain.gnu.cygwin.so.debug",
+									"targetPlatform": [
+										{
+											"id": "cdt.managedbuild.target.gnu.platform.cygwin.so.debug",
+											"superClass": "cdt.managedbuild.target.gnu.platform.cygwin.base"
+										}
+									],
+									"builder": [
+										{
+											"superClass": "cdt.managedbuild.target.gnu.builder.cygwin.base",
+											"id": "cdt.managedbuild.target.gnu.builder.cygwin.so.debug"
+										}
+									],
+									"tool": [
+										{
+											"id": "cdt.managedbuild.tool.gnu.cpp.compiler.cygwin.so.debug",
+											"superClass": "cdt.managedbuild.tool.gnu.cpp.compiler.cygwin.base",
+											"option": [
+												{
+													"id": "gnu.cpp.compiler.cygwin.so.debug.option.optimization.level",
+													"superClass": "gnu.cpp.compiler.option.optimization.level"
+												},
+												{
+													"id": "gnu.cpp.compiler.cygwin.so.debug.option.debugging.level",
+													"superClass": "gnu.cpp.compiler.option.debugging.level"
+												}
+											]
+										},
+										{
+											"id": "cdt.managedbuild.tool.gnu.c.compiler.cygwin.so.debug",
+											"superClass": "cdt.managedbuild.tool.gnu.c.compiler.cygwin.base",
+											"option": [
+												{
+													"id": "gnu.c.compiler.cygwin.so.debug.option.optimization.level",
+													"superClass": "gnu.c.compiler.option.optimization.level"
+												},
+												{
+													"id": "gnu.c.compiler.cygwin.so.debug.option.debugging.level",
+													"superClass": "gnu.c.compiler.option.debugging.level"
+												}
+											]
+										},
+										{
+											"id": "cdt.managedbuild.tool.gnu.c.linker.cygwin.so.debug",
+											"superClass": "cdt.managedbuild.tool.gnu.c.linker.cygwin.base",
+											"option": [
+												{
+													"id": "gnu.c.link.cygwin.so.debug.option.shared",
+													"superClass": "gnu.c.link.option.shared"
+												}
+											],
+											"outputType": [
+												{
+													"superClass": "cdt.managedbuild.tool.gnu.c.linker.cygwin.output.so",
+													"id": "cdt.managedbuild.tool.gnu.c.linker.cygwin.so.debug.output"
+												}
+											]
+										},
+										{
+											"id": "cdt.managedbuild.tool.gnu.cpp.linker.cygwin.so.debug",
+											"superClass": "cdt.managedbuild.tool.gnu.cpp.linker.cygwin.base",
+											"option": [
+												{
+													"id": "gnu.cpp.link.cygwin.so.debug.option.shared",
+													"superClass": "gnu.cpp.link.option.shared"
+												}
+											],
+											"outputType": [
+												{
+													"superClass": "cdt.managedbuild.tool.gnu.cpp.linker.cygwin.output.so",
+													"id": "cdt.managedbuild.tool.gnu.cpp.linker.cygwin.so.debug.output"
+												}
+											]
+										},
+										{
+											"id": "cdt.managedbuild.tool.gnu.assembler.cygwin.so.debug",
+											"superClass": "cdt.managedbuild.tool.gnu.assembler.cygwin.base"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "%ConfigName.Rel",
+							"cleanCommand": "rm -rf",
+							"parent": "cdt.managedbuild.config.gnu.cygwin.base",
+							"buildProperties": "org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.release",
+							"id": "cdt.managedbuild.config.gnu.cygwin.so.release",
+							"toolChain": [
+								{
+									"superClass": "cdt.managedbuild.toolchain.gnu.cygwin.base",
+									"id": "cdt.managedbuild.toolchain.gnu.cygwin.so.release",
+									"targetPlatform": [
+										{
+											"id": "cdt.managedbuild.target.gnu.platform.cygwin.so.release",
+											"superClass": "cdt.managedbuild.target.gnu.platform.cygwin.base"
+										}
+									],
+									"builder": [
+										{
+											"superClass": "cdt.managedbuild.target.gnu.builder.cygwin.base",
+											"id": "cdt.managedbuild.target.gnu.builder.cygwin.so.release"
+										}
+									],
+									"tool": [
+										{
+											"id": "cdt.managedbuild.tool.gnu.cpp.compiler.cygwin.so.release",
+											"superClass": "cdt.managedbuild.tool.gnu.cpp.compiler.cygwin.base",
+											"option": [
+												{
+													"id": "gnu.cpp.compiler.cygwin.so.release.option.optimization.level",
+													"superClass": "gnu.cpp.compiler.option.optimization.level"
+												},
+												{
+													"id": "gnu.cpp.compiler.cygwin.so.release.option.debugging.level",
+													"superClass": "gnu.cpp.compiler.option.debugging.level"
+												}
+											]
+										},
+										{
+											"id": "cdt.managedbuild.tool.gnu.c.compiler.cygwin.so.release",
+											"superClass": "cdt.managedbuild.tool.gnu.c.compiler.cygwin.base",
+											"option": [
+												{
+													"id": "gnu.c.compiler.cygwin.so.release.option.optimization.level",
+													"superClass": "gnu.c.compiler.option.optimization.level"
+												},
+												{
+													"id": "gnu.c.compiler.cygwin.so.release.option.debugging.level",
+													"superClass": "gnu.c.compiler.option.debugging.level"
+												}
+											]
+										},
+										{
+											"id": "cdt.managedbuild.tool.gnu.c.linker.cygwin.so.release",
+											"superClass": "cdt.managedbuild.tool.gnu.c.linker.cygwin.base",
+											"option": [
+												{
+													"id": "gnu.c.link.cygwin.so.release.option.shared",
+													"superClass": "gnu.c.link.option.shared"
+												}
+											],
+											"outputType": [
+												{
+													"superClass": "cdt.managedbuild.tool.gnu.c.linker.cygwin.output.so",
+													"id": "cdt.managedbuild.tool.gnu.c.linker.cygwin.so.release.output"
+												}
+											]
+										},
+										{
+											"id": "cdt.managedbuild.tool.gnu.cpp.linker.cygwin.so.release",
+											"superClass": "cdt.managedbuild.tool.gnu.cpp.linker.cygwin.base",
+											"option": [
+												{
+													"id": "gnu.cpp.link.cygwin.so.release.option.shared",
+													"superClass": "gnu.cpp.link.option.shared"
+												}
+											],
+											"outputType": [
+												{
+													"superClass": "cdt.managedbuild.tool.gnu.cpp.linker.cygwin.output.so",
+													"id": "cdt.managedbuild.tool.gnu.cpp.linker.cygwin.so.release.output"
+												}
+											]
+										},
+										{
+											"id": "cdt.managedbuild.tool.gnu.assembler.cygwin.so.release",
+											"superClass": "cdt.managedbuild.tool.gnu.assembler.cygwin.base"
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"buildArtefactType": "org.eclipse.cdt.build.core.buildArtefactType.staticLib",
+					"id": "cdt.managedbuild.target.gnu.cygwin.lib",
+					"isTest": "false",
+					"isAbstract": "false",
+					"configuration": [
+						{
+							"name": "%ConfigName.Dbg",
+							"parent": "cdt.managedbuild.config.gnu.cygwin.base",
+							"buildProperties": "org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug",
+							"cleanCommand": "rm -rf",
+							"id": "cdt.managedbuild.config.gnu.cygwin.lib.debug",
+							"toolChain": [
+								{
+									"superClass": "cdt.managedbuild.toolchain.gnu.cygwin.base",
+									"id": "cdt.managedbuild.toolchain.gnu.cygwin.lib.debug",
+									"targetPlatform": [
+										{
+											"id": "cdt.managedbuild.target.gnu.platform.cygwin.lib.debug",
+											"superClass": "cdt.managedbuild.target.gnu.platform.cygwin.base"
+										}
+									],
+									"builder": [
+										{
+											"superClass": "cdt.managedbuild.target.gnu.builder.cygwin.base",
+											"id": "cdt.managedbuild.target.gnu.builder.cygwin.lib.debug"
+										}
+									],
+									"tool": [
+										{
+											"id": "cdt.managedbuild.tool.gnu.cpp.compiler.cygwin.lib.debug",
+											"superClass": "cdt.managedbuild.tool.gnu.cpp.compiler.cygwin.base",
+											"option": [
+												{
+													"id": "gnu.cpp.compiler.cygwin.lib.debug.option.optimization.level",
+													"superClass": "gnu.cpp.compiler.option.optimization.level"
+												},
+												{
+													"id": "gnu.cpp.compiler.cygwin.lib.debug.option.debugging.level",
+													"superClass": "gnu.cpp.compiler.option.debugging.level"
+												}
+											]
+										},
+										{
+											"id": "cdt.managedbuild.tool.gnu.c.compiler.cygwin.lib.debug",
+											"superClass": "cdt.managedbuild.tool.gnu.c.compiler.cygwin.base",
+											"option": [
+												{
+													"id": "gnu.c.compiler.cygwin.lib.debug.option.optimization.level",
+													"superClass": "gnu.c.compiler.option.optimization.level"
+												},
+												{
+													"id": "gnu.c.compiler.cygwin.lib.debug.option.debugging.level",
+													"superClass": "gnu.c.compiler.option.debugging.level"
+												}
+											]
+										},
+										{
+											"id": "cdt.managedbuild.tool.gnu.archiver.cygwin.lib.debug",
+											"superClass": "cdt.managedbuild.tool.gnu.archiver.cygwin.base"
+										},
+										{
+											"id": "cdt.managedbuild.tool.gnu.assembler.cygwin.lib.debug",
+											"superClass": "cdt.managedbuild.tool.gnu.assembler.cygwin.base"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "%ConfigName.Rel",
+							"parent": "cdt.managedbuild.config.gnu.cygwin.base",
+							"buildProperties": "org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.release",
+							"cleanCommand": "rm -rf",
+							"id": "cdt.managedbuild.config.gnu.cygwin.lib.release",
+							"toolChain": [
+								{
+									"superClass": "cdt.managedbuild.toolchain.gnu.cygwin.base",
+									"id": "cdt.managedbuild.toolchain.gnu.cygwin.lib.release",
+									"targetPlatform": [
+										{
+											"id": "cdt.managedbuild.target.gnu.platform.cygwin.lib.release",
+											"superClass": "cdt.managedbuild.target.gnu.platform.cygwin.base"
+										}
+									],
+									"builder": [
+										{
+											"superClass": "cdt.managedbuild.target.gnu.builder.cygwin.base",
+											"id": "cdt.managedbuild.target.gnu.builder.cygwin.lib.release"
+										}
+									],
+									"tool": [
+										{
+											"id": "cdt.managedbuild.tool.gnu.cpp.compiler.cygwin.lib.release",
+											"superClass": "cdt.managedbuild.tool.gnu.cpp.compiler.cygwin.base",
+											"option": [
+												{
+													"id": "gnu.cpp.compiler.cygwin.lib.release.option.optimization.level",
+													"superClass": "gnu.cpp.compiler.option.optimization.level"
+												},
+												{
+													"id": "gnu.cpp.compiler.cygwin.lib.release.option.debugging.level",
+													"superClass": "gnu.cpp.compiler.option.debugging.level"
+												}
+											]
+										},
+										{
+											"id": "cdt.managedbuild.tool.gnu.c.compiler.cygwin.lib.release",
+											"superClass": "cdt.managedbuild.tool.gnu.c.compiler.cygwin.base",
+											"option": [
+												{
+													"id": "gnu.c.compiler.cygwin.lib.release.option.optimization.level",
+													"superClass": "gnu.c.compiler.option.optimization.level"
+												},
+												{
+													"id": "gnu.c.compiler.cygwin.lib.release.option.debugging.level",
+													"superClass": "gnu.c.compiler.option.debugging.level"
+												}
+											]
+										},
+										{
+											"id": "cdt.managedbuild.tool.gnu.archiver.cygwin.lib.release",
+											"superClass": "cdt.managedbuild.tool.gnu.archiver.cygwin.base"
+										},
+										{
+											"id": "cdt.managedbuild.tool.gnu.assembler.cygwin.lib.release",
+											"superClass": "cdt.managedbuild.tool.gnu.assembler.cygwin.base"
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"buildArtefactType": "org.eclipse.cdt.build.core.buildArtefactType.exe",
+					"id": "cdt.managedbuild.target.gnu.mingw.exe",
+					"isAbstract": "false",
+					"isTest": "false",
+					"configuration": [
+						{
+							"name": "%ConfigName.Dbg",
+							"cleanCommand": "rm -rf",
+							"id": "cdt.managedbuild.config.gnu.mingw.exe.debug",
+							"parent": "cdt.managedbuild.config.gnu.mingw.base",
+							"buildProperties": "org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug",
+							"toolChain": [
+								{
+									"superClass": "cdt.managedbuild.toolchain.gnu.mingw.base",
+									"id": "cdt.managedbuild.toolchain.gnu.mingw.exe.debug",
+									"targetPlatform": [
+										{
+											"id": "cdt.managedbuild.target.gnu.platform.mingw.exe.debug",
+											"superClass": "cdt.managedbuild.target.gnu.platform.mingw.base"
+										}
+									],
+									"tool": [
+										{
+											"id": "cdt.managedbuild.tool.gnu.cpp.compiler.mingw.exe.debug",
+											"superClass": "cdt.managedbuild.tool.gnu.cpp.compiler.mingw.base",
+											"option": [
+												{
+													"id": "gnu.cpp.compiler.mingw.exe.debug.option.optimization.level",
+													"superClass": "gnu.cpp.compiler.option.optimization.level"
+												},
+												{
+													"id": "gnu.cpp.compiler.mingw.exe.debug.option.debugging.level",
+													"superClass": "gnu.cpp.compiler.option.debugging.level"
+												}
+											]
+										},
+										{
+											"id": "cdt.managedbuild.tool.gnu.c.compiler.mingw.exe.debug",
+											"superClass": "cdt.managedbuild.tool.gnu.c.compiler.mingw.base",
+											"option": [
+												{
+													"id": "gnu.c.compiler.mingw.exe.debug.option.optimization.level",
+													"superClass": "gnu.c.compiler.option.optimization.level"
+												},
+												{
+													"id": "gnu.c.compiler.mingw.exe.debug.option.debugging.level",
+													"superClass": "gnu.c.compiler.option.debugging.level"
+												}
+											]
+										},
+										{
+											"id": "cdt.managedbuild.tool.gnu.c.linker.mingw.exe.debug",
+											"superClass": "cdt.managedbuild.tool.gnu.c.linker.mingw.base"
+										},
+										{
+											"id": "cdt.managedbuild.tool.gnu.cpp.linker.mingw.exe.debug",
+											"superClass": "cdt.managedbuild.tool.gnu.cpp.linker.mingw.base"
+										},
+										{
+											"id": "cdt.managedbuild.tool.gnu.assembler.mingw.exe.debug",
+											"superClass": "cdt.managedbuild.tool.gnu.assembler.mingw.base"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "%ConfigName.Rel",
+							"cleanCommand": "rm -rf",
+							"id": "cdt.managedbuild.config.gnu.mingw.exe.release",
+							"parent": "cdt.managedbuild.config.gnu.mingw.base",
+							"buildProperties": "org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.release",
+							"toolChain": [
+								{
+									"superClass": "cdt.managedbuild.toolchain.gnu.mingw.base",
+									"id": "cdt.managedbuild.toolchain.gnu.mingw.exe.release",
+									"targetPlatform": [
+										{
+											"id": "cdt.managedbuild.target.gnu.platform.mingw.exe.release",
+											"superClass": "cdt.managedbuild.target.gnu.platform.mingw.base"
+										}
+									],
+									"tool": [
+										{
+											"id": "cdt.managedbuild.tool.gnu.cpp.compiler.mingw.exe.release",
+											"superClass": "cdt.managedbuild.tool.gnu.cpp.compiler.mingw.base",
+											"option": [
+												{
+													"id": "gnu.cpp.compiler.mingw.exe.release.option.optimization.level",
+													"superClass": "gnu.cpp.compiler.option.optimization.level"
+												},
+												{
+													"id": "gnu.cpp.compiler.mingw.exe.release.option.debugging.level",
+													"superClass": "gnu.cpp.compiler.option.debugging.level"
+												}
+											]
+										},
+										{
+											"id": "cdt.managedbuild.tool.gnu.c.compiler.mingw.exe.release",
+											"superClass": "cdt.managedbuild.tool.gnu.c.compiler.mingw.base",
+											"option": [
+												{
+													"id": "gnu.c.compiler.mingw.exe.release.option.optimization.level",
+													"superClass": "gnu.c.compiler.option.optimization.level"
+												},
+												{
+													"id": "gnu.c.compiler.mingw.exe.release.option.debugging.level",
+													"superClass": "gnu.c.compiler.option.debugging.level"
+												}
+											]
+										},
+										{
+											"id": "cdt.managedbuild.tool.gnu.c.linker.mingw.exe.release",
+											"superClass": "cdt.managedbuild.tool.gnu.c.linker.mingw.base"
+										},
+										{
+											"id": "cdt.managedbuild.tool.gnu.cpp.linker.mingw.exe.release",
+											"superClass": "cdt.managedbuild.tool.gnu.cpp.linker.mingw.base"
+										},
+										{
+											"id": "cdt.managedbuild.tool.gnu.assembler.mingw.exe.release",
+											"superClass": "cdt.managedbuild.tool.gnu.assembler.mingw.base"
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"buildArtefactType": "org.eclipse.cdt.build.core.buildArtefactType.sharedLib",
+					"id": "cdt.managedbuild.target.gnu.mingw.so",
+					"isAbstract": "false",
+					"isTest": "false",
+					"configuration": [
+						{
+							"name": "%ConfigName.Dbg",
+							"cleanCommand": "rm -rf",
+							"parent": "cdt.managedbuild.config.gnu.mingw.base",
+							"buildProperties": "org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug",
+							"id": "cdt.managedbuild.config.gnu.mingw.so.debug",
+							"toolChain": [
+								{
+									"superClass": "cdt.managedbuild.toolchain.gnu.mingw.base",
+									"id": "cdt.managedbuild.toolchain.gnu.mingw.so.debug",
+									"targetPlatform": [
+										{
+											"id": "cdt.managedbuild.target.gnu.platform.mingw.so.debug",
+											"superClass": "cdt.managedbuild.target.gnu.platform.mingw.base"
+										}
+									],
+									"tool": [
+										{
+											"id": "cdt.managedbuild.tool.gnu.cpp.compiler.mingw.so.debug",
+											"superClass": "cdt.managedbuild.tool.gnu.cpp.compiler.mingw.base",
+											"option": [
+												{
+													"id": "gnu.cpp.compiler.mingw.so.debug.option.optimization.level",
+													"superClass": "gnu.cpp.compiler.option.optimization.level"
+												},
+												{
+													"id": "gnu.cpp.compiler.mingw.so.debug.option.debugging.level",
+													"superClass": "gnu.cpp.compiler.option.debugging.level"
+												}
+											]
+										},
+										{
+											"id": "cdt.managedbuild.tool.gnu.c.compiler.mingw.so.debug",
+											"superClass": "cdt.managedbuild.tool.gnu.c.compiler.mingw.base",
+											"option": [
+												{
+													"id": "gnu.c.compiler.mingw.so.debug.option.optimization.level",
+													"superClass": "gnu.c.compiler.option.optimization.level"
+												},
+												{
+													"id": "gnu.c.compiler.mingw.so.debug.option.debugging.level",
+													"superClass": "gnu.c.compiler.option.debugging.level"
+												}
+											]
+										},
+										{
+											"id": "cdt.managedbuild.tool.gnu.c.linker.mingw.so.debug",
+											"superClass": "cdt.managedbuild.tool.gnu.c.linker.mingw.base",
+											"option": [
+												{
+													"id": "gnu.c.link.mingw.so.debug.option.shared",
+													"superClass": "gnu.c.link.option.shared"
+												}
+											],
+											"outputType": [
+												{
+													"id": "cdt.managedbuild.tool.gnu.c.linker.mingw.so.debug.output",
+													"superClass": "cdt.managedbuild.tool.gnu.c.linker.mingw.so.output.base"
+												}
+											]
+										},
+										{
+											"id": "cdt.managedbuild.tool.gnu.cpp.linker.mingw.so.debug",
+											"superClass": "cdt.managedbuild.tool.gnu.cpp.linker.mingw.base",
+											"option": [
+												{
+													"id": "gnu.cpp.link.mingw.so.debug.option.shared",
+													"superClass": "gnu.cpp.link.option.shared"
+												}
+											],
+											"outputType": [
+												{
+													"id": "cdt.managedbuild.tool.gnu.cpp.linker.mingw.so.debug.output",
+													"superClass": "cdt.managedbuild.tool.gnu.cpp.linker.mingw.so.output.base"
+												}
+											]
+										},
+										{
+											"id": "cdt.managedbuild.tool.gnu.assembler.mingw.so.debug",
+											"superClass": "cdt.managedbuild.tool.gnu.assembler.mingw.base"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "%ConfigName.Rel",
+							"cleanCommand": "rm -rf",
+							"parent": "cdt.managedbuild.config.gnu.mingw.base",
+							"buildProperties": "org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.release",
+							"id": "cdt.managedbuild.config.gnu.mingw.so.release",
+							"toolChain": [
+								{
+									"superClass": "cdt.managedbuild.toolchain.gnu.mingw.base",
+									"id": "cdt.managedbuild.toolchain.gnu.mingw.so.release",
+									"targetPlatform": [
+										{
+											"id": "cdt.managedbuild.target.gnu.platform.mingw.so.release",
+											"superClass": "cdt.managedbuild.target.gnu.platform.mingw.base"
+										}
+									],
+									"tool": [
+										{
+											"id": "cdt.managedbuild.tool.gnu.cpp.compiler.mingw.so.release",
+											"superClass": "cdt.managedbuild.tool.gnu.cpp.compiler.mingw.base",
+											"option": [
+												{
+													"id": "gnu.cpp.compiler.mingw.so.release.option.optimization.level",
+													"superClass": "gnu.cpp.compiler.option.optimization.level"
+												},
+												{
+													"id": "gnu.cpp.compiler.mingw.so.release.option.debugging.level",
+													"superClass": "gnu.cpp.compiler.option.debugging.level"
+												}
+											]
+										},
+										{
+											"id": "cdt.managedbuild.tool.gnu.c.compiler.mingw.so.release",
+											"superClass": "cdt.managedbuild.tool.gnu.c.compiler.mingw.base",
+											"option": [
+												{
+													"id": "gnu.c.compiler.mingw.so.release.option.optimization.level",
+													"superClass": "gnu.c.compiler.option.optimization.level"
+												},
+												{
+													"id": "gnu.c.compiler.mingw.so.release.option.debugging.level",
+													"superClass": "gnu.c.compiler.option.debugging.level"
+												}
+											]
+										},
+										{
+											"id": "cdt.managedbuild.tool.gnu.c.linker.mingw.so.release",
+											"superClass": "cdt.managedbuild.tool.gnu.c.linker.mingw.base",
+											"option": [
+												{
+													"id": "gnu.c.link.mingw.so.release.option.shared",
+													"superClass": "gnu.c.link.option.shared"
+												}
+											],
+											"outputType": [
+												{
+													"id": "cdt.managedbuild.tool.gnu.c.linker.mingw.so.release.output",
+													"superClass": "cdt.managedbuild.tool.gnu.c.linker.mingw.so.output.base"
+												}
+											]
+										},
+										{
+											"id": "cdt.managedbuild.tool.gnu.cpp.linker.mingw.so.release",
+											"superClass": "cdt.managedbuild.tool.gnu.cpp.linker.mingw.base",
+											"option": [
+												{
+													"id": "gnu.cpp.link.mingw.so.release.option.shared",
+													"superClass": "gnu.cpp.link.option.shared"
+												}
+											],
+											"outputType": [
+												{
+													"id": "cdt.managedbuild.tool.gnu.cpp.linker.mingw.so.release.output",
+													"superClass": "cdt.managedbuild.tool.gnu.cpp.linker.mingw.so.output.base"
+												}
+											]
+										},
+										{
+											"id": "cdt.managedbuild.tool.gnu.assembler.mingw.so.release",
+											"superClass": "cdt.managedbuild.tool.gnu.assembler.mingw.base"
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"buildArtefactType": "org.eclipse.cdt.build.core.buildArtefactType.staticLib",
+					"id": "cdt.managedbuild.target.gnu.mingw.lib",
+					"isAbstract": "false",
+					"isTest": "false",
+					"configuration": [
+						{
+							"name": "%ConfigName.Dbg",
+							"parent": "cdt.managedbuild.config.gnu.mingw.base",
+							"buildProperties": "org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug",
+							"cleanCommand": "rm -rf",
+							"id": "cdt.managedbuild.config.gnu.mingw.lib.debug",
+							"toolChain": [
+								{
+									"superClass": "cdt.managedbuild.toolchain.gnu.mingw.base",
+									"id": "cdt.managedbuild.toolchain.gnu.mingw.lib.debug",
+									"targetPlatform": [
+										{
+											"id": "cdt.managedbuild.target.gnu.platform.mingw.lib.debug",
+											"superClass": "cdt.managedbuild.target.gnu.platform.mingw.base"
+										}
+									],
+									"tool": [
+										{
+											"id": "cdt.managedbuild.tool.gnu.cpp.compiler.mingw.lib.debug",
+											"superClass": "cdt.managedbuild.tool.gnu.cpp.compiler.mingw.base",
+											"option": [
+												{
+													"id": "gnu.cpp.compiler.mingw.lib.debug.option.optimization.level",
+													"superClass": "gnu.cpp.compiler.option.optimization.level"
+												},
+												{
+													"id": "gnu.cpp.compiler.mingw.lib.debug.option.debugging.level",
+													"superClass": "gnu.cpp.compiler.option.debugging.level"
+												}
+											]
+										},
+										{
+											"id": "cdt.managedbuild.tool.gnu.c.compiler.mingw.lib.debug",
+											"superClass": "cdt.managedbuild.tool.gnu.c.compiler.mingw.base",
+											"option": [
+												{
+													"id": "gnu.c.compiler.mingw.lib.debug.option.optimization.level",
+													"superClass": "gnu.c.compiler.option.optimization.level"
+												},
+												{
+													"id": "gnu.c.compiler.mingw.lib.debug.option.debugging.level",
+													"superClass": "gnu.c.compiler.option.debugging.level"
+												}
+											]
+										},
+										{
+											"id": "cdt.managedbuild.tool.gnu.archiver.mingw.lib.debug",
+											"superClass": "cdt.managedbuild.tool.gnu.archiver.mingw.base"
+										},
+										{
+											"id": "cdt.managedbuild.tool.gnu.assembler.mingw.lib.debug",
+											"superClass": "cdt.managedbuild.tool.gnu.assembler.mingw.base"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "%ConfigName.Rel",
+							"parent": "cdt.managedbuild.config.gnu.mingw.base",
+							"buildProperties": "org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.release",
+							"cleanCommand": "rm -rf",
+							"id": "cdt.managedbuild.config.gnu.mingw.lib.release",
+							"toolChain": [
+								{
+									"superClass": "cdt.managedbuild.toolchain.gnu.mingw.base",
+									"id": "cdt.managedbuild.toolchain.gnu.mingw.lib.release",
+									"targetPlatform": [
+										{
+											"id": "cdt.managedbuild.target.gnu.platform.mingw.lib.release",
+											"superClass": "cdt.managedbuild.target.gnu.platform.mingw.base"
+										}
+									],
+									"tool": [
+										{
+											"id": "cdt.managedbuild.tool.gnu.cpp.compiler.mingw.lib.release",
+											"superClass": "cdt.managedbuild.tool.gnu.cpp.compiler.mingw.base",
+											"option": [
+												{
+													"id": "gnu.cpp.compiler.mingw.lib.release.option.optimization.level",
+													"superClass": "gnu.cpp.compiler.option.optimization.level"
+												},
+												{
+													"id": "gnu.cpp.compiler.mingw.lib.release.option.debugging.level",
+													"superClass": "gnu.cpp.compiler.option.debugging.level"
+												}
+											]
+										},
+										{
+											"id": "cdt.managedbuild.tool.gnu.c.compiler.mingw.lib.release",
+											"superClass": "cdt.managedbuild.tool.gnu.c.compiler.mingw.base",
+											"option": [
+												{
+													"id": "gnu.c.compiler.mingw.lib.release.option.optimization.level",
+													"superClass": "gnu.c.compiler.option.optimization.level"
+												},
+												{
+													"id": "gnu.c.compiler.mingw.lib.release.option.debugging.level",
+													"superClass": "gnu.c.compiler.option.debugging.level"
+												}
+											]
+										},
+										{
+											"id": "cdt.managedbuild.tool.gnu.archiver.mingw.lib.release",
+											"superClass": "cdt.managedbuild.tool.gnu.archiver.mingw.base"
+										},
+										{
+											"id": "cdt.managedbuild.tool.gnu.assembler.mingw.lib.release",
+											"superClass": "cdt.managedbuild.tool.gnu.assembler.mingw.base"
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"id": "cdt.managedbuild.target.macosx.exe",
+					"isTest": "false",
+					"buildArtefactType": "org.eclipse.cdt.build.core.buildArtefactType.exe",
+					"isAbstract": "false",
+					"configuration": [
+						{
+							"name": "%ConfigName.Dbg",
+							"cleanCommand": "rm -rf",
+							"buildProperties": "org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug",
+							"parent": "cdt.managedbuild.config.gnu.macosx.base",
+							"id": "cdt.managedbuild.config.gnu.macosx.exe.debug",
+							"toolChain": [
+								{
+									"superClass": "cdt.managedbuild.toolchain.gnu.macosx.base",
+									"id": "cdt.managedbuild.toolchain.gnu.macosx.exe.debug",
+									"targetPlatform": [
+										{
+											"id": "cdt.managedbuild.target.gnu.platform.macosx.exe.debug",
+											"superClass": "cdt.managedbuild.target.gnu.platform.macosx.base"
+										}
+									],
+									"builder": [
+										{
+											"superClass": "cdt.managedbuild.target.gnu.builder.macosx.base",
+											"id": "cdt.managedbuild.target.gnu.builder.macosx.exe.debug"
+										}
+									],
+									"tool": [
+										{
+											"id": "cdt.managedbuild.tool.gnu.cpp.compiler.macosx.exe.debug",
+											"superClass": "cdt.managedbuild.tool.gnu.cpp.compiler.macosx.base",
+											"option": [
+												{
+													"id": "gnu.cpp.compilermacosx.exe.debug.option.optimization.level",
+													"superClass": "gnu.cpp.compiler.option.optimization.level"
+												},
+												{
+													"id": "gnu.cpp.compiler.macosx.exe.debug.option.debugging.level",
+													"superClass": "gnu.cpp.compiler.option.debugging.level"
+												}
+											]
+										},
+										{
+											"id": "cdt.managedbuild.tool.gnu.c.compiler.macosx.exe.debug",
+											"superClass": "cdt.managedbuild.tool.gnu.c.compiler.macosx.base",
+											"option": [
+												{
+													"id": "gnu.c.compiler.macosx.exe.debug.option.optimization.level",
+													"superClass": "gnu.c.compiler.option.optimization.level"
+												},
+												{
+													"id": "gnu.c.compiler.macosx.exe.debug.option.debugging.level",
+													"superClass": "gnu.c.compiler.option.debugging.level"
+												}
+											]
+										},
+										{
+											"id": "cdt.managedbuild.tool.macosx.c.linker.macosx.exe.debug",
+											"superClass": "cdt.managedbuild.tool.macosx.c.linker.macosx.base"
+										},
+										{
+											"id": "cdt.managedbuild.tool.macosx.cpp.linker.macosx.exe.debug",
+											"superClass": "cdt.managedbuild.tool.macosx.cpp.linker.macosx.base"
+										},
+										{
+											"id": "cdt.managedbuild.tool.gnu.assembler.macosx.exe.debug",
+											"superClass": "cdt.managedbuild.tool.gnu.assembler.macosx.base"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "%ConfigName.Rel",
+							"buildProperties": "org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.release",
+							"cleanCommand": "rm -rf",
+							"id": "cdt.managedbuild.config.macosx.exe.release",
+							"parent": "cdt.managedbuild.config.gnu.macosx.base",
+							"toolChain": [
+								{
+									"id": "cdt.managedbuild.toolchain.gnu.macosx.exe.release",
+									"superClass": "cdt.managedbuild.toolchain.gnu.macosx.base",
+									"targetPlatform": [
+										{
+											"id": "cdt.managedbuild.target.gnu.platform.macosx.exe.release",
+											"superClass": "cdt.managedbuild.target.gnu.platform.macosx.base"
+										}
+									],
+									"builder": [
+										{
+											"superClass": "cdt.managedbuild.target.gnu.builder.macosx.base",
+											"id": "cdt.managedbuild.target.gnu.builder.macosx.exe.release"
+										}
+									],
+									"tool": [
+										{
+											"id": "cdt.managedbuild.tool.gnu.cpp.compiler.macosx.exe.release",
+											"superClass": "cdt.managedbuild.tool.gnu.cpp.compiler.macosx.base",
+											"option": [
+												{
+													"id": "gnu.cpp.compiler.macosx.exe.release.option.optimization.level",
+													"superClass": "gnu.cpp.compiler.option.optimization.level"
+												},
+												{
+													"id": "gnu.cpp.compiler.macosx.exe.release.option.debugging.level",
+													"superClass": "gnu.cpp.compiler.option.debugging.level"
+												}
+											]
+										},
+										{
+											"id": "cdt.managedbuild.tool.gnu.c.compiler.macosx.exe.release",
+											"superClass": "cdt.managedbuild.tool.gnu.c.compiler.macosx.base",
+											"option": [
+												{
+													"id": "gnu.c.compiler.macosx.exe.release.option.optimization.level",
+													"superClass": "gnu.c.compiler.option.optimization.level"
+												},
+												{
+													"id": "gnu.c.compiler.macosx.exe.release.option.debugging.level",
+													"superClass": "gnu.c.compiler.option.debugging.level"
+												}
+											]
+										},
+										{
+											"id": "cdt.managedbuild.tool.macosx.c.linker.macosx.exe.release",
+											"superClass": "cdt.managedbuild.tool.macosx.c.linker.macosx.base"
+										},
+										{
+											"id": "cdt.managedbuild.tool.macosx.cpp.linker.macosx.exe.release",
+											"superClass": "cdt.managedbuild.tool.macosx.cpp.linker.macosx.base"
+										},
+										{
+											"id": "cdt.managedbuild.tool.gnu.assembler.macosx.exe.release",
+											"superClass": "cdt.managedbuild.tool.gnu.assembler.macosx.base"
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"id": "cdt.managedbuild.target.macosx.so",
+					"buildArtefactType": "org.eclipse.cdt.build.core.buildArtefactType.sharedLib",
+					"isTest": "false",
+					"isAbstract": "false",
+					"configuration": [
+						{
+							"name": "%ConfigName.Dbg",
+							"cleanCommand": "rm -rf",
+							"parent": "cdt.managedbuild.config.gnu.macosx.base",
+							"buildProperties": "org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug",
+							"id": "cdt.managedbuild.config.macosx.so.debug",
+							"toolChain": [
+								{
+									"superClass": "cdt.managedbuild.toolchain.gnu.macosx.base",
+									"id": "cdt.managedbuild.toolchain.gnu.macosx.so.debug",
+									"targetPlatform": [
+										{
+											"id": "cdt.managedbuild.target.gnu.platform.macosx.so.debug",
+											"superClass": "cdt.managedbuild.target.gnu.platform.macosx.base"
+										}
+									],
+									"builder": [
+										{
+											"superClass": "cdt.managedbuild.target.gnu.builder.macosx.base",
+											"id": "cdt.managedbuild.target.gnu.builder.macosx.so.debug"
+										}
+									],
+									"tool": [
+										{
+											"id": "cdt.managedbuild.tool.gnu.cpp.compiler.macosx.so.debug",
+											"superClass": "cdt.managedbuild.tool.gnu.cpp.compiler.macosx.base",
+											"option": [
+												{
+													"id": "gnu.cpp.compiler.macosx.so.debug.option.optimization.level",
+													"superClass": "gnu.cpp.compiler.option.optimization.level"
+												},
+												{
+													"id": "gnu.cpp.compiler.macosx.so.debug.option.debugging.level",
+													"superClass": "gnu.cpp.compiler.option.debugging.level"
+												}
+											]
+										},
+										{
+											"id": "cdt.managedbuild.tool.gnu.c.compiler.macosx.so.debug",
+											"superClass": "cdt.managedbuild.tool.gnu.c.compiler.macosx.base",
+											"option": [
+												{
+													"id": "gnu.c.compiler.macosx.so.debug.option.optimization.level",
+													"superClass": "gnu.c.compiler.option.optimization.level"
+												},
+												{
+													"id": "gnu.c.compiler.macosx.so.debug.option.debugging.level",
+													"superClass": "gnu.c.compiler.option.debugging.level"
+												}
+											]
+										},
+										{
+											"id": "cdt.managedbuild.tool.macosx.c.linker.macosx.so.debug",
+											"superClass": "cdt.managedbuild.tool.macosx.c.linker.macosx.base",
+											"option": [
+												{
+													"id": "macosx.c.link.macosx.so.debug.option.shared",
+													"superClass": "macosx.c.link.option.shared"
+												},
+												{
+													"id": "macosx.c.link.macosx.so.debug.option.nostart",
+													"superClass": "macosx.c.link.option.nostart"
+												},
+												{
+													"id": "macosx.c.link.macosx.so.debug.option.nodeflibs",
+													"superClass": "macosx.c.link.option.nodeflibs"
+												}
+											],
+											"outputType": [
+												{
+													"superClass": "cdt.managedbuild.tool.macosx.c.linker.output.so",
+													"id": "cdt.managedbuild.tool.macosx.c.linker.macosx.so.debug.output"
+												}
+											]
+										},
+										{
+											"id": "cdt.managedbuild.tool.macosx.cpp.linker.macosx.so.debug",
+											"superClass": "cdt.managedbuild.tool.macosx.cpp.linker.macosx.base",
+											"option": [
+												{
+													"id": "macosx.cpp.link.macosx.so.debug.option.shared",
+													"superClass": "macosx.cpp.link.option.shared"
+												}
+											],
+											"outputType": [
+												{
+													"superClass": "cdt.managedbuild.tool.macosx.cpp.linker.output.so",
+													"id": "cdt.managedbuild.tool.macosx.cpp.linker.macosx.so.debug.output"
+												}
+											]
+										},
+										{
+											"id": "cdt.managedbuild.tool.gnu.assembler.macosx.so.debug",
+											"superClass": "cdt.managedbuild.tool.gnu.assembler.macosx.base"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "%ConfigName.Rel",
+							"parent": "cdt.managedbuild.config.gnu.macosx.base",
+							"cleanCommand": "rm -rf",
+							"buildProperties": "org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.release",
+							"id": "cdt.managedbuild.config.macosx.so.release",
+							"toolChain": [
+								{
+									"superClass": "cdt.managedbuild.toolchain.gnu.macosx.base",
+									"id": "cdt.managedbuild.toolchain.gnu.macosx.so.release",
+									"targetPlatform": [
+										{
+											"id": "cdt.managedbuild.target.gnu.platform.macosx.so.release",
+											"superClass": "cdt.managedbuild.target.gnu.platform.macosx.base"
+										}
+									],
+									"builder": [
+										{
+											"superClass": "cdt.managedbuild.target.gnu.builder.macosx.base",
+											"id": "cdt.managedbuild.target.gnu.builder.macosx.so.release"
+										}
+									],
+									"tool": [
+										{
+											"id": "cdt.managedbuild.tool.gnu.cpp.compiler.macosx.so.release",
+											"superClass": "cdt.managedbuild.tool.gnu.cpp.compiler.macosx.base",
+											"option": [
+												{
+													"id": "gnu.cpp.compiler.macosx.so.release.option.optimization.level",
+													"superClass": "gnu.cpp.compiler.option.optimization.level"
+												},
+												{
+													"id": "gnu.cpp.compiler.macosx.so.release.option.debugging.level",
+													"superClass": "gnu.cpp.compiler.option.debugging.level"
+												}
+											]
+										},
+										{
+											"id": "cdt.managedbuild.tool.gnu.c.compiler.macosx.so.release",
+											"superClass": "cdt.managedbuild.tool.gnu.c.compiler.macosx.base",
+											"option": [
+												{
+													"id": "gnu.c.compiler.macosx.so.release.option.optimization.level",
+													"superClass": "gnu.c.compiler.option.optimization.level"
+												},
+												{
+													"id": "gnu.c.compiler.macosx.so.release.option.debugging.level",
+													"superClass": "gnu.c.compiler.option.debugging.level"
+												}
+											]
+										},
+										{
+											"id": "cdt.managedbuild.tool.macosx.c.linker.macosx.so.release",
+											"superClass": "cdt.managedbuild.tool.macosx.c.linker.macosx.base",
+											"option": [
+												{
+													"id": "macosx.c.link.macosx.so.release.option.shared",
+													"superClass": "macosx.c.link.option.shared"
+												},
+												{
+													"id": "macosx.c.link.macosx.so.release.option.nostart",
+													"superClass": "macosx.c.link.option.nostart"
+												},
+												{
+													"id": "macosx.c.link.macosx.so.release.option.nodeflibs",
+													"superClass": "macosx.c.link.option.nodeflibs"
+												}
+											],
+											"outputType": [
+												{
+													"superClass": "cdt.managedbuild.tool.macosx.c.linker.output.so",
+													"id": "cdt.managedbuild.tool.macosx.c.linker.macosx.so.release.output"
+												}
+											]
+										},
+										{
+											"id": "cdt.managedbuild.tool.macosx.cpp.linker.macosx.so.release",
+											"superClass": "cdt.managedbuild.tool.macosx.cpp.linker.macosx.base",
+											"option": [
+												{
+													"id": "macosx.cpp.link.macosx.so.release.option.shared",
+													"superClass": "macosx.cpp.link.option.shared"
+												}
+											],
+											"outputType": [
+												{
+													"superClass": "cdt.managedbuild.tool.macosx.cpp.linker.output.so",
+													"id": "cdt.managedbuild.tool.macosx.cpp.linker.macosx.so.release.output"
+												}
+											]
+										},
+										{
+											"id": "cdt.managedbuild.tool.gnu.assembler.macosx.so.release",
+											"superClass": "cdt.managedbuild.tool.gnu.assembler.macosx.base"
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"buildArtefactType": "org.eclipse.cdt.build.core.buildArtefactType.staticLib",
+					"id": "cdt.managedbuild.target.macosx.lib",
+					"isTest": "false",
+					"isAbstract": "false",
+					"configuration": [
+						{
+							"name": "%ConfigName.Dbg",
+							"parent": "cdt.managedbuild.config.gnu.macosx.base",
+							"buildProperties": "org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug",
+							"cleanCommand": "rm -rf",
+							"id": "cdt.managedbuild.config.macosx.lib.debug",
+							"toolChain": [
+								{
+									"superClass": "cdt.managedbuild.toolchain.gnu.macosx.base",
+									"id": "cdt.managedbuild.toolchain.gnu.macosx.lib.debug",
+									"targetPlatform": [
+										{
+											"id": "cdt.managedbuild.target.gnu.platform.macosx.lib.debug",
+											"superClass": "cdt.managedbuild.target.gnu.platform.macosx.base"
+										}
+									],
+									"builder": [
+										{
+											"superClass": "cdt.managedbuild.target.gnu.builder.macosx.base",
+											"id": "cdt.managedbuild.target.gnu.builder.macosx.lib.debug"
+										}
+									],
+									"tool": [
+										{
+											"id": "cdt.managedbuild.tool.gnu.cpp.compiler.macosx.lib.debug",
+											"superClass": "cdt.managedbuild.tool.gnu.cpp.compiler.macosx.base",
+											"option": [
+												{
+													"id": "gnu.cpp.compiler.macosx.lib.debug.option.optimization.level",
+													"superClass": "gnu.cpp.compiler.option.optimization.level"
+												},
+												{
+													"id": "gnu.cpp.compiler.macosx.lib.debug.option.debugging.level",
+													"superClass": "gnu.cpp.compiler.option.debugging.level"
+												}
+											]
+										},
+										{
+											"id": "cdt.managedbuild.tool.gnu.c.compiler.macosx.lib.debug",
+											"superClass": "cdt.managedbuild.tool.gnu.c.compiler.macosx.base",
+											"option": [
+												{
+													"id": "gnu.c.compiler.macosx.lib.debug.option.optimization.level",
+													"superClass": "gnu.c.compiler.option.optimization.level"
+												},
+												{
+													"id": "gnu.c.compiler.macosx.lib.debug.option.debugging.level",
+													"superClass": "gnu.c.compiler.option.debugging.level"
+												}
+											]
+										},
+										{
+											"id": "cdt.managedbuild.toolmacosx.lib.debug.gnu.archiver",
+											"superClass": "cdt.managedbuild.tool.gnu.archiver.macosx.base"
+										},
+										{
+											"id": "cdt.managedbuild.tool.gnu.assembler.macosx.lib.debug",
+											"superClass": "cdt.managedbuild.tool.gnu.assembler.macosx.base"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "%ConfigName.Rel",
+							"parent": "cdt.managedbuild.config.gnu.macosx.base",
+							"cleanCommand": "rm -rf",
+							"buildProperties": "org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.release",
+							"id": "cdt.managedbuild.config.macosx.lib.release",
+							"toolChain": [
+								{
+									"superClass": "cdt.managedbuild.toolchain.gnu.macosx.base",
+									"id": "cdt.managedbuild.toolchain.gnu.macosx.lib.release",
+									"targetPlatform": [
+										{
+											"id": "cdt.managedbuild.target.gnu.platform.macosx.lib.release",
+											"superClass": "cdt.managedbuild.target.gnu.platform.macosx.base"
+										}
+									],
+									"builder": [
+										{
+											"superClass": "cdt.managedbuild.target.gnu.builder.macosx.base",
+											"id": "cdt.managedbuild.target.gnu.builder.macosx.lib.release"
+										}
+									],
+									"tool": [
+										{
+											"id": "cdt.managedbuild.tool.gnu.cpp.compiler.macosx.lib.release",
+											"superClass": "cdt.managedbuild.tool.gnu.cpp.compiler.macosx.base",
+											"option": [
+												{
+													"id": "gnu.cpp.compiler.macosx.lib.release.option.optimization.level",
+													"superClass": "gnu.cpp.compiler.option.optimization.level"
+												},
+												{
+													"id": "gnu.cpp.compiler.macosx.lib.release.option.debugging.level",
+													"superClass": "gnu.cpp.compiler.option.debugging.level"
+												}
+											]
+										},
+										{
+											"id": "cdt.managedbuild.tool.gnu.c.compiler.macosx.lib.release",
+											"superClass": "cdt.managedbuild.tool.gnu.c.compiler.macosx.base",
+											"option": [
+												{
+													"id": "gnu.c.compiler.macosx.lib.release.option.optimization.level",
+													"superClass": "gnu.c.compiler.option.optimization.level"
+												},
+												{
+													"id": "gnu.c.compiler.macosx.lib.release.option.debugging.level",
+													"superClass": "gnu.c.compiler.option.debugging.level"
+												}
+											]
+										},
+										{
+											"id": "cdt.managedbuild.toolmacosx.lib.release.gnu.archiver",
+											"superClass": "cdt.managedbuild.tool.gnu.archiver.macosx.base"
+										},
+										{
+											"id": "cdt.managedbuild.tool.gnu.assembler.macosx.lib.release",
+											"superClass": "cdt.managedbuild.tool.gnu.assembler.macosx.base"
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"buildArtefactType": "org.eclipse.cdt.build.core.buildArtefactType.exe",
+					"isAbstract": "false",
+					"isTest": "false",
+					"id": "cdt.managedbuild.target.gnu.solaris.exe",
+					"configuration": [
+						{
+							"name": "%ConfigName.Dbg",
+							"buildProperties": "org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug",
+							"id": "cdt.managedbuild.config.gnu.solaris.exe.debug",
+							"parent": "cdt.managedbuild.config.gnu.solaris.base",
+							"toolChain": [
+								{
+									"id": "cdt.managedbuild.toolchain.gnu.solaris.exe.debug",
+									"superClass": "cdt.managedbuild.toolchain.gnu.solaris.base",
+									"targetPlatform": [
+										{
+											"id": "cdt.managedbuild.target.gnu.solaris.platform.exe.debug",
+											"superClass": "cdt.managedbuild.target.gnu.solaris.base"
+										}
+									],
+									"tool": [
+										{
+											"id": "cdt.managedbuild.tool.gnu.solaris.cpp.compiler.exe.debug",
+											"superClass": "cdt.managedbuild.tool.gnu.solaris.cpp.compiler.base"
+										},
+										{
+											"id": "cdt.managedbuild.tool.gnu.solaris.c.compiler.exe.debug",
+											"superClass": "cdt.managedbuild.tool.gnu.solaris.c.compiler.base"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "%ConfigName.Rel",
+							"id": "cdt.managedbuild.config.gnu.solaris.exe.release",
+							"buildProperties": "org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.release",
+							"parent": "cdt.managedbuild.config.gnu.solaris.base",
+							"toolChain": [
+								{
+									"id": "cdt.managedbuild.toolchain.gnu.solaris.exe.release",
+									"superClass": "cdt.managedbuild.toolchain.gnu.solaris.base",
+									"targetPlatform": [
+										{
+											"id": "cdt.managedbuild.target.gnu.solaris.platform.exe.release",
+											"superClass": "cdt.managedbuild.target.gnu.solaris.base"
+										}
+									],
+									"tool": [
+										{
+											"id": "cdt.managedbuild.tool.gnu.solaris.cpp.compiler.exe.release",
+											"superClass": "cdt.managedbuild.tool.gnu.solaris.cpp.compiler.base"
+										},
+										{
+											"id": "cdt.managedbuild.tool.gnu.solaris.c.compiler.exe.release",
+											"superClass": "cdt.managedbuild.tool.gnu.solaris.c.compiler.base"
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"isAbstract": "false",
+					"isTest": "false",
+					"buildArtefactType": "org.eclipse.cdt.build.core.buildArtefactType.sharedLib",
+					"id": "cdt.managedbuild.target.gnu.solaris.so",
+					"configuration": [
+						{
+							"name": "%ConfigName.Dbg",
+							"buildProperties": "org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug",
+							"parent": "cdt.managedbuild.config.gnu.solaris.base",
+							"id": "cdt.managedbuild.config.gnu.solaris.so.debug",
+							"toolChain": [
+								{
+									"id": "cdt.managedbuild.toolchain.gnu.solaris.so.debug",
+									"superClass": "cdt.managedbuild.toolchain.gnu.solaris.base",
+									"targetPlatform": [
+										{
+											"id": "cdt.managedbuild.target.gnu.solaris.platform.so.debug",
+											"superClass": "cdt.managedbuild.target.gnu.solaris.base"
+										}
+									],
+									"tool": [
+										{
+											"id": "cdt.managedbuild.tool.gnu.solaris.cpp.compiler.so.debug",
+											"superClass": "cdt.managedbuild.tool.gnu.solaris.cpp.compiler.base"
+										},
+										{
+											"id": "cdt.managedbuild.tool.gnu.solaris.c.compiler.so.debug",
+											"superClass": "cdt.managedbuild.tool.gnu.solaris.c.compiler.base"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "%ConfigName.Rel",
+							"buildProperties": "org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.release",
+							"parent": "cdt.managedbuild.config.gnu.solaris.base",
+							"id": "cdt.managedbuild.config.gnu.solaris.so.release",
+							"toolChain": [
+								{
+									"id": "cdt.managedbuild.toolchain.gnu.solaris.so.release",
+									"superClass": "cdt.managedbuild.toolchain.gnu.solaris.base",
+									"targetPlatform": [
+										{
+											"id": "cdt.managedbuild.target.gnu.solaris.platform.so.release",
+											"superClass": "cdt.managedbuild.target.gnu.solaris.base"
+										}
+									],
+									"tool": [
+										{
+											"id": "cdt.managedbuild.tool.gnu.solaris.cpp.compiler.so.release",
+											"superClass": "cdt.managedbuild.tool.gnu.solaris.cpp.compiler.base"
+										},
+										{
+											"id": "cdt.managedbuild.tool.gnu.solaris.c.compiler.so.release",
+											"superClass": "cdt.managedbuild.tool.gnu.solaris.c.compiler.base"
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"isTest": "false",
+					"buildArtefactType": "org.eclipse.cdt.build.core.buildArtefactType.staticLib",
+					"isAbstract": "false",
+					"id": "cdt.managedbuild.target.gnu.solaris.lib",
+					"configuration": [
+						{
+							"name": "%ConfigName.Dbg",
+							"buildProperties": "org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug",
+							"parent": "cdt.managedbuild.config.gnu.solaris.base",
+							"id": "cdt.managedbuild.config.gnu.solaris.lib.debug",
+							"toolChain": [
+								{
+									"id": "cdt.managedbuild.toolchain.gnu.solaris.lib.debug",
+									"superClass": "cdt.managedbuild.toolchain.gnu.solaris.base",
+									"targetPlatform": [
+										{
+											"id": "cdt.managedbuild.target.gnu.solaris.platform.lib.debug",
+											"superClass": "cdt.managedbuild.target.gnu.solaris.base"
+										}
+									],
+									"tool": [
+										{
+											"id": "cdt.managedbuild.tool.gnu.solaris.cpp.compiler.lib.debug",
+											"superClass": "cdt.managedbuild.tool.gnu.solaris.cpp.compiler.base"
+										},
+										{
+											"id": "cdt.managedbuild.tool.gnu.solaris.c.compiler.lib.debug",
+											"superClass": "cdt.managedbuild.tool.gnu.solaris.c.compiler.base"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "%ConfigName.Rel",
+							"buildProperties": "org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.release",
+							"parent": "cdt.managedbuild.config.gnu.solaris.base",
+							"id": "cdt.managedbuild.config.gnu.solaris.lib.release",
+							"toolChain": [
+								{
+									"id": "cdt.managedbuild.toolchain.gnu.solaris.lib.release",
+									"superClass": "cdt.managedbuild.toolchain.gnu.solaris.base",
+									"targetPlatform": [
+										{
+											"id": "cdt.managedbuild.target.gnu.solaris.platform.lib.release",
+											"superClass": "cdt.managedbuild.target.gnu.solaris.base"
+										}
+									],
+									"tool": [
+										{
+											"id": "cdt.managedbuild.tool.gnu.solaris.cpp.compiler.lib.release",
+											"superClass": "cdt.managedbuild.tool.gnu.solaris.cpp.compiler.base"
+										},
+										{
+											"id": "cdt.managedbuild.tool.gnu.solaris.c.compiler.lib.release",
+											"superClass": "cdt.managedbuild.tool.gnu.solaris.c.compiler.base"
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"generators": [
+		{
+			"tool": "xmake-dev",
+			"version": "0.1.5",
+			"command": [
+				"xmake-dev",
+				"convert",
+				"--file",
+				"/Users/ilg/My Files/MacBookPro Projects/GNU ARM Eclipse/src/org.eclipse.cdt.git/build/org.eclipse.cdt.managedbuilder.gnu.ui/plugin.xml",
+				"--format",
+				"cdt-toolchain",
+				"--output",
+				"cdt-gnu-ui.json"
+			],
+			"homepage": "https://github.com/xpack/xmake-js",
+			"date": "2017-05-22T14:14:39.324Z"
+		}
+	]
+}

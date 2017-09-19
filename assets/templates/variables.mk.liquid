@@ -5,8 +5,8 @@
 # Initialise build variables that will collect definitions 
 # contributed by subfolders.
 
-{% for fileType in fileTypes %}
+{% for fileType in fileTypes -%}
 {{ fileType.prefix }}_SRCS :=
 {{ fileType.prefix }}_DEPS :=
 
-{% endfor %}
+{% endfor -%}
