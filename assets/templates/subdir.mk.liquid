@@ -21,7 +21,7 @@ OBJS += {{ folder }}/{{ file }}.o
 {% else -%}
 {{ tab }}@echo '[$(CC)]: $(@:%.o=%.c)'
 {% endif -%}
-{{ tab }}{% if isVerbose == false %}@{% endif %}$(CC) -c {{ options.c }} {{ includeOptions }} -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -o "$@" "$<"
+{{ tab }}{% if isVerbose == false %}@{% endif %}$(CC) -c {{ options.c }} {{ symbols.c }} {{ includeOptions }} -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -o "$@" "$<"
 {% if isVerbose -%}
 {{ tab }}@echo 'Finished building: $(@:%.o=%.c)'
 {% endif -%}
@@ -47,7 +47,7 @@ OBJS += {{ folder }}/{{ file }}.o
 {% else -%}
 {{ tab }}@echo '[$(CXX)]: $(@:%.o=%.cpp)'
 {% endif -%}
-{{ tab }}{% if isVerbose == false %}@{% endif %}$(CXX) -c {{ options.cpp }} {{ includeOptions }} -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -o "$@" "$<"
+{{ tab }}{% if isVerbose == false %}@{% endif %}$(CXX) -c {{ options.cpp }} {{ symbols.cpp }} {{ includeOptions }} -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -o "$@" "$<"
 {% if isVerbose -%}
 {{ tab }}@echo 'Finished building: $(@:%.o=%.cpp)'
 {% endif -%}
@@ -72,7 +72,7 @@ OBJS += {{ folder }}/{{ file }}.o
 {% else -%}
 {{ tab }}@echo '[$(CC)]: $(@:%.o=%.S)'
 {% endif -%}
-{{ tab }}{% if isVerbose == false %}@{% endif %}$(CC) -c {{ options.as }} {{ includeOptions }} -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -o "$@" "$<"
+{{ tab }}{% if isVerbose == false %}@{% endif %}$(CC) -c {{ options.as }} {{ symbols.as }} {{ includeOptions }} -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -o "$@" "$<"
 {% if isVerbose -%}
 {{ tab }}@echo 'Finished building: $(@:%.o=%.S)'
 {% endif -%}
