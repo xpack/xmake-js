@@ -17,15 +17,15 @@ Aliases:
 This command expects an `xmake.json` file in the CWD, to define the 
 build configurations.
 
-A build configuration is a triplet (target, profile, toolchain).
+A **build configuration** is a triplet (target, profile, toolchain).
 
 For each configuration, `xmake build` creates a subfolder in the CWD, 
-named `build/target-profile-toolchain`.
+named `build/name-target-profile-toolchain`.
 
 If multiple names are defined for target/profile/toolchain, a 
 matrix of configurations is constructed.
 
-All names must be letters, dashes, or digits. When used to 
+All names must be letters, hyphens, or digits. When used to 
 create paths, all letters are converted to lowercase.
 
 After generating the build folders, the native builder (like `make`) 

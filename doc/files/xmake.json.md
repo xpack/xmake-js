@@ -17,7 +17,7 @@ should be moved to a more general document about xmake.
 
 ## Lowercase names
 
-All names must be composed from letters, dashes, or digits. When used to create 
+All names must be composed from letters, hyphens, or digits. When used to create 
 paths, case is not significative and all letters are converted to lowercase.
 
 ## Paths
@@ -254,7 +254,7 @@ If a definition from the parent is definitely not wanted, it can be removed:
 }
 ```
 
-If the definitions to be removed did not exist, warnigs are issued.
+If the definitions to be removed did not exist, warnings are issued.
 
 For a given build, all source folders are searched for source files, 
 possible exclusions from `sourceFolderSettings` are processed, and the 
@@ -297,7 +297,7 @@ If a definition from the parent is definitely not wanted, it can be removed:
 }
 ```
 
-If the definitions to be removed did not exist, warnigs are issued.
+If the definitions to be removed did not exist, warnings are issued.
 
 When serialised, the values are string arrays; when parsed, the values 
 may be strings, parsed as multiple words separated by spaces.
@@ -332,7 +332,7 @@ If a definition from the parent is definitely not wanted, it can be removed:
 }
 ```
 
-If the definitions to be removed did not exist, warnigs are issued.
+If the definitions to be removed did not exist, warnings are issued.
 
 If, for a given profile, this array ends up empty, and the current 
 folder includes a `package.json`, the 

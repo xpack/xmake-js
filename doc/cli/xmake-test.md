@@ -23,7 +23,7 @@ Each configuration is build and the result is executed.
 If multiple names are defined for target/profile/toolchain, a 
 matrix of tests is constructed.
 
-All names must be letters, dashes, or digits. When used to create 
+All names must be letters, hyphens, or digits. When used to create 
 paths, case is not significative and all letters are converted to lowercase.
 
 When started in an xPack root folder (a valid `package.json` file is 
