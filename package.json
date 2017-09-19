@@ -1,6 +1,6 @@
 {
   "name": "xmake",
-  "version": "0.1.5",
+  "version": "0.2.0",
   "description": "The xPack builder command line tool",
   "main": "./index.js",
   "directories": {
