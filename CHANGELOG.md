@@ -1,3 +1,7 @@
+## v0.3.2 (2017-09-20)
+
+- xmake build: try some more posix paths
+
 ## v0.3.1 (2017-09-20)
 
 - check the presence of 'xmake.json'
