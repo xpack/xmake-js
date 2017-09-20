@@ -138,15 +138,68 @@ $ npm test
 
 A typical test result looks like:
 
-```
+```bash
 $ npm run test
-...
+
+> xmake@0.3.4 test /Users/ilg/My Files/MacBookPro Projects/xPack/npm-modules/xmake-js.git
+> standard && npm run test-tap -s
+
+test/tap/010-options-common.js ...................... 24/24
+test/tap/020-module-invocation.js ..................... 9/9
+test/tap/030-interactive.js ......................... 12/12
+test/tap/040-cmd-test.js ............................ 24/24
+total ............................................... 69/69
+
+  69 passing (3s)
+
+  ok
 ```
 
 To run a specific test with more verbose output, use `npm run tap`:
 
-```
-$ npm run tap test/tap/...
+```bash
+$ $ npm run tap test/tap/010-options-common.js
+
+> xmake@0.3.4 tap /Users/ilg/My Files/MacBookPro Projects/xPack/npm-modules/xmake-js.git
+> tap --reporter=spec --timeout 300 --no-color "test/tap/010-options-common.js"
+
+test/tap/010-options-common.js
+  setup
+    ✓ package ok
+    ✓ version length > 0
+    ✓ package xmake@0.3.4
+
+  xmake --version (spawn)
+    ✓ exit ok
+    ✓ version ok
+    ✓ stderr empty
+
+  xmake -h (spawn)
+    ✓ exit ok
+    ✓ has Usage
+    ✓ has title
+    ✓ has -h|--help
+    ✓ has <command> -h|--help
+    ✓ has --version
+    ✓ has -i|--interactive
+    ✓ has log levels
+    ✓ has -s|--silent
+    ✓ has Bug reports:
+    ✓ stderr empty
+
+  xmake --help (spawn)
+    ✓ exit ok
+    ✓ has Usage
+    ✓ stderr empty
+
+  xmake -d (spawn)
+    ✓ exit ok
+    ✓ has stdout
+    ✓ has debug
+    ✓ stderr empty
+
+
+  24 passing (1s)
 ```
 
 ### Coverage tests
@@ -155,9 +208,37 @@ Coverage tests are a good indication on how much of the source files is exercise
 
 To run the coverage tests, use `npm run test-coverage`:
 
-```
-$ npm run test-coverage
-...
+```bash
+$npm run test-coverage
+
+> xmake@0.3.4 test-coverage /Users/ilg/My Files/MacBookPro Projects/xPack/npm-modules/xmake-js.git
+> tap --coverage --reporter=classic --timeout 600 --no-color "test/tap/*.js"
+
+test/tap/010-options-common.js ...................... 24/24
+test/tap/020-module-invocation.js ..................... 9/9
+test/tap/030-interactive.js ......................... 12/12
+test/tap/040-cmd-test.js ............................ 24/24
+total ............................................... 69/69
+
+  69 passing (8s)
+
+  ok
+----------------|----------|----------|----------|----------|----------------|
+File            |  % Stmts | % Branch |  % Funcs |  % Lines |Uncovered Lines |
+----------------|----------|----------|----------|----------|----------------|
+All files       |    12.01 |     1.03 |    13.33 |    12.01 |                |
+ bin            |      100 |      100 |      100 |      100 |                |
+  xmake.js      |      100 |      100 |      100 |      100 |                |
+ lib            |      100 |      100 |      100 |      100 |                |
+  main.js       |      100 |      100 |      100 |      100 |                |
+ lib/generators |     9.91 |        0 |        0 |     9.91 |                |
+  make.js       |     9.91 |        0 |        0 |     9.91 |... 298,299,303 |
+ lib/utils      |     5.39 |        0 |        0 |     5.39 |                |
+  artefact.js   |     8.33 |        0 |        0 |     8.33 |... 50,52,53,56 |
+  build-tree.js |     5.21 |        0 |        0 |     5.21 |... 535,537,538 |
+ lib/xmake      |    14.02 |     2.41 |    26.92 |    14.02 |                |
+  test.js       |    14.02 |     2.41 |    26.92 |    14.02 |... 580,581,585 |
+----------------|----------|----------|----------|----------|----------------|
 ```
 
 ### Continuous Integration (CI)
@@ -178,12 +259,11 @@ Known and accepted exceptions:
 
 To manually fix compliance with the style guide (where possible):
 
-```
+```bash
 $ npm run fix
 
 > xmake@0.1.10 fix /Users/ilg/My Files/MacBookPro Projects/xPack/npm-modules/xmake-js.git
 > standard --fix
-
 ```
 
 ### Documentation metadata
@@ -192,7 +272,7 @@ The documentation metadata follows the [JSdoc](http://usejsdoc.org) tags.
 
 To enforce checking at file level, add the following comments right after the `use strict`:
 
-```
+```js
 'use strict'
 /* eslint valid-jsdoc: "error" */
 /* eslint max-len: [ "error", 80, { "ignoreUrls": true } ] */
