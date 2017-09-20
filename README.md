@@ -46,37 +46,69 @@ $ sudo npm uninstall xmake --global
 
 To get an initial glimpse on the program, ask for help:
 
-```
+```bash
 $ xmake --help
 
 The xPack builder command line tool
 Usage: xmake <command> [<subcommand>...] [<options> ...] [<args>...]
 
 where <command> is one of:
-  build, test
+  build, import, test
 
 Common options:
-  --loglevel <level>     Set log level (silent|warn|info|verbose|debug|trace) 
-  -s|--silent            Disable all messages (--loglevel silent) 
-  -q|--quiet             Mostly quiet (--loglevel warn) 
-  -v|--verbose           Informative verbose (--loglevel info) 
-  -vv                    Very verbose (--loglevel verbose, or -v -v) 
-  -d|--debug             Debug messages (--loglevel debug) 
-  -dd|--trace            Trace messages (--loglevel trace) 
-  -C <folder>            Set current folder 
+  --loglevel <level>       Set log level (silent|warn|info|verbose|debug|trace) 
+  -s|--silent              Disable all messages (--loglevel silent) 
+  -q|--quiet               Mostly quiet, warnings and errors (--loglevel warn) 
+  --informative            Informative (--loglevel info) 
+  -v|--verbose             Verbose (--loglevel verbose) 
+  -d|--debug               Debug messages (--loglevel debug) 
+  -dd|--trace              Trace messages (--loglevel trace, -d -d) 
+  -C <folder>              Set current folder 
 
-xmake -h|--help            Quick help
-xmake <command> -h|--help  Quick help on command
-
+xmake -h|--help            Quick help 
+xmake <command> -h|--help  Quick help on command 
 xmake --version            Show version 
 xmake -i|--interactive     Enter interactive mode 
 
-npm xmake@0.1.0 '/Users/ilg/My Files/MacBookPro Projects/xPack/npm-modules/xmake-js.git'
+npm xmake@0.2.0 '/Users/ilg/My Files/MacBookPro Projects/xPack/npm-modules/xmake-js.git'
 Home page: <https://github.com/xpack/xmake-js>
 Bug reports: <https://github.com/xpack/xmake-js/issues>
 ```
 
-TBD
+```bash
+$ xmake build --help
+
+Build one or all project configurations
+Usage: xmake build [options...] [--target <name>]* [--profile <name>]*
+                   [--toolchain <name>]* [--build-folder <path>]
+                   [-- <build args>]
+where:
+  <build args>...        Extra arguments for the builder (optional, multiple)
+
+Build options:
+  --target <name>        Target name (optional, multiple)
+  --profile <name>       Profile name (optional, multiple)
+  --toolchain <name>     Toolchain name (optional, multiple)
+  --build-folder <path>  Build folder, default build (optional)
+
+Common options:
+  --loglevel <level>     Set log level (silent|warn|info|verbose|debug|trace) 
+  -s|--silent            Disable all messages (--loglevel silent) 
+  -q|--quiet             Mostly quiet, warnings and errors (--loglevel warn) 
+  --informative          Informative (--loglevel info) 
+  -v|--verbose           Verbose (--loglevel verbose) 
+  -d|--debug             Debug messages (--loglevel debug) 
+  -dd|--trace            Trace messages (--loglevel trace, -d -d) 
+  -C <folder>            Set current folder 
+
+xmake -h|--help          Quick help 
+xmake --version          Show version 
+xmake -i|--interactive   Enter interactive mode 
+
+npm xmake@0.2.0 '/Users/ilg/My Files/MacBookPro Projects/xPack/npm-modules/xmake-js.git'
+Home page: <https://github.com/xpack/xmake-js>
+Bug reports: <https://github.com/xpack/xmake-js/issues>
+```
 
 ## Developer info
 
@@ -175,5 +207,5 @@ all rights reserved to Liviu Ionescu.
 
 ## Note
 
-The `xmake` tool will be available soon.
+The `xmake` tool is currently under development, and the specifications may change.
 
