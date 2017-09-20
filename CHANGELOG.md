@@ -1,3 +1,7 @@
+## v0.3.0 (2017-09-20)
+
+- xmake/build.js: use toolchain/profile order in configuration tuple
+
 ## v0.2.0 (2017-09-20)
 
 - functional 'xmake build' with SiFive template
