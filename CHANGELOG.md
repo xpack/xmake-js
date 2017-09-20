@@ -1,3 +1,7 @@
+## v0.3.1 (2017-09-20)
+
+- check the presence of 'xmake.json'
+
 ## v0.3.0 (2017-09-20)
 
 - xmake/build.js: use toolchain/profile order in configuration tuple
