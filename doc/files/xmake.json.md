@@ -38,7 +38,7 @@ where _expression_ may be a name or a qualified name, like `test.name`.
 ## Add/remove
 
 Generally definitions are organised hierarchically 
-(top/target/profile/toolchain), with each child
+(top/target/toolchain/profile), with each child
 being able to contribute new, more specific definitions, to the parent.
 
 For each level, definitions are kept in an ordered list. The common use case is to 
@@ -363,28 +363,28 @@ definitions.
   "targets": {
     "darwin": {
       "artefact": { ... },
-      "excludedPaths": [],
-      "removeSourceFolders": [],
-      "addSourceFolders": [],
-      "removeSymbols": [],
-      "addSymbols": [],
-      "removeIncludeFolders": [],
-      "addIncludeFolders": [],
-      "profiles": { ... },
+      "excludedPaths": [ ... ],
+      "removeSourceFolders": [ ... ],
+      "addSourceFolders": [ ... ],
+      "removeSymbols": [ ... ],
+      "addSymbols": [ ... ],
+      "removeIncludeFolders": [ ... ],
+      "addIncludeFolders": [ ... ],
+      "toolchains": { ... },
     },
     "stm32f4-discovery": {
       "crossBuildPlatforms": [
         "darwin", "linux", "windows"
       ],
       "artefact": { ... },
-      "excludedPaths": [],
-      "removeSourceFolders": [],
-      "addSourceFolders": [],
-      "removeSymbols": [],
-      "addSymbols": [],
-      "removeIncludeFolders": [],
-      "addIncludeFolders": [],
-      "profiles": { ... },
+      "excludedPaths": [ ... ],
+      "removeSourceFolders": [ ... ],
+      "addSourceFolders": [ ... ],
+      "removeSymbols": [ ... ],
+      "addSymbols": [ ... ],
+      "removeIncludeFolders": [ ... ],
+      "addIncludeFolders": [ ... ],
+      "toolchains": { ... },
       }
     }
   }
@@ -397,52 +397,6 @@ not be part of the build, for a specific target.
 Target names are predefined strings.
 
 TODO: explain where target names come from.
-
-## Profiles
-
-Type: object.
-
-The `profiles` object defines the possible slightly different builds, 
-typically debug/release.
-
-Each profile may be built with several toolchains.
-
-Each profile may contribute its own specific definitions to the common 
-definitions.
-
-```json
-{
-  "profiles": {
-    "debug": {
-      "artefact": { ... },
-      "excludedPaths": [],
-      "removeSourceFolders": [],
-      "addSourceFolders": [],
-      "removeSymbols": [],
-      "addSymbols": [],
-      "addIncludeFolders": [],
-      "removeIncludeFolders": [],
-      "toolchains": { ... }
-    },
-    "release": {
-      "artefact": { ... },
-      "excludedPaths": [],
-      "removeSourceFolders": [],
-      "addSourceFolders": [],
-      "removeSymbols": [],
-      "addSymbols": [],
-      "addIncludeFolders": [],
-      "removeIncludeFolders": [],
-      "toolchains": { ... }
-    }
-  }
-}
-```
-
-The `excludedPaths` array defines folders and/or files that should 
-not be part of the build, for a specific profile.
-
-Profile names are user defined strings.
 
 ## Toolchains
 
@@ -458,27 +412,29 @@ definitions.
   "toolchains": {
     "gcc": {
       "artefact": { ... },
-      "excludedPaths": [],
-      "removeSourceFolders": [],
-      "addSourceFolders": [],
-      "removeSymbols": [],
-      "addSymbols": [],
-      "removeIncludeFolders": [],
-      "addIncludeFolders": [],
-      "options": { ... },
-      "tools": { ... }
+      "excludedPaths": [ ... ],
+      "removeSourceFolders": [... ],
+      "addSourceFolders": [ ... ],
+      "removeSymbols": [ ... ],
+      "addSymbols": [ ... ],
+      "removeIncludeFolders": [ ... ],
+      "addIncludeFolders": [ ... ],
+      "common": { ... },
+      "tools": { ... },
+      "profiles": { ... }
     },
     "arm-none-eabi-gcc": {
       "artefact": { ... },
-      "excludedPaths": [],
-      "removeSourceFolders": [],
-      "addSourceFolders": [],
-      "removeSymbols": [],
-      "addSymbols": [],
-      "removeIncludeFolders": [],
-      "addIncludeFolders": [],
-      "options": { ... },
-      "tools": { ... }
+      "excludedPaths": [ ... ],
+      "removeSourceFolders": [ ... ],
+      "addSourceFolders": [ ... ],
+      "removeSymbols": [ ... ],
+      "addSymbols": [ ... ],
+      "removeIncludeFolders": [ ... ],
+      "addIncludeFolders": [ ... ],
+      "common": { ... },
+      "tools": { ... },
+      "profiles": { ... }
     }
   }
 }
@@ -491,26 +447,28 @@ Toolchain names are predefined strings.
 
 TODO: explain where Toolchain names come from.
 
-## Options
+## Common 
 
 Type: object.
 
-The `options` object defines settings common for all tools.
+The `common` object defines settings common for all tools.
 
 ```json
 {
-  "options": {
-    "target": "-mcpu=cortex-m3",
-    "debugging": "-g3",
-    "optimizations": "-O3",
-    "warnings": "-Wall",
-    "miscellaneous": ""
+  "common": {
+    "removeTarget": [ ... ],
+    "addTarget": [ "-mcpu=cortex-m3" ],
+    "removeDebugging": [ "-g3" ],
+    "addDebugging": [ "-g3" ],
+    "removeOptimizations": [ ... ],
+    "addOptimizations": [ "-O3" ],
+    "removeWarnings": [ "-Wall" ],
+    "addWarnings": [ "-Wall" ],
+    "removeMiscellaneous": [ ... ],
+    "addMiscellaneous": [ ... ]
   }
 }
 ```
-
-TODO: think of another solution, either a different name (common?) or 
-a generic way to define options for all tools or for some tools.
 
 ## Tools
 
@@ -525,16 +483,18 @@ to the file extension.
 {
   "tools": {
     "c": {
-      "removeSymbols": [],
-      "addSymbols": [],
-      "removeIncludes": [],
-      "addIncludes": [],
-      "removeOptimizations": [],
-      "addOptimizations": [],
-      "removeWarnings": [],
-      "addWarnings": [],
-      "removeMiscellaneous": [],
-      "addMiscellaneous": []
+      "removeSymbols": [ ... ],
+      "addSymbols": [ ... ],
+      "removeIncludes": [ ... ],
+      "addIncludes": [ ... ],
+      "removeDebugging": [ ... ],
+      "addDebugging": [ ... ],
+      "removeOptimizations": [ ... ],
+      "addOptimizations": [ ... ],
+      "removeWarnings": [ ... ],
+      "addWarnings": [ ... ],
+      "removeMiscellaneous": [ ... ],
+      "addMiscellaneous": [ ... ]
     }
   }
 }
@@ -542,6 +502,53 @@ to the file extension.
 
 When serialised, the values are string arrays; when parsed, the values 
 may be strings, parsed as multiple words separated by spaces.
+
+
+## Profiles
+
+Type: object.
+
+The `profiles` object defines the possible slightly different builds, 
+typically debug/release.
+
+Each profile may contribute its own specific definitions to the common 
+definitions.
+
+```json
+{
+  "profiles": {
+    "debug": {
+      "artefact": { ... },
+      "excludedPaths": [ ... ],
+      "removeSourceFolders": [ ... ],
+      "addSourceFolders": [],
+      "removeSymbols": [],
+      "addSymbols": [],
+      "addIncludeFolders": [],
+      "removeIncludeFolders": [],
+      "common": { ... },
+      "tools": { ... }
+    },
+    "release": {
+      "artefact": { ... },
+      "excludedPaths": [],
+      "removeSourceFolders": [],
+      "addSourceFolders": [],
+      "removeSymbols": [],
+      "addSymbols": [],
+      "addIncludeFolders": [],
+      "removeIncludeFolders": [],
+      "common": { ... },
+      "tools": { ... }
+    }
+  }
+}
+```
+
+The `excludedPaths` array defines folders and/or files that should 
+not be part of the build, for a specific profile.
+
+Profile names are user defined strings.
 
 ## Folder/file specific metadata
 

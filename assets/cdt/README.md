@@ -1,4 +1,4 @@
-The JSON files in this folder contain the actual toolchain definitions from Eclipse CDT Neon.3 and from the GNU MCU Ecipse v4, converted from XML to JSON.
+The JSON files in this folder contain the actual toolchain definitions from Eclipse CDT Neon.3 and from the GNU MCU Eclipse v4, converted from XML to JSON.
 
 The files listed in the index are parsed, in that order.
 
