@@ -1,3 +1,7 @@
+## v0.3.4 (2017-09-20)
+
+- xmake build: one more posix path fix
+
 ## v0.3.3 (2017-09-20)
 
 - xmake build: use posix paths on windows make files
