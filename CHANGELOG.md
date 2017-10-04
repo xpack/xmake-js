@@ -1,3 +1,11 @@
+## Change log
+
+Changes in reverse chronological order.
+
+## v0.3.5 (2017-10-04)
+
+- rename shrink to lock
+
 ## v0.3.4 (2017-09-20)
 
 - xmake build: one more posix path fix
