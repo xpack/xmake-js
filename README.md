@@ -24,7 +24,7 @@ If this is your first encounter with `npm`, you need to install the [node.js](ht
 
 The module is available as [**xmake**](https://www.npmjs.com/package/xmake) from the public repository; with `npm` already available, installing `xmake` is quite easy:
 
-```bash
+```console
 $ sudo npm install xmake --global
 ```
 
@@ -36,7 +36,7 @@ The development repository is available from the GitHub [xpack/xmake-js](https:/
 
 To remove `xmake`, the command is similar:
 
-```bash
+```console
 $ sudo npm uninstall xmake --global
 ```
 
@@ -46,7 +46,7 @@ $ sudo npm uninstall xmake --global
 
 To get an initial glimpse on the program, ask for help:
 
-```bash
+```console
 $ xmake --help
 
 The xPack builder command line tool
@@ -75,7 +75,7 @@ Home page: <https://github.com/xpack/xmake-js>
 Bug reports: <https://github.com/xpack/xmake-js/issues>
 ```
 
-```bash
+```console
 $ xmake build --help
 
 Build one or all project configurations
@@ -114,7 +114,7 @@ Bug reports: <https://github.com/xpack/xmake-js/issues>
 
 ### Git repo
 
-```bash
+```console
 $ git clone https://github.com/xpack/xmake-js.git xmake-js.git
 $ cd xmake-js.git
 $ npm install
@@ -130,7 +130,7 @@ The tests use the [`node-tap`](http://www.node-tap.org) framework (_A Test-Anyth
 
 As for any `npm` package, the standard way to run the project tests is via `npm test`:
 
-```bash
+```console
 $ cd xmake-js.git
 $ npm install
 $ npm test
@@ -138,7 +138,7 @@ $ npm test
 
 A typical test result looks like:
 
-```bash
+```console
 $ npm run test
 
 > xmake@0.3.4 test /Users/ilg/My Files/MacBookPro Projects/xPack/npm-modules/xmake-js.git
@@ -157,7 +157,7 @@ total ............................................... 69/69
 
 To run a specific test with more verbose output, use `npm run tap`:
 
-```bash
+```console
 $ $ npm run tap test/tap/010-options-common.js
 
 > xmake@0.3.4 tap /Users/ilg/My Files/MacBookPro Projects/xPack/npm-modules/xmake-js.git
@@ -208,7 +208,7 @@ Coverage tests are a good indication on how much of the source files is exercise
 
 To run the coverage tests, use `npm run test-coverage`:
 
-```bash
+```console
 $npm run test-coverage
 
 > xmake@0.3.4 test-coverage /Users/ilg/My Files/MacBookPro Projects/xPack/npm-modules/xmake-js.git
@@ -259,7 +259,7 @@ Known and accepted exceptions:
 
 To manually fix compliance with the style guide (where possible):
 
-```bash
+```console
 $ npm run fix
 
 > xmake@0.1.10 fix /Users/ilg/My Files/MacBookPro Projects/xPack/npm-modules/xmake-js.git
