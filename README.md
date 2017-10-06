@@ -14,7 +14,9 @@ A Node.js CLI application to build xPacks.
 
 ## Purpose
 
-The main purpose of the `xmake` tool is to build xPacks. It can be seen as a combination of cMake+make. The initial version will actually generate the make files, and call make.
+The main purpose of the `xmake` tool is to build xPacks. The approach is similar to `cmake`, just that instead of using a proprietary scripting language (with a syntax not at all easy to parse), it uses a JSON file, which can be easily parsed by any 3rd party tools.
+
+Functionally, `xmake` can be seen as a combination of `cMake+make`. The initial version will actually generate the `make` files, and call `make`. Future versions will also import/export Eclipse CDT configurations.
 
 ## Prerequisites
 
@@ -22,13 +24,13 @@ If this is your first encounter with `npm`, you need to install the [node.js](ht
 
 ## Easy install
 
-The module is available as [**xmake**](https://www.npmjs.com/package/xmake) from the public repository; with `npm` already available, installing `xmake` is quite easy:
+The module is available as [`xmake`](https://www.npmjs.com/package/xmake) from the public repository; with `npm` already available, installing `xmake` is quite easy:
 
 ```console
 $ sudo npm install xmake --global
 ```
 
-On Windows, global packages are installed in the user home folder, and do not require `sudo`.
+On **Windows**, global packages are installed in the user home folder, and do not require `sudo`.
 
 The module provides the `xmake` executable, which is a possible reason to install it globally.
 
@@ -40,7 +42,7 @@ To remove `xmake`, the command is similar:
 $ sudo npm uninstall xmake --global
 ```
 
-(On Windows `sudo` is not required`).
+(On **Windows**, `sudo` is not required).
 
 ## User info
 
@@ -110,6 +112,12 @@ Home page: <https://github.com/xpack/xmake-js>
 Bug reports: <https://github.com/xpack/xmake-js/issues>
 ```
 
+## Metadata
+
+`xmake` consumes `xmake.json` directly and generates `make` files. 
+
+TODO: add a link to the JSON definition.
+
 ## Developer info
 
 ### Git repo
@@ -158,7 +166,7 @@ total ............................................... 69/69
 To run a specific test with more verbose output, use `npm run tap`:
 
 ```console
-$ $ npm run tap test/tap/010-options-common.js
+$ npm run tap test/tap/010-options-common.js
 
 > xmake@0.3.4 tap /Users/ilg/My Files/MacBookPro Projects/xPack/npm-modules/xmake-js.git
 > tap --reporter=spec --timeout 300 --no-color "test/tap/010-options-common.js"
@@ -209,7 +217,7 @@ Coverage tests are a good indication on how much of the source files is exercise
 To run the coverage tests, use `npm run test-coverage`:
 
 ```console
-$npm run test-coverage
+$ npm run test-coverage
 
 > xmake@0.3.4 test-coverage /Users/ilg/My Files/MacBookPro Projects/xPack/npm-modules/xmake-js.git
 > tap --coverage --reporter=classic --timeout 600 --no-color "test/tap/*.js"
@@ -255,7 +263,7 @@ As style, it uses the [JavaScript Standard Style](https://standardjs.com/), auto
 
 Known and accepted exceptions:
 
-- '// eslint-disable-line no-template-curly-in-string, max-len' to allow macro substitutions for `command.run`
+- `// eslint-disable-line no-template-curly-in-string, max-len` to allow macro substitutions for `command.run`
 
 To manually fix compliance with the style guide (where possible):
 
