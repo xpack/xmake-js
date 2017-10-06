@@ -2,6 +2,11 @@
 
 Changes in reverse chronological order.
 
+## v0.3.6 (2017-10-06)
+
+- README: add preliminary Metadata section; fix typos and formatting
+- README: use ```console
+
 ## v0.3.5 (2017-10-04)
 
 - rename shrink to lock
