@@ -112,6 +112,85 @@ Home page: <https://github.com/xpack/xmake-js>
 Bug reports: <https://github.com/xpack/xmake-js/issues>
 ```
 
+A typical build run:
+
+```console
+$ xmake build -- all
+Build one or all project configurations
+
+Generating the build files for 'hifive1-blinky', target 'hifive1', toolchain 'riscv64-elf-gcc', profile 'debug'...
+Generating make files...
+'make' files generated in 89 ms.
+
+Changing current folder to 'build/hifive1-blinky-hifive1-riscv64-elf-gcc-debug'...
+
+Invoking builder: 'make all'...
+[riscv64-unknown-elf-gcc]: src/newlib-syscalls.c
+[riscv64-unknown-elf-g++]: src/initialize-hardware.cpp
+[riscv64-unknown-elf-g++]: src/interrupts-handlers.cpp
+[riscv64-unknown-elf-g++]: src/led.cpp
+[riscv64-unknown-elf-g++]: src/main.cpp
+[riscv64-unknown-elf-g++]: src/sysclock.cpp
+[riscv64-unknown-elf-gcc]: xpacks/micro-os-plus-c-libs/src/_sbrk.c
+[riscv64-unknown-elf-gcc]: xpacks/micro-os-plus-c-libs/src/c-syscalls-empty.c
+[riscv64-unknown-elf-gcc]: xpacks/micro-os-plus-c-libs/src/stdlib/assert.c
+[riscv64-unknown-elf-gcc]: xpacks/micro-os-plus-c-libs/src/stdlib/exit.c
+[riscv64-unknown-elf-gcc]: xpacks/micro-os-plus-c-libs/src/stdlib/init-fini.c
+[riscv64-unknown-elf-g++]: xpacks/micro-os-plus-c-libs/src/stdlib/atexit.cpp
+[riscv64-unknown-elf-g++]: xpacks/micro-os-plus-cpp-libs/src/cxx.cpp
+[riscv64-unknown-elf-g++]: xpacks/micro-os-plus-diag-trace/src/trace.cpp
+[riscv64-unknown-elf-g++]: xpacks/micro-os-plus-riscv-arch/src/arch-functions.cpp
+[riscv64-unknown-elf-g++]: xpacks/micro-os-plus-riscv-arch/src/traps.cpp
+[riscv64-unknown-elf-gcc]: xpacks/micro-os-plus-riscv-arch/src/reset-entry.S
+[riscv64-unknown-elf-gcc]: xpacks/micro-os-plus-riscv-arch/src/trap-entry.S
+[riscv64-unknown-elf-g++]: xpacks/micro-os-plus-startup/src/startup.cpp
+[riscv64-unknown-elf-g++]: xpacks/sifive-coreplex-devices/src/device-functions.cpp
+[riscv64-unknown-elf-g++]: xpacks/sifive-coreplex-devices/src/device-interrupts.cpp
+[riscv64-unknown-elf-g++]: xpacks/sifive-coreplex-devices/src/plic-functions.cpp
+[riscv64-unknown-elf-gcc]: xpacks/sifive-coreplex-devices/src/sifive/fe300prci_driver.c
+[riscv64-unknown-elf-g++]: xpacks/sifive-hifive1-board/src/board-functions.cpp
+[riscv64-unknown-elf-g++]: xpacks/sifive-hifive1-board/src/trace-uart.cpp
+[riscv64-unknown-elf-g++]: hifive1-blinky.elf
+'make all' completed in 4.975 sec.
+
+Generating the build files for 'hifive1-blinky', target 'hifive1', toolchain 'riscv64-elf-gcc', profile 'release'...
+Generating make files...
+'make' files generated in 64 ms.
+
+Changing current folder to 'build/hifive1-blinky-hifive1-riscv64-elf-gcc-release'...
+
+Invoking builder: 'make all'...
+[riscv64-unknown-elf-gcc]: src/newlib-syscalls.c
+[riscv64-unknown-elf-g++]: src/initialize-hardware.cpp
+[riscv64-unknown-elf-g++]: src/interrupts-handlers.cpp
+[riscv64-unknown-elf-g++]: src/led.cpp
+[riscv64-unknown-elf-g++]: src/main.cpp
+[riscv64-unknown-elf-g++]: src/sysclock.cpp
+[riscv64-unknown-elf-gcc]: xpacks/micro-os-plus-c-libs/src/_sbrk.c
+[riscv64-unknown-elf-gcc]: xpacks/micro-os-plus-c-libs/src/c-syscalls-empty.c
+[riscv64-unknown-elf-gcc]: xpacks/micro-os-plus-c-libs/src/stdlib/assert.c
+[riscv64-unknown-elf-gcc]: xpacks/micro-os-plus-c-libs/src/stdlib/exit.c
+[riscv64-unknown-elf-gcc]: xpacks/micro-os-plus-c-libs/src/stdlib/init-fini.c
+[riscv64-unknown-elf-g++]: xpacks/micro-os-plus-c-libs/src/stdlib/atexit.cpp
+[riscv64-unknown-elf-g++]: xpacks/micro-os-plus-cpp-libs/src/cxx.cpp
+[riscv64-unknown-elf-g++]: xpacks/micro-os-plus-diag-trace/src/trace.cpp
+[riscv64-unknown-elf-g++]: xpacks/micro-os-plus-riscv-arch/src/arch-functions.cpp
+[riscv64-unknown-elf-g++]: xpacks/micro-os-plus-riscv-arch/src/traps.cpp
+[riscv64-unknown-elf-gcc]: xpacks/micro-os-plus-riscv-arch/src/reset-entry.S
+[riscv64-unknown-elf-gcc]: xpacks/micro-os-plus-riscv-arch/src/trap-entry.S
+[riscv64-unknown-elf-g++]: xpacks/micro-os-plus-startup/src/startup.cpp
+[riscv64-unknown-elf-g++]: xpacks/sifive-coreplex-devices/src/device-functions.cpp
+[riscv64-unknown-elf-g++]: xpacks/sifive-coreplex-devices/src/device-interrupts.cpp
+[riscv64-unknown-elf-g++]: xpacks/sifive-coreplex-devices/src/plic-functions.cpp
+[riscv64-unknown-elf-gcc]: xpacks/sifive-coreplex-devices/src/sifive/fe300prci_driver.c
+[riscv64-unknown-elf-g++]: xpacks/sifive-hifive1-board/src/board-functions.cpp
+[riscv64-unknown-elf-g++]: xpacks/sifive-hifive1-board/src/trace-uart.cpp
+[riscv64-unknown-elf-g++]: hifive1-blinky.elf
+'make all' completed in 5.117 sec.
+
+'xmake build' completed in 10.315 sec.
+```
+
 ## Metadata
 
 `xmake` consumes `xmake.json` directly and generates `make` files. 
