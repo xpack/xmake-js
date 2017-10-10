@@ -1,5 +1,7 @@
 # xmake.json
 
+Note: copied to web site.
+
 ## Overview 
 
 The `xmake.json` file defines the metadata required by the xmake build process.

@@ -2,6 +2,8 @@
 
 Generate the build folders and build.
 
+Note: copied to web site (https://xpack.github.io/xmake/cli/xmake-build/).
+
 ## Synopsis
 
 ```
