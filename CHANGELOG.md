@@ -2,6 +2,12 @@
 
 Changes in reverse chronological order.
 
+## v0.3.7 (2017-10-10)
+
+- xmake build: display actual builder name & full command
+- README: add a typical build run
+- add CONTRIBUTING.md
+
 ## v0.3.6 (2017-10-06)
 
 - README: add preliminary Metadata section; fix typos and formatting
