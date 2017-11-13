@@ -159,7 +159,7 @@ class Common {
         .on('error', (er) => { reject(er) })
         .pipe(zlib.createGunzip())
         .on('error', (er) => { reject(er) })
-        .pipe(tar.Extract({ path: destPath }))
+        .pipe(tar.extract({ cwd: destPath }))
         .on('error', (er) => { reject(er) })
         .on('end', () => { resolve() })
     })
