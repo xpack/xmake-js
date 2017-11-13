@@ -2,6 +2,11 @@
 
 Changes in reverse chronological order.
 
+## v0.3.8 (2017-11-13)
+
+- add riscv-none-embed toolchain
+- test/common: fix tar.extract()
+
 ## v0.3.7 (2017-10-10)
 
 - xmake build: display actual builder name & full command
