@@ -1,0 +1,6 @@
+{
+  "name": "riscv-none-embed-gcc",
+  "parent": "gcc-base",
+  "descriptionPrefix": "GNU MCU RISC-V Cross",
+  "commandPrefix": "riscv-none-embed-"
+}
