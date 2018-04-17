@@ -2,6 +2,10 @@
 
 Changes in reverse chronological order.
 
+## v0.3.10 (2018-04-17)
+
+- [#2] Fix spawn for Windows
+
 ## v0.3.9 (2018-04-17)
 
 - temporarily ignore folders starting with dot
