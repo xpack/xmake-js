@@ -2,6 +2,10 @@
 
 Changes in reverse chronological order.
 
+## v0.3.9 (2018-04-17)
+
+- temporarily ignore folders starting with dot
+
 ## v0.3.8 (2017-11-13)
 
 - add riscv-none-embed toolchain
