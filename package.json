@@ -44,17 +44,17 @@
   },
   "homepage": "https://github.com/xpack/xmake-js",
   "dependencies": {
-    "@ilg/es6-promisifier": "~0.1.9",
-    "@ilg/cli-start-options": "~0.4.1",
+    "@ilg/es6-promisifier": "~0.3.0",
+    "@ilg/cli-start-options": "~0.4.11",
     "mkdirp": "~0.5.1",
-    "liquidjs": "~1.9.6",
+    "liquidjs": "~4.0.0",
     "xml2js": "~0.4.19"
   },
   "devDependencies": {
     "rimraf": "~2.6.2",
-    "standard": "~10.0.3",
-    "tar": "~4.0.1",
-    "tap": "~10.7.2"
+    "standard": "~11.0.1",
+    "tar": "~4.4.4",
+    "tap": "~12.0.1"
   },
   "peerDependencies": {},
   "bundledDependencies": [],
