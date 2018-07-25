@@ -1,0 +1,11 @@
+{
+  "name": "discover-dirs-str",
+  "version": "",
+  "description": "The dirs are single strings",
+  "xpacks": {
+    "directories": {
+      "src": "./src1",
+      "include": "./include1"
+    }
+  }
+}

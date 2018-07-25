@@ -1,0 +1,12 @@
+{
+  "name": "two",
+  "version": "",
+  "dependencies": {
+  },
+  "xpack": {
+    "directories": {
+      "src": [ "./src4a", "./src4b" ],
+      "include": [ "./include4a", "./include4b" ]
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "name": "discover-packs",
+  "version": "",
+  "dependencies": {
+    "one": ""
+  },
+  "xpack": {
+    "directories": {
+      "src": "./src2",
+      "include": "./include2",
+      "xpacks": "./xpacks2",
+      "test": "./test"
+    }
+  }
+}

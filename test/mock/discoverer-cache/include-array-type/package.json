@@ -1,0 +1,10 @@
+{
+  "name": "discover-include-array-type",
+  "version": "",
+  "description": "The include arrays has bad types",
+  "xpacks": {
+    "directories": {
+      "include": [ "./include1", {} ]
+    }
+  }
+}

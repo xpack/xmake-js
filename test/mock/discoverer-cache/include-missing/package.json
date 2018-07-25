@@ -1,0 +1,10 @@
+{
+  "name": "discover-include-missing",
+  "version": "",
+  "description": "The include folder does not exist",
+  "xpacks": {
+    "directories": {
+      "include": "./include"
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "name": "discover-include-file",
+  "version": "",
+  "description": "include is a file, not a folder",
+  "xpacks": {
+    "directories": {
+      "include": "./include"
+    }
+  }
+}

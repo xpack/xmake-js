@@ -1,0 +1,10 @@
+{
+  "name": "discover-src-array-type",
+  "version": "",
+  "description": "The src array has bad types",
+  "xpacks": {
+    "directories": {
+      "src": [ "./src1", {} ]
+    }
+  }
+}

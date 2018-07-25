@@ -1,0 +1,10 @@
+{
+  "name": "discover-src-missing",
+  "version": "",
+  "description": "The src folder does not exist",
+  "xpacks": {
+    "directories": {
+      "src": "./src"
+    }
+  }
+}

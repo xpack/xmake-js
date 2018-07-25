@@ -1,0 +1,78 @@
+{
+  "version": "0.2.0",
+  "importFiles": [
+    "./.meta/xmake-toolchain-gcc.json"
+  ],
+  "addSourceFolders": [
+    "./src"
+  ],
+  "addIncludeFolders": [
+    "./include"
+  ],
+  "addDiscoverFolders": [
+    "./lib"
+  ],
+  "generator": "make",
+  "commands": {
+    "build": [ "make" ]
+  },
+  "artefact": {
+    "type": "executable",
+    "name": "${test.name}"
+  },
+  "targets": {
+    "posix": {
+    }
+  },
+  "profiles": {
+    "debug": {
+      "addSymbols": [
+        "DEBUG"
+      ],
+      "options": {
+        "addOptimizations": [
+          "-O0"
+        ],
+        "addWarnings": [
+          "-Wall"
+        ],
+        "addDebugging": [
+          "-g3"
+        ]
+      }
+    },
+    "release": {
+      "addSymbols": [
+        "NDEBUG"
+      ],
+      "options": {
+        "addOptimizations": [
+          "-Os"
+        ],
+        "addWarnings": [
+          "-Wall"
+        ],
+        "addDebugging": [
+          "-g3"
+        ]
+      }
+    },
+    "trace": {
+      "addSymbols": [
+        "TRACE"
+      ]
+    }
+  },
+  "configurations": {
+    "posix-gcc-debug": {
+      "target": "posix",
+      "toolchain": "xgcc",
+      "profiles": [ "debug", "trace" ]
+    },
+    "posix-gcc-release": {
+      "target": "posix",
+      "toolchain": "xgcc",
+      "profiles": [ "release" ]
+    }
+  }
+}

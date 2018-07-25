@@ -1,0 +1,10 @@
+{
+  "name": "discover-src-type",
+  "version": "",
+  "description": "The src property is not a string",
+  "xpacks": {
+    "directories": {
+      "src": {}
+    }
+  }
+}

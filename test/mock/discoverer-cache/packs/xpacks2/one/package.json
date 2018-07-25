@@ -1,0 +1,13 @@
+{
+  "name": "one",
+  "version": "",
+  "dependencies": {
+    "two": ""
+  },
+  "xpack": {
+    "directories": {
+      "src": "./src3",
+      "include": "./include3"
+    }
+  }
+}

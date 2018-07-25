@@ -1,0 +1,39 @@
+{
+  "version": "0.2.0",
+  "description": "Test the auto discovery mechanism for xPacks",
+  "generator": "make",
+  "commands": {
+    "build": [ "make" ]
+  },
+  "artefact": {
+    "type": "executable",
+    "name": "${test.name}"
+  },
+  "targets": {
+    "posix": {
+    }
+  },
+  "toolchains": {
+    "xgcc": {}
+  },
+  "profiles": {
+    "debug": {
+    },
+    "release": {
+    },
+    "trace": {
+    }
+  },
+  "configurations": {
+    "posix-gcc-debug": {
+      "target": "posix",
+      "toolchain": "xgcc",
+      "profiles": [ "debug", "trace" ]
+    },
+    "posix-gcc-release": {
+      "target": "posix",
+      "toolchain": "xgcc",
+      "profiles": [ "release" ]
+    }
+  }
+}

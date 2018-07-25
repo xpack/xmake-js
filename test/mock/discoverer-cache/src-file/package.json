@@ -1,0 +1,10 @@
+{
+  "name": "discover-src-file",
+  "version": "",
+  "description": "src is a file not a folder",
+  "xpacks": {
+    "directories": {
+      "src": "./src"
+    }
+  }
+}

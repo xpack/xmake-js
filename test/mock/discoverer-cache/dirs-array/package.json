@@ -1,0 +1,11 @@
+{
+  "name": "discover-dirs-array",
+  "version": "",
+  "description": "The dirs are arrays",
+  "xpacks": {
+    "directories": {
+      "src": [ "./src1", "./src2" ],
+      "include": [ "./include1", "./include1"]
+    }
+  }
+}

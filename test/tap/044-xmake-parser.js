@@ -1,0 +1,145 @@
+/*
+ * This file is part of the xPack distribution
+ *   (http://xpack.github.io).
+ * Copyright (c) 2018 Liviu Ionescu.
+ *
+ * Permission is hereby granted, free of charge, to any person
+ * obtaining a copy of this software and associated documentation
+ * files (the "Software"), to deal in the Software without
+ * restriction, including without limitation the rights to use,
+ * copy, modify, merge, publish, distribute, sublicense, and/or
+ * sell copies of the Software, and to permit persons to whom
+ * the Software is furnished to do so, subject to the following
+ * conditions:
+ *
+ * The above copyright notice and this permission notice shall be
+ * included in all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+ * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+ * OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+ * HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+ * WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+ * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+ * OTHER DEALINGS IN THE SOFTWARE.
+ */
+
+'use strict'
+/* eslint valid-jsdoc: "error" */
+/* eslint max-len: [ "error", 80, { "ignoreUrls": true } ] */
+
+// ----------------------------------------------------------------------------
+
+/**
+ * Test the discoverer cache.
+ */
+
+// ----------------------------------------------------------------------------
+
+// The `[node-tap](http://www.node-tap.org)` framework.
+const test = require('tap').test
+const path = require('path')
+
+const XmakeParser = require('../../lib/utils/xmake-parser.js')
+  .XmakeParser
+
+// ----------------------------------------------------------------------------
+
+const testPath = path.dirname(__dirname)
+const mockFolder = path.join(testPath, 'mock')
+const rootFolder = path.join(mockFolder, 'xmake-parser')
+
+const context = {}
+context.config = {}
+context.config.cwd = ''
+
+test('xmake-parser missing json',
+  async (t) => {
+    // console.log(mockFolder)
+    const absoluteFolderPath = path.join(rootFolder, 'no-xmake')
+    const parser = new XmakeParser(context)
+    context.config.cwd = rootFolder
+    try {
+      await parser.parse(absoluteFolderPath)
+      t.fail('did not throw')
+    } catch (ex) {
+      // console.log(ex.message)
+      t.equal(ex.message, 'Missing mandatory \'xmake.json\' file.',
+        'throws missing json')
+    }
+    t.end()
+  })
+
+test('xmake-parser bad json',
+  async (t) => {
+    // console.log(mockFolder)
+    const absoluteFolderPath = path.join(rootFolder, 'bad-json')
+    const parser = new XmakeParser(context)
+    context.config.cwd = rootFolder
+    try {
+      await parser.parse(absoluteFolderPath)
+      t.fail('did not throw')
+    } catch (ex) {
+      // console.log(ex, ex.message)
+      if (ex instanceof SyntaxError) {
+        t.match(ex.message, 'Unexpected token', 'throws SyntaxError')
+      } else {
+        t.fail(`Unexpected exception ${ex}`)
+      }
+    }
+    t.end()
+  })
+
+test('xmake-parser missing version',
+  async (t) => {
+    // console.log(mockFolder)
+    const absoluteFolderPath = path.join(rootFolder, 'no-version')
+    const parser = new XmakeParser(context)
+    context.config.cwd = rootFolder
+    try {
+      await parser.parse(absoluteFolderPath)
+      t.fail('did not throw')
+    } catch (ex) {
+      // console.log(err.message)
+      t.equal(ex.message, 'Missing version in \'no-version/xmake.json\'.',
+        'throws missing version')
+    }
+    t.end()
+  })
+
+test('xmake-parser version 0.x',
+  async (t) => {
+    // console.log(mockFolder)
+    const absoluteFolderPath = path.join(rootFolder, 'bad-version-01')
+    const parser = new XmakeParser(context)
+    context.config.cwd = rootFolder
+    try {
+      await parser.parse(absoluteFolderPath)
+      t.fail('did not throw')
+    } catch (ex) {
+      // console.log(ex, ex.message)
+      t.match(ex.message, 'Experimental version 0.1 no longer supported',
+        'throws version 0.x')
+    }
+    t.end()
+  })
+
+test('xmake-parser unsupported version',
+  async (t) => {
+    // console.log(mockFolder)
+    const absoluteFolderPath = path.join(rootFolder, 'bad-version-999')
+    const parser = new XmakeParser(context)
+    context.config.cwd = rootFolder
+    try {
+      await parser.parse(absoluteFolderPath)
+      t.fail('did not throw')
+    } catch (ex) {
+      // console.log(ex, ex.message)
+      t.match(ex.message, 'Unsupported version',
+        'throws unsupported version')
+    }
+    t.end()
+  })
+
+// ----------------------------------------------------------------------------
