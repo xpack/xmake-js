@@ -66,58 +66,6 @@ log.clear = () => {
   verboseArray = []
 }
 
-test('discoverer no packs',
-  async (t) => {
-    // console.log(mockFolder)
-    const discover1AbsoluteFilePath = path.join(rootFolder, 'no-packs')
-    const result1 = await DiscovererCache.discover(discover1AbsoluteFilePath,
-      discover1AbsoluteFilePath, [ 'build' ], log)
-    // console.log(result1)
-    t.equal(result1.sourceFolders.length, 3, 'has 3 source folders')
-    t.equal(result1.includeFolders.length, 3, 'has 3 include folders')
-    // console.log(warnArray.length)
-    t.equal(warnArray.length, 0, 'has 0 warnings')
-    // console.log(verboseArray.length)
-    t.equal(verboseArray.length, 18, 'has 18 verbose')
-
-    const result2 = await DiscovererCache.discover(discover1AbsoluteFilePath,
-      rootFolder)
-    t.same(result1, result2, 'same object')
-
-    t.end()
-  })
-
-test('discoverer no log',
-  async (t) => {
-    // console.log(mockFolder)
-    // Do it again, without logger.
-    const discoverAbsoluteFilePath = path.join(rootFolder, 'no-packs')
-    const result = await DiscovererCache.discover(discoverAbsoluteFilePath,
-      discoverAbsoluteFilePath)
-
-    t.equal(result.sourceFolders.length, 3, 'has 3 source folders')
-    t.equal(result.includeFolders.length, 3, 'has 3 include folders')
-
-    t.end()
-  })
-
-test('discoverer no folder',
-  async (t) => {
-    try {
-      // Try to discover a folder name that does not exist.
-      const discoverAbsoluteFilePath = path.join(mockFolder, '__none__')
-      await DiscovererCache.discover(discoverAbsoluteFilePath,
-        discoverAbsoluteFilePath)
-      t.fail('did not throw')
-    } catch (ex) {
-      // console.log(ex)
-      t.equal(ex.code, 'ENOENT', 'throws ENOENT')
-    }
-    t.end()
-  })
-
-// ----------------------------------------------------------------------------
-
 test('discoverer packs no folder',
   async (t) => {
     // Clear cache.
