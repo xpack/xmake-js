@@ -29,6 +29,7 @@
 
 # npm
 /*.tgz
+/test/mock
 
 # tap
 coverage/

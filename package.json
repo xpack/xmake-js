@@ -13,12 +13,14 @@
   },
   "scripts": {
     "prepublishOnly": "standard && npm run test-tap -s",
+    "prepack": "npm run pack-mock",
     "test": "standard && npm run test-tap -s",
     "test-coverage": "tap --coverage --reporter=classic --timeout 600 --no-color \"test/tap/*.js\"",
     "test-tap": "tap --reporter=classic --timeout 300 --no-color \"test/tap/*.js\"",
     "tap": "tap --reporter=spec --timeout 300 --no-color",
     "fix": "standard --fix",
     "link": "npm link @ilg/cli-start-options; npm link @ilg/es6-promisifier"
+    "pack-mock": "./bin/pack-mock.js"
   },
   "repository": {
     "type": "git",
