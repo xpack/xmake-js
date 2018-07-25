@@ -51,16 +51,24 @@ const mockFolder = path.join(testPath, 'mock', 'dir-cache')
 test('dir cache',
   async (t) => {
     // console.log(mockFolder)
-    const names = await DirCache.readdir(mockFolder)
-    names.sort((a, b) => { return a.name > b.name })
-    // console.log(names)
-    t.equal(names.length, 3, 'has 3 names')
-    t.equal(names[0].name, 'file1', 'has file1')
-    t.equal(names[2].name, 'folder1', 'has folder1')
+    const names1 = await DirCache.readdir(mockFolder, true)
+    names1.sort((a, b) => { return a.name > b.name })
+    // console.log(names1)
+    t.equal(names1.length, 3, 'has 3 names')
+    t.equal(names1[0].name, 'file1', 'has file1')
+    t.equal(names1[2].name, 'folder1', 'has folder1')
 
     // Ask again for the same folder.
     const names2 = await DirCache.readdir(mockFolder)
-    t.same(names2, names, 'same object')
+    t.same(names2, names1, 'same object')
+
+    // Minimal test without stats.
+    const mockSubFolder = path.join(mockFolder, 'folder1')
+    const names3 = await DirCache.readdir(mockSubFolder, false)
+    // console.log(names3)
+    t.equal(names3.length, 1, 'has 1 names')
+    t.equal(names3[0].name, 'file', 'has file')
+
     t.end()
   })
 
