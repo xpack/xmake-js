@@ -59,3 +59,8 @@ Reporting (`--report`):
 
 The [`should`](https://github.com/shouldjs/should.js) module provides BDD ['should'-style assertions](https://shouldjs.github.io), which are a nice idea, but the current version of `tap` does not properly await for async functions, so it cannot be used. :-(
 
+## mock
+
+The `mock.tgz` archive is created by `prepack`, using the `mock` folder.
+
+Tests unpack the archive into the original folder.

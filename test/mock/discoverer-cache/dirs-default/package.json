@@ -1,7 +1,7 @@
 {
   "name": "discover-dirs-default",
-  "version": "",
+  "version": "1.2.3",
   "description": "The dirs are defaults",
-  "xpacks": {
+  "xpack": {
   }
 }

@@ -1,0 +1,9 @@
+{
+  "name": "deps-no-folder",
+  "version": "1.2.3",
+  "xpack": {
+    "directories": {
+      "xpacks": "./xpacks2"
+    }
+  }
+}

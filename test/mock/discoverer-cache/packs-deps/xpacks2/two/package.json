@@ -1,7 +1,9 @@
 {
   "name": "two",
-  "version": "",
+  "version": "3.4.5",
+  "description": "circular reference",
   "dependencies": {
+    "@scope/one": ""
   },
   "xpack": {
     "directories": {

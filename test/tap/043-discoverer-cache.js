@@ -73,9 +73,10 @@ test('discoverer packs no folder',
 
     try {
       // Try to discover a folder name that does not exist.
-      const discoverAbsoluteFilePath = path.join(mockFolder, '__none__')
-      await DiscovererCache.discoverPacks(discoverAbsoluteFilePath,
-        discoverAbsoluteFilePath)
+      const discoverAbsoluteFilePath = path.join(rootFolder, '__none__')
+      await DiscovererCache.discoverPacks(discoverAbsoluteFilePath, {
+        parentAbsolutePath: rootFolder
+      })
       t.fail('did not throw')
     } catch (ex) {
       // console.log(ex)
@@ -90,11 +91,28 @@ test('discoverer packs no xpack',
     log.clear()
     const discoverAbsoluteFilePath = path.join(rootFolder, 'no-xpack')
     const result = await DiscovererCache.discoverPacks(
-      discoverAbsoluteFilePath, discoverAbsoluteFilePath, log)
+      discoverAbsoluteFilePath, { log })
     t.equal(result.sourceFolders.length, 0, 'has no source folders')
     t.equal(result.includeFolders.length, 0, 'has no include folders')
     // console.log(verboseArray)
     t.equal(verboseArray.length, 1, 'has 1 verbose')
+    t.match(verboseArray[0], 'not an xPack, ignored')
+
+    t.end()
+  })
+
+test('discoverer packs no name pack',
+  async (t) => {
+    // Try to discover a package that is not an xPack.
+    log.clear()
+    const discoverAbsoluteFilePath = path.join(rootFolder, 'no-name-pack')
+    const result = await DiscovererCache.discoverPacks(
+      discoverAbsoluteFilePath, { log })
+    t.equal(result.sourceFolders.length, 0, 'has no source folders')
+    t.equal(result.includeFolders.length, 0, 'has no include folders')
+    // console.log(verboseArray)
+    t.equal(verboseArray.length, 1, 'has 1 verbose')
+    t.match(verboseArray[0], 'Unnamed package, ignored')
 
     t.end()
   })
@@ -106,7 +124,7 @@ test('discoverer packs src bad type',
       log.clear()
       const discoverAbsoluteFilePath = path.join(rootFolder, 'src-type')
       await DiscovererCache.discoverPacks(
-        discoverAbsoluteFilePath, discoverAbsoluteFilePath, log)
+        discoverAbsoluteFilePath, { log })
       t.fail('did not throw')
     } catch (ex) {
       if (ex instanceof TypeError) {
@@ -127,7 +145,7 @@ test('discoverer packs src array bad type',
       log.clear()
       const discoverAbsoluteFilePath = path.join(rootFolder, 'src-array-type')
       await DiscovererCache.discoverPacks(
-        discoverAbsoluteFilePath, discoverAbsoluteFilePath, log)
+        discoverAbsoluteFilePath, { log })
       t.fail('did not throw')
     } catch (ex) {
       if (ex instanceof TypeError) {
@@ -148,7 +166,7 @@ test('discoverer packs include bad type',
       log.clear()
       const discoverAbsoluteFilePath = path.join(rootFolder, 'include-type')
       await DiscovererCache.discoverPacks(
-        discoverAbsoluteFilePath, discoverAbsoluteFilePath, log)
+        discoverAbsoluteFilePath, { log })
       t.fail('did not throw')
     } catch (ex) {
       if (ex instanceof TypeError) {
@@ -170,7 +188,7 @@ test('discoverer packs include array bad type',
       const discoverAbsoluteFilePath = path.join(rootFolder,
         'include-array-type')
       await DiscovererCache.discoverPacks(
-        discoverAbsoluteFilePath, discoverAbsoluteFilePath, log)
+        discoverAbsoluteFilePath, { log })
       t.fail('did not throw')
     } catch (ex) {
       if (ex instanceof TypeError) {
@@ -191,7 +209,7 @@ test('discoverer packs src missing',
       log.clear()
       const discoverAbsoluteFilePath = path.join(rootFolder, 'src-missing')
       await DiscovererCache.discoverPacks(
-        discoverAbsoluteFilePath, discoverAbsoluteFilePath, log)
+        discoverAbsoluteFilePath, { log })
       t.fail('did not throw')
     } catch (ex) {
       if (ex instanceof TypeError) {
@@ -212,7 +230,7 @@ test('discoverer packs include missing',
       log.clear()
       const discoverAbsoluteFilePath = path.join(rootFolder, 'include-missing')
       await DiscovererCache.discoverPacks(
-        discoverAbsoluteFilePath, discoverAbsoluteFilePath, log)
+        discoverAbsoluteFilePath, { log })
       t.fail('did not throw')
     } catch (ex) {
       if (ex instanceof TypeError) {
@@ -233,7 +251,7 @@ test('discoverer packs src file',
       log.clear()
       const discoverAbsoluteFilePath = path.join(rootFolder, 'src-file')
       await DiscovererCache.discoverPacks(
-        discoverAbsoluteFilePath, discoverAbsoluteFilePath, log)
+        discoverAbsoluteFilePath, { log })
       t.fail('did not throw')
     } catch (ex) {
       if (ex instanceof TypeError) {
@@ -254,7 +272,7 @@ test('discoverer packs include file',
       log.clear()
       const discoverAbsoluteFilePath = path.join(rootFolder, 'include-file')
       await DiscovererCache.discoverPacks(
-        discoverAbsoluteFilePath, discoverAbsoluteFilePath, log)
+        discoverAbsoluteFilePath, { log })
       t.fail('did not throw')
     } catch (ex) {
       if (ex instanceof TypeError) {
@@ -274,7 +292,7 @@ test('discoverer packs dirs arrays',
     log.clear()
     const discoverAbsoluteFilePath = path.join(rootFolder, 'dirs-array')
     const result1 = await DiscovererCache.discoverPacks(
-      discoverAbsoluteFilePath, discoverAbsoluteFilePath, log)
+      discoverAbsoluteFilePath, { log })
     // console.log(result)
     t.equal(result1.sourceFolders.length, 2, 'has 2 source folders')
     t.equal(result1.includeFolders.length, 2, 'has 2 include folders')
@@ -294,7 +312,7 @@ test('discoverer packs dirs strs',
     log.clear()
     const discoverAbsoluteFilePath = path.join(rootFolder, 'dirs-str')
     const result = await DiscovererCache.discoverPacks(
-      discoverAbsoluteFilePath, discoverAbsoluteFilePath, log)
+      discoverAbsoluteFilePath, { log })
     // console.log(result)
     t.equal(result.sourceFolders.length, 1, 'has 1 source folders')
     t.equal(result.includeFolders.length, 1, 'has 1 include folders')
@@ -310,7 +328,7 @@ test('discoverer packs dirs defaults',
     log.clear()
     const discoverAbsoluteFilePath = path.join(rootFolder, 'dirs-default')
     const result = await DiscovererCache.discoverPacks(
-      discoverAbsoluteFilePath, discoverAbsoluteFilePath, log)
+      discoverAbsoluteFilePath, { log })
     // console.log(result)
     t.equal(result.sourceFolders.length, 1, 'has 1 source folders')
     t.equal(result.includeFolders.length, 1, 'has 1 include folders')
@@ -326,7 +344,7 @@ test('discoverer packs dirs no defaults',
     log.clear()
     const discoverAbsoluteFilePath = path.join(rootFolder, 'dirs-no-default')
     const result = await DiscovererCache.discoverPacks(
-      discoverAbsoluteFilePath, discoverAbsoluteFilePath, log)
+      discoverAbsoluteFilePath, { log })
     // console.log(result)
     t.equal(result.sourceFolders.length, 0, 'has 0 source folders')
     t.equal(result.includeFolders.length, 0, 'has 0 include folders')
@@ -342,13 +360,99 @@ test('discoverer packs dirs file defaults',
     log.clear()
     const discoverAbsoluteFilePath = path.join(rootFolder, 'dirs-file-default')
     const result = await DiscovererCache.discoverPacks(
-      discoverAbsoluteFilePath, discoverAbsoluteFilePath, log)
+      discoverAbsoluteFilePath, { log })
     // console.log(result)
     t.equal(result.sourceFolders.length, 0, 'has 0 source folders')
     t.equal(result.includeFolders.length, 0, 'has 0 include folders')
     // console.log(verboseArray)
     t.equal(verboseArray.length, 1, 'has 1 verbose')
 
+    t.end()
+  })
+
+test('discoverer packs deps',
+  async (t) => {
+    // Try to discover a package that has default dirs.
+    log.clear()
+    const discoverAbsoluteFilePath = path.join(rootFolder, 'packs-deps')
+    const result = await DiscovererCache.discoverPacks(
+      discoverAbsoluteFilePath, { log })
+    // console.log(result)
+    t.equal(result.sourceFolders.length, 4, 'has 4 source folders')
+    t.equal(result.includeFolders.length, 4, 'has 4 include folders')
+    // console.log(verboseArray)
+    t.equal(verboseArray.length, 13, 'has 13 verbose')
+
+    t.end()
+  })
+
+test('discoverer packs uninstalled',
+  async (t) => {
+    // Try to discover a package that has uninstalled dependencies.
+    try {
+      log.clear()
+      const discoverAbsoluteFilePath = path.join(rootFolder,
+        'internal-uninstalled')
+      await DiscovererCache.discoverPacks(
+        discoverAbsoluteFilePath, { log })
+      // console.log(verboseArray)
+      t.fail('did not throw')
+    } catch (ex) {
+      if (ex instanceof TypeError) {
+        // console.log(ex)
+        t.match(ex.message, 'Internal error, missing package',
+          'throws TypeError')
+      } else {
+        t.fail(ex.message)
+      }
+    }
+    t.end()
+  })
+
+test('discoverer packs duplicate',
+  async (t) => {
+    // Try to discover a package that has duplicate dependencies.
+    try {
+      log.clear()
+      const discoverAbsoluteFilePath = path.join(rootFolder,
+        'internal-duplicate')
+      await DiscovererCache.discoverPacks(
+        discoverAbsoluteFilePath, { log })
+      // console.log(verboseArray)
+      t.fail('did not throw')
+    } catch (ex) {
+      if (ex instanceof TypeError) {
+        // console.log(ex)
+        t.match(ex.message, 'Internal error, duplicate package',
+          'throws TypeError')
+      } else {
+        t.fail(ex.message)
+      }
+    }
+    t.end()
+  })
+
+test('discoverer packs deps bad json',
+  async (t) => {
+    // Try to discover a package that bad json dependency.
+    try {
+      log.clear()
+      const discoverAbsoluteFilePath = path.join(rootFolder,
+        'deps-bad-json')
+      await DiscovererCache.discoverPacks(
+        discoverAbsoluteFilePath, { log })
+      // console.log(verboseArray)
+      t.fail('did not throw')
+    } catch (ex) {
+      // console.log(ex)
+      if (ex instanceof SyntaxError) {
+        // console.log(ex)
+        t.match(ex.message, 'Unexpected token',
+          'throws SyntaxError')
+      } else {
+        t.fail(ex.message)
+      }
+    }
     t.end()
   })
 

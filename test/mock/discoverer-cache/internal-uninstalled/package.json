@@ -1,0 +1,11 @@
+{
+  "name": "internal-uninstalled",
+  "version": "1.2.3",
+  "description": "Depend on uninstalled package",
+  "dependencies": {
+    "nope": ""
+  },
+  "xpack": {
+
+  }
+}

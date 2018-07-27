@@ -1,0 +1,11 @@
+{
+  "name": "internal-duplicate",
+  "version": "1.2.3",
+  "description": "Depend on duplicate package",
+  "dependencies": {
+    "one": ""
+  },
+  "xpack": {
+
+  }
+}

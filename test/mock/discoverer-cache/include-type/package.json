@@ -1,8 +1,8 @@
 {
   "name": "discover-include-type",
-  "version": "",
+  "version": "1.2.3",
   "description": "The include property is not a string",
-  "xpacks": {
+  "xpack": {
     "directories": {
       "include": {}
     }
