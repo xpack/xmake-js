@@ -123,8 +123,9 @@ test('discoverer packs src bad type',
     try {
       log.clear()
       const discoverAbsoluteFilePath = path.join(rootFolder, 'src-type')
+      // No log.
       await DiscovererCache.discoverPacks(
-        discoverAbsoluteFilePath, { log })
+        discoverAbsoluteFilePath)
       t.fail('did not throw')
     } catch (ex) {
       if (ex instanceof TypeError) {
