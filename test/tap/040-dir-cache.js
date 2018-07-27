@@ -51,7 +51,7 @@ const mockFolder = path.join(testPath, 'mock', 'dir-cache')
 test('dir cache',
   async (t) => {
     // console.log(mockFolder)
-    const names1 = await DirCache.readdir(mockFolder, true)
+    const names1 = await DirCache.readdir(mockFolder)
     names1.sort((a, b) => { return a.name > b.name })
     // console.log(names1)
     t.equal(names1.length, 3, 'has 3 names')
@@ -64,7 +64,7 @@ test('dir cache',
 
     // Minimal test without stats.
     const mockSubFolder = path.join(mockFolder, 'folder1')
-    const names3 = await DirCache.readdir(mockSubFolder, false)
+    const names3 = await DirCache.readdir(mockSubFolder)
     // console.log(names3)
     t.equal(names3.length, 1, 'has 1 names')
     t.equal(names3[0].name, 'file', 'has file')
@@ -78,9 +78,9 @@ test('dir cache no folder',
       // Make a folder name that does not exist.
       await DirCache.readdir(mockFolder + '___')
       t.fail('did not throw')
-    } catch (err) {
-      // console.log(err)
-      t.equal(err.code, 'ENOENT', 'throws ENOENT')
+    } catch (ex) {
+      // console.log(ex)
+      t.equal(ex.code, 'ENOENT', 'throws ENOENT')
     }
     t.end()
   })
