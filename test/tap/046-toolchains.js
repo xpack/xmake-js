@@ -41,7 +41,7 @@
 const test = require('tap').test
 const path = require('path')
 
-const JsonCache = require('../../lib/utils/json-cache.js').JsonCache
+// const JsonCache = require('../../lib/utils/json-cache.js').JsonCache
 const ToolchainCache = require('../../lib/utils/toolchain-cache.js')
   .ToolchainCache
 
@@ -82,21 +82,14 @@ log.clear = () => {
   traceArray = []
 }
 
-const add = async function (toolchainsPath) {
-  const json = await JsonCache.parse(toolchainsPath)
-
-  for (const [name, toolchainJson] of Object.entries(json.toolchains)) {
-    ToolchainCache.add(name, toolchainJson, { log })
-  }
-  return json
-}
+const options = { log }
 
 test('toolchains',
   async (t) => {
     ToolchainCache.clear()
-    await add(toolchainsPath)
+    await ToolchainCache.parse(toolchainsPath, options)
 
-    const tc = ToolchainCache.retrieve('arm-none-eabi-gcc', { log })
+    const tc = ToolchainCache.retrieve('arm-none-eabi-gcc', options)
     // console.log(t1, traceArray)
     t.equal(Object.keys(tc.tools).length, 5, 'has 5 tools')
     t.equal(Object.keys(tc.fileExtensions).length, 8, 'has 8 file extensions')
@@ -106,8 +99,12 @@ test('toolchains',
     t.equal(tc.tools.cCompiler.fullCommandName, 'arm-none-eabi-gcc',
       'has fullCommandName again')
 
-    const tc2 = ToolchainCache.retrieve('arm-none-eabi-gcc', { log })
+    const tc2 = ToolchainCache.retrieve('arm-none-eabi-gcc', options)
     t.same(tc, tc2, 'is same')
+
+    await ToolchainCache.parse(path.join(rootFolder,
+      'no-toolchains.json'), options)
+    t.pass('no toolchains')
 
     t.end()
   })
@@ -115,11 +112,7 @@ test('toolchains',
 test('toolchains no log',
   async (t) => {
     ToolchainCache.clear()
-    const json = await JsonCache.parse(toolchainsPath)
-
-    for (const [name, toolchainJson] of Object.entries(json.toolchains)) {
-      ToolchainCache.add(name, toolchainJson)
-    }
+    await ToolchainCache.parse(toolchainsPath)
 
     const tc = ToolchainCache.retrieve('arm-none-eabi-gcc')
     // console.log(t1, traceArray)
@@ -138,10 +131,11 @@ test('toolchains redefined',
     ToolchainCache.clear()
     log.clear()
 
-    await add(toolchainsPath)
-    await add(path.join(rootFolder, 'toolchain-redefined.json'))
+    await ToolchainCache.parse(toolchainsPath, options)
+    await ToolchainCache.parse(path.join(rootFolder,
+      'toolchain-redefined.json'), options)
 
-    const tc = ToolchainCache.retrieve('base', { log })
+    const tc = ToolchainCache.retrieve('base', options)
     // console.log(tc)
     // console.log(debugArray)
     t.equal(tc.objectExtension, 'oo', 'has redefined')
@@ -154,9 +148,10 @@ test('toolchains redefined',
 test('toolchains no tools',
   async (t) => {
     ToolchainCache.clear()
-    await add(path.join(rootFolder, 'toolchain-clone-no-tools.json'))
+    await ToolchainCache.parse(path.join(rootFolder,
+      'toolchain-clone-no-tools.json'), options)
 
-    const tc = ToolchainCache.retrieve('b2', { log })
+    const tc = ToolchainCache.retrieve('b2', options)
     // console.log(tc)
     t.equal(Object.keys(tc.tools).length, 0, 'has 0 tools')
     t.equal(Object.keys(tc.fileExtensions).length, 0, 'has 0 file extensions')
@@ -167,10 +162,11 @@ test('toolchains no tools',
 test('toolchains no tool command',
   async (t) => {
     ToolchainCache.clear()
-    await add(path.join(rootFolder, 'tool-no-command.json'))
+    await ToolchainCache.parse(path.join(rootFolder,
+      'tool-no-command.json'), options)
 
     try {
-      ToolchainCache.retrieve('b1', { log })
+      ToolchainCache.retrieve('b1', options)
       t.fail('did not throw')
     } catch (ex) {
       // console.log(ex)
@@ -184,10 +180,11 @@ test('toolchains no tool command',
 test('toolchains no tool description',
   async (t) => {
     ToolchainCache.clear()
-    await add(path.join(rootFolder, 'tool-no-description.json'))
+    await ToolchainCache.parse(path.join(rootFolder,
+      'tool-no-description.json'), options)
 
     try {
-      ToolchainCache.retrieve('b1', { log })
+      ToolchainCache.retrieve('b1', options)
       t.fail('did not throw')
     } catch (ex) {
       // console.log(ex)
@@ -201,10 +198,11 @@ test('toolchains no tool description',
 test('toolchains no tool type',
   async (t) => {
     ToolchainCache.clear()
-    await add(path.join(rootFolder, 'tool-no-type.json'))
+    await ToolchainCache.parse(path.join(rootFolder,
+      'tool-no-type.json'), options)
 
     try {
-      ToolchainCache.retrieve('b1', { log })
+      ToolchainCache.retrieve('b1', options)
       t.fail('did not throw')
     } catch (ex) {
       // console.log(ex)
@@ -217,10 +215,11 @@ test('toolchains no tool type',
 test('toolchains tool type redefined',
   async (t) => {
     ToolchainCache.clear()
-    await add(path.join(rootFolder, 'tool-type-redefined.json'))
+    await ToolchainCache.parse(path.join(rootFolder,
+      'tool-type-redefined.json'), options)
 
     try {
-      ToolchainCache.retrieve('b2', { log })
+      ToolchainCache.retrieve('b2', options)
       t.fail('did not throw')
     } catch (ex) {
       // console.log(ex)
@@ -233,10 +232,11 @@ test('toolchains tool type redefined',
 test('toolchains tool type xx',
   async (t) => {
     ToolchainCache.clear()
-    await add(path.join(rootFolder, 'tool-type-xx.json'))
+    await ToolchainCache.parse(path.join(rootFolder,
+      'tool-type-xx.json'), options)
 
     try {
-      ToolchainCache.retrieve('b1', { log })
+      ToolchainCache.retrieve('b1', options)
       t.fail('did not throw')
     } catch (ex) {
       // console.log(ex)
@@ -249,10 +249,11 @@ test('toolchains tool type xx',
 test('toolchains toolchain no string',
   async (t) => {
     ToolchainCache.clear()
-    await add(path.join(rootFolder, 'toolchain-no-string.json'))
+    await ToolchainCache.parse(path.join(rootFolder,
+      'toolchain-no-string.json'), options)
 
     try {
-      ToolchainCache.retrieve('b1', { log })
+      ToolchainCache.retrieve('b1', options)
       t.fail('did not throw')
     } catch (ex) {
       // console.log(ex)
@@ -265,10 +266,11 @@ test('toolchains toolchain no string',
 test('toolchains toolchain no parent',
   async (t) => {
     ToolchainCache.clear()
-    await add(path.join(rootFolder, 'toolchain-no-parent.json'))
+    await ToolchainCache.parse(path.join(rootFolder,
+      'toolchain-no-parent.json'), options)
 
     try {
-      ToolchainCache.retrieve('b2', { log })
+      ToolchainCache.retrieve('b2', options)
       t.fail('did not throw')
     } catch (ex) {
       // console.log(ex)
@@ -281,9 +283,10 @@ test('toolchains toolchain no parent',
 test('toolchains tool extension inherit',
   async (t) => {
     ToolchainCache.clear()
-    await add(path.join(rootFolder, 'tool-extension-inherit.json'))
+    await ToolchainCache.parse(path.join(rootFolder,
+      'tool-extension-inherit.json'), options)
 
-    const tc = ToolchainCache.retrieve('b2', { log })
+    const tc = ToolchainCache.retrieve('b2', options)
     // console.log(tc)
     t.equal(Object.keys(tc.tools).length, 1, 'has 1 tool')
     t.equal(Object.keys(tc.fileExtensions).length, 1, 'has 1 file extensions')
@@ -296,9 +299,10 @@ test('toolchains tool extension inherit',
 test('toolchains tool extension extend',
   async (t) => {
     ToolchainCache.clear()
-    await add(path.join(rootFolder, 'tool-extension-extend.json'))
+    await ToolchainCache.parse(path.join(rootFolder,
+      'tool-extension-extend.json'), options)
 
-    const tc = ToolchainCache.retrieve('b2', { log })
+    const tc = ToolchainCache.retrieve('b2', options)
     // console.log(tc)
     t.equal(Object.keys(tc.tools).length, 1, 'has 1 tool')
     t.equal(Object.keys(tc.fileExtensions).length, 2, 'has 2 file extensions')
@@ -311,9 +315,10 @@ test('toolchains tool extension extend',
 test('toolchains tool extension redefine',
   async (t) => {
     ToolchainCache.clear()
-    await add(path.join(rootFolder, 'tool-extension-redefine.json'))
+    await ToolchainCache.parse(path.join(rootFolder,
+      'tool-extension-redefine.json'), options)
 
-    const tc = ToolchainCache.retrieve('b2', { log })
+    const tc = ToolchainCache.retrieve('b2', options)
     // console.log(tc)
     t.equal(Object.keys(tc.tools).length, 1, 'has 1 tool')
     t.equal(Object.keys(tc.fileExtensions).length, 1, 'has 1 file extensions')
