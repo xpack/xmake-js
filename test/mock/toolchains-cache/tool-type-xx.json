@@ -1,0 +1,15 @@
+{
+  "version": "0.2.0",
+  "description": "test type xx",
+  "toolchains": {
+    "b1": {
+      "tools": {
+        "t1": {
+          "commandName": "c",
+          "description": "d",
+          "type": "xx"
+        }
+      }
+    }
+  }
+}

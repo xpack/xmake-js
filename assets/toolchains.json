@@ -1,0 +1,143 @@
+{
+  "version": "0.2.0",
+  "description": "Default toolchain definitions. Uses the same schema as xmake.json.",
+  "toolchains": {
+    "base": {
+      "commandPrefix": "",
+      "commandSuffix": "",
+      "descriptionPrefix": "",
+      "objectExtension": "o",
+      "makeObjectsVariable": "OBJS",
+      "tools": {
+        "cCompiler": {
+          "commandName": "cc",
+          "description": "C Compiler",
+          "type": "compiler"
+        },
+        "cppCompiler": {
+          "commandName": "c++",
+          "description": "C++ Compiler",
+          "type": "compiler"
+        },
+        "assembler": {
+          "commandName": "as",
+          "description": "Assembler",
+          "type": "assembler"
+        },
+        "cLinker": {
+          "commandName": "ld",
+          "description": "C Linker",
+          "type": "linker"
+        },
+        "cppLinker": {
+          "commandName": "ld",
+          "description": "C++ Linker",
+          "type": "linker"
+        }
+      }
+    },
+    "gcc": {
+      "parent": "base",
+      "descriptionPrefix": "GNU",
+      "tools": {
+        "cCompiler": {
+          "commandName": "gcc",
+          "options": "-c",
+          "deps": "-MMD -MP -MF\"$(@:%.o=%.d)\" -MT\"$(@)\"",
+          "outputFlag": "-o",
+          "output": "\"$@\"",
+          "inputs": "\"$<\"",
+          "fileExtensions": {
+            "c": {
+              "prefix": "C"
+            }
+          }
+        },
+        "cppCompiler": {
+          "commandName": "g++",
+          "options": "-c",
+          "deps": "-MMD -MP -MF\"$(@:%.o=%.d)\" -MT\"$(@)\"",
+          "outputFlag": "-o",
+          "output": "\"$@\"",
+          "inputs": "\"$<\"",
+          "fileExtensions": {
+            "cpp": {
+              "prefix": "CPP"
+            },
+            "C": {
+              "prefix": "C_UPPER"
+            },
+            "c++": {
+              "prefix": "C++"
+            },
+            "cxx": {
+              "prefix": "CXX"
+            },
+            "cc": {
+              "prefix": "CC"
+            }
+          }
+        },
+        "assembler": {
+          "commandName": "gcc",
+          "options": "-x assembler-with-cpp -c",
+          "deps": "-MMD -MP -MF\"$(@:%.o=%.d)\" -MT\"$(@)\"",
+          "outputFlag": "-o",
+          "output": "\"$@\"",
+          "inputs": "\"$<\"",
+          "fileExtensions": {
+            "S": {
+              "prefix": "S_UPPER"
+            },
+            "asm": {
+              "prefix": "ASM"
+            }
+          }
+        },
+        "cLinker": {
+          "commandName": "gcc",
+          "outputFlag": "-o",
+          "output": "\"$@\""
+        },
+        "cppLinker": {
+          "commandName": "g++",
+          "outputFlag": "-o",
+          "output": "\"$@\""
+        }
+      }
+    },
+    "clang": {
+      "parent": "gcc",
+      "objectExtension": "bc",
+      "makeObjectsVariable": "BCS",
+      "descriptionPrefix": "LLVM",
+      "tools": {
+        "cCompiler": {
+          "commandName": "clang"
+        },
+        "cppCompiler": {
+          "commandName": "clang++"
+        },
+        "assembler": {
+          "commandName": "clang"
+        },
+        "cLinker": {
+          "commandName": "clang"
+        },
+        "cppLinker": {
+          "commandName": "clang++"
+        }
+      }
+    },
+    "arm-none-eabi-gcc": {
+      "parent": "gcc",
+      "descriptionPrefix": "GNU ARM Cross",
+      "commandPrefix": "arm-none-eabi-"
+    },
+    "riscv-none-embed-gcc": {
+      "parent": "gcc",
+      "descriptionPrefix": "GNU MCU RISC-V Cross",
+      "commandPrefix": "riscv-none-embed-"
+    }
+  }
+}

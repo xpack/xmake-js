@@ -1,0 +1,14 @@
+{
+  "version": "0.2.0",
+  "description": "test missing tool type",
+  "toolchains": {
+    "b1": {
+      "tools": {
+        "t1": {
+          "commandName": "c",
+          "description": "d"
+        }
+      }
+    }
+  }
+}

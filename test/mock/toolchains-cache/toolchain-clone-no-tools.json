@@ -1,0 +1,11 @@
+{
+  "version": "0.2.0",
+  "description": "test redefined type",
+  "toolchains": {
+    "b1": {
+    },
+    "b2": {
+      "parent": "b1"
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "version": "0.2.0",
+  "description": "test missing tools",
+  "toolchains": {
+    "b1": {
+      "tools": {
+        "t1": {
+          "commandName": "ca",
+          "description": "da",
+          "type": "compiler",
+          "fileExtensions": {
+            "c": {
+              "prefix": "C"
+            }
+          }
+        }
+      }
+    },
+    "b2": {
+      "parent": "b1",
+      "tools": {
+        "t1": {
+          "commandName": "cb",
+          "fileExtensions": {
+            "c": {
+              "prefix": "C2"
+            }
+          }
+        }
+      }
+    }
+  }
+}

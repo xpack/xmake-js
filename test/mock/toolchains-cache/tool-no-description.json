@@ -1,0 +1,15 @@
+{
+  "version": "0.2.0",
+  "description": "test empty tool description",
+  "toolchains": {
+    "b1": {
+      "tools": {
+        "t1": {
+          "commandName": "cc",
+          "description": "",
+          "type": "compiler"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "version": "0.2.0",
+  "description": "test non-string",
+  "toolchains": {
+    "b1": {
+      "makeObjectsVariable": true
+    }
+  }
+}

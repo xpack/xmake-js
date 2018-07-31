@@ -1,0 +1,24 @@
+{
+  "version": "0.2.0",
+  "description": "test missing tools",
+  "toolchains": {
+    "b1": {
+      "tools": {
+        "t1": {
+          "commandName": "ca",
+          "description": "da",
+          "type": "compiler"
+        }
+      }
+    },
+    "b2": {
+      "parent": "b1",
+      "tools": {
+        "t1": {
+          "commandName": "cb",
+          "type": "linker"
+        }
+      }
+    }
+  }
+}
