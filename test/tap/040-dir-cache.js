@@ -53,7 +53,7 @@ test('dir cache',
     // console.log(mockFolder)
     const names1 = await DirCache.readdir(mockFolder)
     names1.sort((a, b) => { return a.name > b.name })
-    console.log(names1)
+    // console.log(names1)
     t.equal(names1.length, 3, 'has 3 names')
     t.equal(names1[0].name, 'file1', 'has file1')
     t.equal(names1[2].name, 'folder1', 'has folder1')
