@@ -16,6 +16,7 @@
     "prepack": "npm run pack-mock",
     "test": "standard && npm run test-tap -s",
     "test-coverage": "tap --coverage --reporter=classic --timeout 600 \"test/tap/*.js\"",
+    "test-coverage-html": "tap --coverage --reporter=classic --coverage-report=html --timeout 600 \"test/tap/*.js\"",
     "test-tap": "tap --reporter=classic --timeout 500 \"test/tap/*.js\"",
     "tap": "tap --reporter=spec --timeout 500",
     "tap-coverage": "tap --coverage --reporter=classic --timeout 600",
