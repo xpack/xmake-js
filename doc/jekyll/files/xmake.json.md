@@ -29,7 +29,7 @@ must be present in the project root.
 
 ```json
 {
-  "version": "0.2.0",
+  "schemaVersion": "0.2.0",
   "artefact": {
     "type": "executable",
     "name": "${build.name}",
@@ -56,7 +56,7 @@ by an `xmake.json` in each test folder.
 
 ```json
 {
-  "version": "0.2.0",
+  "schemaVersion": "0.2.0",
   "artefact": {
     "type": "executable",
     "name": "${build.name}",
@@ -104,7 +104,12 @@ where _expression_ can be a name (like `version`) or a qualified name
 
 ### Add/remove
 
-Definitions are initially contributed by the toolchain, and after them 
+At the limit, all definitions can be made in the configuration section;
+however there may be many identical definitions between build configurations;
+to avoid repeating identical definitions, it is possible to define them
+globally, or per toolchain, target or profile.
+
+Compiler options are initially contributed by the toolchain, and after them 
 are added the configuration specific definitions (properties 
 prefixed with `add`).
 
@@ -117,15 +122,25 @@ To minimise the influence of the order of operations, first all
 are removed; the detailed logic is:
 
 - start with empty lists of options
-- copy toolchain definitions
-- append definitions contributed by target/profile(s)/configuration
-- remove unwanted definitions as instructed by target/profile(s)/configuration
+- append the top definitions
+- append the target definitions
+- append the toolchain definitions
+- append the profile(s) definitions
+- append the configuration definitions
+- collect all unwanted definitions as instructed by 
+top/target/toolchain/profile(s)/configuration (order not relevant)
+- remove unwanted definitions
+
+Although the order of compiler options should not matter, 
+the order of definitions is generally preserved. This might make some 
+difference for the list of include folders.
 
 TODO: decide if `removeXxx` make any sense in target/profile(s). 
 
+
 ## Properties
 
-### Version
+### Schema version
 
 Type: string.
 
@@ -133,7 +148,7 @@ This semver string identifies the expected structure of the JSON content.
 
 ```json
 {
-  "version": "0.2.0"
+  "schemaVersion": "0.2.0"
 }
 ```
 
@@ -158,7 +173,7 @@ If needed, the names can be redefined in each project or test.
 
 ```json
 {
-  "version": "...",
+  "schemaVersion": "...",
   "name": "xyz"
 }
 ```
@@ -377,7 +392,36 @@ If the definitions to be removed do not exist, warnings are issued.
 
 Type: object.
 
+There are two different toolchain objects, one for defining toolchains and
+one for defining toolchain configuration options.
+
+#### Toolchain definitions
+
+```json
+{
+  "toolchains": {
+    "base": {
+      "commandPrefix": "",
+      "commandSuffix": "",
+      "descriptionPrefix": "",
+      "objectExtension": "o",
+      "makeObjectsVariable": "OBJS",
+  
+      "tools": {
+      }
+    },
+    "gcc": {
+      "parent": ""base,
+      "...": "..."
+    }
+  }
+}
+```
+
+#### TT
+
 The `toolchains` object defines the command line options used for each compiler.
+
 
 Each toolchain may contribute its own specific definitions to the common 
 definitions.
@@ -626,7 +670,7 @@ To mark that the current folder is a source folder, the minimum definition is:
 
 ```json
 {
-  "version": "...",
+  "schemaVersion": "...",
   "sourceFolder": true
 }
 ```
@@ -636,7 +680,7 @@ to all configurations or to a specific configuration.
 
 ```json
 {
-  "version": "...",
+  "schemaVersion": "...",
   "sourceFolder": {
     "excludedSourcePaths": [],
     "addIncludeFolders": [ ... ],
@@ -682,7 +726,7 @@ configuration.
 
 ```json
 {
-  "version": "...",
+  "schemaVersion": "...",
   "excludedSourcePaths": [
     "mem1.c",
     "mem3.c",

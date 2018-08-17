@@ -1,4 +1,4 @@
-## profile/toolchain vs toolchain/profile?
+## toolchain/profile vs profile/toolchain?
 
 If the target is probably the first, what is the best order for the others?
 

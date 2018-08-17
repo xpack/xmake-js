@@ -5,59 +5,75 @@
 -include {{ pathToCwd }}/makefile.init
 
 RM := rm -rf
-CC := {{ tools.c }}
-CXX := {{ tools.cpp }}
-LD := {{ tools.ld }}
 
+################################################################################
 # By default, build the project artefact.
-all: {{ artefactName }}
 
-# Initialise variables to collect source files.
--include variables.mk
+all: {{ artefact.fullName }}
 
-# SUBDIR is not actively used, but is prepared in case the custom make
-# parts need it. It collects subfolders that are part of the build.
-SUBDIRS := 
+################################################################################
+# Build definitions.
+
+DEPS := \
 {% for folder in sourceFolders -%}
-SUBDIRS += {{ folder }}
+{% for file in folder.files -%}
+{{ file.relativePathShortNameEscaped }}.d \
 {% endfor -%}
-
-# The source files participating in the build are contributed by each folder.
-{% for folder in sourceFolders -%}
--include {{ folder }}/subdir.mk
 {% endfor -%}
-# TODO test with project root
--include subdir.mk
-
--include objects.mk
 
 ifneq ($(MAKECMDGOALS),clean)
-{% for fileType in fileTypes -%}
-ifneq ($(strip $({{ fileType.prefix }}_DEPS)),)
--include $({{ fileType.prefix }}_DEPS)
+ifneq ($(strip $(DEPS)),)
+-include $(DEPS)
 endif
+endif
+
+{{ toolchain.makeObjectsVariable }} := \
+{% for folder in sourceFolders -%}
+{% for file in folder.files -%}
+{{ file.relativePathShortNameEscaped }}.{{ toolchain.objectExtension }} \
 {% endfor -%}
-endif
+{% endfor -%}
 
 -include {{ pathToCwd }}/makefile.defs
 
-# Add inputs and outputs from these tool invocations to the build variables 
+{% for folder in sourceFolders -%}
+################################################################################
+# Compile files from '{{ folder.relativePath }}'.
 
-# Tool invocations
-{{ artefactName }}: $(OBJS) $(USER_OBJS)
+{% for file in folder.files -%}
+{{ file.relativePathShortNameEscaped }}.{{ toolchain.objectExtension }}: {{ file.buildRelativePathEscaped }}
 {% if isVerbose -%}
 {{ tab }}@echo ' '
-{{ tab }}@echo 'Building target: $@'
-{{ tab }}@echo 'Invoking: GCC Linker'
+{{ tab }}@echo 'Building file: {{ file.relativePath }}'
+{{ tab }}@echo 'Invoking: {{ file.tool.fullDescription }}'
 {% else -%}
-{{ tab }}@echo '[$(LD)]: $@'
-{% endif %}
-{{ tab }}{% if isVerbose == false %}@{% endif %}$(LD) {{ options.ld }} $(OBJS) $(USER_OBJS) $(LIBS) -o "{{ artefactName }}"
+{{ tab }}@echo '[{{ file.tool.fullCommandName }}]: {{ file.relativePath }}'
+{% endif -%}
+{{ tab }}{% if isVerbose == false %}@{% endif %}{{ file.fullCommand }}
 {% if isVerbose -%}
-{{ tab }}@echo 'Finished building target: $@'
+{{ tab }}@echo 'Finished building: {{ file.relativePath }}'
 {% endif -%}
 
-# Other Targets
+{% endfor -%}
+{% endfor -%}
+################################################################################
+# Build the artefact.
+
+{{ artefact.fullName }}: $(OBJS)
+{% if isVerbose -%}
+{{ tab }}@echo ' '
+{{ tab }}@echo 'Building target: {{ artefact.fullName }}'
+{{ tab }}@echo 'Invoking: {{ root.tool.fullDescription }}'
+{% else -%}
+{{ tab }}@echo '[{{ root.tool.fullCommandName }}]: {{ artefact.fullName }}'
+{% endif -%}
+{{ tab }}{% if isVerbose == false %}@{% endif %}{{ root.fullCommand }}
+{% if isVerbose -%}
+{{ tab }}@echo 'Finished building target: {{ artefact.fullName }}'
+{% endif -%}
+
+################################################################################
+
 clean:
 {% if isVerbose -%}
 {{ tab }}-@echo ' '
@@ -65,11 +81,11 @@ clean:
 {% else -%}
 {{ tab }}-@echo '[$(firstword $(RM))]: *'
 {% endif -%}
-{{ tab }}-{% if isVerbose == false %}@{% endif %}$(RM) {% for fileType in fileTypes %}$({{ fileType.prefix }}_DEPS) {% endfor %}
+{{ tab }}-{% if isVerbose == false %}@{% endif %}$(RM) $(DEPS)
+{{ tab }}-{% if isVerbose == false %}@{% endif %}$(RM) $(OBJS) "{{ artefact.fullName }}"
 
-{{ tab }}-{% if isVerbose == false %}@{% endif %}$(RM) $(EXECUTABLES) $(OBJS) {{ artefactName }}
+################################################################################
 
-.PHONY: all clean dependents
-.SECONDARY:
+.PHONY: all clean
 
 -include {{ pathToCwd }}/makefile.targets

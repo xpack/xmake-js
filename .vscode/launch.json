@@ -158,6 +158,35 @@
     {
       "type": "node",
       "request": "launch",
+      "name": "xmake build",
+      "program": "${workspaceRoot}/bin/xmake.js",
+      "stopOnEntry": true,
+      "args": [
+        "build",
+        "-dd",
+        "--",
+        "clean",
+        "all"
+      ],
+      "cwd": "${workspaceRoot}/test/mock/build-xpack",
+      "preLaunchTask": null,
+      "runtimeExecutable": null,
+      "runtimeArgs": [
+        "--nolazy"
+      ],
+      "skipFiles": [
+        "*async_hook*.js",
+        "domain.js"
+      ],
+      "env": {
+        "NODE_ENV": "development"
+      },
+      "console": "internalConsole",
+      "sourceMaps": false
+    },
+    {
+      "type": "node",
+      "request": "launch",
       "name": "W xmake build in blinky",
       "program": "${workspaceRoot}/bin/xmake.js",
       "stopOnEntry": true,

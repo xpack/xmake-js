@@ -1,5 +1,5 @@
 {
-  "version": "0.2.0",
+  "schemaVersion": "0.2.0",
   "description": "Default toolchain definitions. Uses the same schema as xmake.json.",
   "toolchains": {
     "base": {
@@ -12,27 +12,56 @@
         "cCompiler": {
           "commandName": "cc",
           "description": "C Compiler",
-          "type": "compiler"
+          "type": "compiler",
+          "languages": [
+            "c",
+            "c++"
+          ]
         },
         "cppCompiler": {
           "commandName": "c++",
           "description": "C++ Compiler",
-          "type": "compiler"
+          "type": "compiler",
+          "languages": [
+            "c++"
+          ]
         },
         "assembler": {
           "commandName": "as",
           "description": "Assembler",
-          "type": "assembler"
+          "type": "assembler",
+          "languages": [
+            "c",
+            "c++",
+            "as"
+          ]
         },
         "cLinker": {
           "commandName": "ld",
           "description": "C Linker",
-          "type": "linker"
+          "type": "linker",
+          "languages": [
+            "c",
+            "as"
+          ]
         },
         "cppLinker": {
           "commandName": "ld",
           "description": "C++ Linker",
-          "type": "linker"
+          "type": "linker",
+          "languages": [
+            "c++"
+          ]
+        },
+        "archiver": {
+          "commandName": "ar",
+          "description": "Archiver",
+          "type": "archiver",
+          "languages": [
+            "c",
+            "c++",
+            "as"
+          ]
         }
       }
     },
@@ -43,10 +72,10 @@
         "cCompiler": {
           "commandName": "gcc",
           "options": "-c",
-          "deps": "-MMD -MP -MF\"$(@:%.o=%.d)\" -MT\"$(@)\"",
+          "deps": "-MMD -MP -MF\"${node.relativePathShortName}.d\"",
           "outputFlag": "-o",
-          "output": "\"$@\"",
-          "inputs": "\"$<\"",
+          "output": "\"${node.relativePathShortName}.${toolchain.objectExtension}\"",
+          "inputs": "\"${node.buildRelativePath}\"",
           "fileExtensions": {
             "c": {
               "prefix": "C"
@@ -56,10 +85,10 @@
         "cppCompiler": {
           "commandName": "g++",
           "options": "-c",
-          "deps": "-MMD -MP -MF\"$(@:%.o=%.d)\" -MT\"$(@)\"",
+          "deps": "-MMD -MP -MF\"${node.relativePathShortName}.d\"",
           "outputFlag": "-o",
-          "output": "\"$@\"",
-          "inputs": "\"$<\"",
+          "output": "\"${node.relativePathShortName}.${toolchain.objectExtension}\"",
+          "inputs": "\"${node.buildRelativePath}\"",
           "fileExtensions": {
             "cpp": {
               "prefix": "CPP"
@@ -81,10 +110,10 @@
         "assembler": {
           "commandName": "gcc",
           "options": "-x assembler-with-cpp -c",
-          "deps": "-MMD -MP -MF\"$(@:%.o=%.d)\" -MT\"$(@)\"",
+          "deps": "-MMD -MP -MF\"${node.relativePathShortName}.d\"",
           "outputFlag": "-o",
-          "output": "\"$@\"",
-          "inputs": "\"$<\"",
+          "output": "\"${node.relativePathShortName}.${toolchain.objectExtension}\"",
+          "inputs": "\"${node.buildRelativePath}\"",
           "fileExtensions": {
             "S": {
               "prefix": "S_UPPER"
@@ -97,12 +126,15 @@
         "cLinker": {
           "commandName": "gcc",
           "outputFlag": "-o",
-          "output": "\"$@\""
+          "output": "\"${artefact.fullName}\""
         },
         "cppLinker": {
           "commandName": "g++",
           "outputFlag": "-o",
-          "output": "\"$@\""
+          "output": "\"${artefact.fullName}\""
+        },
+        "archiver": {
+          "output": "\"${artefact.fullName}\""
         }
       }
     },
@@ -111,6 +143,7 @@
       "objectExtension": "bc",
       "makeObjectsVariable": "BCS",
       "descriptionPrefix": "LLVM",
+      "todo": "Copy properties from GCC",
       "tools": {
         "cCompiler": {
           "commandName": "clang"
@@ -126,6 +159,9 @@
         },
         "cppLinker": {
           "commandName": "clang++"
+        },
+        "archiver": {
+          "output": "\"${artefact.fullName}\""
         }
       }
     },
