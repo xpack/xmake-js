@@ -1,6 +1,6 @@
 {
   "name": "@scope/one",
-  "version": "2.3.4",
+  "schemaVersion": "2.3.4",
   "dependencies": {
     "two": ""
   },

@@ -1,5 +1,5 @@
 {
-  "version": "0.2.0",
+  "schemaVersion": "0.2.0",
   "description": "test missing tools",
   "toolchains": {
     "b1": {
@@ -12,7 +12,8 @@
             "c": {
               "prefix": "C"
             }
-          }
+          },
+          "languages": [ "c" ]
         }
       }
     },

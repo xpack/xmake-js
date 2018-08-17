@@ -1,6 +1,12 @@
 {
-  "version": "0.2.0",
+  "schemaVersion": "0.2.0",
   "description": "Test the auto discovery mechanism for xPacks",
+  "addSourceFolders": [
+    "./src2"
+  ],
+  "addIncludeFolders": [
+    "./include2"
+  ],
   "generator": "make",
   "commands": {
     "build": [ "make" ]

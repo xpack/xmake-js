@@ -5,7 +5,7 @@
   "xpack": {
     "directories": {
       "src": [ "./src1", "./src2" ],
-      "include": [ "./include1", "./include1"]
+      "include": [ "./include1", "./include2"]
     }
   }
 }

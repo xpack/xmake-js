@@ -50,16 +50,18 @@ const testPath = path.dirname(__dirname)
 const mockFolder = path.join(testPath, 'mock')
 const rootFolder = path.join(mockFolder, 'xmake-parser')
 
-const context = {}
-context.config = {}
-context.config.cwd = ''
+const options = {}
+options.cwd = rootFolder
+options.log = {}
+options.log.verbose = () => {}
+options.log.debug = () => {}
+options.log.trace = () => {}
 
 test('xmake-parser missing json',
   async (t) => {
     // console.log(mockFolder)
     const absoluteFolderPath = path.join(rootFolder, 'no-xmake')
-    const parser = new XmakeParser(context)
-    context.config.cwd = rootFolder
+    const parser = new XmakeParser(options)
     try {
       await parser.parse(absoluteFolderPath)
       t.fail('did not throw')
@@ -75,8 +77,7 @@ test('xmake-parser bad json',
   async (t) => {
     // console.log(mockFolder)
     const absoluteFolderPath = path.join(rootFolder, 'bad-json')
-    const parser = new XmakeParser(context)
-    context.config.cwd = rootFolder
+    const parser = new XmakeParser(options)
     try {
       await parser.parse(absoluteFolderPath)
       t.fail('did not throw')
@@ -95,14 +96,13 @@ test('xmake-parser missing version',
   async (t) => {
     // console.log(mockFolder)
     const absoluteFolderPath = path.join(rootFolder, 'no-version')
-    const parser = new XmakeParser(context)
-    context.config.cwd = rootFolder
+    const parser = new XmakeParser(options)
     try {
       await parser.parse(absoluteFolderPath)
       t.fail('did not throw')
     } catch (ex) {
       // console.log(err.message)
-      t.equal(ex.message, 'Missing version in \'no-version/xmake.json\'.',
+      t.equal(ex.message, 'Missing schemaVersion in \'no-version/xmake.json\'.',
         'throws missing version')
     }
     t.end()
@@ -112,14 +112,13 @@ test('xmake-parser version 0.x',
   async (t) => {
     // console.log(mockFolder)
     const absoluteFolderPath = path.join(rootFolder, 'bad-version-01')
-    const parser = new XmakeParser(context)
-    context.config.cwd = rootFolder
+    const parser = new XmakeParser(options)
     try {
       await parser.parse(absoluteFolderPath)
       t.fail('did not throw')
     } catch (ex) {
       // console.log(ex, ex.message)
-      t.match(ex.message, 'Experimental version 0.1 no longer supported',
+      t.match(ex.message, 'Experimental schemaVersion 0.1 no longer supported',
         'throws version 0.x')
     }
     t.end()
@@ -129,14 +128,13 @@ test('xmake-parser unsupported version',
   async (t) => {
     // console.log(mockFolder)
     const absoluteFolderPath = path.join(rootFolder, 'bad-version-999')
-    const parser = new XmakeParser(context)
-    context.config.cwd = rootFolder
+    const parser = new XmakeParser(options)
     try {
       await parser.parse(absoluteFolderPath)
       t.fail('did not throw')
     } catch (ex) {
       // console.log(ex, ex.message)
-      t.match(ex.message, 'Unsupported version',
+      t.match(ex.message, 'Unsupported schemaVersion',
         'throws unsupported version')
     }
     t.end()

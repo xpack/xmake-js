@@ -1,0 +1,118 @@
+{
+  "schemaVersion": "0.2.0",
+  "language": "c++",
+  "generator": "make",
+  "commands": {
+    "build": [
+      "make"
+    ]
+  },
+  "generators": {
+    "make": {
+      "command": [
+        "make"
+      ],
+      "default": true
+    },
+    "ninja": {
+      "command": [
+        "ninja"
+      ]
+    }
+  },
+  "artefact": {
+    "type": "executable",
+    "name": "${project.name}"
+  },
+  "addSourceFolders": [
+    "./src",
+    "./extra/src"
+  ],
+  "addIncludeFolders": [
+    "./include",
+    "./include2",
+    "./extra/include"
+  ],
+  "removeIncludeFolders": [
+    "./include2"
+  ],
+  "addSymbols": [
+    "MY_PRJ1a",
+    "MY_PRJ1b"
+  ],
+  "removeSymbols": [
+    "MY_PRJ1b"
+  ],
+  "targets": {
+    "posix": {
+      "addSymbols": [
+        "MY_POSIX"
+      ]
+    }
+  },
+  "profiles": {
+    "debug": {
+      "addSymbols": [
+        "DEBUG"
+      ],
+      "options": {
+        "addOptimizations": [
+          "-O0"
+        ],
+        "addWarnings": [
+          "-Wall"
+        ],
+        "addDebugging": [
+          "-g3"
+        ]
+      }
+    },
+    "release": {
+      "addSymbols": [
+        "NDEBUG"
+      ],
+      "options": {
+        "addOptimizations": [
+          "-Os"
+        ],
+        "addWarnings": [
+          "-Wall"
+        ],
+        "addDebugging": [
+          "-g3"
+        ]
+      }
+    },
+    "trace": {
+      "addSymbols": [
+        "TRACE"
+      ]
+    }
+  },
+  "configurations": {
+    "posix-gcc-debug": {
+      "target": "posix",
+      "toolchain": "gcc",
+      "profiles": [
+        "debug",
+        "trace"
+      ],
+      "addSymbols": [
+        "MY_CONFIG1a",
+        "MY_CONFIG1b",
+        "MY_CONFIG2=7",
+        "MY_CONFIG3=\"a b\""
+      ],
+      "removeSymbols": [
+        "MY_CONFIG1b"
+      ]
+    },
+    "posix-gcc-release": {
+      "target": "posix",
+      "toolchain": "gcc",
+      "profiles": [
+        "release"
+      ]
+    }
+  }
+}

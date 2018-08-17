@@ -1,0 +1,8 @@
+{
+  "name": "t1",
+  "schemaVersion": "0.0.1",
+  "directories": {
+    "test": "./xtest"
+  },
+  "xpack": {}
+}

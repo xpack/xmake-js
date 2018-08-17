@@ -1,0 +1,10 @@
+{
+  "name": "one",
+  "version": "1.2.3",
+  "xpack": {
+    "directories": {
+      "src": "./src",
+      "include": "./include"
+    }
+  }
+}

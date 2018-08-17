@@ -1,0 +1,11 @@
+{
+  "schemaVersion": "0.2.0",
+  "addSourceFolders": [
+    "./src1",
+    "./src2"
+  ],
+  "addIncludeFolders": [
+    "./include1",
+    "./include2"
+  ]
+}

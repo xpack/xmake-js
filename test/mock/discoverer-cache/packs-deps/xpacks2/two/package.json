@@ -1,6 +1,6 @@
 {
   "name": "two",
-  "version": "3.4.5",
+  "schemaVersion": "3.4.5",
   "description": "circular reference",
   "dependencies": {
     "@scope/one": ""

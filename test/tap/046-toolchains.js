@@ -91,7 +91,7 @@ test('toolchains',
 
     const tc = ToolchainCache.retrieve('arm-none-eabi-gcc', options)
     // console.log(t1, traceArray)
-    t.equal(Object.keys(tc.tools).length, 5, 'has 5 tools')
+    t.equal(Object.keys(tc.tools).length, 6, 'has 6 tools')
     t.equal(Object.keys(tc.fileExtensions).length, 8, 'has 8 file extensions')
     t.equal(tc.tools.cCompiler.fullCommandName, 'arm-none-eabi-gcc',
       'has fullCommandName')
@@ -115,8 +115,8 @@ test('toolchains no log',
     await ToolchainCache.parse(toolchainsPath)
 
     const tc = ToolchainCache.retrieve('arm-none-eabi-gcc')
-    // console.log(t1, traceArray)
-    t.equal(Object.keys(tc.tools).length, 5, 'has 5 tools')
+    // console.log(tc, traceArray)
+    t.equal(Object.keys(tc.tools).length, 6, 'has 6 tools')
     t.equal(Object.keys(tc.fileExtensions).length, 8, 'has 8 file extensions')
     t.equal(tc.tools.cCompiler.fullCommandName, 'arm-none-eabi-gcc',
       'has fullCommandName')
@@ -137,10 +137,10 @@ test('toolchains redefined',
 
     const tc = ToolchainCache.retrieve('base', options)
     // console.log(tc)
-    // console.log(debugArray)
-    t.equal(tc.objectExtension, 'oo', 'has redefined')
-    t.equal(debugArray.length, 1, 'has 1 debug')
-    t.match(debugArray[0], 'Toolchain \'base\' redefined', 'has redefined')
+    // console.log(verboseArray)
+    t.equal(tc.objectExtension, 'oo', 'has redefined objectExtension')
+    t.equal(verboseArray.length, 1, 'has 1 verbose')
+    t.match(verboseArray[0], 'Toolchain \'base\' redefined', 'has redefined')
 
     t.end()
   })

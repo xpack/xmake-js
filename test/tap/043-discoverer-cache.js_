@@ -92,8 +92,9 @@ test('discoverer packs no xpack',
     const discoverAbsoluteFilePath = path.join(rootFolder, 'no-xpack')
     const result = await DiscovererCache.discoverPacks(
       discoverAbsoluteFilePath, { log })
-    t.equal(result.sourceFolders.length, 0, 'has no source folders')
-    t.equal(result.includeFolders.length, 0, 'has no include folders')
+    // console.log(result)
+    t.equal(result.addSourceFolders.length, 0, 'has no source folders')
+    t.equal(result.addIncludeFolders.length, 0, 'has no include folders')
     // console.log(verboseArray)
     t.equal(verboseArray.length, 1, 'has 1 verbose')
     t.match(verboseArray[0], 'not an xPack, ignored')
@@ -108,8 +109,8 @@ test('discoverer packs no name pack',
     const discoverAbsoluteFilePath = path.join(rootFolder, 'no-name-pack')
     const result = await DiscovererCache.discoverPacks(
       discoverAbsoluteFilePath, { log })
-    t.equal(result.sourceFolders.length, 0, 'has no source folders')
-    t.equal(result.includeFolders.length, 0, 'has no include folders')
+    t.equal(result.addSourceFolders.length, 0, 'has no source folders')
+    t.equal(result.addIncludeFolders.length, 0, 'has no include folders')
     // console.log(verboseArray)
     t.equal(verboseArray.length, 1, 'has 1 verbose')
     t.match(verboseArray[0], 'Unnamed package, ignored')
@@ -315,8 +316,8 @@ test('discoverer packs dirs strs',
     const result = await DiscovererCache.discoverPacks(
       discoverAbsoluteFilePath, { log })
     // console.log(result)
-    t.equal(result.sourceFolders.length, 1, 'has 1 source folders')
-    t.equal(result.includeFolders.length, 1, 'has 1 include folders')
+    t.equal(result.addSourceFolders.length, 1, 'has 1 source folders')
+    t.equal(result.addIncludeFolders.length, 1, 'has 1 include folders')
     // console.log(verboseArray)
     t.equal(verboseArray.length, 3, 'has 3 verbose')
 
@@ -331,8 +332,8 @@ test('discoverer packs dirs defaults',
     const result = await DiscovererCache.discoverPacks(
       discoverAbsoluteFilePath, { log })
     // console.log(result)
-    t.equal(result.sourceFolders.length, 1, 'has 1 source folders')
-    t.equal(result.includeFolders.length, 1, 'has 1 include folders')
+    t.equal(result.addSourceFolders.length, 1, 'has 1 source folders')
+    t.equal(result.addIncludeFolders.length, 1, 'has 1 include folders')
     // console.log(verboseArray)
     t.equal(verboseArray.length, 3, 'has 3 verbose')
 
@@ -347,8 +348,8 @@ test('discoverer packs dirs no defaults',
     const result = await DiscovererCache.discoverPacks(
       discoverAbsoluteFilePath, { log })
     // console.log(result)
-    t.equal(result.sourceFolders.length, 0, 'has 0 source folders')
-    t.equal(result.includeFolders.length, 0, 'has 0 include folders')
+    t.equal(result.addSourceFolders.length, 0, 'has 0 source folders')
+    t.equal(result.addIncludeFolders.length, 0, 'has 0 include folders')
     // console.log(verboseArray)
     t.equal(verboseArray.length, 1, 'has 1 verbose')
 
@@ -363,8 +364,8 @@ test('discoverer packs dirs file defaults',
     const result = await DiscovererCache.discoverPacks(
       discoverAbsoluteFilePath, { log })
     // console.log(result)
-    t.equal(result.sourceFolders.length, 0, 'has 0 source folders')
-    t.equal(result.includeFolders.length, 0, 'has 0 include folders')
+    t.equal(result.addSourceFolders.length, 0, 'has 0 source folders')
+    t.equal(result.addIncludeFolders.length, 0, 'has 0 include folders')
     // console.log(verboseArray)
     t.equal(verboseArray.length, 1, 'has 1 verbose')
 
@@ -379,8 +380,8 @@ test('discoverer packs deps',
     const result = await DiscovererCache.discoverPacks(
       discoverAbsoluteFilePath, { log })
     // console.log(result)
-    t.equal(result.sourceFolders.length, 4, 'has 4 source folders')
-    t.equal(result.includeFolders.length, 4, 'has 4 include folders')
+    t.equal(result.addSourceFolders.length, 4, 'has 4 source folders')
+    t.equal(result.addIncludeFolders.length, 4, 'has 4 include folders')
     // console.log(verboseArray)
     t.equal(verboseArray.length, 13, 'has 13 verbose')
 
