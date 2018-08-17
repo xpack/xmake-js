@@ -49,12 +49,12 @@
   "dependencies": {
     "@ilg/es6-promisifier": "~0.3.0",
     "@ilg/cli-start-options": "~0.4.12",
-    "mkdirp": "~0.5.1",
-    "liquidjs": "~4.0.0",
+    "liquidjs": "~5.2.0",
+    "async-mkdirp": "~1.2.4",
     "xml2js": "~0.4.19"
   },
   "devDependencies": {
-    "rimraf": "~2.6.2",
+    "del": "~3.0.0",
     "standard": "~11.0.1",
     "tar": "~4.4.4",
     "tap": "~12.0.1"
