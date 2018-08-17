@@ -33,9 +33,14 @@
 // ----------------------------------------------------------------------------
 
 const tar = require('tar')
+const del = require('del')
 
 // Beware, this is not asynchronous.
 const main = () => {
+  console.log('Removing build folders...')
+  del.sync([
+    'test/mock/build-xpack/build'
+  ])
   console.log('Packing mock.tgz...')
 
   // https://www.npmjs.com/package/tar
