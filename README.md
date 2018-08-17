@@ -17,18 +17,18 @@ do so nicely in the JavaScript ecosystem.
 
 ## Purpose
 
-The main purpose of the `xmake` tool is to build xPacks. The approach 
+The main purpose of the `xmake` tool is to build xPacks, but it
+can be used outside xPacks as well. The approach 
 is similar to `cmake`, just that instead of using a proprietary 
 scripting language (with a syntax not exactly easy to parse, or 
 even to read), it uses a JSON file, which can be easily processed 
 by any 3rd party tools.
 
-Functionally, `xmake` can be seen as a combination of `cMake+make`. 
+Functionally, `xmake` can be seen as a combination of `cmake+make`. 
 The initial version actually generates the `make` files, and call 
 `make`. Future versions will also import/export Eclipse CDT configurations.
 
 ## Prerequisites
-
 
 If this is your first encounter with `npm`, you need to install the 
 [node.js](https://nodejs.org/) JavaScript run-time. The process is 
@@ -54,8 +54,17 @@ For manual use, the command line module is available as
 with `npm` already available, installing `xmake` is quite easy:
 
 ```console
-$ sudo npm install xmake --global
+$ sudo npm install --global xmake
 ```
+
+or 
+
+```console
+$ npm install --global xmake
+```
+
+if `npm` was configured to use a local folder, as explained in the 
+[xpm](https://www.npmjs.com/package/xpm) page.
 
 On **Windows**, global packages are installed in the user home folder, and 
 do not require `sudo`.
@@ -66,10 +75,11 @@ The development repository is available from the GitHub
 To remove `xmake`, the command is similar:
 
 ```console
-$ sudo npm uninstall xmake --global
+$ npm uninstall --global xmake
 ```
 
-(On **Windows**, `sudo` is not required).
+(On **macOS**/**GNU/Linux**, if installed in a system folder, 
+`sudo` is required).
 
 ## User info
 
