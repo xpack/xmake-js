@@ -1,7 +1,7 @@
 {
   "schemaVersion": "0.2.0",
   "language": "c++",
-  "generator": "make",
+  "generator": "ninja",
   "commands": {
     "build": [
       "make"
@@ -101,7 +101,7 @@
         "MY_CONFIG1a",
         "MY_CONFIG1b",
         "MY_CONFIG2=7",
-        "MY_CONFIG3=\"a b\""
+        "MY_CONFIG3='a$ b'"
       ],
       "removeSymbols": [
         "MY_CONFIG1b"

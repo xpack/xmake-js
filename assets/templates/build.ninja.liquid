@@ -1,0 +1,38 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+################################################################################
+
+################################################################################
+# Build rules. Not really used, but ninja expects them.
+
+{% for tool in root.tools -%}
+rule {{ tool.prefix }}
+  command = {{ tool.fullCommandName }} $in {{ tool.outputFlag }} $out
+
+{% endfor -%}
+{% for folder in sourceFolders -%}
+################################################################################
+# Compile files from '{{ folder.relativePath }}'.
+
+{% for file in folder.files -%}
+build {{ file.relativePathShortName | replace: '$', '$$' | replace: ' ', '$ ' }}.{{ toolchain.objectExtension }}: {{ file.tool.prefix }} {{ file.buildRelativePath | replace: '$', '$$' | replace: ' ', '$ ' }}
+  description = {{ file.tool.fullCommandName }} {{ file.tool.options }} '{{ file.relativePath | replace: '$', '$$' }}'
+  depfile = {{ file.relativePathShortName | replace: '$', '$$' | replace: ' ', '$ ' }}.d
+  command = {{ file.fullCommand | replace: '$', '$$' }}
+
+{% endfor -%}
+{% endfor -%}
+################################################################################
+# Build the artefact.
+
+build {{ artefact.fullName | replace: '$', '$$' }}: {{ root.tool.prefix }} {% for obj in root.objs %}{{ obj | replace: '$', '$$' | replace: ' ', '$ ' }} {% endfor %}
+  description = {{ root.tool.fullCommandName }} {{ root.tool.outputFlag }} '{{ artefact.fullName | replace: '$', '$$' }}'
+  command = {{ root.fullCommand | replace: '$', '$$' }}
+
+################################################################################
+
+build all: phony {{ artefact.fullName }}
+
+default {{ artefact.fullName }}
+
+################################################################################

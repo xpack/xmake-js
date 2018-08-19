@@ -13,6 +13,7 @@
           "commandName": "cc",
           "description": "C Compiler",
           "type": "compiler",
+          "prefix": "c",
           "languages": [
             "c",
             "c++"
@@ -22,6 +23,7 @@
           "commandName": "c++",
           "description": "C++ Compiler",
           "type": "compiler",
+          "prefix": "cxx",
           "languages": [
             "c++"
           ]
@@ -30,6 +32,7 @@
           "commandName": "as",
           "description": "Assembler",
           "type": "assembler",
+          "prefix": "as",
           "languages": [
             "c",
             "c++",
@@ -40,6 +43,7 @@
           "commandName": "ld",
           "description": "C Linker",
           "type": "linker",
+          "prefix": "ld",
           "languages": [
             "c",
             "as"
@@ -49,6 +53,7 @@
           "commandName": "ld",
           "description": "C++ Linker",
           "type": "linker",
+          "prefix": "ldxx",
           "languages": [
             "c++"
           ]
@@ -57,6 +62,7 @@
           "commandName": "ar",
           "description": "Archiver",
           "type": "archiver",
+          "prefix": "ar",
           "languages": [
             "c",
             "c++",
@@ -72,10 +78,10 @@
         "cCompiler": {
           "commandName": "gcc",
           "options": "-c",
-          "deps": "-MMD -MP -MF\"${node.relativePathShortName}.d\"",
+          "deps": "-MMD -MP -MF'${node.relativePathShortName}.d'",
           "outputFlag": "-o",
-          "output": "\"${node.relativePathShortName}.${toolchain.objectExtension}\"",
-          "inputs": "\"${node.buildRelativePath}\"",
+          "output": "'${node.relativePathShortName}.${toolchain.objectExtension}'",
+          "inputs": "'${node.buildRelativePath}'",
           "fileExtensions": {
             "c": {
               "prefix": "C"
@@ -85,10 +91,10 @@
         "cppCompiler": {
           "commandName": "g++",
           "options": "-c",
-          "deps": "-MMD -MP -MF\"${node.relativePathShortName}.d\"",
+          "deps": "-MMD -MP -MF'${node.relativePathShortName}.d'",
           "outputFlag": "-o",
-          "output": "\"${node.relativePathShortName}.${toolchain.objectExtension}\"",
-          "inputs": "\"${node.buildRelativePath}\"",
+          "output": "'${node.relativePathShortName}.${toolchain.objectExtension}'",
+          "inputs": "'${node.buildRelativePath}'",
           "fileExtensions": {
             "cpp": {
               "prefix": "CPP"
@@ -110,10 +116,10 @@
         "assembler": {
           "commandName": "gcc",
           "options": "-x assembler-with-cpp -c",
-          "deps": "-MMD -MP -MF\"${node.relativePathShortName}.d\"",
+          "deps": "-MMD -MP -MF'${node.relativePathShortName}.d'",
           "outputFlag": "-o",
-          "output": "\"${node.relativePathShortName}.${toolchain.objectExtension}\"",
-          "inputs": "\"${node.buildRelativePath}\"",
+          "output": "'${node.relativePathShortName}.${toolchain.objectExtension}'",
+          "inputs": "'${node.buildRelativePath}'",
           "fileExtensions": {
             "S": {
               "prefix": "S_UPPER"
@@ -126,15 +132,15 @@
         "cLinker": {
           "commandName": "gcc",
           "outputFlag": "-o",
-          "output": "\"${artefact.fullName}\""
+          "output": "'${artefact.fullName}'"
         },
         "cppLinker": {
           "commandName": "g++",
           "outputFlag": "-o",
-          "output": "\"${artefact.fullName}\""
+          "output": "'${artefact.fullName}'"
         },
         "archiver": {
-          "output": "\"${artefact.fullName}\""
+          "output": "'${artefact.fullName}'"
         }
       }
     },
@@ -161,7 +167,7 @@
           "commandName": "clang++"
         },
         "archiver": {
-          "output": "\"${artefact.fullName}\""
+          "output": "'${artefact.fullName}'"
         }
       }
     },

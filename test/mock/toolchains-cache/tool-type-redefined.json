@@ -8,7 +8,8 @@
           "commandName": "ca",
           "description": "da",
           "type": "compiler",
-          "languages": [ "c" ]
+          "languages": [ "c" ],
+          "prefix": "t"
         }
       }
     },

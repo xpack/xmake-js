@@ -2,56 +2,38 @@
 # Automatically-generated file. Do not edit!
 ################################################################################
 
--include {{ pathToCwd }}/makefile.init
-
 RM := rm -rf
 
 ################################################################################
 # By default, build the project artefact.
 
-all: {{ artefact.fullName }}
+all: {{ artefact.fullName | replace: '$', '$$' }}
 
 ################################################################################
 # Build definitions.
 
-DEPS := \
 {% for folder in sourceFolders -%}
 {% for file in folder.files -%}
-{{ file.relativePathShortNameEscaped }}.d \
+-include {{ file.relativePathShortName | replace: '$', '$$' | replace: ' ', '\ ' }}.d
 {% endfor -%}
 {% endfor -%}
-
-ifneq ($(MAKECMDGOALS),clean)
-ifneq ($(strip $(DEPS)),)
--include $(DEPS)
-endif
-endif
-
-{{ toolchain.makeObjectsVariable }} := \
-{% for folder in sourceFolders -%}
-{% for file in folder.files -%}
-{{ file.relativePathShortNameEscaped }}.{{ toolchain.objectExtension }} \
-{% endfor -%}
-{% endfor -%}
-
--include {{ pathToCwd }}/makefile.defs
 
 {% for folder in sourceFolders -%}
 ################################################################################
 # Compile files from '{{ folder.relativePath }}'.
 
 {% for file in folder.files -%}
-{{ file.relativePathShortNameEscaped }}.{{ toolchain.objectExtension }}: {{ file.buildRelativePathEscaped }}
+{{ file.relativePathShortName | replace: '$', '$$' | replace: ' ', '\ ' }}.{{ toolchain.objectExtension }}: {{ file.buildRelativePath | replace: '$', '$$' | replace: ' ', '\ ' }}
 {% if isVerbose -%}
 {{ tab }}@echo ' '
-{{ tab }}@echo 'Building file: {{ file.relativePath }}'
+{{ tab }}@echo 'Building file: {{ file.relativePath | replace: '$', '$$' }}'
 {{ tab }}@echo 'Invoking: {{ file.tool.fullDescription }}'
 {% else -%}
-{{ tab }}@echo '[{{ file.tool.fullCommandName }}]: {{ file.relativePath }}'
+{{ tab }}@echo '{{ file.tool.fullCommandName }} {{ file.tool.options }} {{ file.relativePath | replace: '$', '$$' }}'
 {% endif -%}
-{{ tab }}{% if isVerbose == false %}@{% endif %}{{ file.fullCommand }}
+{{ tab }}{% if isVerbose == false %}@{% endif %}{{ file.fullCommand | replace: '$', '$$' }}
 {% if isVerbose -%}
-{{ tab }}@echo 'Finished building: {{ file.relativePath }}'
+{{ tab }}@echo 'Finished building: {{ file.relativePath | replace: '$', '$$' }}'
 {% endif -%}
 
 {% endfor -%}
@@ -59,17 +41,17 @@ endif
 ################################################################################
 # Build the artefact.
 
-{{ artefact.fullName }}: $(OBJS)
+{{ artefact.fullName | replace: '$', '$$' }}: {% for obj in root.objs %}{{ obj | replace: '$', '$$' | replace: ' ', '\ ' }} {% endfor %}
 {% if isVerbose -%}
 {{ tab }}@echo ' '
-{{ tab }}@echo 'Building target: {{ artefact.fullName }}'
+{{ tab }}@echo 'Building target: {{ artefact.fullName | replace: '$', '$$' }}'
 {{ tab }}@echo 'Invoking: {{ root.tool.fullDescription }}'
 {% else -%}
-{{ tab }}@echo '[{{ root.tool.fullCommandName }}]: {{ artefact.fullName }}'
+{{ tab }}@echo '{{ root.tool.fullCommandName }} {{ root.tool.outputFlag }} {{ artefact.fullName | replace: '$', '$$' }}'
 {% endif -%}
-{{ tab }}{% if isVerbose == false %}@{% endif %}{{ root.fullCommand }}
+{{ tab }}{% if isVerbose == false %}@{% endif %}{{ root.fullCommand | replace: '$', '$$' }}
 {% if isVerbose -%}
-{{ tab }}@echo 'Finished building target: {{ artefact.fullName }}'
+{{ tab }}@echo 'Finished building target: {{ artefact.fullName | replace: '$', '$$' }}'
 {% endif -%}
 
 ################################################################################
@@ -81,11 +63,9 @@ clean:
 {% else -%}
 {{ tab }}-@echo '[$(firstword $(RM))]: *'
 {% endif -%}
-{{ tab }}-{% if isVerbose == false %}@{% endif %}$(RM) $(DEPS)
-{{ tab }}-{% if isVerbose == false %}@{% endif %}$(RM) $(OBJS) "{{ artefact.fullName }}"
+{{ tab }}-{% if isVerbose == false %}@{% endif %}$(RM) {% for folder in sourceFolders %}{% for file in folder.files %}'{{ file.relativePathShortName }}.d' {% endfor %}{% endfor %}
+{{ tab }}-{% if isVerbose == false %}@{% endif %}$(RM) {% for obj in root.objs %}'{{ obj }}' {% endfor %}'{{ artefact.fullName }}'
 
 ################################################################################
 
 .PHONY: all clean
-
--include {{ pathToCwd }}/makefile.targets

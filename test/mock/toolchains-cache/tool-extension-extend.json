@@ -13,7 +13,8 @@
               "prefix": "C"
             }
           },
-          "languages": [ "c" ]
+          "languages": [ "c" ],
+          "prefix": "t"
         }
       }
     },
