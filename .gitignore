@@ -45,4 +45,4 @@ jspm_packages
 vscode.mac.command
 mock.tgz
 
-build
+test/**/build
