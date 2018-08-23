@@ -1,23 +1,30 @@
 {
   "schemaVersion": "0.2.0",
   "language": "c++",
-  "generator": "ninja",
-  "commands": {
-    "build": [
-      "make"
-    ]
-  },
   "generators": {
     "make": {
-      "command": [
-        "make"
-      ],
+      "goals": {
+        "": [
+          "make"
+        ],
+        "clean": [
+          "make",
+          "clean"
+        ]
+      },
       "default": true
     },
     "ninja": {
-      "command": [
-        "ninja"
-      ]
+      "goals": {
+        "": [
+          "ninja"
+        ],
+        "clean": [
+          "ninja",
+          "-t",
+          "clean"
+        ]
+      }
     }
   },
   "artefact": {
