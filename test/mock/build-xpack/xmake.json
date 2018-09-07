@@ -29,7 +29,7 @@
   },
   "artefact": {
     "type": "executable",
-    "name": "${project.name}"
+    "name": "${build.name}"
   },
   "addSourceFolders": [
     "./src",
