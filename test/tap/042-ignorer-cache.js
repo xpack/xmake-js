@@ -60,7 +60,7 @@ test('json ignorer',
   async (t) => {
     // console.log(mockFolder)
     const ignore1AbsoluteFilePath = path.join(mockFolder, '.xmakeignore')
-    const names1a = await IgnorerCache.read(ignore1AbsoluteFilePath, log)
+    const names1a = await IgnorerCache.read(ignore1AbsoluteFilePath, { log })
     t.equal(logArray.length, 5, 'ignored 5 lines')
 
     // console.log(names1a)
@@ -70,7 +70,7 @@ test('json ignorer',
     // console.log(logArray)
 
     // Ask again for the same file.
-    const names1b = await IgnorerCache.read(ignore1AbsoluteFilePath, log)
+    const names1b = await IgnorerCache.read(ignore1AbsoluteFilePath, { log })
     t.same(names1b, names1a, 'same object1')
 
     // Ask for a different file. Content must be different.
