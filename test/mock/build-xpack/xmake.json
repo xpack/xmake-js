@@ -97,7 +97,7 @@
     }
   },
   "configurations": {
-    "posix-gcc-debug": {
+    "posix-gcc-Debug": {
       "target": "posix",
       "toolchain": "gcc",
       "profiles": [
