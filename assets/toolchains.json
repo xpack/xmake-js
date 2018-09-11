@@ -78,7 +78,7 @@
         "cCompiler": {
           "commandName": "gcc",
           "options": "-c",
-          "deps": "-MMD -MP -MF'${node.relativePathShortName}.d'",
+          "deps": "-MMD -MP -MF '${node.relativePathShortName}.d'",
           "outputFlag": "-o",
           "output": "'${node.relativePathShortName}.${toolchain.objectExtension}'",
           "inputs": "'${node.buildRelativePath}'",
@@ -91,7 +91,7 @@
         "cppCompiler": {
           "commandName": "g++",
           "options": "-c",
-          "deps": "-MMD -MP -MF'${node.relativePathShortName}.d'",
+          "deps": "-MMD -MP -MF '${node.relativePathShortName}.d'",
           "outputFlag": "-o",
           "output": "'${node.relativePathShortName}.${toolchain.objectExtension}'",
           "inputs": "'${node.buildRelativePath}'",
@@ -116,7 +116,7 @@
         "assembler": {
           "commandName": "gcc",
           "options": "-x assembler-with-cpp -c",
-          "deps": "-MMD -MP -MF'${node.relativePathShortName}.d'",
+          "deps": "-MMD -MP -MF '${node.relativePathShortName}.d'",
           "outputFlag": "-o",
           "output": "'${node.relativePathShortName}.${toolchain.objectExtension}'",
           "inputs": "'${node.buildRelativePath}'",
