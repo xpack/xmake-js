@@ -35,8 +35,14 @@
     "./src",
     "./extra/src"
   ],
+  "addIncludeFiles": [
+    "./include/global.h",
+    "./include/global2.h"
+  ],
+  "addIncludeSystemFolders": [
+    "./include"
+  ],
   "addIncludeFolders": [
-    "./include",
     "./include2",
     "./extra/include"
   ],
@@ -119,6 +125,9 @@
       "toolchain": "gcc",
       "profiles": [
         "release"
+      ],
+      "removeIncludeFiles": [
+        "./include/global2.h"
       ]
     }
   }
