@@ -24,7 +24,7 @@ the subfolder, for example compiler options and/or symbols; the
 recommended name is `.xmake.json`;
 
 To identify a folder as an xmake project, a full `xmake.json` file, 
-which includes the `configurations` property, 
+which includes the `buildConfigurations` property, 
 must be present in the project root.
 
 ```json
@@ -33,21 +33,21 @@ must be present in the project root.
   "artefact": {
     "type": "executable",
     "name": "${build.name}",
-    "extension": "elf"
+    "extension": ""
   },
-  "generator": "make",
-  "commands": {
-    "build": [ "make" ],
-  },
-  "addSymbols": [
-    "GNU_SOURCE"
-  ],
-  "targets": {
+  "targetPlatforms": {
     "stm32f4-discovery": { ... }
   },
   "toolchains": { ... },
   "profiles": { ... },
-  "configurations": { ... }
+  "folders": {
+    "/": {
+      "addSymbols": [
+        "GNU_SOURCE"
+      ]
+    }
+  }
+  "buildConfigurations": { ... }
 }
 ```
 
@@ -62,29 +62,27 @@ by an `xmake.json` in each test folder.
     "name": "${build.name}",
     "extension": ""
   },
-  "generator": "make",
   "commands": {
-    "build": [ "make" ],
     "run": [ "./${artefact.fullName}" ]
   },
   "addSymbols": [
     "GNU_SOURCE"
   ],
-  "targets": {
+  "targetPlatforms": {
     "posix": { ... },
   },
   "toolchains": { ... },
   "profiles": { ... },
-  "configurations": { ... }
+  "buildConfigurations": { ... }
 }
 ```
 
 ### Lower case names
 
 All object names (strictly speaking, JSON keys), must be composed 
-from letters, hyphens, or digits. When these names are used to 
-create paths, case is not significative and all letters are converted to 
-lower case.
+from letters, hyphens, underscores or digits. When these names are used to 
+create paths (like the configuration name), case is not significative 
+and all letters are converted to lower case.
 
 ### Paths
 
@@ -104,10 +102,10 @@ where _expression_ can be a name (like `version`) or a qualified name
 
 ### Add/remove
 
-At the limit, all definitions can be made in the configuration section;
-however there may be many identical definitions between build configurations;
+At the limit, all definitions can be entered in the configuration section;
+however there may be many common definitions between build configurations;
 to avoid repeating identical definitions, it is possible to define them
-globally, or per toolchain, target or profile.
+either globally, or grouped per toolchain, targetPlatform or profile.
 
 Compiler options are initially contributed by the toolchain, and after them 
 are added the configuration specific definitions (properties 
@@ -123,19 +121,19 @@ are removed; the detailed logic is:
 
 - start with empty lists of options
 - append the top definitions
-- append the target definitions
+- append the targetPlatform definitions
 - append the toolchain definitions
 - append the profile(s) definitions
 - append the configuration definitions
 - collect all unwanted definitions as instructed by 
-top/target/toolchain/profile(s)/configuration (order not relevant)
+top/targetPlatform/toolchain/profile(s)/configuration (order not relevant)
 - remove unwanted definitions
 
 Although the order of compiler options should not matter, 
 the order of definitions is generally preserved. This might make some 
 difference for the list of include folders.
 
-TODO: decide if `removeXxx` make any sense in target/profile(s). 
+TODO: decide if `removeXxx` make any sense in targetPlatform/profile(s). 
 
 
 ## Properties
@@ -167,7 +165,7 @@ Type: string.
 
 This string defines the build or test name. 
 
-By default, the xmake names are the same as the folder name.
+By default, the xmake project names are the same as the folder name.
 
 If needed, the names can be redefined in each project or test.
 
@@ -198,10 +196,11 @@ The `type` property can be one of:
 The `name` property defaults to the test name. It may include the macros 
 `${build.name}`.
 
-The `artefact` object may be defined at top level, or for a given 
-target/profile. Each definition is searched hierarchically, bottom-up; 
-if present in the profile, it is used, otherwise the parent definition
-it is used; if none is defined, a default is applied.
+The `artefact` object may be defined at the top level, or for a given 
+group, with each definition being searched hierarchically, bottom-up
+(configuration, profiles, toolchain, targetPlatform, project); 
+if none is defined, a default is applied (executable, same name as the 
+project).
 
 ```json
 {
@@ -215,36 +214,65 @@ it is used; if none is defined, a default is applied.
 }
 ```
 
-The artefact name is obtained by concatenating the prefix, the name and the
-suffix.
+The artefact full name is obtained by concatenating the prefix, 
+the name and the suffix.
 
 By defining separate prefix/suffix properties, it is possible for some 
-configurations to generate artefacts with slightly different names.
+configurations to generate artefacts with slightly different names,
+for example embedded toolchains may define the extension as `elf`.
 
 For the American users, this property can be also spelled `artifact`.
 
-### Generator
+### Generators
 
-Type: string.
+Type: Object.
 
 It can be used only in project or test `xmake.json` files; using it 
-in folder 
-specific metadata files triggers an warning.
+in folder specific metadata files triggers an warning.
 
-This string identifies the generator used to create the project.
+This object maps build goals to different command lines. The empty 
+goal corresponds to invocations without an explicit goal.
+
+The "default" property marks the default generator.
 
 ```json
 {
-  "generator": "make"
+  "generators": {
+    "make": {
+      "goals": {
+        "": [
+          "make"
+        ],
+        "clean": [
+          "make",
+          "clean"
+        ]
+      },
+      "default": true
+    },
+    "ninja": {
+      "goals": {
+        "": [
+          "ninja"
+        ],
+        "clean": [
+          "ninja",
+          "-t",
+          "clean"
+        ]
+      }
+    }
+  }
 }
 ```
 
-Currently only `make` is supported, but generators for `ninja` and Eclipse 
-managed projects are planned.
+Currently only `make` and `ninja` are supported, but support for Eclipse 
+managed projects is planned.
 
-This setting can be overridden using the `--generator` on the command line.
+The selection of the generator can be overridden 
+using the `--generator` on the command line.
 
-### Commands
+### Commands ???
 
 Type: object.
 
@@ -281,12 +309,12 @@ This array defines the folders containing source files.
 All paths are relative to the current folder.
 
 Definitions are cumulative and can be contributed by
-toolchain/target/profile(s)/configuration.
+toolchain/targetPlatform/profile(s)/configuration.
 
 ```json
 {
   "addSourceFolders": [
-    "./src"
+    "src"
   ]
 }
 ```
@@ -304,15 +332,8 @@ If a definition is not needed, it can be removed:
 If the definitions to be removed do not exist, warnings are issued.
 
 The build process will handle all source folders by recursively identifying
-all files with known extensions. On the way, the local `.xmake.json`
-files will be inspected and if `excludedSourcePaths` are present, those
-folders/files will not be included in the build.
-
-If, for a given configuration, the source folders array ends up empty, 
-and the current folder includes a `package.json`, the 
-`xpack.directories.src` definition (an array of strings), if present, is used. 
-Otherwise, if the `src` folder is present, it is used; if not, the current
-folder is used.
+all files with known extensions. On the way, 
+the `.xmakeignore` files are used to skip some folders/files. 
 
 When generating the build files, relative paths from the build folder 
 to the actual files are created.
@@ -325,12 +346,12 @@ This array defines the folders to be passed to the compiler as include
 folders. All paths are relative to the current folder.
 
 Definitions are cumulative and can be contributed by
-toolchain/target/profile(s)/configuration.
+toolchain/targetPlatform/profile(s)/configuration.
 
 ```json
 {
   "addIncludeFolders": [
-    "./include/xyz"
+    "include/xyz"
   ]
 }
 ```
@@ -340,18 +361,12 @@ If a definition is not needed, it can be removed:
 ```json
 {
   "removeIncludeFolders": [
-    "./include/abc"
+    "include/abc"
   ]
 }
 ```
 
-If the definitions to be removed do not exist, warnings are issued.
-
-If, for a given configuration, this array ends up empty, and the current 
-folder includes a `package.json`, the 
-`xpack.directories.include` definition (an array of strings), if present, is used. 
-Otherwise, if the `include` folder is present, it is used; if not, the current
-folder is used.
+If the definitions to be removed do not exist, they are silently ignored.
 
 When generating the build files, relative paths from the build folder 
 to the actual files are created.
@@ -374,7 +389,7 @@ Simple names or pairs of names and values are accepted.
 ```
 
 Definitions are cumulative and can be contributed by
-toolchain/target/profile(s)/configuration.
+toolchain/targetPlatform/profile(s)/configuration.
 
 If a definition is not needed, it can be removed:
 
@@ -386,16 +401,15 @@ If a definition is not needed, it can be removed:
 }
 ```
 
-If the definitions to be removed do not exist, warnings are issued.
+If the definitions to be removed do not exist, they are silently ignored.
 
 ### Toolchains
 
 Type: object.
 
-There are two different toolchain objects, one for defining toolchains and
-one for defining toolchain configuration options.
+These objects define toolchains. Definitions are hierarchical, with 
+child definitions inheriting from parent.
 
-#### Toolchain definitions
 
 ```json
 {
@@ -417,57 +431,6 @@ one for defining toolchain configuration options.
   }
 }
 ```
-
-#### TT
-
-The `toolchains` object defines the command line options used for each compiler.
-
-
-Each toolchain may contribute its own specific definitions to the common 
-definitions.
-
-```json
-{
-  "toolchains": {
-    "gcc": {
-      "artefact": { ... },
-      "excludedSourcePaths": [ ... ],
-      "addSourceFolders": [ ... ],
-      "removeSourceFolders": [ ... ],
-      "addIncludeFolders": [ ... ],
-      "removeIncludeFolders": [ ... ],
-      "addDiscoveryFolders": [ ... ],
-      "removeDiscoveryFolders": [ ... ],
-      "addSymbols": [ ... ],
-      "removeSymbols": [ ... ],
-      "options": { ... },
-      "tools": { ... }
-    },
-    "arm-none-eabi-gcc": {
-      "parent": "gcc",
-      "artefact": { ... },
-      "excludedSourcePaths": [ ... ],
-      "addSourceFolders": [ ... ],
-      "removeSourceFolders": [ ... ],
-      "addIncludeFolders": [ ... ],
-      "removeIncludeFolders": [ ... ],
-      "addDiscoveryFolders": [ ... ],
-      "removeDiscoveryFolders": [ ... ],
-      "addSymbols": [ ... ],
-      "removeSymbols": [ ... ],
-      "options": { ... },
-      "tools": { ... }
-    }
-  }
-}
-```
-
-The `excludedPaths` array defines folders and/or files that should 
-not be part of the build, for a specific toolchain.
-
-Toolchain names are predefined strings.
-
-TODO: explain where Toolchain names come from.
 
 ### Options 
 
@@ -496,7 +459,8 @@ The `options` object defines settings common for all tools.
 
 Type: object.
 
-The `tools` object defines specific settings for one or more toolchain tools. It can be part of a configuration, profile or toolchain.
+The `tools` object defines specific settings for one or more toolchain tools. 
+It can be part of a configuration, profile or toolchain.
 
 When applied to a file, only one tool is significative, according 
 to the file extension; all other tools are ignored.
@@ -534,7 +498,7 @@ When `tools` is part of a `toolchain` definition, the properties are:
     "c": {
       "commandName": "gcc",
       "options": "-c",
-      "deps": "-MMD -MP -MF\"$(@:%.o=%.d)\" -MT\"$(@)\"",
+      "deps": "-MMD -MP -MF \"$(@:%.o=%.d)\" -MT\"$(@)\"",
       "outputFlag": "-o",
       "output": "\"$@\"",
       "inputs": "\"$<\"",
@@ -544,7 +508,8 @@ When `tools` is part of a `toolchain` definition, the properties are:
         }
       }
     },
-  "...": "..."
+    "...": { ... }
+  }
 }
 ```
 
@@ -556,18 +521,18 @@ syntax.
 
 Type: object.
 
-The optional `targets` object defines the possible targets, or platforms, 
+The optional `targetPlatforms` object defines the possible targets, or platforms, 
 the artefact is to be build for.
 
 Target names are generally user defined strings. For portable applications
 the `posix` name is recommended. 
 
-Each target may contribute its own specific definitions to the common 
+Each targetPlatform may contribute its own specific definitions to the common 
 definitions.
 
 ```json
 {
-  "targets": {
+  "targetPlatforms": {
     "posix": {
       "artefact": { ... },
       "excludedSourcePaths": [ ... ],
@@ -575,10 +540,10 @@ definitions.
       "removeSourceFolders": [ ... ],
       "addIncludeFolders": [ ... ],
       "removeIncludeFolders": [ ... ],
-      "addDiscoveryFolders": [ ... ],
-      "removeDiscoveryFolders": [ ... ],
       "addSymbols": [ ... ],
-      "removeSymbols": [ ... ]
+      "removeSymbols": [ ... ],
+      "options": { ... },
+      "language": "..."
     },
     "stm32f4-discovery": {
       "artefact": { ... },
@@ -587,10 +552,10 @@ definitions.
       "removeSourceFolders": [ ... ],
       "addIncludeFolders": [ ... ],
       "removeIncludeFolders": [ ... ],
-      "addDiscoveryFolders": [ ... ],
-      "removeDiscoveryFolders": [ ... ],
       "addSymbols": [ ... ],
-      "removeSymbols": [ ... ]
+      "removeSymbols": [ ... ],
+      "options": { ... },
+      "language": "..."
       }
     }
   }
@@ -598,7 +563,7 @@ definitions.
 ```
 
 The `excludedPaths` array defines folders and/or files that should 
-not be part of the build, for a specific target.
+not be part of the build, for a specific targetPlatform.
 
 ### Profiles
 
@@ -622,12 +587,10 @@ definitions.
       "removeSourceFolders": [ ... ],
       "addIncludeFolders": [ ... ],
       "removeIncludeFolders": [ ... ],
-      "addDiscoveryFolders": [ ... ],
-      "removeDiscoveryFolders": [ ... ],
       "addSymbols": [ ... ],
       "removeSymbols": [ ... ],
       "options": { ... },
-      "tools": { ... }
+      "language": "..."
     },
     "release": {
       "artefact": { ... },
@@ -636,12 +599,10 @@ definitions.
       "removeSourceFolders": [ ... ],
       "addIncludeFolders": [ ... ],
       "removeIncludeFolders": [ ... ],
-      "addDiscoveryFolders": [ ... ],
-      "removeDiscoveryFolders": [ ... ],
       "addSymbols": [ ... ],
       "removeSymbols": [ ... ],
       "options": { ... },
-      "tools": { ... }
+      "language": "..."
     }
   }
 }
@@ -681,13 +642,13 @@ to all configurations or to a specific configuration.
 ```json
 {
   "schemaVersion": "...",
-  "sourceFolder": {
+  "sourceFolders": {
     "excludedSourcePaths": [],
     "addIncludeFolders": [ ... ],
     "removeIncludeFolders": [ ... ],
     "addSymbols": [ ... ],
     "removeSymbols": [ ... ],
-    "configurations": {
+    "buildConfigurations": {
       "xyz": {
         "excludedSourcePaths": [],
         "addIncludeFolders": [],
@@ -703,14 +664,14 @@ to all configurations or to a specific configuration.
       "removeIncludeFolders": [],
       "addSymbols": [],
       "removeSymbols": [],
-      "configurations": { ... }
+      "buildConfigurations": { ... }
     },
     "xyzFilePath2": {
       "addIncludeFolders": [],
       "removeIncludeFolders": [],
       "addSymbols": [],
       "removeSymbols": [],
-      "configurations": { ... }
+      "buildConfigurations": { ... }
     }
   }
 }
@@ -786,7 +747,7 @@ All paths are relative to the current folder. To make things obvious,
 it is recommended to prefix the relative paths with `./`.
 
 Definitions are cumulative and can be contributed by
-toolchain/target/profile(s)/configuration.
+toolchain/targetPlatform/profile(s)/configuration.
 
 For tests, which are located deeper in the file system hierarchy, 
 a typical configuration is:
@@ -811,3 +772,9 @@ If a definition is not needed, it can be removed:
 ```
 
 If the definitions to be removed do not exist, warnings are issued.
+
+---
+
+GCC includes
+
+https://gcc.gnu.org/onlinedocs/cpp/Invocation.html

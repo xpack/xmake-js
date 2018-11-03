@@ -8,6 +8,13 @@
       "descriptionPrefix": "",
       "objectExtension": "o",
       "makeObjectsVariable": "OBJS",
+      "configurationSuffixes": [
+        "Architecture",
+        "Debugging",
+        "Optimizations",
+        "Warnings",
+        "Miscellaneous"
+      ],
       "tools": {
         "cCompiler": {
           "commandName": "cc",
@@ -17,6 +24,13 @@
           "languages": [
             "c",
             "c++"
+          ],
+          "configurationSuffixes": [
+            "Architecture",
+            "Debugging",
+            "Optimizations",
+            "Warnings",
+            "Miscellaneous"
           ]
         },
         "cppCompiler": {
@@ -26,6 +40,13 @@
           "prefix": "cxx",
           "languages": [
             "c++"
+          ],
+          "configurationSuffixes": [
+            "Architecture",
+            "Debugging",
+            "Optimizations",
+            "Warnings",
+            "Miscellaneous"
           ]
         },
         "assembler": {
@@ -37,6 +58,13 @@
             "c",
             "c++",
             "as"
+          ],
+          "configurationSuffixes": [
+            "Architecture",
+            "Debugging",
+            "Optimizations",
+            "Warnings",
+            "Miscellaneous"
           ]
         },
         "cLinker": {
@@ -47,6 +75,13 @@
           "languages": [
             "c",
             "as"
+          ],
+          "configurationSuffixes": [
+            "Architecture",
+            "Debugging",
+            "Optimizations",
+            "Warnings",
+            "Miscellaneous"
           ]
         },
         "cppLinker": {
@@ -56,6 +91,13 @@
           "prefix": "ldxx",
           "languages": [
             "c++"
+          ],
+          "configurationSuffixes": [
+            "Architecture",
+            "Debugging",
+            "Optimizations",
+            "Warnings",
+            "Miscellaneous"
           ]
         },
         "archiver": {
@@ -67,13 +109,15 @@
             "c",
             "c++",
             "as"
-          ]
+          ],
+          "configurationSuffixes": []
         }
       }
     },
     "gcc": {
       "parent": "base",
       "descriptionPrefix": "GNU",
+      "description": "GCC",
       "tools": {
         "cCompiler": {
           "commandName": "gcc",
@@ -149,6 +193,7 @@
       "objectExtension": "bc",
       "makeObjectsVariable": "BCS",
       "descriptionPrefix": "LLVM",
+      "description": "clang",
       "todo": "Copy properties from GCC",
       "tools": {
         "cCompiler": {

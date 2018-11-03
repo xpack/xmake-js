@@ -1,0 +1,136 @@
+{
+  "schemaVersion": "0.2.0",
+  "targetPlatforms": {
+    "stm32f4-discovery": {
+      "artefact": {
+        "extension": "elf"
+      },
+      "addSymbols": [
+        "STM32F407xx",
+        "HSE_VALUE=8000000",
+        "USE_HAL_DRIVER"
+      ],
+      "toolchainsOptions": {
+        "arm-none-eabi-gcc": {
+          "addArchitecture": [
+            "-mcpu=cortex-m4",
+            "-mthumb",
+            "-mfloat-abi=soft"
+          ],
+          "toolsOptions": {
+            "cppLinker": {
+              "addMiscellaneous": [
+                "--specs=rdimon.specs"
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  "collections?": {},
+  "addSourceFolders": [
+    "src"
+  ],
+  "addIncludeFolders": [
+    "include"
+  ],
+  "toolchainsOptions": {
+    "gcc": {
+      "addWarnings": [
+        "-Wall",
+        "-Wextra",
+        "-Wunused",
+        "-Wuninitialized",
+        "-Wmissing-declarations",
+        "-Wconversion",
+        "-Wpointer-arith",
+        "-Wshadow",
+        "-Wlogical-op",
+        "-Waggregate-return",
+        "-Wfloat-equal"
+      ],
+      "addOptimizations": [
+        "-fsigned-char",
+        "-ffunction-sections",
+        "-fdata-sections",
+        "-ffreestanding",
+        "-fno-move-loop-invariants"
+      ],
+      "addDebugging": [
+        "-g3"
+      ],
+      "toolsOptions": {
+        "cCompiler": {
+          "addOptimizations": [
+            "-std=gnu11",
+            "-fmessage-length=0"
+          ],
+          "addWarnings": [
+            "-Wstrict-prototypes",
+            "-Wbad-function-cast",
+            "-Wno-bad-function-cast",
+            "-Wno-conversion",
+            "-Wno-sign-conversion",
+            "-Wno-unused-parameter",
+            "-Wno-sign-compare",
+            "-Wno-missing-prototypes",
+            "-Wno-missing-declarations"
+          ]
+        },
+        "cppCompiler": {
+          "addOptimizations": [
+            "-std=gnu++11",
+            "-fmessage-length=0",
+            "-fabi-version=0",
+            "-fno-exceptions",
+            "-fno-rtti",
+            "-fno-use-cxa-atexit",
+            "-fno-threadsafe-statics"
+          ],
+          "addWarnings": [
+            "-Wabi",
+            "-Wctor-dtor-privacy",
+            "-Wnoexcept",
+            "-Wnon-virtual-dtor",
+            "-Wstrict-null-sentinel",
+            "-Wsign-promo"
+          ]
+        }
+      }
+    }
+  },
+  "buildConfigurations": {
+    "debug": {
+      "targetPlatform": "stm32f4-discovery",
+      "toolchain": "arm-none-eabi-gcc",
+      "addSymbols": [
+        "DEBUG",
+        "USE_FULL_ASSERT",
+        "TRACE",
+        "OS_USE_TRACE_SEMIHOSTING_DEBUG"
+      ],
+      "toolchainsOptions": {
+        "gcc": {
+          "addOptimizations": [
+            "-O0"
+          ]
+        }
+      }
+    },
+    "release": {
+      "targetPlatform": "stm32f4-discovery",
+      "toolchain": "arm-none-eabi-gcc",
+      "addSymbols": [
+        "NDEBUG"
+      ],
+      "toolchainsOptions": {
+        "gcc": {
+          "addOptimizations": [
+            "-Os"
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,3 +1,6 @@
-src/xyz-2.o: ../../src/xyz-2.cpp ../../include/xyz.h
+src/xyz-2.o: ../../src/xyz-2.cpp ../../include/global.h \
+  ../../include/global2.h
 
-../../include/xyz.h:
+../../include/global.h:
+
+../../include/global2.h:

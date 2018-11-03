@@ -31,31 +31,6 @@
     "type": "executable",
     "name": "${build.name}"
   },
-  "addSourceFolders": [
-    "./src",
-    "./extra/src"
-  ],
-  "addIncludeFiles": [
-    "./include/global.h",
-    "./include/global2.h"
-  ],
-  "addIncludeSystemFolders": [
-    "./include"
-  ],
-  "addIncludeFolders": [
-    "./include2",
-    "./extra/include"
-  ],
-  "removeIncludeFolders": [
-    "./include2"
-  ],
-  "addSymbols": [
-    "MY_PRJ1a",
-    "MY_PRJ1b"
-  ],
-  "removeSymbols": [
-    "MY_PRJ1b"
-  ],
   "targets": {
     "posix": {
       "addSymbols": [
@@ -68,32 +43,42 @@
       "addSymbols": [
         "DEBUG"
       ],
-      "options": {
-        "addOptimizations": [
-          "-O0"
-        ],
-        "addWarnings": [
-          "-Wall"
-        ],
-        "addDebugging": [
-          "-g3"
-        ]
+      "toolchainsOptions": {
+        "gcc": {
+          "addOptimizations": [
+            "-O0"
+          ],
+          "addDebugging": [
+            "-g3"
+          ],
+          "toolsOptions": {
+            "cCompiler": {
+            },
+            "cppCompiler": {
+            }
+          }
+        }
       }
     },
     "release": {
       "addSymbols": [
         "NDEBUG"
       ],
-      "options": {
-        "addOptimizations": [
-          "-Os"
-        ],
-        "addWarnings": [
-          "-Wall"
-        ],
-        "addDebugging": [
-          "-g3"
-        ]
+      "toolchainsOptions": {
+        "gcc": {
+          "addOptimizations": [
+            "-Os"
+          ],
+          "addDebugging": [
+            "-g3"
+          ],
+          "toolsOptions": {
+            "cCompiler": {
+            },
+            "cppCompiler": {
+            }
+          }
+        }
       }
     },
     "trace": {
@@ -102,9 +87,120 @@
       ]
     }
   },
-  "configurations": {
+  "addSourceFolders": [
+    "src",
+    "extra/src"
+  ],
+  "addIncludeFiles": [
+    "include/global.h",
+    "include/global2.h"
+  ],
+  "addIncludeSystemFolders": [
+    "include"
+  ],
+  "addIncludeFolders": [
+    "include2",
+    "extra/include"
+  ],
+  "addSymbols": [
+    "MY_PRJ1a",
+    "MY_PRJ1b"
+  ],
+  "toolchainsOptions": {
+    "gcc": {
+      "addWarnings": [
+        "-Wall"
+      ],
+      "toolsOptions": {
+        "cCompiler": {
+          "addArchitecture": []
+        },
+        "cppCompiler": {
+          "addArchitecture": []
+        }
+      }
+    }
+  },
+  "folders": {
+    "extra": {
+      "addSymbols": [
+        "MY_EXTRA_Fa",
+        "MY_EXTRA_Fb"
+      ],
+      "addIncludeFolders": [
+        "include-baburiba-folder1"
+      ],
+      "removeIncludeFolders": [
+        "include-baburiba-folder1"
+      ],
+      "toolchainsOptions": {
+        "gcc": {
+          "toolsOptions": {
+            "cCompiler": {},
+            "cppCompiler": {}
+          }
+        }
+      }
+    }
+  },
+  "files": {
+    "extra/src/extra1.c": {
+      "addSymbols": [
+        "MY_EXTRA_1a",
+        "MY_EXTRA_1b"
+      ],
+      "addIncludeFolders": [
+        "include-baburiba-file2"
+      ],
+      "removeIncludeFolders": [
+        "include-baburiba-file2"
+      ],
+      "toolchainsOptions": {
+        "gcc": {
+          "toolsOptions": {
+            "cCompiler": {
+              "addOptimizations": [
+                "-fsigned-char"
+              ],
+              "addWarnings": [
+                "-Wformat"
+              ],
+              "addDebugging": [
+                "-gdwarf"
+              ]
+            },
+            "cppCompiler": {}
+          }
+        }
+      }
+    },
+    "extra/src/extra2.c": {
+      "addSymbols": [
+        "MY_EXTRA_2a",
+        "MY_EXTRA_2b"
+      ],
+      "toolchainsOptions": {
+        "gcc": {
+          "toolsOptions": {
+            "cCompiler": {
+              "addOptimizations": [
+                "-funsigned-char"
+              ],
+              "addWarnings": [
+                "-Wformat=2"
+              ],
+              "addDebugging": [
+                "-gdwarf"
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  "buildConfigurations": {
     "posix-gcc-Debug": {
-      "target": "posix",
+      "targetPlatform": "posix",
       "toolchain": "gcc",
       "profiles": [
         "debug",
@@ -121,14 +217,71 @@
       ]
     },
     "posix-gcc-release": {
-      "target": "posix",
+      "targetPlatform": "posix",
       "toolchain": "gcc",
       "profiles": [
         "release"
       ],
       "removeIncludeFiles": [
-        "./include/global2.h"
-      ]
+        "include/global2.h"
+      ],
+      "folders": {
+        "extra": {
+          "addSymbols": [
+            "MY_EXTRA_Fb"
+          ],
+          "removeSymbols": [
+            "MY_EXTRA_Fc"
+          ],
+          "addIncludeFolders": [
+            "include-baburiba-folder2"
+          ],
+          "removeIncludeFolders": [
+            "include-baburiba-folder2"
+          ]
+        }
+      },
+      "files": {
+        "extra/src/extra1.c": {
+          "addSymbols": [
+            "MY_EXTRA_1c"
+          ],
+          "removeSymbols": [
+            "MY_EXTRA_1b"
+          ]
+        },
+        "extra/src/extra2.c": {
+          "addSymbols": [
+            "MY_EXTRA_2c"
+          ],
+          "removeSymbols": [
+            "MY_EXTRA_2b"
+          ],
+          "addIncludeFolders": [
+            "include-baburiba-file2"
+          ],
+          "removeIncludeFolders": [
+            "include-baburiba-file2"
+          ],
+          "toolchainsOptions": {
+            "gcc": {
+              "toolsOptions": {
+                "cCompiler": {
+                  "addOptimizations": [
+                    "-funsigned-bitfields"
+                  ],
+                  "addWarnings": [
+                    "-Walloca"
+                  ],
+                  "addDebugging": [
+                    "-gstrict-dwarf"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 }

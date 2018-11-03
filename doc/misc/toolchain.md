@@ -30,7 +30,7 @@
 
 {command} -c | {command} -x assembler-with-cpp -c
 
-{target} {debugging} (per profile)
+{targetPlatform} {debugging} (per profile)
 {symbols} {includes} {optimizations} {warnings} {miscellaneous} (per node)
 {deps} (per tool)
 {outputFlag} {outputPrefix}{output}{outputSuffix} (per profile/tool/profile)
@@ -41,7 +41,7 @@
 depends on (toolchain, tool, profile, node)
 
 {{ toolchain.commandPrefix }}{{ tool.commandName }}{{ toolchain.commandSuffix }} {{ tool.options }}
-{{ profile.options.target }} {{ profile.options.debugging }}
+{{ profile.options.targetPlatform }} {{ profile.options.debugging }}
 {{ node.symbols }} {{ node.includes }} {{ node.options.optimizations }} {{ node.options.warnings }} {{ node.options.miscellaneous }}
 {{ tool.deps }}
 {{ tool.outputFlag }} {{ profile.outputPrefix }}{{ tool.output }}{{ profile.outputSuffix }}

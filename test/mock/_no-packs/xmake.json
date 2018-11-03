@@ -63,14 +63,14 @@
       ]
     }
   },
-  "configurations": {
+  "buildConfigurations": {
     "posix-gcc-debug": {
-      "target": "posix",
+      "targetPlatform": "posix",
       "toolchain": "xgcc",
       "profiles": [ "debug", "trace" ]
     },
     "posix-gcc-release": {
-      "target": "posix",
+      "targetPlatform": "posix",
       "toolchain": "xgcc",
       "profiles": [ "release" ]
     }
