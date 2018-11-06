@@ -16,7 +16,7 @@ rule {{ tool.prefix }}
 
 {% for file in folder.files -%}
 build {{ file.relativePath | replace: '$', '$$' | replace: ' ', '$ ' }}.{{ toolchain.objectExtension }}: {{ file.tool.prefix }} {{ file.buildRelativePath | replace: '$', '$$' | replace: ' ', '$ ' }}
-  description = {{ file.tool.fullCommandName }} {{ file.tool.outputFlag }} '{{ file.relativePath | replace: '$', '$$' }}.{{ toolchain.objectExtension }}'
+  description = {{ file.tool.fullCommandName }} {{ file.tool.outputFlag }} {{ file.relativePath | replace: '$', '$$' }}.{{ toolchain.objectExtension }} ...
   depfile = {{ file.relativePath | replace: '$', '$$' | replace: ' ', '$ ' }}.d
   command = {{ file.fullCommand | replace: '$', '$$' }}
 
@@ -26,7 +26,7 @@ build {{ file.relativePath | replace: '$', '$$' | replace: ' ', '$ ' }}.{{ toolc
 # Build the artefact.
 
 build {{ artefact.fullName | replace: '$', '$$' }}: {{ root.tool.prefix }} {% for obj in root.objs %}{{ obj | replace: '$', '$$' | replace: ' ', '$ ' }} {% endfor %}
-  description = {{ root.tool.fullCommandName }} {{ root.tool.outputFlag }} '{{ artefact.fullName | replace: '$', '$$' }}'
+  description = {{ root.tool.fullCommandName }} {{ root.tool.outputFlag }} {{ artefact.fullName | replace: '$', '$$' }} ...
   command = {{ root.fullCommand | replace: '$', '$$' }}
 
 ################################################################################
