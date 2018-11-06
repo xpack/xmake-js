@@ -14,7 +14,7 @@ all: {{ artefact.fullName | replace: '$', '$$' }}
 
 {% for folder in sourceFolders -%}
 {% for file in folder.files -%}
--include {{ file.relativePathShortName | replace: '$', '$$' | replace: ' ', '\ ' }}.d
+-include {{ file.relativePath | replace: '$', '$$' | replace: ' ', '\ ' }}.d
 {% endfor -%}
 {% endfor -%}
 
@@ -23,17 +23,17 @@ all: {{ artefact.fullName | replace: '$', '$$' }}
 # Compile files from '{{ folder.relativePath }}'.
 
 {% for file in folder.files -%}
-{{ file.relativePathShortName | replace: '$', '$$' | replace: ' ', '\ ' }}.{{ toolchain.objectExtension }}: {{ file.buildRelativePath | replace: '$', '$$' | replace: ' ', '\ ' }}
+{{ file.relativePath | replace: '$', '$$' | replace: ' ', '\ ' }}.{{ toolchain.objectExtension }}: {{ file.buildRelativePath | replace: '$', '$$' | replace: ' ', '\ ' }}
 {% if isVerbose -%}
 {{ tab }}@echo ' '
-{{ tab }}@echo 'Building file: {{ file.buildRelativePath | replace: '$', '$$' }}'
+{{ tab }}@echo 'Building file: {{ file.relativePath | replace: '$', '$$' }}.{{ toolchain.objectExtension }}'
 {{ tab }}@echo 'Invoking: {{ file.tool.fullDescription }}'
 {% else -%}
-{{ tab }}@echo '{{ file.tool.fullCommandName }} {{ file.tool.options }} {{ file.buildRelativePath | replace: '$', '$$' }} ...'
+{{ tab }}@echo '{{ file.tool.fullCommandName }} {{ file.tool.outputFlag }} {{ file.relativePath | replace: '$', '$$' }}.{{ toolchain.objectExtension }} ...'
 {% endif -%}
 {{ tab }}{% if isVerbose == false %}@{% endif %}{{ file.fullCommand | replace: '$', '$$' }}
 {% if isVerbose -%}
-{{ tab }}@echo 'Finished building: {{ file.buildRelativePath | replace: '$', '$$' }}'
+{{ tab }}@echo 'Finished building: {{ file.relativePath | replace: '$', '$$' }}.{{ toolchain.objectExtension }}'
 {% endif -%}
 
 {% endfor -%}
@@ -63,7 +63,7 @@ clean:
 {% else -%}
 {{ tab }}-@echo '$(firstword $(RM)) ...'
 {% endif -%}
-{{ tab }}-{% if isVerbose == false %}@{% endif %}$(RM) {% for folder in sourceFolders %}{% for file in folder.files %}'{{ file.relativePathShortName | replace: '$', '$$' }}.d' {% endfor %}{% endfor %}
+{{ tab }}-{% if isVerbose == false %}@{% endif %}$(RM) {% for folder in sourceFolders %}{% for file in folder.files %}'{{ file.relativePath | replace: '$', '$$' }}.d' {% endfor %}{% endfor %}
 {{ tab }}-{% if isVerbose == false %}@{% endif %}$(RM) {% for obj in root.objs %}'{{ obj | replace: '$', '$$' }}' {% endfor %}'{{ artefact.fullName | replace: '$', '$$' }}'
 
 ################################################################################

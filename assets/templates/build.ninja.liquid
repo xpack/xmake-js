@@ -15,9 +15,9 @@ rule {{ tool.prefix }}
 # Compile files from '{{ folder.relativePath }}'.
 
 {% for file in folder.files -%}
-build {{ file.relativePathShortName | replace: '$', '$$' | replace: ' ', '$ ' }}.{{ toolchain.objectExtension }}: {{ file.tool.prefix }} {{ file.buildRelativePath | replace: '$', '$$' | replace: ' ', '$ ' }}
-  description = {{ file.tool.fullCommandName }} {{ file.tool.options }} '{{ file.relativePath | replace: '$', '$$' }}'
-  depfile = {{ file.relativePathShortName | replace: '$', '$$' | replace: ' ', '$ ' }}.d
+build {{ file.relativePath | replace: '$', '$$' | replace: ' ', '$ ' }}.{{ toolchain.objectExtension }}: {{ file.tool.prefix }} {{ file.buildRelativePath | replace: '$', '$$' | replace: ' ', '$ ' }}
+  description = {{ file.tool.fullCommandName }} {{ file.tool.outputFlag }} '{{ file.relativePath | replace: '$', '$$' }}.{{ toolchain.objectExtension }}'
+  depfile = {{ file.relativePath | replace: '$', '$$' | replace: ' ', '$ ' }}.d
   command = {{ file.fullCommand | replace: '$', '$$' }}
 
 {% endfor -%}
