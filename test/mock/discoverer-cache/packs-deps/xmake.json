@@ -11,7 +11,7 @@
   "commands": {
     "build": [ "make" ]
   },
-  "artefact": {
+  "targetArtefact": {
     "type": "executable",
     "name": "${test.name}"
   },

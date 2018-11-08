@@ -27,7 +27,7 @@
       }
     }
   },
-  "artefact": {
+  "targetArtefact": {
     "type": "executable",
     "name": "${build.name}"
   },

@@ -2,7 +2,7 @@
   "schemaVersion": "0.2.0",
   "targetPlatforms": {
     "stm32f4-discovery": {
-      "artefact": {
+      "targetArtefact": {
         "extension": "elf"
       },
       "addSymbols": [
@@ -28,7 +28,6 @@
       }
     }
   },
-  "collections?": {},
   "addSourceFolders": [
     "src"
   ],
