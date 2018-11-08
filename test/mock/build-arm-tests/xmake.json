@@ -158,6 +158,48 @@
       }
     }
   },
+  "folders": {
+    "src/extra": {
+      "addSymbols": [
+        "EXTRA"
+      ],
+      "toolchainsOptions": {
+        "gcc": {
+          "addWarnings": [
+            "-Wformat"
+          ],
+          "toolsOptions": {
+            "cCompiler": {
+              "addWarnings": [
+                "-Wformat-nonliteral"
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  "files": {
+    "src/extra/xyz-1.c": {
+      "addSymbols": [
+        "XYZ_1"
+      ],
+      "toolchainsOptions": {
+        "gcc": {
+          "addWarnings": [
+            "-Wformat-truncation"
+          ],
+          "toolsOptions": {
+            "cCompiler": {
+              "addWarnings": [
+                "-Wformat-y2k"
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
   "buildConfigurations": {
     "debug-f4": {
       "targetPlatform": "stm32f4-discovery",
@@ -165,10 +207,52 @@
       "optionGroups": [
         "debug",
         "trace"
-      ]
+      ],
+      "folders": {
+        "src/extra": {
+          "addSymbols": [
+            "EXTRA_CFG"
+          ],
+          "toolchainsOptions": {
+            "gcc": {
+              "addWarnings": [
+                "-Wformat-security"
+              ],
+              "toolsOptions": {
+                "cCompiler": {
+                  "addWarnings": [
+                    "-Wformat-signedness"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "files": {
+        "src/extra/xyz-1.c": {
+          "addSymbols": [
+            "XYZ_1_CFG"
+          ],
+          "toolchainsOptions": {
+            "gcc": {
+              "addWarnings": [
+                "-Wnonnull"
+              ],
+              "toolsOptions": {
+                "cCompiler": {
+                  "addWarnings": [
+                    "-Wnonnull-compare"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
     },
-    "release-f0": {
-      "targetPlatform": "stm32f0discovery",
+    "release-f4": {
+      "targetPlatform": "stm32f4-discovery",
       "toolchain": "arm-none-eabi-gcc",
       "optionGroups": [
         "release"
@@ -182,12 +266,12 @@
         "trace"
       ]
     },
-    "release-f4": {
-      "targetPlatform": "stm32f4-discovery",
+    "release-f0": {
+      "targetPlatform": "stm32f0discovery",
       "toolchain": "arm-none-eabi-gcc",
       "optionGroups": [
         "release"
       ]
-   }
+    }
   }
 }
