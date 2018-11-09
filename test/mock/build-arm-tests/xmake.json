@@ -5,7 +5,7 @@
       "targetArtefact": {
         "extension": "elf"
       },
-      "addSymbols": [
+      "addPreprocessorSymbols": [
         "STM32F407xx",
         "HSE_VALUE=8000000",
         "USE_HAL_DRIVER"
@@ -31,7 +31,7 @@
       "targetArtefact": {
         "extension": "elf"
       },
-      "addSymbols": [
+      "addPreprocessorSymbols": [
         "STM32F051xx",
         "HSE_VALUE=8000000",
         "USE_HAL_DRIVER"
@@ -127,7 +127,7 @@
   },
   "optionGroups": {
     "debug": {
-      "addSymbols": [
+      "addPreprocessorSymbols": [
         "DEBUG",
         "USE_FULL_ASSERT"
       ],
@@ -140,13 +140,13 @@
       }
     },
     "trace": {
-      "addSymbols": [
+      "addPreprocessorSymbols": [
         "TRACE",
         "OS_USE_TRACE_SEMIHOSTING_DEBUG"
       ]
     },
     "release": {
-      "addSymbols": [
+      "addPreprocessorSymbols": [
         "NDEBUG"
       ],
       "toolchainsOptions": {
@@ -160,7 +160,7 @@
   },
   "folders": {
     "src/extra": {
-      "addSymbols": [
+      "addPreprocessorSymbols": [
         "EXTRA"
       ],
       "toolchainsOptions": {
@@ -181,7 +181,7 @@
   },
   "files": {
     "src/extra/xyz-1.c": {
-      "addSymbols": [
+      "addPreprocessorSymbols": [
         "XYZ_1"
       ],
       "toolchainsOptions": {
@@ -210,7 +210,7 @@
       ],
       "folders": {
         "src/extra": {
-          "addSymbols": [
+          "addPreprocessorSymbols": [
             "EXTRA_CFG"
           ],
           "toolchainsOptions": {
@@ -231,7 +231,7 @@
       },
       "files": {
         "src/extra/xyz-1.c": {
-          "addSymbols": [
+          "addPreprocessorSymbols": [
             "XYZ_1_CFG"
           ],
           "toolchainsOptions": {
