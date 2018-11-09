@@ -81,6 +81,9 @@
             "Debugging",
             "Optimizations",
             "Warnings",
+            "LibraryFolders",
+            "Libraries",
+            "LinkerScripts",
             "Miscellaneous"
           ]
         },
@@ -97,6 +100,9 @@
             "Debugging",
             "Optimizations",
             "Warnings",
+            "LibraryFolders",
+            "Libraries",
+            "LinkerScripts",
             "Miscellaneous"
           ]
         },

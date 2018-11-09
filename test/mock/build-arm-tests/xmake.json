@@ -19,6 +19,14 @@
           ],
           "toolsOptions": {
             "cppLinker": {
+              "addLibraryFolders": [
+                "ldscripts"
+              ],
+              "addLinkerScripts": [
+                "libs.ld",
+                "mem-stm32f407.ld",
+                "${build.relativePath}/ldscripts/sections.ld"
+              ],
               "addMiscellaneous": [
                 "--specs=rdimon.specs"
               ]
@@ -45,6 +53,14 @@
           ],
           "toolsOptions": {
             "cppLinker": {
+              "addLibraryFolders": [
+                "ldscripts"
+              ],
+              "addLinkerScripts": [
+                "libs.ld",
+                "mem-stm32f051.ld",
+                "sections.ld"
+              ],
               "addMiscellaneous": [
                 "--specs=rdimon.specs"
               ]
