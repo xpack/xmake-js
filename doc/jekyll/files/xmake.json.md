@@ -230,8 +230,7 @@ Type: Object.
 It can be used only in project or test `xmake.json` files; using it 
 in folder specific metadata files triggers an warning.
 
-This object maps build goals to different command lines. The empty 
-goal corresponds to invocations without an explicit goal.
+This object maps build generators to different command lines. 
 
 The "default" property marks the default generator.
 
@@ -239,27 +238,11 @@ The "default" property marks the default generator.
 {
   "generators": {
     "make": {
-      "goals": {
-        "": [
-          "make"
-        ],
-        "clean": [
-          "make",
-          "clean"
-        ]
-      },
+      "command": ["make"],
       "default": true
     },
     "ninja": {
-      "goals": {
-        "": [
-          "ninja"
-        ],
-        "clean": [
-          "ninja",
-          "-t",
-          "clean"
-        ]
+      "command": ["ninja"]
       }
     }
   }

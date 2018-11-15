@@ -187,7 +187,7 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "xmake arm build",
+      "name": "xmake build arm",
       "program": "${workspaceRoot}/bin/xmake.js",
       "stopOnEntry": true,
       "args": [
@@ -218,7 +218,7 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "xmake arm tests build",
+      "name": "xmake build arm tests",
       "program": "${workspaceRoot}/bin/xmake.js",
       "stopOnEntry": true,
       "args": [
@@ -226,6 +226,33 @@
         "-dd",
         "-c",
         "debug-f4"
+      ],
+      "cwd": "${workspaceRoot}/test/mock/build-arm-tests",
+      "preLaunchTask": null,
+      "runtimeExecutable": null,
+      "runtimeArgs": [
+        "--nolazy"
+      ],
+      "skipFiles": [
+        "*async_hook*.js",
+        "domain.js"
+      ],
+      "env": {
+        "NODE_ENV": "development",
+        "PATH": "/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/ilg/opt/gnu-mcu-eclipse/arm-none-eabi-gcc/7.3.1-1.1-20180723-1109/bin"
+      },
+      "console": "internalConsole",
+      "sourceMaps": false
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "xmake test arm tests",
+      "program": "${workspaceRoot}/bin/xmake.js",
+      "stopOnEntry": true,
+      "args": [
+        "test",
+        "-dd"
       ],
       "cwd": "${workspaceRoot}/test/mock/build-arm-tests",
       "preLaunchTask": null,

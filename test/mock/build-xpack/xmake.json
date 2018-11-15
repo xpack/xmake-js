@@ -3,28 +3,15 @@
   "language": "c++",
   "generators": {
     "make": {
-      "goals": {
-        "": [
-          "make"
-        ],
-        "clean": [
-          "make",
-          "clean"
-        ]
-      },
+      "command": [
+        "make"
+      ],
       "default": true
     },
     "ninja": {
-      "goals": {
-        "": [
-          "ninja"
-        ],
-        "clean": [
-          "ninja",
-          "-t",
-          "clean"
-        ]
-      }
+      "command": [
+        "ninja"
+      ]
     }
   },
   "targetArtefact": {

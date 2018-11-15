@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <xyz_1.h>
+#include <xyz/xyz.h>
 
 int main();
 
@@ -8,7 +8,7 @@ main() {
   printf("Hello world!\n");
 
   int v;
-  v = xyz_1(1, 2);
+  v = xyz_add(1, 2);
 
 	return v;
 }

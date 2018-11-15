@@ -28,7 +28,10 @@
                 "${build.relativePath}/ldscripts/sections.ld"
               ],
               "addMiscellaneous": [
-                "--specs=rdimon.specs"
+                "--specs=rdimon.specs",
+                "--specs=nano.specs",
+                "-Wl,--gc-sections",
+                "-Wl,-Map,'map.txt'"
               ]
             }
           }
@@ -62,19 +65,26 @@
                 "sections.ld"
               ],
               "addMiscellaneous": [
-                "--specs=rdimon.specs"
+                "--specs=rdimon.specs",
+                "--specs=nano.specs",
+                "-Wl,--gc-sections",
+                "-Wl,-Map,'map.txt'"
               ]
             }
           }
         }
       }
+    },
+    "posix": {
     }
   },
   "addSourceFolders": [
-    "src"
+    "src",
+    "xyz/src"
   ],
   "addIncludeFolders": [
-    "include"
+    "include",
+    "xyz/include"
   ],
   "toolchainsOptions": {
     "gcc": {
@@ -87,7 +97,6 @@
         "-Wconversion",
         "-Wpointer-arith",
         "-Wshadow",
-        "-Wlogical-op",
         "-Waggregate-return",
         "-Wfloat-equal"
       ],
@@ -95,8 +104,7 @@
         "-fsigned-char",
         "-ffunction-sections",
         "-fdata-sections",
-        "-ffreestanding",
-        "-fno-move-loop-invariants"
+        "-ffreestanding"
       ],
       "addDebugging": [
         "-g3"
@@ -123,7 +131,6 @@
           "addOptimizations": [
             "-std=gnu++11",
             "-fmessage-length=0",
-            "-fabi-version=0",
             "-fno-exceptions",
             "-fno-rtti",
             "-fno-use-cxa-atexit",
@@ -132,10 +139,27 @@
           "addWarnings": [
             "-Wabi",
             "-Wctor-dtor-privacy",
-            "-Wnoexcept",
             "-Wnon-virtual-dtor",
-            "-Wstrict-null-sentinel",
             "-Wsign-promo"
+          ]
+        }
+      }
+    },
+    "arm-none-eabi-gcc": {
+      "addOptimizations": [
+        "-fno-move-loop-invariants"
+      ],
+      "addWarnings": [
+        "-Wlogical-op"
+      ],
+      "toolsOptions": {
+        "cppCompiler": {
+          "addOptimizations": [
+            "-fabi-version=0"
+          ],
+          "addWarnings": [
+            "-Wnoexcept",
+            "-Wstrict-null-sentinel"
           ]
         }
       }
@@ -175,9 +199,9 @@
     }
   },
   "folders": {
-    "src/extra": {
+    "xyz/src": {
       "addPreprocessorSymbols": [
-        "EXTRA"
+        "XYZ"
       ],
       "toolchainsOptions": {
         "gcc": {
@@ -196,9 +220,9 @@
     }
   },
   "files": {
-    "src/extra/xyz-1.c": {
+    "xyz/src/xyz.c": {
       "addPreprocessorSymbols": [
-        "XYZ_1"
+        "XYZ_C"
       ],
       "toolchainsOptions": {
         "gcc": {
@@ -225,9 +249,9 @@
         "trace"
       ],
       "folders": {
-        "src/extra": {
+        "xyz/src": {
           "addPreprocessorSymbols": [
-            "EXTRA_CFG"
+            "XYZ_CFG"
           ],
           "toolchainsOptions": {
             "gcc": {
@@ -246,9 +270,9 @@
         }
       },
       "files": {
-        "src/extra/xyz-1.c": {
+        "xyz/src/xyz.c": {
           "addPreprocessorSymbols": [
-            "XYZ_1_CFG"
+            "XYZ_C_CFG"
           ],
           "toolchainsOptions": {
             "gcc": {

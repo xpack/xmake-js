@@ -118,16 +118,13 @@ Bug reports: <https://github.com/xpack/xmake-js/issues>
 $ xmake build --help
 
 xmake - build project configuration(s)
-Usage: xmake build [options...] [--target <name>]* [--profile <name>]*
-                   [--toolchain <name>]* [--build-folder <path>]
+Usage: xmake build [options...] [--config <name>]* [--build-folder <path>]
                    [-- <build args>]
 where:
   <build args>...        Extra arguments for the builder (optional, multiple)
 
 Build options:
-  --target <name>        Target name (optional, multiple)
-  --profile <name>       Profile name (optional, multiple)
-  --toolchain <name>     Toolchain name (optional, multiple)
+  --config <name>        Configuration name (optional, multiple)
   --build-folder <path>  Build folder, default build (optional)
 
 Common options:
