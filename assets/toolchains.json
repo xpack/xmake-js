@@ -6,6 +6,7 @@
       "commandPrefix": "",
       "commandSuffix": "",
       "descriptionPrefix": "",
+      "isCross": false,
       "objectExtension": "o",
       "makeObjectsVariable": "OBJS",
       "configurationSuffixes": [
@@ -225,12 +226,14 @@
     "arm-none-eabi-gcc": {
       "parent": "gcc",
       "descriptionPrefix": "GNU ARM Cross",
-      "commandPrefix": "arm-none-eabi-"
+      "commandPrefix": "arm-none-eabi-",
+      "isCross": true
     },
     "riscv-none-embed-gcc": {
       "parent": "gcc",
       "descriptionPrefix": "GNU MCU RISC-V Cross",
-      "commandPrefix": "riscv-none-embed-"
+      "commandPrefix": "riscv-none-embed-",
+      "isCross": true
     }
   }
 }

@@ -252,7 +252,9 @@
       "stopOnEntry": true,
       "args": [
         "test",
-        "-dd"
+        "-dd",
+        "-c", 
+        "test-xyz-posix-debug"
       ],
       "cwd": "${workspaceRoot}/test/mock/build-arm-tests",
       "preLaunchTask": null,

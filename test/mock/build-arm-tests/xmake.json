@@ -103,8 +103,7 @@
       "addOptimizations": [
         "-fsigned-char",
         "-ffunction-sections",
-        "-fdata-sections",
-        "-ffreestanding"
+        "-fdata-sections"
       ],
       "addDebugging": [
         "-g3"
@@ -130,11 +129,7 @@
         "cppCompiler": {
           "addOptimizations": [
             "-std=gnu++11",
-            "-fmessage-length=0",
-            "-fno-exceptions",
-            "-fno-rtti",
-            "-fno-use-cxa-atexit",
-            "-fno-threadsafe-statics"
+            "-fmessage-length=0"
           ],
           "addWarnings": [
             "-Wabi",
@@ -147,7 +142,8 @@
     },
     "arm-none-eabi-gcc": {
       "addOptimizations": [
-        "-fno-move-loop-invariants"
+        "-fno-move-loop-invariants",
+        "-ffreestanding"
       ],
       "addWarnings": [
         "-Wlogical-op"
@@ -155,7 +151,11 @@
       "toolsOptions": {
         "cppCompiler": {
           "addOptimizations": [
-            "-fabi-version=0"
+            "-fabi-version=0",
+            "-fno-exceptions",
+            "-fno-rtti",
+            "-fno-use-cxa-atexit",
+            "-fno-threadsafe-statics"
           ],
           "addWarnings": [
             "-Wnoexcept",

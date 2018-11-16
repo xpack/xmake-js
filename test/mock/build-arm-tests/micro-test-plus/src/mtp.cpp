@@ -6,16 +6,41 @@ static int failed;
 static int sets;
 
 void
-mtp_init(int argc, char* argv[])
+mtp_init(int argc __attribute__((unused)), 
+         char* argv[] __attribute__((unused)))
 {
   passed = 0;
   failed = 0;
   sets = 0;
+#if defined(__clang__)
+  printf ("Built with clang " __VERSION__);
+#else
+  printf ("Built with GCC " __VERSION__);
+#endif
+#if defined(__EXCEPTIONS)
+  printf (", with exceptions");
+#else
+  printf (", no exceptions");
+#endif
+#if defined(DEBUG)
+  printf (", with DEBUG");
+#endif
+  puts (".");
+
+#if defined(DEBUG)
+  printf("argv[] = ");
+  for (int i = 0; i < argc; ++i) {
+    printf("'%s' ", argv[i]);
+  }
+  puts("");
+#endif
 }
 
 void 
-mtp_expect_eq_long(long actual, long expected, 
-const char* message, const char* file, int line)
+mtp_expect_eq_long(long actual, 
+                   long expected, 
+                   const char* message, 
+                   const char* file, int line)
 {
   if (actual == expected) {
     printf("    ✓ %s\n", message);
@@ -28,8 +53,11 @@ const char* message, const char* file, int line)
 }
 
 void 
-mtp_expect_ne_long(long actual, long expected, 
-const char* message, const char* file, int line)
+mtp_expect_ne_long(long actual, 
+                   long expected, 
+                   const char* message, 
+                   const char* file, 
+                   int line)
 {
   if (actual != expected) {
     printf("    ✓ %s\n", message);
@@ -42,7 +70,9 @@ const char* message, const char* file, int line)
 
 void 
 mtp_expect_true(bool condition,
-const char* message, const char* file, int line)
+                const char* message, 
+                const char* file, 
+                int line)
 {
   if (condition) {
     printf("    ✓ %s\n", message);
@@ -54,7 +84,9 @@ const char* message, const char* file, int line)
 }
 
 void 
-mtp_pass(const char* message, const char* file, int line)
+mtp_pass(const char* message, 
+         const char* file __attribute__((unused)), 
+         int line __attribute__((unused)))
 {
   printf("    ✓ %s\n", message);
   passed++;
@@ -95,7 +127,7 @@ mtp_result(void)
     printf("\n  %d passing\n", passed);
     return 0;
   } else {
-    printf("n  %d passing, %d failing\n", passed, failed);
+    printf("\n  %d passing, %d failing\n", passed, failed);
     return 1;
   }
 }
