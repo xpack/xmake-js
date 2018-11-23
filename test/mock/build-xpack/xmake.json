@@ -1,7 +1,7 @@
 {
   "schemaVersion": "0.2.0",
   "language": "c++",
-  "generators": {
+  "builders": {
     "make": {
       "command": [
         "make"

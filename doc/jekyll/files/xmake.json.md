@@ -236,7 +236,7 @@ The "default" property marks the default generator.
 
 ```json
 {
-  "generators": {
+  "builders": {
     "make": {
       "command": ["make"],
       "default": true
@@ -497,7 +497,7 @@ When `tools` is part of a `toolchain` definition, the properties are:
 ```
 
 Please note that the above definitions are specific to the make syntax. 
-If other generators are considered, it is recommended to use a portable 
+If other builders are considered, it is recommended to use a portable 
 syntax.
 
 ### Targets

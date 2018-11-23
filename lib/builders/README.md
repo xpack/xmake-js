@@ -1,9 +1,9 @@
-# Generators
+# Builders
 
 `xmake` itself is not intended to take over existing build systems, instead
 it allows to use them in an automated way.
 
-The _generators_ are separate classes used to accommodate different 
+The _builders_ are separate classes used to accommodate different 
 build systems. They create the specific files required by the build
 systems to perform the complete build.
 

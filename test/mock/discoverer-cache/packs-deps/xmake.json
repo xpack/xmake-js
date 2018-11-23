@@ -7,7 +7,7 @@
   "addIncludeFolders": [
     "./include2"
   ],
-  "generator": "make",
+  "builder": "make",
   "commands": {
     "build": [ "make" ]
   },
