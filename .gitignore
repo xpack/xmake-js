@@ -46,3 +46,6 @@ vscode.mac.command
 mock.tgz
 
 test/**/build
+test/mock/build-arm-export/.settings
+.cproject
+.project

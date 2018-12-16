@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "0.2.0",
+  "addSourceFolders": [
+    "../../micro-test-plus/src",
+    "../../xyz/src",
+    "."
+  ],
+  "addIncludeFolders": [
+    "../../micro-test-plus/include",
+    "../../xyz/include"
+  ],
+  "buildConfigurations": {
+    "test-fail-posix-debug": {
+      "targetPlatform": "posix",
+      "toolchain": "gcc",
+      "optionGroups": [
+        "debug"
+      ]
+    },
+    "test-fail-posix-release": {
+      "targetPlatform": "posix",
+      "toolchain": "gcc",
+      "optionGroups": [
+        "release"
+      ]
+    },
+    "test-fail-f4-disco-debug": {
+      "targetPlatform": "stm32f4-discovery",
+      "toolchain": "arm-none-eabi-gcc",
+      "optionGroups": [
+        "debug"
+      ]
+    },
+    "test-fail-f4-disco-release": {
+      "targetPlatform": "stm32f4-discovery",
+      "toolchain": "arm-none-eabi-gcc",
+      "optionGroups": [
+        "release"
+      ]
+    }
+  }
+}

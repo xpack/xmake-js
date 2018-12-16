@@ -276,6 +276,62 @@
     {
       "type": "node",
       "request": "launch",
+      "name": "xmake export arm",
+      "program": "${workspaceRoot}/bin/xmake.js",
+      "stopOnEntry": true,
+      "args": [
+        "export",
+        "-dd",
+        "--format",
+        "gme-cross-arm"
+      ],
+      "cwd": "${workspaceRoot}/test/mock/build-arm-export",
+      "preLaunchTask": null,
+      "runtimeExecutable": null,
+      "runtimeArgs": [
+        "--nolazy"
+      ],
+      "skipFiles": [
+        "*async_hook*.js",
+        "domain.js"
+      ],
+      "env": {
+        "NODE_ENV": "development"
+      },
+      "console": "internalConsole",
+      "sourceMaps": false
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "xmake export x",
+      "program": "${workspaceRoot}/bin/xmake.js",
+      "stopOnEntry": true,
+      "args": [
+        "export",
+        "-dd",
+        "--format",
+        "gme-cross-arm"
+      ],
+      "cwd": "${workspaceRoot}/test/mock/x",
+      "preLaunchTask": null,
+      "runtimeExecutable": null,
+      "runtimeArgs": [
+        "--nolazy"
+      ],
+      "skipFiles": [
+        "*async_hook*.js",
+        "domain.js"
+      ],
+      "env": {
+        "NODE_ENV": "development"
+      },
+      "console": "internalConsole",
+      "sourceMaps": false
+    },
+    {
+      "type": "node",
+      "request": "launch",
       "name": "xmake build clean",
       "program": "${workspaceRoot}/bin/xmake.js",
       "stopOnEntry": true,

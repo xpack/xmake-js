@@ -86,6 +86,12 @@
     "include",
     "xyz/include"
   ],
+  "addIncludeSystemFolders": [
+    "sys-include"
+  ],
+  "addIncludeFiles": [
+    "include/file.h"
+  ],
   "toolchainsOptions": {
     "gcc": {
       "addWarnings": [
@@ -291,21 +297,6 @@
     },
     "release-f4": {
       "targetPlatform": "stm32f4-discovery",
-      "toolchain": "arm-none-eabi-gcc",
-      "optionGroups": [
-        "release"
-      ]
-    },
-    "debug-f0": {
-      "targetPlatform": "stm32f0discovery",
-      "toolchain": "arm-none-eabi-gcc",
-      "optionGroups": [
-        "debug",
-        "trace"
-      ]
-    },
-    "release-f0": {
-      "targetPlatform": "stm32f0discovery",
       "toolchain": "arm-none-eabi-gcc",
       "optionGroups": [
         "release"
