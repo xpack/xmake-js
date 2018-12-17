@@ -20,14 +20,14 @@
   },
   "targets": {
     "posix": {
-      "addSymbols": [
+      "addDefinedSymbols": [
         "MY_POSIX"
       ]
     }
   },
   "profiles": {
     "debug": {
-      "addSymbols": [
+      "addDefinedSymbols": [
         "DEBUG"
       ],
       "toolchainsOptions": {
@@ -48,7 +48,7 @@
       }
     },
     "release": {
-      "addSymbols": [
+      "addDefinedSymbols": [
         "NDEBUG"
       ],
       "toolchainsOptions": {
@@ -69,7 +69,7 @@
       }
     },
     "trace": {
-      "addSymbols": [
+      "addDefinedSymbols": [
         "TRACE"
       ]
     }
@@ -89,7 +89,7 @@
     "include2",
     "extra/include"
   ],
-  "addSymbols": [
+  "addDefinedSymbols": [
     "MY_PRJ1a",
     "MY_PRJ1b"
   ],
@@ -110,7 +110,7 @@
   },
   "folders": {
     "extra": {
-      "addSymbols": [
+      "addDefinedSymbols": [
         "MY_EXTRA_Fa",
         "MY_EXTRA_Fb"
       ],
@@ -132,7 +132,7 @@
   },
   "files": {
     "extra/src/extra1.c": {
-      "addSymbols": [
+      "addDefinedSymbols": [
         "MY_EXTRA_1a",
         "MY_EXTRA_1b"
       ],
@@ -162,7 +162,7 @@
       }
     },
     "extra/src/extra2.c": {
-      "addSymbols": [
+      "addDefinedSymbols": [
         "MY_EXTRA_2a",
         "MY_EXTRA_2b"
       ],
@@ -193,13 +193,13 @@
         "debug",
         "trace"
       ],
-      "addSymbols": [
+      "addDefinedSymbols": [
         "MY_CONFIG1a",
         "MY_CONFIG1b",
         "MY_CONFIG2=7",
         "MY_CONFIG3='a$ b'"
       ],
-      "removeSymbols": [
+      "removeDefinedSymbols": [
         "MY_CONFIG1b"
       ]
     },
@@ -214,10 +214,10 @@
       ],
       "folders": {
         "extra": {
-          "addSymbols": [
+          "addDefinedSymbols": [
             "MY_EXTRA_Fb"
           ],
-          "removeSymbols": [
+          "removeDefinedSymbols": [
             "MY_EXTRA_Fc"
           ],
           "addIncludeFolders": [
@@ -230,18 +230,18 @@
       },
       "files": {
         "extra/src/extra1.c": {
-          "addSymbols": [
+          "addDefinedSymbols": [
             "MY_EXTRA_1c"
           ],
-          "removeSymbols": [
+          "removeDefinedSymbols": [
             "MY_EXTRA_1b"
           ]
         },
         "extra/src/extra2.c": {
-          "addSymbols": [
+          "addDefinedSymbols": [
             "MY_EXTRA_2c"
           ],
-          "removeSymbols": [
+          "removeDefinedSymbols": [
             "MY_EXTRA_2b"
           ],
           "addIncludeFolders": [

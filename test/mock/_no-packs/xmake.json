@@ -26,7 +26,7 @@
   },
   "profiles": {
     "debug": {
-      "addSymbols": [
+      "addDefinedSymbols": [
         "DEBUG"
       ],
       "options": {
@@ -42,7 +42,7 @@
       }
     },
     "release": {
-      "addSymbols": [
+      "addDefinedSymbols": [
         "NDEBUG"
       ],
       "options": {
@@ -58,7 +58,7 @@
       }
     },
     "trace": {
-      "addSymbols": [
+      "addDefinedSymbols": [
         "TRACE"
       ]
     }

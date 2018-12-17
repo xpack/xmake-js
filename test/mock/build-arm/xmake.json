@@ -5,7 +5,7 @@
       "targetArtefact": {
         "extension": "elf"
       },
-      "addSymbols": [
+      "addDefinedSymbols": [
         "STM32F407xx",
         "HSE_VALUE=8000000",
         "USE_HAL_DRIVER"
@@ -103,7 +103,7 @@
     "debug": {
       "targetPlatform": "stm32f4-discovery",
       "toolchain": "arm-none-eabi-gcc",
-      "addSymbols": [
+      "addDefinedSymbols": [
         "DEBUG",
         "USE_FULL_ASSERT",
         "TRACE",
@@ -120,7 +120,7 @@
     "release": {
       "targetPlatform": "stm32f4-discovery",
       "toolchain": "arm-none-eabi-gcc",
-      "addSymbols": [
+      "addDefinedSymbols": [
         "NDEBUG"
       ],
       "toolchainsOptions": {
