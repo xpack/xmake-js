@@ -245,7 +245,7 @@
     }
   },
   "buildConfigurations": {
-    "debug-f4": {
+    "Debug-f4": {
       "targetPlatform": "stm32f4-discovery",
       "toolchain": "arm-none-eabi-gcc",
       "optionGroups": [
