@@ -41,8 +41,8 @@
 const test = require('tap').test
 const path = require('path')
 
-const XmakeParser = require('../../lib/utils/xmake-parser.js')
-  .XmakeParser
+const CFParser = require('../../lib/utils/cf-parser.js')
+  .CFParser
 
 // ----------------------------------------------------------------------------
 
@@ -61,7 +61,7 @@ test('xmake-parser missing json',
   async (t) => {
     // console.log(mockFolder)
     const absoluteFolderPath = path.join(rootFolder, 'no-xmake')
-    const parser = new XmakeParser(options)
+    const parser = new CFParser(options)
     try {
       await parser.parse(absoluteFolderPath)
       t.fail('did not throw')
@@ -77,7 +77,7 @@ test('xmake-parser bad json',
   async (t) => {
     // console.log(mockFolder)
     const absoluteFolderPath = path.join(rootFolder, 'bad-json')
-    const parser = new XmakeParser(options)
+    const parser = new CFParser(options)
     try {
       await parser.parse(absoluteFolderPath)
       t.fail('did not throw')
@@ -96,7 +96,7 @@ test('xmake-parser missing version',
   async (t) => {
     // console.log(mockFolder)
     const absoluteFolderPath = path.join(rootFolder, 'no-version')
-    const parser = new XmakeParser(options)
+    const parser = new CFParser(options)
     try {
       await parser.parse(absoluteFolderPath)
       t.fail('did not throw')
@@ -112,7 +112,7 @@ test('xmake-parser version 0.x',
   async (t) => {
     // console.log(mockFolder)
     const absoluteFolderPath = path.join(rootFolder, 'bad-version-01')
-    const parser = new XmakeParser(options)
+    const parser = new CFParser(options)
     try {
       await parser.parse(absoluteFolderPath)
       t.fail('did not throw')
@@ -128,7 +128,7 @@ test('xmake-parser unsupported version',
   async (t) => {
     // console.log(mockFolder)
     const absoluteFolderPath = path.join(rootFolder, 'bad-version-999')
-    const parser = new XmakeParser(options)
+    const parser = new CFParser(options)
     try {
       await parser.parse(absoluteFolderPath)
       t.fail('did not throw')
