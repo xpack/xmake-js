@@ -17,10 +17,18 @@
             "-mthumb",
             "-mfloat-abi=soft"
           ],
+          "addDefinedSymbols": [
+            "PLATFORM_TOOLCHAIN"
+          ],
           "toolsOptions": {
             "cppLinker": {
               "addMiscellaneous": [
                 "--specs=rdimon.specs"
+              ]
+            },
+            "cppCompiler": {
+              "addDefinedSymbols": [
+                "PLATFORM_CPP"
               ]
             }
           }
@@ -59,6 +67,9 @@
       "addDebugging": [
         "-g3"
       ],
+      "addDefinedSymbols": [
+        "GLOBAL_TOOLCHAIN"
+      ],
       "toolsOptions": {
         "cCompiler": {
           "addOptimizations": [
@@ -94,7 +105,35 @@
             "-Wnon-virtual-dtor",
             "-Wstrict-null-sentinel",
             "-Wsign-promo"
+          ],
+          "addDefinedSymbols": [
+            "GLOBAL_CPP"
           ]
+        }
+      }
+    }
+  },
+  "optionGroups": {
+    "debug": {
+      "addDefinedSymbols": [
+        "DEBUG",
+        "USE_FULL_ASSERT"
+      ],
+      "toolchainsOptions": {
+        "gcc": {
+          "addOptimizations": [
+            "-O0"
+          ],
+          "addDefinedSymbols": [
+            "GROUP_TOOLCHAIN"
+          ],
+          "toolsOptions": {
+            "cppCompiler": {
+              "addDefinedSymbols": [
+                "GROUP_CPP"
+              ]
+            }
+          }
         }
       }
     }
@@ -103,17 +142,25 @@
     "debug": {
       "targetPlatform": "stm32f4-discovery",
       "toolchain": "arm-none-eabi-gcc",
+      "optionGroups": [
+        "debug"
+      ],
       "addDefinedSymbols": [
-        "DEBUG",
-        "USE_FULL_ASSERT",
         "TRACE",
         "OS_USE_TRACE_SEMIHOSTING_DEBUG"
       ],
       "toolchainsOptions": {
         "gcc": {
-          "addOptimizations": [
-            "-O0"
-          ]
+          "addDefinedSymbols": [
+            "CONFIG_TOOLCHAIN"
+          ],
+          "toolsOptions": {
+            "cppCompiler": {
+              "addDefinedSymbols": [
+                "CONFIG_CPP"
+              ]
+            }
+          }
         }
       }
     },

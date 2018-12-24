@@ -21,6 +21,8 @@
           "commandName": "cc",
           "description": "C Compiler",
           "type": "compiler",
+          "hasIncludes": true,
+          "hasSymbols": true,
           "prefix": "c",
           "languages": [
             "c",
@@ -38,6 +40,8 @@
           "commandName": "c++",
           "description": "C++ Compiler",
           "type": "compiler",
+          "hasIncludes": true,
+          "hasSymbols": true,
           "prefix": "cxx",
           "languages": [
             "c++"
@@ -54,6 +58,8 @@
           "commandName": "as",
           "description": "Assembler",
           "type": "assembler",
+          "hasIncludes": true,
+          "hasSymbols": true,
           "prefix": "as",
           "languages": [
             "c",

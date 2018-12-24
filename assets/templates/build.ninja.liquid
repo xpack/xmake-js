@@ -5,7 +5,7 @@
 ################################################################################
 # Build rules. Not really used, but ninja expects them.
 
-{% for tool in root.tools -%}
+{% for tool in usedTools -%}
 rule {{ tool.prefix }}
   command = {{ tool.fullCommandName }} $in {{ tool.outputFlag }} $out
 

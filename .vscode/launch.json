@@ -4,7 +4,6 @@
   // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
   "version": "0.2.0",
   "configurations": [
-
     {
       "type": "node",
       "request": "launch",
@@ -197,6 +196,39 @@
         "debug",
         "-c",
         "release"
+      ],
+      "cwd": "${workspaceRoot}/test/mock/build-arm",
+      "preLaunchTask": null,
+      "runtimeExecutable": null,
+      "runtimeArgs": [
+        "--nolazy"
+      ],
+      "skipFiles": [
+        "*async_hook*.js",
+        "domain.js"
+      ],
+      "env": {
+        "NODE_ENV": "development",
+        "PATH": "/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/ilg/opt/gnu-mcu-eclipse/arm-none-eabi-gcc/7.3.1-1.1-20180723-1109/bin"
+      },
+      "console": "internalConsole",
+      "sourceMaps": false
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "xmake build arm ninja",
+      "program": "${workspaceRoot}/bin/xmake.js",
+      "stopOnEntry": true,
+      "args": [
+        "build",
+        "-dd",
+        "-c",
+        "debug",
+        "-c",
+        "release",
+        "-b",
+        "ninja"
       ],
       "cwd": "${workspaceRoot}/test/mock/build-arm",
       "preLaunchTask": null,
