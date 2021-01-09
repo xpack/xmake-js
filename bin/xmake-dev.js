@@ -58,6 +58,6 @@ const XmakeDev = require('../lib/main-dev.js').XmakeDev
 // ----------------------------------------------------------------------------
 
 // TODO: use instances, not static classes.
-XmakeDev.start()
+XmakeDev.start().then()
 
 // ----------------------------------------------------------------------------

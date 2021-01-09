@@ -48,7 +48,7 @@ const IgnorerCache = require('../../lib/utils/ignorer-cache.js').IgnorerCache
 const testPath = path.dirname(__dirname)
 const mockFolder = path.join(testPath, 'mock', 'ignorer-cache')
 
-let logArray = []
+const logArray = []
 const warn = function (str) {
   logArray.push(str)
 }

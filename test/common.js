@@ -64,7 +64,7 @@ class Common {
    * @summary Run xmake in a separate process.
    *
    * @async
-   * @param {string[]} args Command line arguments
+   * @param {string[]} argv Command line arguments
    * @param {Object} spawnOpts Optional spawn options.
    * @returns {{code: number, stdout: string, stderr: string}} Exit
    *  code and captured output/error streams.
@@ -73,7 +73,7 @@ class Common {
    * Spawn a separate process to run node with the given arguments and
    * return the exit code and the stdio streams captured in strings.
    */
-  static async xmakeCli (args, spawnOpts = {}) {
+  static async xmakeCli (argv, spawnOpts = {}) {
     return new Promise((resolve, reject) => {
       spawnOpts.env = spawnOpts.env || process.env
 
@@ -82,7 +82,7 @@ class Common {
       let stdout = ''
       let stderr = ''
       const cmd = [executableName]
-      const child = spawn(nodeBin, cmd.concat(args), spawnOpts)
+      const child = spawn(nodeBin, cmd.concat(argv), spawnOpts)
 
       assert(child.stderr)
       child.stderr.on('data', (chunk) => {
@@ -110,7 +110,7 @@ class Common {
    * @summary Run xmake as a library call.
    *
    * @async
-   * @param {string[]} args Command line arguments
+   * @param {string[]} argv Command line arguments
    * @param {Object} ctx Optional context.
    * @returns {{code: number, stdout: string, stderr: string}} Exit
    *  code and captured output/error streams.
@@ -119,7 +119,7 @@ class Common {
    * Call the application directly, as a regular module, and return
    * the exit code and the stdio streams captured in strings.
    */
-  static async xmakeLib (args, ctx = null) {
+  static async xmakeLib (argv, ctx = null) {
     assert(Xmake !== null, 'No application class')
     // Create two streams to local strings.
     let stdout = ''
@@ -141,7 +141,7 @@ class Common {
     const _console = new Console(ostream, errstream)
     const context = await Xmake.initialiseContext(ctx, programName, _console)
     const app = new Xmake(context)
-    const code = await app.main(args)
+    const code = await app.main(argv)
     return { code, stdout, stderr }
   }
 

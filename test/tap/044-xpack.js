@@ -57,11 +57,11 @@ test('xpack isXpack',
     let json
     json = {}
     t.false(Xpack.isXpack(json), 'has no name')
-    json.name = [ 'a' ]
+    json.name = ['a']
     t.false(Xpack.isXpack(json), 'has no string name')
     json.name = 'n1'
     t.false(Xpack.isXpack(json), 'has no version')
-    json.version = [ '1.2.3' ]
+    json.version = ['1.2.3']
     t.false(Xpack.isXpack(json), 'has no string version')
     json.version = '1.2.3'
     t.false(Xpack.isXpack(json), 'has no xpack')
@@ -127,7 +127,7 @@ test('xpack getDirectory',
     t.equal(dir.length, 1, 'dir has 1 element')
     t.equal(dir[0], './src1', 'element is src1')
 
-    json.xpack.directories.src = [ './src1', './src2' ]
+    json.xpack.directories.src = ['./src1', './src2']
     dir = Xpack.getDirectory(json, 'src')
     t.true(Array.isArray(dir), 'dir is array')
     t.equal(dir.length, 2, 'dir has 2 elements')
@@ -140,7 +140,7 @@ test('xpack getDirectory',
     t.equal(dir.length, 1, 'dir has 1 element')
     t.equal(dir[0], './include1', 'element is include1')
 
-    json.xpack.directories.include = [ './include1', './include2' ]
+    json.xpack.directories.include = ['./include1', './include2']
     dir = Xpack.getDirectory(json, 'include')
     t.true(Array.isArray(dir), 'dir is array')
     t.equal(dir.length, 2, 'dir has 2 elements')

@@ -9,6 +9,8 @@ date: 2017-10-09 16:46:00 +0300
 
 ---
 
+Deprecated: see xpbuild-json.md in web-jekyll.git.
+
 ## Overview 
 
 The `xmake.json` file defines the metadata required by the xmake build process.

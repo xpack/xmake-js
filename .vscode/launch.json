@@ -4,6 +4,7 @@
   // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
   "version": "0.2.0",
   "configurations": [
+    
     {
       "type": "node",
       "request": "launch",
@@ -22,6 +23,10 @@
       "env": {
         "NODE_ENV": "development"
       },
+      "skipFiles": [
+        "*async_hook*.js",
+        "domain.js"
+      ],
       "console": "internalConsole",
       "sourceMaps": false
     },
@@ -49,6 +54,10 @@
       "env": {
         "NODE_ENV": "development"
       },
+      "skipFiles": [
+        "*async_hook*.js",
+        "domain.js"
+      ],
       "console": "internalConsole",
       "sourceMaps": false
     },
@@ -76,6 +85,10 @@
       "env": {
         "NODE_ENV": "development"
       },
+      "skipFiles": [
+        "*async_hook*.js",
+        "domain.js"
+      ],
       "console": "internalConsole",
       "sourceMaps": false
     },
@@ -100,6 +113,10 @@
       "env": {
         "NODE_ENV": "development"
       },
+      "skipFiles": [
+        "*async_hook*.js",
+        "domain.js"
+      ],
       "console": "internalConsole",
       "sourceMaps": false
     },
@@ -126,6 +143,10 @@
       "env": {
         "NODE_ENV": "development"
       },
+      "skipFiles": [
+        "*async_hook*.js",
+        "domain.js"
+      ],
       "console": "internalConsole",
       "sourceMaps": false
     },
@@ -151,6 +172,10 @@
       "env": {
         "NODE_ENV": "development"
       },
+      "skipFiles": [
+        "*async_hook*.js",
+        "domain.js"
+      ],
       "console": "internalConsole",
       "sourceMaps": false
     },
@@ -412,6 +437,10 @@
       "env": {
         "NODE_ENV": "development"
       },
+      "skipFiles": [
+        "*async_hook*.js",
+        "domain.js"
+      ],
       "console": "internalConsole",
       "sourceMaps": false
     },
@@ -432,8 +461,8 @@
         "--nolazy"
       ],
       "skipFiles": [
-        "async_hooks.js",
-        "inspector_async_hook.js",
+        "*async_hook*.js",
+        "domain.js"
       ],
       "env": {
         "NODE_ENV": "development"
@@ -458,6 +487,10 @@
       "env": {
         "NODE_ENV": "development"
       },
+      "skipFiles": [
+        "*async_hook*.js",
+        "domain.js"
+      ],
       "console": "internalConsole",
       "sourceMaps": false
     },

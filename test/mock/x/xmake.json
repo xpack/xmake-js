@@ -1,0 +1,96 @@
+{
+  "schemaVersion": "0.2.0",
+  "targetPlatforms": {
+    "stm32f4-discovery": {
+      "targetArtefact": {
+        "extension": "elf"
+      },
+      "addDefinedSymbols": [
+      ],
+      "toolchainsOptions": {
+        "arm-none-eabi-gcc": {
+          "addArchitecture": [
+            "-mcpu=cortex-m3",
+            "-mthumb"
+          ],
+          "toolsOptions": {
+            "cppLinker": {
+              "addMiscellaneous": [
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  "addSourceFolders": [
+    "src"
+  ],
+  "toolchainsOptions": {
+    "gcc": {
+      "addWarnings": [
+      ],
+      "addOptimizations": [
+      ],
+      "addDebugging": [
+      ],
+      "toolsOptions": {
+        "cCompiler": {
+          "addOptimizations": [
+          ]
+        },
+        "cppCompiler": {
+          "addOptimizations": [
+          ]
+        }
+      }
+    },
+    "arm-none-eabi-gcc": {
+      "toolsOptions": {
+        "cppCompiler": {
+          "addOptimizations": [
+          ]
+        }
+      }
+    }
+  },
+  "optionGroups": {
+    "debug": {
+      "addDefinedSymbols": [
+        "DEBUG"
+      ],
+      "toolchainsOptions": {
+        "gcc": {
+          "addOptimizations": [
+          ]
+        }
+      }
+    },
+    "trace": {
+      "addDefinedSymbols": [
+      ]
+    },
+    "release": {
+      "addDefinedSymbols": [
+        "NDEBUG"
+      ],
+      "toolchainsOptions": {
+        "gcc": {
+          "addOptimizations": [
+            "-Os"
+          ]
+        }
+      }
+    }
+  },
+  "buildConfigurations": {
+    "Debug": {
+      "targetPlatform": "stm32f4-discovery",
+      "toolchain": "arm-none-eabi-gcc",
+      "optionGroups": [
+        "debug",
+        "trace"
+      ]
+    }
+  }
+}

@@ -158,7 +158,7 @@ test('xmake -i (spawn)',
             ostr = 'xyz'
           } else if (count === 5) {
             t.test('xyz', (t) => {
-              t.match(stdout, `Command 'xyz' not supported.`,
+              t.match(stdout, 'Command \'xyz\' not supported.',
                 'xyz is not supported')
               t.match(stdout, 'Usage: xmake <command> [<subcommand>...]',
                 'has Usage')

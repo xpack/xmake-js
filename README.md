@@ -31,7 +31,7 @@ The initial version actually generates the `make` files, and call
 ## Prerequisites
 
 If this is your first encounter with `npm`, you need to install the 
-[node.js](https://nodejs.org/) JavaScript run-time. The process is 
+[Node.js](https://nodejs.org/) JavaScript run-time. The process is 
 straightforward and does not pollute the system locations significantly; 
 there are two `node` versions, LTS (Long Term Service) and Current; 
 generally it is safer to use LTS, especially on Windows.
@@ -67,7 +67,7 @@ if `npm` was configured to use a local folder, as explained in the
 [xpm](https://www.npmjs.com/package/xpm) page.
 
 On **Windows**, global packages are installed in the user home folder, and 
-do not require `sudo`.
+do not require administrative right anyway.
 
 The development repository is available from the GitHub 
 [xpack/xmake-js](https://github.com/xpack/xmake-js) project.

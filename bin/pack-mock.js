@@ -36,7 +36,7 @@ const tar = require('tar')
 const del = require('del')
 
 // Beware, this is not asynchronous.
-const main = () => {
+const main = async () => {
   console.log('Removing build folders...')
   del.sync([
     'test/mock/build-xpack/build'
@@ -54,8 +54,12 @@ const main = () => {
     // Archive the `mock` folder.
     ['mock']
   )
+
+  return 0
 }
 
-main()
+main().then((code) => {
+  process.exitCode = code
+})
 
 // ----------------------------------------------------------------------------
