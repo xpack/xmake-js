@@ -49,7 +49,7 @@
   "dependencies": {
     "@ilg/es6-promisifier": "~0.3.0",
     "@ilg/cli-start-options": "~0.6.0",
-    "liquidjs": "~5.2.0",
+    "liquidjs": "~10.0.0",
     "async-mkdirp": "~1.2.4",
     "xml2js": "~0.4.19",
     "xml-writer": "~1.7.0"
